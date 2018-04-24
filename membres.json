@@ -1,0 +1,5 @@
+[
+  { "compte":"albert", "mdp":"secret" },
+  { "compte":"magicien", "mdp":"abracadabra" },
+  { "compte":"superman", "mdp":"krypto" }
+]
