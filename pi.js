@@ -20,8 +20,13 @@ var req_afficher_formulaire_inscription = require("./req_afficher_formulaire_ins
 var req_inscrire = require("./req_inscrire.js");
 var req_identifier = require("./req_identifier.js");
 
+var req_creerTable = require("./req_creerTable.js");
+
+
 var req_statique = require("./req_statique.js");
 var req_erreur = require("./req_erreur.js");
+
+
 
 //-------------------------------------------------------------------------
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
@@ -31,7 +36,7 @@ var traite_requete = function (req, res) {
 
     var ressource;
     var requete;
-    var pathname;;
+    var pathname;
     var query;
 
     console.log("URL reçue : " + req.url);
@@ -56,6 +61,9 @@ var traite_requete = function (req, res) {
             case '/req_identifier':
                 req_identifier(req, res, query);
                 break;
+			case '/req_creerTable':
+				req_creerTable(req, res, query);
+				break;
             default:
                 req_statique(req, res, pathname);
                 break;
