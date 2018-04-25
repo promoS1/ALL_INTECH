@@ -11,7 +11,17 @@
 	<p/>
 	<label>Bonjour <em>{compte}<em></label>
 	
-	
+	<form action="/req_modele_page_table" method="GET">
+    	<button name="action" value="Creer une table">Créer table (admin)</button>
+	</form>
+	<form action="/req_modele_page_visiteur" method="GET">
+    	<button name="action" value="visit_mode">Accéder au mode visiteur</button>
+	</form>
+	<form action="/req_modele_table_rejointe" method="GET">
+    	<button name="action" value="rejoindre_table">Rejoindre une table existante</button>
+	</form>
+
+
 </body>
 
 </html>
