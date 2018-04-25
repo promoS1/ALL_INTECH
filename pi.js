@@ -26,6 +26,8 @@ var req_voirPartie = require("./req_voirPartie.js");
 var req_statique = require("./req_statique.js");
 var req_erreur = require("./req_erreur.js");
 
+
+
 //-------------------------------------------------------------------------
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
 //-------------------------------------------------------------------------
@@ -35,11 +37,12 @@ var traite_requete = function (req, res) {
     var ressource;
     var requete;
     var pathname;
-	var query;	
+    var query;
 
     console.log("URL reçue : " + req.url);
     requete = url.parse(req.url, true);
     pathname = requete.pathname;
+    query = requete.query;
 
     // ROUTEUR
 
