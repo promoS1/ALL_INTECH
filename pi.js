@@ -75,37 +75,37 @@ var traite_requete = function (req, res) {
 			case '/req_quitter_mode_visiteur':
 				req_quitter_mode_visiteur(req, res, query);
 				break;
-			case 'req_quitter_table_rejointe':
+			case '/req_quitter_table_rejointe':
 				req_quitter_table_rejointe(req, res, query);
 				break;
-			case 'req_modele_page_table':
+			case '/req_modele_page_table':
 				req_modele_page_table(req, res, query);
 				break;
-			case 'req_modele_page_joueur':
+			case '/req_modele_page_joueur':
 				req_modele_page_joueur(req, res, query);
 				break;
-			case 'req_modele_page_visiteur':
+			case '/req_modele_page_visiteur':
                 req_modele_page_visiteur(req, res, query);
                 break;
-			case 'req_modele_page_joueur':
+			case '/req_modele_page_joueur':
                 req_modele_page_joueur(req, res, query);
                 break;
-			case 'req_quitter_table':
+			case '/req_quitter_table':
                 req_quitter_table(req, res, query);
                 break;
-			case 'req_nouvelle_partie':
+			case '/req_nouvelle_partie':
                 req_nouvelle_partie(req, res, query);
                 break;
-			case 'req_retour_salon':
+			case '/req_retour_salon':
                 req_retour_salon(req, res, query);
                 break;
-			case 'req_table_rejointe':
-                req_table_rejointe(req, res, query);
+			case '/req_modele_table_rejointe':
+                req_modele_table_rejointe(req, res, query);
                 break;
-			case 'req_retour_modele_accueil':
+			case '/req_retour_modele_accueil':
                 req_retour_modele_accueil(req, res, query);
                 break;
-			case 'req_modele_page_resultat':
+			case '/req_modele_page_resultat':
                 req_modele_page_resultat(req, res, query);
                 break;
             default:
