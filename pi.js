@@ -32,6 +32,13 @@ var req_nouvelle_partie = require ("./req_nouvelle_partie.js");
 var req_modele_page_resultat = require ("./req_modele_page_resultat.js");
 var req_retour_salon = require ("./req_retour_salon.js");
 var req_actualiser_accueil_membre = require ("./req_actualiser_accueil_membre.js");
+var req_actualiser_modele_page_visiteur = require ("./req_actualiser_modele_page_visiteur.js");
+var req_req_attendre_joueur = require ("./req_attendre_joueur.js");
+var req_attendre_debut = require ("./req_attendre_debut.js");
+var req_attendre_tour = require ("./req_attendre_tour.js");
+var req_jouer = require ("./req_jouer.js");
+
+
 
 var req_erreur = require("./req_erreur.js");
 
@@ -112,6 +119,21 @@ var traite_requete = function (req, res) {
 			case '/req_modele_page_resultat':
                 req_modele_page_resultat(req, res, query);
                 break;
+			case '/req_actualiser_modele_page_visiteur':
+				req_actualiser_modele_page_visiteur(req, res, query);
+				break;
+			case '/req_attendre_joueur':
+				req_attendre_joueur(req, res, query);
+				break;
+			case '/req_attendre_debut':
+				req_attendre_debut(req, res, query);
+				break;
+			case '/req_attendre_tour':
+				req_attendre_tour(req, res, query);
+				break;
+			case '/req_jouer':
+				req_jouer(req, res, query);
+				break;
             default:
                 req_statique(req, res, pathname);
                 break;
