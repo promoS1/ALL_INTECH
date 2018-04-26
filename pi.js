@@ -31,6 +31,7 @@ var req_modele_table_rejointe = require ("./req_modele_table_rejointe.js");
 var req_nouvelle_partie = require ("./req_nouvelle_partie.js");
 var req_modele_page_resultat = require ("./req_modele_page_resultat.js");
 var req_retour_salon = require ("./req_retour_salon.js");
+var req_actualiser_accueil_membre = require ("./req_actualiser_accueil_membre.js");
 
 var req_erreur = require("./req_erreur.js");
 
@@ -96,6 +97,9 @@ var traite_requete = function (req, res) {
 			case '/req_nouvelle_partie':
                 req_nouvelle_partie(req, res, query);
                 break;
+			case '/req_actualiser_accueil_membre':
+				req_actualiser_accueil_membre(req, res, query);
+				break;
 			case '/req_retour_salon':
                 req_retour_salon(req, res, query);
                 break;
