@@ -1,10 +1,15 @@
-// SCRIPT PRINCIPAL DU JEU
+// MAIN
 
-"use strict";
+"use strict"
+
+
 
 // EN TETE 
 
-var fs = require ("fs");
+
+
+
+
 
 
 
