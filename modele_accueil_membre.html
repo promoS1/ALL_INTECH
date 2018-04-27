@@ -10,20 +10,22 @@
 	
 	<h2>Bienvenue sur la page d'accueil membre !</h2>
 
-	<p/>
-
 	<label>Bonjour <em>{compte}</em></label>
+
+ 	</p>
+
+	<form action="/" method="GET">
+		<button name="action" value="retour_accueil">Retour</button>	
+	</form>
 	
-	<form action="/req_modele_accueil" method="GET">
-		<button name="action" value="retour_accueil">Retour</button>
-	</form>	
+	<br>
 
 	<fieldset>
 
 	<p>Partie disponible à rejoindre</p>
 	
 	<form action="/req_modele_table_rejointe" method="GET">
-    	<button name="action" value="rejoindre_table">table 1</button>
+    	<button name="action" value="table_rejointe">table 1</button>
 	</form>
 
 	<form action="/req_modele_page_table" method="GET">
