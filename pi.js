@@ -1,6 +1,6 @@
 //=========================================================================
 // Site WEB demo PI
-// Auteur : P. Thiré
+// Auteur : P. ThirÃ©
 // Version : 09/10/2015
 //=========================================================================
 
@@ -65,73 +65,73 @@ var traite_requete = function (req, res) {
     try {
         switch (pathname) {
             case '/':
-            case '/req_commencer':
+            case ‘req/req_commencer':
                 req_commencer(req, res, query);
                 break;
-            case '/req_afficher_formulaire_inscription':
+            case ‘req/req_afficher_formulaire_inscription':
                 req_afficher_formulaire_inscription(req, res, query);
                 break;
-            case '/req_inscrire':
+            case ‘req/req_inscrire':
                 req_inscrire(req, res, query);
                 break;
-            case '/req_identifier':
+            case ‘req/req_identifier':
                 req_identifier(req, res, query);
                 break;
-			case '/req_creerTable':
+			case ‘req/req_creerTable':
 				req_creerTable(req, res, query);
 				break;
-			case '/req_quitter_mode_visiteur':
+			case ‘req/req_quitter_mode_visiteur':
 				req_quitter_mode_visiteur(req, res, query);
 				break;
-			case '/req_quitter_table_rejointe':
+			case ‘req/req_quitter_table_rejointe':
 				req_quitter_table_rejointe(req, res, query);
 				break;
-			case '/req_modele_page_table':
+			case ‘req/req_modele_page_table':
 				req_modele_page_table(req, res, query);
 				break;
-			case '/req_modele_page_joueur':
+			case ‘req/req_modele_page_joueur':
 				req_modele_page_joueur(req, res, query);
 				break;
-			case '/req_modele_page_visiteur':
+			case ‘req/req_modele_page_visiteur':
                 req_modele_page_visiteur(req, res, query);
                 break;
-			case '/req_modele_page_joueur':
+			case ‘req/req_modele_page_joueur':
                 req_modele_page_joueur(req, res, query);
                 break;
-			case '/req_quitter_table':
+			case ‘req/req_quitter_table':
                 req_quitter_table(req, res, query);
                 break;
-			case '/req_nouvelle_partie':
+			case ‘req/req_nouvelle_partie':
                 req_nouvelle_partie(req, res, query);
                 break;
-			case '/req_actualiser_accueil_membre':
+			case ‘req/req_actualiser_accueil_membre':
 				req_actualiser_accueil_membre(req, res, query);
 				break;
-			case '/req_retour_salon':
+			case ‘req/req_retour_salon':
                 req_retour_salon(req, res, query);
                 break;
-			case '/req_modele_table_rejointe':
+			case ‘req/req_modele_table_rejointe':
                 req_modele_table_rejointe(req, res, query);
                 break;
-			case '/req_retour_modele_accueil':
+			case 'req/req_retour_modele_accueil':
                 req_retour_modele_accueil(req, res, query);
                 break;
-			case '/req_modele_page_resultat':
+			case ‘req/req_modele_page_resultat':
                 req_modele_page_resultat(req, res, query);
                 break;
-			case '/req_actualiser_modele_page_visiteur':
+			case ‘req/req_actualiser_modele_page_visiteur':
 				req_actualiser_modele_page_visiteur(req, res, query);
 				break;
-			case '/req_attendre_joueur':
+			case ‘req/req_attendre_joueur':
 				req_attendre_joueur(req, res, query);
 				break;
-			case '/req_attendre_debut':
+			case ‘req/req_attendre_debut':
 				req_attendre_debut(req, res, query);
 				break;
-			case '/req_attendre_tour':
+			case ‘req/req_attendre_tour':
 				req_attendre_tour(req, res, query);
 				break;
-			case '/req_jouer':
+			case 'req/req_jouer':
 				req_jouer(req, res, query);
 				break;
             default:
@@ -154,4 +154,5 @@ mon_serveur = http.createServer(traite_requete);
 port = 5000;
 console.log("Serveur en ecoute sur port " + port);
 mon_serveur.listen(port);
+
 
