@@ -23,7 +23,7 @@ var trait = function (req, res, query) {
 
     // AFFICHAGE DE LA modele_accueil
 
-    var page = fs.readFileSync('modele_recu.html', 'utf-8');
+    var page = fs.readFileSync('../html/modele_recu.html', 'utf-8');
 
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(page);
