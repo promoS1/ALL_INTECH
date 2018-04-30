@@ -15,7 +15,7 @@ var trait = function (req, res, query) {
 
     // AFFICHAGE DE LA PAGE VISITEUR 
 
-    page = fs.readFileSync('../html/visiteur.html', 'utf-8');
+    page = fs.readFileSync('./html/visiteur.html', 'utf-8');
 
     marqueurs = {};
     marqueurs.erreur = "";
