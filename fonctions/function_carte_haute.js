@@ -17,14 +17,6 @@ var trait = function (req, res, query) {
 
 // SITUATION OU ON A N MEMBRES
 
-    var river1;
-    var river2;
-    var river3;
-    var carte1Joueur1;
-    var carte2Joueur1;
-    var valeurMain;
-
-    valeurMain = 0;
 
  
 
