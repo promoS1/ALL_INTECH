@@ -1,0 +1,2 @@
+- function_carte_haute.js
+- function-egalite.js -> repartition du pot si plusieurs valeurMain de même valeur
