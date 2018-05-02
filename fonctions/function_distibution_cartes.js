@@ -13,7 +13,7 @@ var fs = require("fs");
 
 var trait = function (req, res, query) {
 
-	var cartes;
+	var cartes = [];
 	var river = [0, 0, 0];
 	var i;
 	var j;
@@ -26,19 +26,10 @@ var trait = function (req, res, query) {
 
 	// DISTRIBUTION DES CARTES AUX JOUEURS
 
-	for (i = 0 ; i < membres.length ; i++) {
+	for (i = 0 ; i < pseudo.length ; i++) {
 		for (j = O ; i < 2 ; j++) {
-			carteJoueur[i]
-
-
-
-
-
-
-
-
-
-
+// COMMENT ATTRIBUER DANS LE JSON UNE CARTE DANS L ORDRE
+// EX : RIVER = CARTE 1 , CARTE 2 ET CARTE 3 JOUEUR1 : CARTE 4 ET CARTE 5
 
 };
 //--------------------------------------------------------------------------
