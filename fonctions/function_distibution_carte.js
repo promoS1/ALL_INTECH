@@ -11,27 +11,28 @@
 var cartes;
 var fs = require("fs"); 
 var cartes;
-var river;
+var river = [0, 0, 0];
 var contenu;
 var i;
+var nb1;
+var nb2;
+var tmp = 0;
 
 contenu = fs.readFileSync("../json/cartes.json", "UTF-8");
 cartes = JSON.parse(contenu);
 
-river = [];
 cartes = {};
 
 // CORPS
-
-//for (river = 0 ; river < 5; river++) {
-
-	do {
-
-		cartes[i] = Math.floor(Math.random() * 52) + 1;
-		cartes[i].dispo = false;
-		i++;
-
-	} while (cartes[i].dispo === false);
+for (i = 0; i < 40; i++) {
+	nb1 = Math.floor(Math.random() * 51) + 0;
+	nb2 = Math.floor(Math.random() * 51) + 0;
+	console.log(nb1, nb2);
+	tmp = cartes[nb1] = cartes[nb1];
+	cartes[nb1] = cartes[nb2];
+	cartes[nb2] = tmp;
+	console.log(nb1, nb2);
 }
+
 contenu = JSON.stringify(cartes);
 fs.writeFileSync("../json/cartes.json", contenu, "UTF-8");
