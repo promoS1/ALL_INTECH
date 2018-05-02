@@ -21,18 +21,16 @@ var tmp = 0;
 contenu = fs.readFileSync("../json/cartes.json", "UTF-8");
 cartes = JSON.parse(contenu);
 
-cartes = {};
-
 // CORPS
 for (i = 0; i < 40; i++) {
-	nb1 = Math.floor(Math.random() * 51) + 0;
-	nb2 = Math.floor(Math.random() * 51) + 0;
-	console.log(nb1, nb2);
+	nb1 = Math.floor(Math.random() * 52) + 0;
+	nb2 = Math.floor(Math.random() * 52) + 0;
+	//console.log(nb1, nb2);
 	tmp = cartes[nb1];
 	cartes[nb1] = cartes[nb2];
 	cartes[nb2] = tmp;
-	console.log(nb1, nb2);
+	//console.log(nb1, nb2);
 }
 
 contenu = JSON.stringify(cartes);
-fs.writeFileSync("../json/cartes.json", contenu, "UTF-8");
+fs.writeFileSync("../json/cartes_m.json", contenu, "UTF-8");
