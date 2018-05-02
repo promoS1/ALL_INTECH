@@ -11,7 +11,7 @@ var fs = require("fs");
 
 // DEBUT DE LA FONCTION
 
-var trait = function (req, res, query) {
+var function_distibution_cartes = function () {
 
 	var cartes;
 	var river = [0, 0, 0];
@@ -43,4 +43,4 @@ var trait = function (req, res, query) {
 };
 //--------------------------------------------------------------------------
 
-module.exports = trait;
+module.exports = function_distribution_carte;

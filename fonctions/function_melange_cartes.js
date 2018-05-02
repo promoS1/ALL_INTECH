@@ -11,15 +11,12 @@ var fs = require("fs");
 
 // DEBUT DE LA FONCTION
 
-var trait = function (req, res, query) {
+var function_melange_cartes = function (nb1, nb2) {
 
-	var cartes;
 	var cartes;
 	var river = [0, 0, 0];
 	var contenu;
 	var i;
-	var nb1;
-	var nb2;
 	var tmp;
 
 	contenu = fs.readFileSync("../json/cartes.json", "UTF-8");
@@ -40,4 +37,4 @@ var trait = function (req, res, query) {
 };
 //--------------------------------------------------------------------------
 
-module.exports = trait;
+module.exports = function_melange_cartes;

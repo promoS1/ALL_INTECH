@@ -13,43 +13,41 @@ var fs = require ("fs");
 
 // DEBUT DE LA FONCTION
 
-var trait = function (req, res, query) {
+var function_brelan = function (carte1Joueur1, carte2Joueur1) {
 
 
-    var river1;
-    var river2;
-    var river3;
-    var carte1Joueur1;
-    var carte2Joueur1;
-    var valeurMain;
+	var river1;
+	var river2;
+	var river3;
+	var valeurMain;
 
-    valeurMain = 0;
-    if (carte1Joueur1 === carte2Joueur1) {
+	valeurMain = 0;
+	if (carte1Joueur1 === carte2Joueur1) {
 		if (carte1Joueur1 === river1 || carte1Joueur1 === river2 || carte1Joueur1 === river3) {
 			valeurMain = 4;
 		}
 	} else if (carte1Joueur1 !== carte2Joueur1) { 
-		
+
 		// CARTE 1
-		
+
 		if (carte1Joueur1 === river1 && carte1Joueur1 === river2) {
 			valeurMain = 4;
 		} else if (carte1Joueur1 === river1 && carte1Joueur1 === river3) {
 			valeurMain = 4;
 		} else if (carte1Joueur1 === river2 && carte1Joueur1 === river3) {
 			valeurMain = 4;
-		
-		// CARTE 2
+
+			// CARTE 2
 
 		} else if (carte2Joueur1 === river1 && carte2Joueur1 === river2) {
-            valeurMain = 4;
-        } else if (carte2Joueur1 === river1 && carte2Joueur1 === river3) {
-            valeurMain = 4;
-        } else if (carte2Joueur1 === river2 && carte2Joueur1 === river3) {
-            valeurMain = 4;
+			valeurMain = 4;
+		} else if (carte2Joueur1 === river1 && carte2Joueur1 === river3) {
+			valeurMain = 4;
+		} else if (carte2Joueur1 === river2 && carte2Joueur1 === river3) {
+			valeurMain = 4;
 		}
-:wq};
-//--------------------------------------------------------------------------
+	};
+	//--------------------------------------------------------------------------
 
-module.exports = trait;
+	module.exports = function_brelan;
 

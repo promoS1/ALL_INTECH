@@ -13,7 +13,7 @@ var fs = require ("fs");
 
 // DEBUT DE LA FONCTION
 
-var trait = function (req, res, query) {
+var function_quinte_flush = function (req, res, query) {
         
     
 
@@ -26,4 +26,4 @@ var trait = function (req, res, query) {
 };
 //--------------------------------------------------------------------------
 
-module.exports = trait;
+module.exports = function_quinte_flush;

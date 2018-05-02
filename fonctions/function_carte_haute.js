@@ -13,7 +13,7 @@ var fs = require ("fs");
 
 // DEBUT DE LA FONCTION
 
-var trait = function (req, res, query) {
+var function_carte_haute = function () {
 
 // SITUATION OU ON A N MEMBRES
 
@@ -26,4 +26,4 @@ var trait = function (req, res, query) {
 };
 //--------------------------------------------------------------------------
 
-module.exports = trait;
+module.exports = function_carte_haute;

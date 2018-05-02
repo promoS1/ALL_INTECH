@@ -13,14 +13,12 @@ var fs = require ("fs");
 
 // DEBUT DE LA FONCTION
 
-var trait = function (req, res, query) {
+var function_carre = function (carte1Joueur1, carte2Joueur1) {
 
 
     var river1;
     var river2;
     var river3;
-    var carte1Joueur1;
-    var carte2Joueur1;
     var valeurMain;
 
 	if (carte1Joueur1 === carte2Joueur1) {
@@ -45,4 +43,4 @@ var trait = function (req, res, query) {
 };
 //--------------------------------------------------------------------------
 
-module.exports = trait;
+module.exports = function_carre;
