@@ -9,7 +9,7 @@
 
 
 var fs = require("fs"); 
-var cartes = [];
+var cartes;
 var river;
 var contenu;
 var i;
@@ -18,7 +18,7 @@ contenu = fs.readFileSync("../json/cartes.json", "UTF-8");
 cartes = JSON.parse(contenu);
 
 river = [];
-
+cartes = [];
 // CORPS
 
 for (river = 0 ; river < 5; river++) {
