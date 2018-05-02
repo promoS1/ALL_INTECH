@@ -33,4 +33,4 @@ for (i = 0; i < 40; i++) {
 }
 
 contenu = JSON.stringify(cartes);
-fs.writeFileSync("../json/cartes_m.json", contenu, "UTF-8");
+fs.writeFileSync("../json/cartes.json", contenu, "UTF-8");
