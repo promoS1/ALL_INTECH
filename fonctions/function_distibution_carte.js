@@ -19,6 +19,7 @@ cartes = JSON.parse(contenu);
 
 river = [];
 cartes = [];
+
 // CORPS
 
 for (river = 0 ; river < 5; river++) {
