@@ -28,7 +28,7 @@ for (i = 0; i < 40; i++) {
 	nb1 = Math.floor(Math.random() * 51) + 0;
 	nb2 = Math.floor(Math.random() * 51) + 0;
 	console.log(nb1, nb2);
-	tmp = cartes[nb1] = cartes[nb1];
+	tmp = cartes[nb1];
 	cartes[nb1] = cartes[nb2];
 	cartes[nb2] = tmp;
 	console.log(nb1, nb2);
