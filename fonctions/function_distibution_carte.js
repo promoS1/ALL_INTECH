@@ -7,30 +7,37 @@
 
 // EN TETE
 
-
-var cartes;
 var fs = require("fs"); 
-var cartes;
-var river = [0, 0, 0];
-var contenu;
-var i;
-var nb1;
-var nb2;
-var tmp = 0;
 
-contenu = fs.readFileSync("../json/cartes.json", "UTF-8");
-cartes = JSON.parse(contenu);
+// DEBUT DE LA FONCTION
 
-// CORPS
-for (i = 0; i < 40; i++) {
-	nb1 = Math.floor(Math.random() * 52) + 0;
-	nb2 = Math.floor(Math.random() * 52) + 0;
-	//console.log(nb1, nb2);
-	tmp = cartes[nb1];
-	cartes[nb1] = cartes[nb2];
-	cartes[nb2] = tmp;
-	//console.log(nb1, nb2);
-}
+var trait = function (req, res, query) {
 
-contenu = JSON.stringify(cartes);
-fs.writeFileSync("../json/cartes.json", contenu, "UTF-8");
+	var cartes;
+	var cartes;
+	var river = [0, 0, 0];
+	var contenu;
+	var i;
+	var nb1;
+	var nb2;
+	var tmp;
+
+	contenu = fs.readFileSync("../json/cartes.json", "UTF-8");
+	cartes = JSON.parse(contenu);
+
+	tmp = 0;
+
+	for (i = 0; i < 40; i++) {
+		nb1 = Math.floor(Math.random() * 52) + 0;
+		nb2 = Math.floor(Math.random() * 52) + 0;
+		tmp = cartes[nb1];
+		cartes[nb1] = cartes[nb2];
+		cartes[nb2] = tmp;
+	}
+
+	contenu = JSON.stringify(cartes);
+	fs.writeFileSync("../json/cartes.json", contenu, "UTF-8");
+};
+//--------------------------------------------------------------------------
+
+module.exports = trait;
