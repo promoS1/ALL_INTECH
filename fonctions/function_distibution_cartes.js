@@ -35,19 +35,20 @@ var function_distibution_cartes = function () {
 	contenuCarte = fs.readFileSync("../json/cartes.json", "UTF-8");
 	cartes = JSON.parse(contenuCarte);
 
-	contenuRiviere = fs.redFileSync("../json/cartes.json", "UTF-8");
+	contenuRiviere = fs.redFileSync("../json/river.json", "UTF-8");
 	riviere = JSON.parse(contenuRiviere);
 
 	// DISTRIBUTION DES CARTES DANS RIVIERE
 
-	for (i = 0 ; i < joueurs.length; i++) {
-		river = cartes[i];
-	}
+//	for (i = 0 ; i < joueurs.length; i++) {
+//		river = cartes[i];
+//	}
 
 	// DISTRIBUTION DES CARTES AUX JOUEURS
 
-	for (i = 0 ; i < pseudo.length ; i++) {
-		for (j = O ; i < 2 ; j++) {
+//	for (i = 0 ; i < pseudo.length ; i++) {
+//		for (j = O ; i < 2 ; j++) {
+
 // COMMENT ATTRIBUER DANS LE JSON UNE CARTE DANS L ORDRE
 // EX : RIVER = CARTE 1 , CARTE 2 ET CARTE 3 JOUEUR1 : CARTE 4 ET CARTE 5
 
@@ -60,7 +61,7 @@ var function_distibution_cartes = function () {
 	contenuRiviere = JSON.stringify(contenuRiviere);
 	fs.writeFileSync("../json/riviere.json", contenuRiviere, "UTF-8");
 
-};
+// };
 //--------------------------------------------------------------------------
 
 module.exports = function_distribution_carte;
