@@ -13,11 +13,22 @@ var fs = require("fs");
 
 var function_distibution_cartes = function () {
 
+	
+	var contenu;
 	var cartes = [];
 	var river = [0, 0, 0];
 	var i;
 	var j;
-	
+
+	// LECTURE DU JSON DE LA TABLE ACTUELLE
+
+	contenuJoueur = fs.readFileSync("../json/table1.json", "UTF-8");
+	joueur = JSON.parse(contenuJoueur);
+
+	contenuCarte = fs.readFileSync("../json/cartes.json", "UTF-8");
+	cartes = JSON.parse(contenuCarte);
+
+
 	// DISTRIBUTION DES CARTES DANS RIVIERE
 
 	for (i = 0 ; i =<3 ; i++) {
@@ -30,6 +41,12 @@ var function_distibution_cartes = function () {
 		for (j = O ; i < 2 ; j++) {
 // COMMENT ATTRIBUER DANS LE JSON UNE CARTE DANS L ORDRE
 // EX : RIVER = CARTE 1 , CARTE 2 ET CARTE 3 JOUEUR1 : CARTE 4 ET CARTE 5
+
+	contenuJoueur = JSON.stringify(contenuJoueur);
+	fs.writeFileSync("../json/table1.json", contenuJoueur, "UTF-8");
+
+	contenuCarte = JSON.stringify(contenuCarte);
+	fs.writeFileSync("../json/cartes.json", contenuCarte, "UTF-8");
 
 };
 //--------------------------------------------------------------------------
