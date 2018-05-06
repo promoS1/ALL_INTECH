@@ -14,3 +14,5 @@ var distribuer = require("./fonctions/function_distribution_cartes.js");
 
 melanger();
 distribuer();
+
+console.log("Les cartes ont été mélangées et distrubuées!");
