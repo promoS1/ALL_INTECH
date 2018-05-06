@@ -11,30 +11,40 @@ var fs = require("fs");
 
 // DEBUT DE LA FONCTION
 
-var function_melange_cartes = function (nb1, nb2) {
+var function_melange_cartes = function () {
+
+// VARIABLES
 
 	var cartes;
-	var river = [0, 0, 0];
 	var contenu;
 	var i;
 	var tmp;
+	var nb1;
+	var nb2;
 
-	contenu = fs.readFileSync("../json/cartes.json", "UTF-8");
+// LECTURE DU JSON
+
+	contenu = fs.readFileSync("./json/testcartes.json", "UTF-8");
 	cartes = JSON.parse(contenu);
+
+// MELANGE
 
 	tmp = 0;
 
-	for (i = 0; i < 40; i++) {
+	for (i = 0; i < 52; i++) {
 		nb1 = Math.floor(Math.random() * 52) + 0;
 		nb2 = Math.floor(Math.random() * 52) + 0;
+
 		tmp = cartes[nb1];
 		cartes[nb1] = cartes[nb2];
 		cartes[nb2] = tmp;
 	}
 
+// ECRITURE DU JSON
+
 	contenu = JSON.stringify(cartes);
-	fs.writeFileSync("../json/cartes.json", contenu, "UTF-8");
-};
+	fs.writeFileSync("./json/testcartes.json", contenu, "UTF-8");
+}
 //--------------------------------------------------------------------------
 
 module.exports = function_melange_cartes;

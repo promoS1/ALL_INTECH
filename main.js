@@ -7,8 +7,8 @@
 
 // VARIABLES
 
-var melanger = require("../fonctions/function_melange_cartesé");
-var distribuer = require("../fonctions/function_distribution_carte");
+var melanger = require("./fonctions/function_melange_cartes");
+var distribuer = require("./fonctions/function_distribution_cartes.js");
 
 // EXECUTION DES FONCTIONS
 
