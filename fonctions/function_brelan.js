@@ -1,6 +1,6 @@
 //=========================================================================
 // Traitement de "function_brelan.js"
-// Auteur : Benjamin
+// Auteur : ALL IN'TECH
 // Version : 01/05/2018
 //=========================================================================
 "use strict";
@@ -50,4 +50,3 @@ var function_brelan = function (carte1Joueur1, carte2Joueur1) {
 	//--------------------------------------------------------------------------
 
 	module.exports = function_brelan;
-
