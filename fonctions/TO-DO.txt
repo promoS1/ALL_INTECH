@@ -5,3 +5,4 @@
 - function_couleur.js -> voir avec le JSON carte.json
 - function_quinte_flush.js -> suite de cartes
 - function_quinte_flush_royale.js -> suite de cartes + couleurs
+- function_json_read_write.js
