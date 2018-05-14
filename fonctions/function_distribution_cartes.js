@@ -11,7 +11,7 @@ var fs = require("fs");
 
 // DEBUT DE LA FONCTION
 
-var function_distribution_cartes = function () {
+var function_distribution_cartes = function (joueurs, cartes, riviere) {
 
 	// VARIABLE  JSON
 	var contenuJoueur;
@@ -28,14 +28,14 @@ var function_distribution_cartes = function () {
 
 	// LECTURE DU JSON
 
-	contenuJoueur = fs.readFileSync("./json/table1.json", "UTF-8");
-	joueurs = JSON.parse(contenuJoueur);
+//	contenuJoueur = fs.readFileSync("./json/table1.json", "UTF-8");
+//	joueurs = JSON.parse(contenuJoueur);
 
-	contenuCarte = fs.readFileSync("./json/testcartes.json", "UTF-8");
-	cartes = JSON.parse(contenuCarte);
+//	contenuCarte = fs.readFileSync("./json/testcartes.json", "UTF-8");
+//	cartes = JSON.parse(contenuCarte);
 
-	contenuRiviere = fs.readFileSync("./json/riviere.json", "UTF-8");
-	riviere = JSON.parse(contenuRiviere);
+//	contenuRiviere = fs.readFileSync("./json/riviere.json", "UTF-8");
+//	riviere = JSON.parse(contenuRiviere);
 
 	// DISTRIBUTION DES CARTES AUX JOUEURS
 
@@ -57,14 +57,14 @@ var function_distribution_cartes = function () {
 
 // ECRITURE DES JSON
 
-	contenuJoueur = JSON.stringify(joueurs);
-	fs.writeFileSync("./json/table1.json", contenuJoueur, "UTF-8");
+//	contenuJoueur = JSON.stringify(joueurs);
+//	fs.writeFileSync("./json/table1.json", contenuJoueur, "UTF-8");
 
-	contenuCarte = JSON.stringify(cartes);
-	fs.writeFileSync("./json/testcartes.json", contenuCarte, "UTF-8");
+//	contenuCarte = JSON.stringify(cartes);
+//	fs.writeFileSync("./json/testcartes.json", contenuCarte, "UTF-8");
 
-	contenuRiviere = JSON.stringify(riviere);
-	fs.writeFileSync("./json/riviere.json", contenuRiviere, "UTF-8");
+//	contenuRiviere = JSON.stringify(riviere);
+//	fs.writeFileSync("./json/riviere.json", contenuRiviere, "UTF-8");
 
 }
 //--------------------------------------------------------------------------

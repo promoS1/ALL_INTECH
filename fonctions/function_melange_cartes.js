@@ -11,12 +11,12 @@ var fs = require("fs");
 
 // DEBUT DE LA FONCTION
 
-var function_melange_cartes = function () {
+var function_melange_cartes = function (cartes) {
 
 // VARIABLES
 
 	var cartes;
-	var contenu;
+	var contenuCarte;
 	var i;
 	var tmp;
 	var nb1;
@@ -24,8 +24,8 @@ var function_melange_cartes = function () {
 
 // LECTURE DU JSON
 
-	contenu = fs.readFileSync("./json/testcartes.json", "UTF-8");
-	cartes = JSON.parse(contenu);
+//	contenuCarte = fs.readFileSync("./json/testcartes.json", "UTF-8");
+//	cartes = JSON.parse(contenu);
 
 // MELANGE
 
@@ -42,8 +42,8 @@ var function_melange_cartes = function () {
 
 // ECRITURE DU JSON
 
-	contenu = JSON.stringify(cartes);
-	fs.writeFileSync("./json/testcartes.json", contenu, "UTF-8");
+//	contenuCarte = JSON.stringify(cartes);
+//	fs.writeFileSync("./json/testcartes.json", contenuCarte, "UTF-8");
 }
 //--------------------------------------------------------------------------
 

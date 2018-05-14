@@ -1,52 +1,61 @@
 //=========================================================================
 // Traitement de "function_brelan.js"
-// Auteur : Benjamin
-// Version : 01/05/2018
+// Auteur : ALL-IN'TECH
+// Version : 09/05/2018
 //=========================================================================
 "use strict";
 
 // EN TETE
 
-var fs = require ("fs");
-
-// CORPS
+var fs = require("fs");
 
 // DEBUT DE LA FONCTION
 
-var function_brelan = function (carte1Joueur1, carte2Joueur1) {
+var function_brelan = function (carte1Joueur, carte2Joueur, riviere, valeurMain) {
 
+	// VARIABLE 
 
 	var river1;
 	var river2;
 	var river3;
-	var valeurMain;
 
-	valeurMain = 0;
-	if (carte1Joueur1 === carte2Joueur1) {
-		if (carte1Joueur1 === river1 || carte1Joueur1 === river2 || carte1Joueur1 === river3) {
-			valeurMain = 4;
+	// TEST DU BRELAN
+	
+//	valeurMain = ;
+
+	river1 = riviere[0].valeur;
+	river2 = riviere[1].valeur;
+	river3 = riviere[2].valeur;
+
+	if (carte1Joueur === carte2Joueur) {
+		if (carte1Joueur === river1 || carte1Joueur === river2 || carte1Joueur === river3) {
+			valeurMain = "4";
+			console.log("Brelan!");
 		}
-	} else if (carte1Joueur1 !== carte2Joueur1) { 
+	} else if (carte1Joueur !== carte2Joueur) { 
 
 		// CARTE 1
 
-		if (carte1Joueur1 === river1 && carte1Joueur1 === river2) {
+		if (carte1Joueur === river1 && carte1Joueur === river2) {
 			valeurMain = 4;
-		} else if (carte1Joueur1 === river1 && carte1Joueur1 === river3) {
+		} else if (carte1Joueur === river1 && carte1Joueur === river3) {
 			valeurMain = 4;
-		} else if (carte1Joueur1 === river2 && carte1Joueur1 === river3) {
+		} else if (carte1Joueur === river2 && carte1Joueur === river3) {
 			valeurMain = 4;
 
 			// CARTE 2
 
-		} else if (carte2Joueur1 === river1 && carte2Joueur1 === river2) {
+		} else if (carte2Joueur === river1 && carte2Joueur === river2) {
 			valeurMain = 4;
-		} else if (carte2Joueur1 === river1 && carte2Joueur1 === river3) {
+		} else if (carte2Joueur === river1 && carte2Joueur === river3) {
 			valeurMain = 4;
-		} else if (carte2Joueur1 === river2 && carte2Joueur1 === river3) {
+		} else if (carte2Joueur === river2 && carte2Joueur === river3) {
 			valeurMain = 4;
 		}
-	};
+
+	}
+
+}
 	//--------------------------------------------------------------------------
 
 	module.exports = function_brelan;
