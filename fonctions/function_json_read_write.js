@@ -1,7 +1,7 @@
 //=========================================================================
-// Traitement de "function_quinte_flush_royale.js"
+// Traitement de "function_json_read_write.js"
 // Auteur : ALL IN'TECH
-// Version : 01/05/2018
+// Version : 10/05/2018
 //=========================================================================
 "use strict";
 
@@ -13,8 +13,8 @@ var fs = require ("fs");
 
 // DEBUT DE LA FONCTION
 
-var function_quinte_flush_royale = function (req, res, query) {
-        
+var function_json_read_write = function (req, res, query) {
+       
     
 
 
@@ -26,4 +26,4 @@ var function_quinte_flush_royale = function (req, res, query) {
 };
 //--------------------------------------------------------------------------
 
-module.exports = function_quinte_flush_royale;
+module.exports = function_json_read_write;

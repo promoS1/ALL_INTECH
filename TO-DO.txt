@@ -1,1 +1,2 @@
 - completer le main.js
+- IA
