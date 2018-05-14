@@ -1,6 +1,6 @@
 //=========================================================================
 // Traitement de "function_brelan.js"
-// Auteur : ALL IN'TECH
+// Auteur : ALL-IN'TECH
 // Version : 09/05/2018
 //=========================================================================
 "use strict";
@@ -21,15 +21,13 @@ var function_brelan = function (carte1Joueur, carte2Joueur, riviere, valeurMain)
 
 	// TEST DU BRELAN
 	
-//	valeurMain = ;
-
 	river1 = riviere[0].valeur;
 	river2 = riviere[1].valeur;
 	river3 = riviere[2].valeur;
 
 	if (carte1Joueur === carte2Joueur) {
 		if (carte1Joueur === river1 || carte1Joueur === river2 || carte1Joueur === river3) {
-			valeurMain = "4";
+			valeurMain.valeurMain += 4;
 			console.log("Brelan!");
 		}
 	} else if (carte1Joueur !== carte2Joueur) { 
@@ -55,7 +53,7 @@ var function_brelan = function (carte1Joueur, carte2Joueur, riviere, valeurMain)
 
 	}
 
-}
+};
 	//--------------------------------------------------------------------------
 
 	module.exports = function_brelan;

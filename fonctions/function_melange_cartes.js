@@ -44,7 +44,7 @@ var function_melange_cartes = function (cartes) {
 
 //	contenuCarte = JSON.stringify(cartes);
 //	fs.writeFileSync("./json/testcartes.json", contenuCarte, "UTF-8");
-}
+};
 //--------------------------------------------------------------------------
 
 module.exports = function_melange_cartes;

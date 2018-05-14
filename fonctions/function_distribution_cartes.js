@@ -66,7 +66,7 @@ var function_distribution_cartes = function (joueurs, cartes, riviere) {
 //	contenuRiviere = JSON.stringify(riviere);
 //	fs.writeFileSync("./json/riviere.json", contenuRiviere, "UTF-8");
 
-}
+};
 //--------------------------------------------------------------------------
 
 module.exports = function_distribution_cartes;

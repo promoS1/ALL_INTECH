@@ -13,23 +13,26 @@ var fs = require ("fs");
 
 // DEBUT DE LA FONCTION
 
-var  function_paire= function (req, res, query) {
+var  function_paire = function (carte1Joueur, carte2Joueur, riviere, valeurMain) {
 
+	// VARIABLE 
 
     var river1;
     var river2;
     var river3;
-    var carte1Joueur1;
-    var carte2Joueur1;
-    var valeurMain;
+    
+	// TEST DU PAIRE
 
-    valeurMain = 0;
+	river1 = riviere[0].valeur;
+	river2 = riviere[1].valeur;
+	river3 = riviere[2].valeur;
+
     if (carte1Joueur1 === carte2Joueur1) {
-        valeurMain = 2;
+        valeurMain.valeurMain += 2;
     } else if (carte1Joueur1 === river1 || carte1Joueur1 === river2 || carte1Joueur1 === river3 ) {
-        valeurMain = 2;
+        valeurMain.valeurMain += 2;
     } else if (carte2Joueur1 === river1 || carte2Joueur1 === river2 || carte2Joueur1 === river3 ) {
-        valeurMain = 2;
+        valeurMain.valeurMain += 2;
     }
 };
 //--------------------------------------------------------------------------

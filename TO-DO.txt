@@ -1,2 +1,3 @@
 - completer le main.js
 - IA
+- Peut etre un bug au niveau du valeurMain

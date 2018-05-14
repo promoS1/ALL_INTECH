@@ -59,7 +59,7 @@ carte1Joueur = joueurs[i].Carte1[0].valeur;
 carte2Joueur = joueurs[i].Carte2[0].valeur;
 valeurMain = joueurs[i].valeurMain;
 
-brelan(carte1Joueur, carte2Joueur, riviere, valeurMain);
+brelan(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 
 console.log("Le joueur " + i + " a comme valeur de main: " + valeurMain);
 
