@@ -1,7 +1,7 @@
 //=========================================================================
 // Traitement de "function_paire.js"
 // Auteur : ALL IN'TECH
-// Version : 01/05/2018
+// Version : 14/05/2018
 //=========================================================================
 "use strict";
 
@@ -13,7 +13,7 @@ var fs = require ("fs");
 
 // DEBUT DE LA FONCTION
 
-var  function_paire = function (carte1Joueur, carte2Joueur, riviere, valeurMain) {
+var function_paire = function (carte1Joueur, carte2Joueur, riviere, valeurMain) {
 
 	// VARIABLE 
 

@@ -1,7 +1,7 @@
 //=========================================================================
 // Traitement de "main.js"
 // Auteur : ALL-IN'TECh
-// Version : 04/05/2018
+// Version : 14/05/2018
 //=========================================================================
 "use strict";
 
@@ -20,7 +20,17 @@ var cartes;
 
 var melanger = require("./fonctions/function_melange_cartes");
 var distribuer = require("./fonctions/function_distribution_cartes.js");
+
+var carteHaute = require("./fonctions/function_carte_haute.js");
+var paire = require("./fonctions/function_paire.js");
+var doublePaire = require("./fonctions/function_double_paire.js");
 var brelan = require("./fonctions/function_brelan.js");
+var quinte = require("./fonctions/function_quinte.js");
+var couleur = require("./fonctions/function_couleur.js");
+var full = require("./fonctions/function_full.js");
+var carre = require("./fonctions/function_carre.js");
+var quinteFlush = require("./fonctions/function_quinte_flush.js");
+var quinteFlushRoyale = require("./fonctions/function_quinte_flush_royale.js");
 
 // VARIABLE
 
@@ -59,7 +69,16 @@ carte1Joueur = joueurs[i].Carte1[0].valeur;
 carte2Joueur = joueurs[i].Carte2[0].valeur;
 valeurMain = joueurs[i].valeurMain;
 
+carteHaute(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+paire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+doublePaire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 brelan(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+quinte(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+couleur(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+full(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+carre(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+quinteFlush(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 
 console.log("Le joueur " + i + " a comme valeur de main: " + valeurMain);
 
