@@ -17,34 +17,40 @@ var function_couleur = function (Carte1Joueur, Carte2Joueur, riviere, valeurMain
         
     // VARIABLE
 
-	var river1;
-	var river2;
-	var river3;
+	var i;
+	var compteur;
 
 	// TEST DE LA COULEUR
-
-	river1 = riviere[0].couleur;
-	river2 = riviere[1].couleur;
-	river3 = riviere[2].couleur;
-	river4 = riviere[3].couleur;
-	river5 = riviere[4].couleur;
-
-	if(carte1Joueur === carte2Joueur){
-		if(carte1Joueur === river1 && carte1Joueur === river2 && carte1Joueur && carte1Joueur === river3){
-			valeurMain.valeurMain = 6;
-		}else if(carte1Joueur === river2 && carte1Joueur === {
-
-
+		
+	compteur = 0;	
+	for(i = 0;i < 5;i++){
+		if(carte1Joueur === carte2Joueur){
+			compteur = 2;
+				if(carte1Joueur === riviere[i].couleur){
+					compteur++;
+						if(compteur === 5){
+							valeurMain.valeurMain = 6;
+						}
+				}
+		}else if(carte1Joueur != carte2Joueur){
+			compteur = 1;
+				if(carte1Joueur === riviere[i].couleur{
+					compteur++;
+					if(compteur === 5){
+						valeurMain.valeurMain = 6;
+					}
+				}	
+		}else if(carte2Joueur != carte1Joueur{
+			compteur = 1;
+				if(carte2Joueur === riviere[i].couleur{
+					compteur++;
+					if(compteur ===5){
+						valeurMain.valeurMain = 6;
+					}
+				}
 		}
 
 	}
-
-
-
-
-
-
-
 };
 //--------------------------------------------------------------------------
 
