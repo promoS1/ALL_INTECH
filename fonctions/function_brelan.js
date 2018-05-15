@@ -27,7 +27,7 @@ var function_brelan = function (carte1Joueur, carte2Joueur, riviere, valeurMain)
 
 	if (carte1Joueur === carte2Joueur) {
 		if (carte1Joueur === river1 || carte1Joueur === river2 || carte1Joueur === river3) {
-			valeurMain.valeurMain += 4;
+			valeurMain.valeurMain = 4;
 			console.log("Brelan!");
 		}
 	} else if (carte1Joueur !== carte2Joueur) { 
@@ -35,20 +35,20 @@ var function_brelan = function (carte1Joueur, carte2Joueur, riviere, valeurMain)
 		// CARTE 1
 
 		if (carte1Joueur === river1 && carte1Joueur === river2) {
-			valeurMain.valeurMain += 4;
+			valeurMain.valeurMain = 4;
 		} else if (carte1Joueur === river1 && carte1Joueur === river3) {
-			valeurMain.valeurMain += 4;
+			valeurMain.valeurMain = 4;
 		} else if (carte1Joueur === river2 && carte1Joueur === river3) {
-			valeurMain.valeurMain += 4;
+			valeurMain.valeurMain = 4;
 
 			// CARTE 2
 
 		} else if (carte2Joueur === river1 && carte2Joueur === river2) {
-			valeurMain.valeurMain += 4;
+			valeurMain.valeurMain = 4;
 		} else if (carte2Joueur === river1 && carte2Joueur === river3) {
-			valeurMain.valeurMain += 4;
+			valeurMain.valeurMain = 4;
 		} else if (carte2Joueur === river2 && carte2Joueur === river3) {
-			valeurMain.valeurMain += 4;
+			valeurMain.valeurMain = 4;
 		}
 
 	}

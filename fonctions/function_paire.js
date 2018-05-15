@@ -13,7 +13,7 @@ var fs = require ("fs");
 
 // DEBUT DE LA FONCTION
 
-var function_paire = function (carte1Joueur, carte2Joueur, riviere, valeurMain) {
+var function_paire = function (carte1Joueur1, carte2Joueur2, riviere, valeurMain) {
 
 	// VARIABLE 
 
@@ -28,11 +28,11 @@ var function_paire = function (carte1Joueur, carte2Joueur, riviere, valeurMain) 
 	river3 = riviere[2].valeur;
 
     if (carte1Joueur1 === carte2Joueur1) {
-        valeurMain.valeurMain += 2;
+        valeurMain.valeurMain = 2;
     } else if (carte1Joueur1 === river1 || carte1Joueur1 === river2 || carte1Joueur1 === river3 ) {
-        valeurMain.valeurMain += 2;
+        valeurMain.valeurMain = 2;
     } else if (carte2Joueur1 === river1 || carte2Joueur1 === river2 || carte2Joueur1 === river3 ) {
-        valeurMain.valeurMain += 2;
+        valeurMain.valeurMain = 2;
     }
 };
 //--------------------------------------------------------------------------

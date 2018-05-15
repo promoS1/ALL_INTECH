@@ -67,6 +67,8 @@ for(i = 0; i < joueurs.length; i++){
 valeurMainJoueur = joueurs[i];
 carte1Joueur = joueurs[i].Carte1[0].valeur; 
 carte2Joueur = joueurs[i].Carte2[0].valeur;
+carte1Joueur = joueurs[i].Carte1[0].couleur;
+carte2Joueur = joueurs[i].Carte2[0].couleur;
 valeurMain = joueurs[i].valeurMain;
 
 carteHaute(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);

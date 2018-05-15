@@ -27,23 +27,23 @@ var function_double_paire = function (carte1Joueur, carte2Joueur, riviere, valeu
 	river2 = riviere[1].valeur;
 	river3 = riviere[2].valeur;
 
-    if (carteJoueur1 === carteJoueur2) {
-		if (carte1Joueur1 === river1 || carte1Joueur1 === river2 || carte1Joueur1 === river3 ) {
-			valeurMain.valeurMain += 3;
-		} else if (carte2Joueur1 === river1 || carte2Joueur1 === river2 || carte2Joueur1 === river3) {
-			valeurMain.valeurMain += 3;
+    if (carte1Joueur === carte2Joueur) {
+		if (carte1Joueur === river1 || carte1Joueur === river2 || carte1Joueur === river3 ) {
+			valeurMain.valeurMain = 3;
+		} else if (carte2Joueur === river1 || carte2Joueur === river2 || carte2Joueur === river3) {
+			valeurMain.valeurMain = 3;
 		}
-    } else if (carte1Joueur1 === river1 || carte1Joueur1 === river2 || carte1Joueur1 === river3 ) {
-        if (carteJoueur1 === carteJoueur2) {
-			valeurMain.valeurMain += 3;
-		} else if (carte2Joueur1 === river1 || carte2Joueur1 === river2 || carte2Joueur1 === river3 ) {
-			valeurMain.valeurMain += 3;
+    } else if (carte1Joueur === river1 || carte1Joueur === river2 || carte1Joueur === river3 ) {
+        if (carte1Joueur === carte2Joueur) {
+			valeurMain.valeurMain = 3;
+		} else if (carte2Joueur === river1 || carte2Joueur === river2 || carte2Joueur === river3 ) {
+			valeurMain.valeurMain = 3;
 		}
-    } else if (carte2Joueur1=== river1 || carte2Joueur1 === river2 || carte2Joueur1 === river3 ) {
-		if (carte1Joueur1 === carte2Joueur1) {
-			valeurMain.valeurMain += 3;
-		} else if (carte1Joueur1 === river1 || carte1Joueur1 === river2 || carte1Joueur1 === river3 ) {
-			valeurMain.valeurMain += 3;
+    } else if (carte2Joueur=== river1 || carte2Joueur === river2 || carte2Joueur === river3 ) {
+		if (carte1Joueur === carte2Joueur) {
+			valeurMain.valeurMain = 3;
+		} else if (carte1Joueur === river1 || carte1Joueur === river2 || carte1Joueur === river3 ) {
+			valeurMain.valeurMain = 3;
 		}
     }
 };
