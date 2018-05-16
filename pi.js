@@ -37,7 +37,8 @@ var req_req_attendre_joueur = require ("./req/req_attendre_joueur.js");
 var req_attendre_debut = require ("./req/req_attendre_debut.js");
 var req_attendre_tour = require ("./req/req_attendre_tour.js");
 var req_jouer = require ("./req/req_jouer.js");
-
+var req_creerTable = require ("./req/req_creerTable.js");
+var req_attendre_joueur = require ("./req/req_attendre_joueur.js");
 
 
 var req_erreur = require("./req/req_erreur.js");
