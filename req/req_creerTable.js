@@ -22,7 +22,7 @@ var trait = function (req, res, query) {
 	joueurs.pseudo = query.compte;
 
 	contenuPartie = JSON.stringify(joueurs);
-	fs.writeFileSync("./json/" + query.compte +".json", contenuPartie, "UTF-8");
+	fs.writeFileSync("./tables/" + query.compte +".json", contenuPartie, "UTF-8");
 
     page = fs.readFileSync('./html/modele_page_table.html' , 'utf-8');
 
