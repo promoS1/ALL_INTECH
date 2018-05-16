@@ -1,7 +1,7 @@
 //=========================================================================
 // Traitement de "req_creerTable"
 // Auteur : ALL'INTECH 
-// Version : 24/04
+// Version : 16/05/18
 //=========================================================================
 "use strict";
 
@@ -12,8 +12,17 @@ var trait = function (req, res, query) {
 
     var marqueurs;
     var page;
+	var partie;
+	var contenuPartie;
+	var joueurs;
 
     // AFFICHAGE DE LA PAGE D'ACCUEIL
+
+	joueurs = {};
+	joueurs.pseudo = query.compte;
+
+	contenuPartie = JSON.stringify(joueurs);
+	fs.writeFileSync("./json/" + query.compte +".json", contenuPartie, "UTF-8");
 
     page = fs.readFileSync('./html/table.html', 'utf-8');
 
