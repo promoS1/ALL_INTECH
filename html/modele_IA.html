@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page de jeu contre IA</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+</head>
+
+
+<body>
+
+    <body background = "../img/tapis_poker_vert_1920x1080.jpg">
+
+
+    <label>A vous de jouer <em>{compte}</em> contre M. ALL IN'TECH, que voulez vous faire ?</label><br><br>
+
+    <form action = "./req_miser" method = "GET">
+        <button name = "action" value = "miser">Miser</button>
+        <input type="hidden" name="compte" value="{compte}">
+    </form>
+
+    <br><br>
+
+     <form action = "./req_checker" method = "GET">
+        <input type="hidden" name="compte" value="{compte}">
+        <input type="hidden" name="compte" value="{compte}">
+        <button name = "action" value = "checker">Check</button>
+    </form>
+
+    <br><br>
+
+    <form action = "./req_relancer" method = "GET">
+        <input type="hidden" name="compte" value="{compte}">
+        <button name = "action" value = "relancer">Relancer</button>
+    </form>
+
+    <br><br>
+
+    <form action = "./req_suivre" method = "GET">
+        <input type="hidden" name="compte" value="{compte}">
+        <button name = "action" value = "miser">Suivre</button>
+    </form>
+
+    <br><br>
+
+    <form action = "./req_coucher" method = "GET">
+        <input type="hidden" name="compte" value="{compte}">
+        <button name = "action" value = "coucher">Se coucher</button>
+    </form>
+	
+	<br><br>
+
+	<form action = "./req_quitter_table_rejointe" method = "GET">
+        <button name = "action" value = "quitter">Retour au salon</button>
+    </form>
+
+
+</body>
+
+</html>
+

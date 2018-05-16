@@ -45,6 +45,7 @@ var req_relancer = require ("./req/req_relancer.js");
 var req_checker = require ("./req/req_checker.js"); 
 var req_suivre = require ("./req/req_suivre.js"); 
 var req_coucher = require ("./req/req_coucher.js"); 
+var req_jouer_IA = require ("./req/req_jouer_IA.js");
 
 var req_erreur = require("./req/req_erreur.js");
 
@@ -155,6 +156,9 @@ var traite_requete = function (req, res) {
 			case '/req_coucher':
                 req_coucher (req, res, query);
                 break;
+			case '/req_jouer_IA':
+				req_jouer_IA (req, res, query);
+				break;
 
             default:
                 req_statique(req, res, pathname);
