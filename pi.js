@@ -23,7 +23,7 @@ var req_quitter_mode_visiteur = require ("./req/req_quitter_mode_visiteur.js");
 var req_modele_page_visiteur = require ("./req/req_modele_page_visiteur.js");
 var req_statique = require("./req/req_statique.js");
 var req_quitter_table_rejointe = require ("./req/req_quitter_table_rejointe.js");
-var req_modele_page_table = require ("./req/req_modele_page_table.js");
+//var req_modele_page_table = require ("./req/req_modele_page_table.js");
 var req_modele_page_joueur = require ("./req/req_modele_page_joueur.js");
 var req_retour_modele_accueil = require("./req/req_modele_accueil.js");
 var req_quitter_table = require ("./req/req_quitter_table.js");
@@ -89,9 +89,9 @@ var traite_requete = function (req, res) {
 			case '/req_quitter_table_rejointe':
 				req_quitter_table_rejointe(req, res, query);
 				break;
-			case '/req_modele_page_table':
-				req_modele_page_table(req, res, query);
-				break;
+//			case '/req_modele_page_table':
+//				req_modele_page_table(req, res, query);
+//				break;
 			case '/req_modele_page_joueur':
 				req_modele_page_joueur(req, res, query);
 				break;
