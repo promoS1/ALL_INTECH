@@ -26,31 +26,43 @@
 	<form action = "./req_actualiser_accueil_membre" method = "GET">
 		<button name = "action" value = "actualiser">Actualiser</button>
 	</form>
+	
+	<fieldset>
+		
+		<h2>Création table</h2>
+
+		<form action="./req_modele_page_table" method="GET">
+        	<button name="action" value="Créer_table">Créer table (<em>{compte}</em>)</button>
+    	</form>
+
+
+	</fieldset>
 
 	<fieldset>
 
-	<p>Partie disponible à rejoindre</p>
+		<h2>Partie disponible à rejoindre</h2>
 	
 
-	<form action="./req_modele_page_table" method="GET">
-    	<button name="action" value="Créer_table">Créer table (admin)</button>
-	</form>
 
-	<form action = "./req_modele_table_rejointe" method="GET">
-        <button name = "action" value = "Table1">Table 1</button>
-    </form>
+		<form action = "./req_modele_table_rejointe" method="GET">
+        	<button name = "action" value = "Table1">Table de XXXXXXX </button>
+    	</form>
 	
-	<hr>
+		<hr>
 		
 		<h2>PARTIE LOCAL</h2>
+		
+		<form action = "./req_modele_table_rejointe" method="GET">
+            <button name = "action" value = "IA">Jouer contre IA</button>
+        </form>
 
-	<hr>
+		<hr>
 
-		<p>Partie accessibles visiteur</p>
+		<h2>Partie accessibles visiteur</h2>
 
-	<form action="/req_modele_page_visiteur" method="GET">
-    	<button name="action" value="visit_mode">Accéder au mode visiteur</button>
-	</form>
+		<form action="/req_modele_page_visiteur" method="GET">
+    		<button name="action" value="visit_mode">Accéder au mode visiteur</button>
+		</form>
 
 	</fieldset>
 

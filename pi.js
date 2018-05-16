@@ -40,6 +40,8 @@ var req_jouer = require ("./req/req_jouer.js");
 var req_creerTable = require ("./req/req_creerTable.js");
 var req_attendre_joueur = require ("./req/req_attendre_joueur.js");
 var req_creerTable = require ("./req/req_creerTable.js")
+var req_req_attendre_partie = require ("./req/req_attendre_partie.js");
+
 
 var req_erreur = require("./req/req_erreur.js");
 
@@ -134,6 +136,9 @@ var traite_requete = function (req, res) {
 				break;
 			case '/req_jouer':
 				req_jouer(req, res, query);
+				break;
+			case '/req_attendre_partie':
+				req_attendre_partie (req, res, query);
 				break;
             default:
                 req_statique(req, res, pathname);

@@ -3,10 +3,31 @@
 <html>
     <head>  
         <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-    </head>
+	</head>
 
 <body>
-    <label>Bienvenue sur le mode visiteur !</label>
+	<body background = "../img/tapis_poker_vert_1920x1080.jpg">
+
+    <h2>Bienvenue sur le mode visiteur !</h2>
+	<h4>Partie(s) pouvant êtres consultées :</h4>
+
+
+
+	<form action = "./req_modele_page_visiteur" method = "GET">
+        <button name = "action" value = "actualise_visiteur">Actualiser les parties disponibles</button>
+	<br><br>
+    </form>
+
+
+
+
+	<fieldset>
+	
+		<form action = "./req_attendre_partie" method="GET">
+        	    <button name = "action" value = "Table1">Table de XXXXXXX </button>
+    	</form>
+
+	</fieldset>
 
 </body>
 
