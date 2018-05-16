@@ -67,8 +67,8 @@ for(i = 0; i < joueurs.length; i++){
 valeurMainJoueur = joueurs[i];
 carte1Joueur = joueurs[i].Carte1[0].valeur; 
 carte2Joueur = joueurs[i].Carte2[0].valeur;
-carte1Joueur = joueurs[i].Carte1[0].couleur;
-carte2Joueur = joueurs[i].Carte2[0].couleur;
+couleur1Joueur = joueurs[i].Carte1[0].couleur;
+couleur2Joueur = joueurs[i].Carte2[0].couleur;
 valeurMain = joueurs[i].valeurMain;
 
 carteHaute(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
@@ -76,7 +76,7 @@ paire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 doublePaire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 brelan(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 quinte(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-couleur(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+couleur(couleur1Joueur, couleur2Joueur, riviere, valeurMainJoueur);
 full(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 carre(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 quinteFlush(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
