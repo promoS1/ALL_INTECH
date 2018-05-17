@@ -27,8 +27,7 @@ var trait = function (req, res, query) {
     page = fs.readFileSync('./html/modele_page_table.html' , 'utf-8');
 
     marqueurs = {};
-    marqueurs.erreur = "";
-    marqueurs.compte = "";
+    marqueurs.compte = query.compte;
     page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});
