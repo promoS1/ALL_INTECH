@@ -53,10 +53,15 @@
 		<hr>
 		
 		<h2>PARTIE LOCAL</h2>
-		
-		<form action = "./req_modele_table_rejointe" method="GET">
-            <button name = "action" value = "IA">Jouer contre IA</button>
+
+
+
+	    <form action="./req_creerTable_IA" method="GET">
+            <input type = "hidden" name = "compte" value="{compte}">
+            <input type = "submit" value = "Jouer contre l'IA">
         </form>
+
+
 
 		<hr>
 
