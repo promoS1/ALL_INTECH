@@ -17,6 +17,42 @@
 
  	</p>
 
+	<fieldset>
+		
+		<h2>Création table</h2>
+
+		<form action="./req_creerTable" method="GET">
+        	<input type = "hidden" name = "compte" value="{compte}">
+			<input type = "submit" value = "Créer une partie">
+    	</form>
+	</fieldset>
+
+	<fieldset>
+
+		<h2>Partie disponible à rejoindre</h2>
+	
+		<form action = "./req_modele_table_rejointe" method="GET">
+        	<button name = "action" value = "Table1">Table de XXXXXXX </button>
+    	</form>
+	
+		<hr>
+		
+		<h2>PARTIE LOCAL</h2>
+	    <form action="./req_creerTable_IA" method="GET">
+            <input type = "hidden" name = "compte" value="{compte}">
+            <input type = "submit" value = "Jouer contre l'IA">
+        </form>
+
+		</hr>
+
+		<h2>Partie accessibles visiteur</h2>
+
+		<form action="/req_modele_page_visiteur" method="GET">
+    		<button name="action" value="visit_mode">Accéder au mode visiteur</button>
+		</form>
+
+	</fieldset>
+
 	<form action="/" method="GET">
 		<button name="action" value="retour_accueil">Retour</button>	
 	</form>
@@ -26,52 +62,6 @@
 	<form action = "./req_actualiser_accueil_membre" method = "GET">
 		<button name = "action" value = "actualiser">Actualiser</button>
 	</form>
-	
-	<fieldset>
-		
-		<h2>Création table</h2>
-
-		<form action="./req_creerTable" method="GET">
-        	<input type = "hidden" name = "compte" value="{compte}">
-			<input type = "submit" value = "Créer une partie">
-    	</form>
-
-
-
-	</fieldset>
-
-	<fieldset>
-
-		<h2>Partie disponible à rejoindre</h2>
-	
-
-
-		<form action = "./req_modele_table_rejointe" method="GET">
-        	<button name = "action" value = "Table1">Table de XXXXXXX </button>
-    	</form>
-	
-		<hr>
-		
-		<h2>PARTIE LOCAL</h2>
-
-
-
-	    <form action="./req_creerTable_IA" method="GET">
-            <input type = "hidden" name = "compte" value="{compte}">
-            <input type = "submit" value = "Jouer contre l'IA">
-        </form>
-
-
-
-		<hr>
-
-		<h2>Partie accessibles visiteur</h2>
-
-		<form action="/req_modele_page_visiteur" method="GET">
-    		<button name="action" value="visit_mode">Accéder au mode visiteur</button>
-		</form>
-
-	</fieldset>
 
 
 </body>
