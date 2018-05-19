@@ -2,3 +2,4 @@
 - faire des fonctions avec le main.js
 - IA
 - Peut etre un bug au niveau du valeurMain
+-completer la confirmation de mdp lors de l'inscription
