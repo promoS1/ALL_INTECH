@@ -2,4 +2,10 @@
 - faire des fonctions avec le main.js
 - IA
 - Peut etre un bug au niveau du valeurMain
--completer la confirmation de mdp lors de l'inscription
+- completer la confirmation de mdp lors de l'inscription
+- afficher les cartes sur la page du joueur
+- afficher les partie en attente de lancement sur le salon
+- distribuer les cartes à des joueurs
+- faire le changement de joueur actif/passif
+- mettre dans toutes les req query.adversaire pour savoir contre qui on joue
+- mettre dans toutes les req query.compte 

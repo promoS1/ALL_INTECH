@@ -89,7 +89,7 @@ console.log("Le joueur " + i + " a comme valeur de main: " + valeurMain);
 // ECRITURE JSON
 
 contenuJoueur = JSON.stringify(joueurs);
-fs.writeFileSync("./json/table1.json", contenuJoueur, "UTF-8");
+fs.writeFileSync("./json/"+query.compte".json", contenuJoueur, "UTF-8");
 
 contenuRiviere = JSON.stringify(riviere);
 fs.writeFileSync("./json/riviere.json", contenuRiviere, "UTF-8");

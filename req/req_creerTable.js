@@ -18,8 +18,17 @@ var trait = function (req, res, query) {
 
     // AFFICHAGE DE LA PAGE D'ACCUEIL
 
+
+	// DONNE INFOS DE L'ADMIN 
+
 	joueurs = {};
-	joueurs.pseudo = query.compte;
+	joueurs.compte = query.compte;
+	joueurs.debute = "true";
+	joueurs.position = "";
+	joueurs.cartes = "";
+	joueurs.solde = "";
+
+
 
 	contenuPartie = JSON.stringify(joueurs);
 	fs.writeFileSync("./tables/" + query.compte +".json", contenuPartie, "UTF-8");

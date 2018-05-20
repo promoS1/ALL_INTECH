@@ -12,7 +12,11 @@ var trait = function (req, res, query) {
     var membre;
     var contenu_fichier;
     var listeMembres;
+	var listeConnecte;
+	var nouveauConnecte;
     var i;
+	var liste;
+	var connecte;
     var trouve;
 
     // ON LIT LES COMPTES EXISTANTS
@@ -24,9 +28,9 @@ var trait = function (req, res, query) {
 
     trouve = false;
     i = 0;
-    while(i<listeMembres.length && trouve === false) {
-        if(listeMembres[i].compte === query.compte) {
-            if(listeMembres[i].mdp === query.mdp) {
+    while (i<listeMembres.length && trouve === false) {
+        if (listeMembres[i].compte === query.compte) {
+            if (listeMembres[i].mdp === query.mdp) {
                 trouve = true;
             }
         }
@@ -36,6 +40,7 @@ var trait = function (req, res, query) {
     // ON RENVOIT UNE PAGE HTML 
 
     if(trouve === false) {
+
         // SI IDENTIFICATION INCORRECTE, ON REAFFICHE PAGE ACCUEIL AVEC ERREUR
 
         page = fs.readFileSync('./html/modele_accueil.html', 'utf-8');
@@ -46,6 +51,7 @@ var trait = function (req, res, query) {
         page = page.supplant(marqueurs);
 
     } else {
+
         // SI IDENTIFICATION OK, ON ENVOIE PAGE ACCUEIL MEMBRE
 
         page = fs.readFileSync('./html/modele_accueil_membre.html', 'UTF-8');
@@ -55,9 +61,57 @@ var trait = function (req, res, query) {
         page = page.supplant(marqueurs);
     }
 
+	
+	// ON LIT LES COMPTES CONNECTES
+
+    contenu_fichier = fs.readFileSync("./json/connecte.json", 'utf-8');
+    listeConnecte = JSON.parse(contenu_fichier);
+
+    // ON VERIFIE QUE LE COMPTE N'EST PAS DEJA CONNECTE
+
+    trouve = false;
+    i = 0;
+    while (i<listeConnecte.length && trouve === false) {
+        if (listeConnecte[i].compte === query.compte) {
+            trouve = true;
+        }
+        i++;
+    }
+
+    // SI PAS TROUVE, ON AJOUTE LE NOUVEAU COMPTE DANS LA LISTE DES COMPTES CONNECTES
+
+    if (trouve === false) {
+        nouveauConnecte = {};
+        nouveauConnecte.compte = query.compte;
+		nouveauConnecte.connecte = "true";
+		nouveauConnecte.dispo = "true";
+        listeConnecte[listeConnecte.length] = nouveauConnecte;
+
+        contenu_fichier = JSON.stringify(listeConnecte);
+
+        fs.writeFileSync("./json/connecte.json", contenu_fichier, 'utf-8');
+    }
+
+
+	// AFFICHAGE JOUEURS DISPO POUR JOUER
+
+	//.?????
+
+
+
+
+
+
+
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(page);
     res.end();
+
+
+
+
+
+
 };
 
 //---------------------------------------------------------------------------
