@@ -1,1 +1,1 @@
-[{"compte":"a","connecte":"true","dispo":"true"},{"compte":"b","connecte":"true","dispo":"true"},{"compte":["a",""],"dispo":"true"},{"compte":["a","{compte}"],"dispo":"true"},{"compte":["a","{compte}"],"dispo":"true"},{"compte":["a","{compte}"],"dispo":"true"},{"compte":["a","{compte}"],"dispo":"true"},{"compte":["a","{compte}"],"dispo":"true"},{"compte":["a","{compte}"],"dispo":"true"},{"compte":["a","{compte}"],"dispo":"true"},{"compte":["a","{compte}"],"dispo":"true"},{"compte":["a","{compte}"],"dispo":"true"}]
+[]

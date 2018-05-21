@@ -8,4 +8,5 @@
 - distribuer les cartes à des joueurs
 - faire le changement de joueur actif/passif
 - mettre dans toutes les req query.adversaire pour savoir contre qui on joue
-- mettre dans toutes les req query.compte 
+- dans page modele_accueil_membre afficher "joueurs.debute" pour savoir qu'une partie est en attente de lancement
+- dans modele page adversaire le compte ne se met pas après le refresh 

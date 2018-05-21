@@ -46,6 +46,6 @@ var trait = function(req, res, pathname) {
         res.write('ERREUR 404 : ressource inconnue');
         res.end();
     }
-}
+};
 
 module.exports = trait;
