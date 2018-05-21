@@ -83,7 +83,6 @@ var trait = function (req, res, query) {
     if (trouve === false) {
         nouveauConnecte = {};
         nouveauConnecte.compte = query.compte;
-		nouveauConnecte.connecte = "true";
 		nouveauConnecte.dispo = "true";
         listeConnecte[listeConnecte.length] = nouveauConnecte;
 
