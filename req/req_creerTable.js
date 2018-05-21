@@ -33,7 +33,7 @@ var trait = function (req, res, query) {
 	contenuPartie = JSON.stringify(joueurs);
 	fs.writeFileSync("./tables/" + query.compte +".json", contenuPartie, "UTF-8");
 
-    page = fs.readFileSync('./html/modele_page_table.html?compte = {compte}' , 'utf-8');
+    page = fs.readFileSync('./html/modele_page_table.html' , 'utf-8');
 
     marqueurs = {};
     marqueurs.compte = query.compte;

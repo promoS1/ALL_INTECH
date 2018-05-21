@@ -32,7 +32,8 @@
 			<h2>Partie disponible à rejoindre</h2>
 		
 			<form action = "./req_modele_table_rejointe" method="GET">
-				<button name = "action" value = "Table1">Table de XXXXXXX </button>
+				<input type = "hidden" name = "compte" value = "{compte}">
+				<input type = "submit" value = "Table XXXX"> 
 			</form>
 
 		</fieldset>
@@ -52,16 +53,14 @@
 
 			<h2>Partie accessibles visiteur</h2>
 
-			<form action="/req_modele_page_visiteur" method="GET">
-				<button name="action" value="visit_mode">Accéder au mode visiteur</button>
+			<form action="/req_modele_adversaire" method="GET">
+				
+				<input type = "hidden" name = "compte" value="{compte}">
+                <input type = "submit" value = "Table XXX">
 			</form>
 
 		</fieldset>
 
-		<form action="/" method="GET">
-			<button name="action" value="retour_accueil">Retour</button>	
-		</form>
-		
 		<br>
 
 		<form action="./req_actualiser_accueil_membre" method = "GET">

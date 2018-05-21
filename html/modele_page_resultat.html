@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-</head>
+	<head>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	</head>
 
-<body>
+	<body>
 
-	<input type="hidden" name="compte" value="{compte}">
-	<h2>La partie est terminée</h2>
-	<br>
-	<label>Voici le classement</label>
-	
+	    <body background = "../img/tapis_poker_vert_1920x1080.jpg">
+		<h2>La partie est terminée</h2>
+		<br>
+		<label>Voici le classement</label>
+		
 
-</body>
+		
+		
+		<form action = "./req_actualiser_accueil_membre" method = "GET">	
+			<input type = "hidden" name = "compte" value="{compte}">
+			<input type = "submit" value = "Retour au salon">
+		</form>	
+
+	</body>
 </html>
 
