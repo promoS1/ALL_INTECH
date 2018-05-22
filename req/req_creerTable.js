@@ -36,12 +36,12 @@ var trait = function (req, res, query) {
 //	contenuHotes = fs.readFileSync("./tables/hotes.json", "UTF-8");
 //	hotes = JSON.parse(contenuHotes);
 	
-	nouvelHote = {};
-	nouvelHote.pseudo = query.compte;
-	hotes.push(nouvelHote);
+//	nouvelHote = {};
+//	nouvelHote.pseudo = query.compte;
+//	hotes.push(nouvelHote);
 
-	contenuHotes = JSON.stringify(hotes);
-	contenuHotes = fs.writeFileSync("./tables/hotes.json", contenuHotes, "UTF-8");
+//	contenuHotes = JSON.stringify(hotes);
+//	contenuHotes = fs.writeFileSync("./tables/hotes.json", contenuHotes, "UTF-8");
 	
 	// CREATION DU JSON AVEC LE NOM DE L'ADMIN
 
