@@ -15,36 +15,30 @@ var trait = function (req, res, query) {
 	var contenu;
 	var connecte;
 	var liste;
-	
-
-    // AFFICHAGE DE LA PAGE D'ACCUEIL
-
-    page = fs.readFileSync('html/modele_accueil_membre.html', 'utf-8');
+	var contenu_fichier;	
 
 	// AFFICHAGE DES PARTIES EN ATTENTE
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
 	contenu = JSON.parse (contenu_fichier);
 
-	connecte[i].partie_en_attente = "";
-	
-	//liste = "";
+	liste = "";
 
 	for (var i = 0 ; i < connecte.length ; i++) {
 		if (connecte[i].partie_en_attente === true) {
-			liste += "
-		// liste += "<form action = 'req_???????????' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
+			liste += "<form action = 'req_???????????' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
 		}			
-			connecte[i].partie_en_attente += 
 	
-		}
 	}
 
-	marqueurs.partie = partie_en_attente;
 	
+ 	// AFFICHAGE DE LA PAGE D'ACCUEIL
+
+    page = fs.readFileSync('html/modele_accueil_membre.html', 'utf-8');
 	
 	marqueurs = {};
     marqueurs.compte = query.compte;
+	marqueurs.liste = liste;
     page = page.supplant(marqueurs);
 
 

@@ -13,13 +13,15 @@ var fs = require ("fs");
 
 // DEBUT DE LA FONCTION
 
-var function_carre = function (carte1Joueur1, carte2Joueur1, riviere, valeurMain) {
+var function_carre = function (carte1Joueur1, carte2Joueur1, carte2Joueur2, riviere, valeurMain) {
 
 	// VARIABLE
 
     var river1;
     var river2;
     var river3;
+	
+
 
 	if (carte1Joueur1 === carte2Joueur1) {
 		if (carte1Joueur1 === river1 && carte1Joueur1 === river2) {

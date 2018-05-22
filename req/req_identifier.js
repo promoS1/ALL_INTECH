@@ -84,6 +84,7 @@ var trait = function (req, res, query) {
         nouveauConnecte = {};
         nouveauConnecte.compte = query.compte;
 		nouveauConnecte.connecte = true;
+		nouveauConnecte.partie_en_attente = false;
         listeConnecte[listeConnecte.length] = nouveauConnecte;
 
         contenu_fichier = JSON.stringify(listeConnecte);
