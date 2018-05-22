@@ -13,31 +13,29 @@ var trait = function (req, res, query) {
     var marqueurs;
     var page;
 	var connecte;
-	var liste;
+	var partie_en_attente;
 	var contenu_fichier;	
 
-	// AFFICHAGE DES PARTIES EN ATTENTE
-
+// AFFICHAGE DES PARTIES EN ATTENTE
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
 	connecte = JSON.parse (contenu_fichier);
 
-	liste = "";
+	partie_en_attente = "";
 
-	for (var i = 0 ; i < connecte[i].length ; i++) {
-		if (connecte[i].partie_en_attente === true) {
-			liste += "<form action = 'req_actualiser_accueil_membre' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
+	for (var i = 0 ; i < connecte.length ; i++) {
+		if (connecte[i].partie_en_attente === true && connecte[i].compte !== query.compte) {
+			partie_en_attente += "<form action = 'req_modele_table_rejointe?compte={compte}' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
 		}			
 	
 	}
 
 	
- 	// AFFICHAGE DE LA PAGE D'ACCUEIL
-
+// AFFICHAGE DE LA PAGE D'ACCUEIL
     page = fs.readFileSync('html/modele_accueil_membre.html', 'utf-8');
 	
 	marqueurs = {};
     marqueurs.compte = query.compte;
-	marqueurs.liste = liste;
+	marqueurs.partie_en_attente = partie_en_attente;
     page = page.supplant(marqueurs);
 
 

@@ -1,7 +1,13 @@
+//========================================================================
+// Traitement de "req_identifier"
+// Auteur : ALL'INTECH 
+// Version : 22/05/18
+//=========================================================================
+
 "use strict";
 
 var fs = require("fs");
-require('remedial');
+var remedial = require('remedial');
 
 var trait = function (req, res, query) {
 
@@ -18,6 +24,7 @@ var trait = function (req, res, query) {
 	var liste;
 	var connecte;
     var trouve;
+	var partie_en_attente;
 
     // ON LIT LES COMPTES EXISTANTS
 
@@ -90,6 +97,20 @@ var trait = function (req, res, query) {
         contenu_fichier = JSON.stringify(listeConnecte);
 
         fs.writeFileSync("./json/connecte.json", contenu_fichier, 'utf-8');
+    }
+
+
+// AFFICHAGE DES PARTIES EN ATTENTE
+    contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
+    connecte = JSON.parse (contenu_fichier);
+
+    partie_en_attente = "";
+
+    for (var i = 0 ; i < connecte.length ; i++) {
+        if (connecte[i].partie_en_attente === true && connecte[i].compte !== query.compte) {
+            partie_en_attente += "<form action = 'req_blabla?compte={compte}' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
+        } 
+
     }
 
     res.writeHead(200, {'Content-Type': 'text/html'});

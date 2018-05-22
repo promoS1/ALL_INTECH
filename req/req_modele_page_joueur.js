@@ -14,6 +14,9 @@ var trait = function (req, res, query) {
     var page;
 	var joueurs;
 	var contenuPartie;
+	var contenu_fichier;
+	var connecte;
+	var debut;
 
     // AFFICHAGE DE LA PAGE D'ACCUEIL
 
@@ -22,9 +25,22 @@ var trait = function (req, res, query) {
 
 	joueurs = {};
     joueurs.compte = query.compte;
-    joueurs.position = 0;
+    joueurs.position = "";
     joueurs.cartes = "";
     joueurs.solde = "100";
+
+
+// PARTIE DEBUTE -> ECRITURE DANS JSON
+	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
+    connecte = JSON.parse(contenu_fichier);
+
+	debut = {};
+	connecte.debute = true;
+
+    contenu_fichier = JSON.stringify (connecte);
+    fs.writeFileSync ('./json/connecte.json' , contenu_fichier , 'utf-8');
+
+
 
 	// DISTRIBUTION DES CARTES
 	

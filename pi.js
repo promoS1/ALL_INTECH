@@ -20,10 +20,8 @@ var req_afficher_formulaire_inscription = require("./req/req_afficher_formulaire
 var req_inscrire = require("./req/req_inscrire.js");
 var req_identifier = require("./req/req_identifier.js");
 var req_statique = require("./req/req_statique.js");
-var req_quitter_table_rejointe = require ("./req/req_quitter_table_rejointe.js");
 var req_modele_page_joueur = require ("./req/req_modele_page_joueur.js");
 var req_retour_modele_accueil = require("./req/req_modele_accueil.js");
-var req_quitter_table = require ("./req/req_quitter_table.js");
 var req_modele_table_rejointe = require ("./req/req_modele_table_rejointe.js");
 var req_nouvelle_partie = require ("./req/req_nouvelle_partie.js");
 var req_modele_page_resultat = require ("./req/req_modele_page_resultat.js");
@@ -83,9 +81,6 @@ var traite_requete = function (req, res) {
                 break;
 			case '/req_creerTable':
 				req_creerTable(req, res, query);
-				break;
-			case '/req_quitter_table_rejointe':
-				req_quitter_table_rejointe(req, res, query);
 				break;
 			case '/req_modele_page_joueur':
 				req_modele_page_joueur(req, res, query);

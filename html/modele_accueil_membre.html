@@ -13,7 +13,13 @@
 		<center><img src = "./img/logo/logo-final-584-289.png"></center>
 		<center><h2>Bienvenue sur la page d'accueil membre !</h2></center>
 
-		<label>Bonjour <em>{compte}</em></label>
+		<h2>Bonjour <em>{compte}</em></h2>
+
+		<form action="./req_actualiser_accueil_membre" method = "GET">
+            <input type = "hidden" name = "compte" value = "{compte}">
+            <input type = "submit" value = "Actualiser">
+        </form>
+
 
 		</p>
 
@@ -32,12 +38,8 @@
 			<h2>Partie disponible à rejoindre</h2>
 		
 			
-			{liste}
+				{partie_en_attente}
 
-			<form action = "./req_modele_table_rejointe" method="GET">
-				<input type = "hidden" name = "compte" value = "{compte}">
-				<input type = "submit" value = "Table XXXX"> 
-			</form>
 
 		</fieldset>
 
@@ -56,20 +58,8 @@
 
 			<h2>Partie accessibles visiteur</h2>
 
-			<form action="/req_modele_adversaire" method="GET">
-				
-				<input type = "hidden" name = "compte" value="{compte}">
-                <input type = "submit" value = "Table XXX">
-			</form>
 
 		</fieldset>
-
-		<br>
-
-		<form action="./req_actualiser_accueil_membre" method = "GET">
-			<input type = "hidden" name = "compte" value = "{compte}">
-			<input type = "submit" value = "Actualiser">
-		</form>
 
 	</body>
 

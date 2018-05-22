@@ -1,1 +1,1 @@
-[{"compte":"a","connecte":true,"partie_en_attente":false}]
+[{"compte":"b","connecte":true,"partie_en_attente":false},{"compte":"a","connecte":true,"partie_en_attente":true}]

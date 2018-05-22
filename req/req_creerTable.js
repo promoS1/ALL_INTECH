@@ -1,4 +1,4 @@
-//=========================================================================
+//========================================================================
 // Traitement de "req_creerTable"
 // Auteur : ALL'INTECH 
 // Version : 16/05/18
@@ -21,11 +21,15 @@ var trait = function (req, res, query) {
 	var contenuHotes;
 	var riviere;
 	var contenuRiviere;
-    // AFFICHAGE DE LA PAGE D'ACCUEIL
+	var contenu_fichier;
+	var connecte;
+	var i;
 
 
-	// DONNE INFOS DE L'ADMIN DANS LE JSON
+// AFFICHAGE DE LA PAGE D'ACCUEIL
 
+
+// DONNE INFOS DE L'ADMIN DANS LE JSON
 	joueurs = [];
 	joueurs.compte = query.compte;
 	joueurs.partie_en_attente = true;
@@ -33,15 +37,32 @@ var trait = function (req, res, query) {
 	joueurs.cartes = "";
 	joueurs.solde = "";
 
-//	contenuHotes = fs.readFileSync("./tables/hotes.json", "UTF-8");
-//	hotes = JSON.parse(contenuHotes);
-	
-//	nouvelHote = {};
-//	nouvelHote.pseudo = query.compte;
-//	hotes.push(nouvelHote);
 
-//	contenuHotes = JSON.stringify(hotes);
-//	contenuHotes = fs.writeFileSync("./tables/hotes.json", contenuHotes, "UTF-8");
+// LANCEMENT PARTIE EN ATTENTE -> TRUE
+	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
+	connecte = JSON.parse(contenu_fichier);
+	
+	for (i = 0 ; i < connecte.length ; i++) {
+		if (query.compte === connecte[i].compte) { 
+			connecte[i].partie_en_attente = true;
+		}
+	}
+	
+	contenu_fichier = JSON.stringify (connecte);
+	fs.writeFileSync ('./json/connecte.json' , contenu_fichier , 'utf-8');
+
+/*
+
+	contenuHotes = fs.readFileSync("./tables/hotes.json", "UTF-8");
+	hotes = JSON.parse(contenuHotes);
+	
+	nouvelHote = {};
+	nouvelHote.pseudo = query.compte;
+	hotes.push(nouvelHote);
+
+
+	contenuHotes = JSON.stringify(hotes);
+	contenuHotes = fs.writeFileSync("./tables/hotes.json", contenuHotes, "UTF-8");
 	
 	// CREATION DU JSON AVEC LE NOM DE L'ADMIN
 
@@ -50,7 +71,7 @@ var trait = function (req, res, query) {
 
 	contenuRiviere = JSON.stringify(riviere);
 	fs.writeFileSync("./tables/" + query.compte +"Riviere.json", contenuRiviere);
-
+*/
     page = fs.readFileSync('./html/modele_page_table.html' , 'utf-8');
 
     marqueurs = {};

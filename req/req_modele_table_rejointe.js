@@ -16,8 +16,7 @@ var trait = function (req, res, query) {
 	var joueurs;
 	var connecte;
 
-    // AFFICHAGE DE LA PAGE D'ACCUEIL
-
+// AFFICHAGE DE LA PAGE D'ACCUEIL
     page = fs.readFileSync('./html/modele_table_rejointe.html', 'utf-8');
 
     marqueurs = {};
@@ -25,18 +24,16 @@ var trait = function (req, res, query) {
 	marqueurs.compte = query.compte;
     page = page.supplant(marqueurs);
 	
-	// ON LIT LE FICHIER DES JOUEURS CONNECTES
-
+// ON LIT LE FICHIER DES JOUEURS CONNECTES
 	contenu = fs.readFileSync("./json/connecte.json", "UTF-8");
 	joueurs = JSON.parse(contenu);
 
-	// ON REGARDE SI L'ADMIN A LANCER LA PARTIE
-
+// ON REGARDE SI L'ADMIN A LANCER LA PARTIE
 	connecte = {};
 	
-	if (connecte.debute === "true") {
+	if (connecte.debute === true) {
 		page = fs.readFileSync ('./html/modele_page_adversaire.html');
-	} else if (connecte.debute !== "true") {
+	} else if (connecte.debute !== true) {
 		page = fs.readFileSync ('./html/modele_table_rejointe.html');
 	}
 
