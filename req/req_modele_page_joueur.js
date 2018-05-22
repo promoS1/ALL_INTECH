@@ -26,8 +26,8 @@ var trait = function (req, res, query) {
     joueurs.cartes = "";
     joueurs.solde = "100";
 
-
-
+	// DISTRIBUTION DES CARTES
+	
     contenuPartie = JSON.stringify(joueurs);
     fs.writeFileSync("./tables/" + query.compte +".json", contenuPartie, "UTF-8");
 
