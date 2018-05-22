@@ -13,17 +13,14 @@ var trait = function (req, res, query) {
     var marqueurs;
     var page;
 	var contenu;
-	var partie_en_attente;
 	var connecte;
+	var liste;
 	
 
     // AFFICHAGE DE LA PAGE D'ACCUEIL
 
     page = fs.readFileSync('html/modele_accueil_membre.html', 'utf-8');
 
-    
-	
-	
 	// AFFICHAGE DES PARTIES EN ATTENTE
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
@@ -33,7 +30,8 @@ var trait = function (req, res, query) {
 
 	for (var i = 0 ; i < connecte.length ; i++) {
 		if (connecte[i].partie_en_attente === true) {
-			partie_en_attente += 
+			liste += "
+			connecte[i].partie_en_attente += 
 	
 		}
 	}
