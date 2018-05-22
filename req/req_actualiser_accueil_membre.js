@@ -29,11 +29,11 @@ var trait = function (req, res, query) {
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
 	contenu = JSON.parse (contenu_fichier);
 
-	partie_en_attente = "";
-	
+	connecte[i].partie_en_attente = "";
+
 	for (var i = 0 ; i < connecte.length ; i++) {
-		if (partie_en_attente === true) {
-			partie_en_attente += //????????
+		if (connecte[i].partie_en_attente === true) {
+			partie_en_attente += 
 	
 		}
 	}
