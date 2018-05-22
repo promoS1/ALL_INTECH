@@ -6,7 +6,7 @@
 "use strict";
 
 var fs = require("fs");
-require('remedial');
+var remedial = require('remedial');
 
 var trait = function (req, res, query) {
 
@@ -15,7 +15,8 @@ var trait = function (req, res, query) {
 	var partie;
 	var contenuPartie;
 	var joueurs;
-	var hotes = {};
+	var pseudo;
+	var hotes;
 	var contenuHotes;
 	var riviere;
 	var contenuRiviere;
@@ -33,8 +34,10 @@ var trait = function (req, res, query) {
 
 	contenuHotes = fs.readFileSync("./tables/hotes.json", "UTF-8");
 	hotes = JSON.parse(contenuHotes);
-
-	hotes.push(query.compte);
+	
+	hotes = [];
+	hotes.pseudo = query.compte;
+	hotes.push(hotes.pseudo);
 
 	contenuHotes = JSON.stringify(hotes);
 	fs.writeFileSync("./tables/hotes.json", contenuHotes, "UTF-8");
