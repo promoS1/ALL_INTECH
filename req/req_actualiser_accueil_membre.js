@@ -27,10 +27,14 @@ var trait = function (req, res, query) {
 	contenu = JSON.parse (contenu_fichier);
 
 	connecte[i].partie_en_attente = "";
+	
+	//liste = "";
 
 	for (var i = 0 ; i < connecte.length ; i++) {
 		if (connecte[i].partie_en_attente === true) {
 			liste += "
+		// liste += "<form action = 'req_???????????' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
+		}			
 			connecte[i].partie_en_attente += 
 	
 		}
