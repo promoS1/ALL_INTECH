@@ -5,7 +5,6 @@
 		<title>Table rejointe </title>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 
-		<meta http-equiv = "refresh" content = " 3; URL = ./req_modele_table_rejointe?compte={compte}"> 
 	</head>
 
 
@@ -14,10 +13,20 @@
 
 		<label>Voila la page en attente du lancement de la partie, le lancement de la partie se fait en modele_page_table.html</label>
 
-		 <form action = "./req_actualiser_accueil_membre" method = "GET">
-         	<input type = "hidden" name = "compte" value="{compte}">
-         	<input type = "submit" value = "Retour salon">
-		 </form>
+		<br><br>
+
+  		<form action = "./req_modele_table_rejointe" method = "GET">
+            <input type = "hidden" name = "compte" value="{compte}">
+            <input type = "submit" value = "Actualiser">
+         </form>
+	
+		<br><br>
+		
+		<form action = "./req_actualiser_accueil_membre" method = "GET">
+            <input type = "hidden" name = "compte" value="{compte}">
+            <input type = "submit" value = "Retour salon">
+         </form>
+
 
 	</body>
 

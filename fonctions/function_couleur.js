@@ -19,6 +19,9 @@ var function_couleur = function (Carte1Joueur, Carte2Joueur, riviere, valeurMain
 
 	var i;
 	var compteur;
+	var carte1Joueur;
+	var carte2Joueur;
+	var valeurMain;
 
 	// TEST DE LA COULEUR
 		

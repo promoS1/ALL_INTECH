@@ -13,7 +13,7 @@ var fs = require ("fs");
 
 // DEBUT DE LA FONCTION
 
-var function_paire = function (carte1Joueur1, carte2Joueur2, riviere, valeurMain) {
+var function_paire = function (carte1Joueur1, carte2Joueur2, carte2Joueur1, riviere, valeurMain) {
 
 	// VARIABLE 
 

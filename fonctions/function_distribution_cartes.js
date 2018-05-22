@@ -17,9 +17,10 @@ var function_distribution_cartes = function (joueurs, cartes, riviere) {
 	var contenuJoueur;
 	var contenuCarte;
 	var contenuRiviere;
-	var joueurs;
-	var cartes;
-	var riviere;
+	// UTILE ?
+	//var joueurs;
+	//var cartes;
+	//var riviere;
 
 	// VARIABLE
 	var i;

@@ -15,7 +15,7 @@ var function_melange_cartes = function (cartes) {
 
 // VARIABLES
 
-	var cartes;
+	//var cartes; UTILE ? 
 	var contenuCarte;
 	var i;
 	var tmp;
