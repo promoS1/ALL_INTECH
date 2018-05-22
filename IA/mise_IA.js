@@ -17,7 +17,7 @@ var mise_IA = function (req, res, query) {
 
 	var valeurMain;
 	var mise; // CE QUE LE JOUEUR VA METTRE DANS LE POT
-	var cagnotte; // CE QUE LE JOEUUR POSSEDE
+	var cagnotte; // CE QUE LE JOEUR POSSEDE
 
 	if (valeurMain === 1) {
 		mise = (cagnotte * 0,02);
