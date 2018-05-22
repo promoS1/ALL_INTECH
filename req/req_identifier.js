@@ -20,7 +20,6 @@ var trait = function (req, res, query) {
     var listeMembres;
 	var listeConnecte;
 	var nouveauConnecte;
-    var i;
 	var liste;
 	var connecte;
     var trouve;

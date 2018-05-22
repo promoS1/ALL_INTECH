@@ -1,7 +1,9 @@
+//=========================================================================
+// Traitement de main gagnante
+// Auteur : ALL IN'TECH
+// Version : 23/05/2018
+//=========================================================================
 "use strict";
-///////////////////////////////
-//MAIN GAGNANTE
-///////////////////////////////
 
 // EN TETE 
 
@@ -25,7 +27,7 @@ do {
 	for (i = 0 ; i < joueur.length ; i++) {
 		// PAIRE 1
 		if (joueur[i].carte1 !== joueur[i]carte2 && joueur[i].carte1 !== river1 && river1 !== river2 && river2 !== river3) {
-			valeur_main = 0;i
+			valeur_main = 0;
 		} else if (joueur[i].carte1 === river1 || joueur[i].carte1 === river2 || joueur[i].carte1 === river3) {
 			valeur_main = 1;
 			// DOUBLE PAIRE

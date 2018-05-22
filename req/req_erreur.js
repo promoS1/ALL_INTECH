@@ -8,8 +8,6 @@
 
 var fs = require("fs");
 var path = require("path");
-"use strict";
-
 
 var show_erreur = function (req, res, query) {
 
@@ -23,4 +21,3 @@ var show_erreur = function (req, res, query) {
 //--------------------------------------------------------------------------
 
 module.exports = show_erreur;
-

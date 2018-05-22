@@ -12,3 +12,4 @@
 - dans modele page adversaire le compte ne se met pas après le refresh 
 - afficher les parties disponibles à voir dans le salon et les envoyer vers modele page adversaire
 - quand on se connecte avant de refresh une premiere fois on a le marqueur {partie_en_attente}
+- quand l'admin lance la partie l'adversaire n'est pas redirigée vers la page
