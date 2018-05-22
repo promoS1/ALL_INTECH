@@ -12,7 +12,6 @@ var trait = function (req, res, query) {
 
     var marqueurs;
     var page;
-	var contenu;
 	var connecte;
 	var liste;
 	var contenu_fichier;	
@@ -20,13 +19,13 @@ var trait = function (req, res, query) {
 	// AFFICHAGE DES PARTIES EN ATTENTE
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
-	contenu = JSON.parse (contenu_fichier);
+	connecte = JSON.parse (contenu_fichier);
 
 	liste = "";
 
-	for (var i = 0 ; i < connecte.length ; i++) {
+	for (var i = 0 ; i < connecte[i].length ; i++) {
 		if (connecte[i].partie_en_attente === true) {
-			liste += "<form action = 'req_modele_page_joueur' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
+			liste += "<form action = 'req_actualiser_accueil_membre' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
 		}			
 	
 	}
