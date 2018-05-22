@@ -83,7 +83,7 @@ var trait = function (req, res, query) {
     if (trouve === false) {
         nouveauConnecte = {};
         nouveauConnecte.compte = query.compte;
-		nouveauConnecte.dispo = "true";
+		nouveauConnecte.connecte = true;
         listeConnecte[listeConnecte.length] = nouveauConnecte;
 
         contenu_fichier = JSON.stringify(listeConnecte);
@@ -91,25 +91,9 @@ var trait = function (req, res, query) {
         fs.writeFileSync("./json/connecte.json", contenu_fichier, 'utf-8');
     }
 
-
-	// AFFICHAGE JOUEURS DISPO POUR JOUER
-
-	//.?????
-
-
-
-
-
-
-
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(page);
     res.end();
-
-
-
-
-
 
 };
 

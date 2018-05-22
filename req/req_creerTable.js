@@ -24,17 +24,17 @@ var trait = function (req, res, query) {
     // AFFICHAGE DE LA PAGE D'ACCUEIL
 
 
-	// DONNE INFOS DE L'ADMIN 
+	// DONNE INFOS DE L'ADMIN DANS LE JSON
 
 	joueurs = [];
 	joueurs.compte = query.compte;
-	joueurs.debute = "true";
+	joueurs.partie_en_attente = true;
 	joueurs.position = "";
 	joueurs.cartes = "";
 	joueurs.solde = "";
 
-	contenuHotes = fs.readFileSync("./tables/hotes.json", "UTF-8");
-	hotes = JSON.parse(contenuHotes);
+//	contenuHotes = fs.readFileSync("./tables/hotes.json", "UTF-8");
+//	hotes = JSON.parse(contenuHotes);
 	
 	nouvelHote = {};
 	nouvelHote.pseudo = query.compte;
@@ -42,7 +42,8 @@ var trait = function (req, res, query) {
 
 	contenuHotes = JSON.stringify(hotes);
 	contenuHotes = fs.writeFileSync("./tables/hotes.json", contenuHotes, "UTF-8");
-
+	
+	// CREATION DU JSON AVEC LE NOM DE L'ADMIN
 
 	contenuPartie = JSON.stringify(joueurs);
 	fs.writeFileSync("./tables/" + query.compte + ".json", contenuPartie, "UTF-8");
