@@ -48,7 +48,7 @@ var trait = function (req, res, query) {
 	fs.writeFileSync("./tables/" + query.compte + ".json", contenuPartie, "UTF-8");
 
 	contenuRiviere = JSON.stringify(riviere);
-	fs.writeFileSync("./tables/" + query.compte + " Riviere.json", contenuRiviere);
+	fs.writeFileSync("./tables/" + query.compte +"Riviere.json", contenuRiviere);
 
     page = fs.readFileSync('./html/modele_page_table.html' , 'utf-8');
 
