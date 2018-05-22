@@ -21,16 +21,14 @@ var trait = function (req, res, query) {
 
     page = fs.readFileSync('html/modele_accueil_membre.html', 'utf-8');
 
-    marqueurs = {};
-    marqueurs.erreur = "";
-    marqueurs.compte = query.compte;
-    page = page.supplant(marqueurs);
+    
 	
 	
 	// AFFICHAGE DES PARTIES EN ATTENTE
 
-	contenu = fs.readFileSync("./json/connecte.json", "UTF-8");
-	
+	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
+	contenu = JSON.parse (contenu_fichier);
+
 	partie_en_attente = "";
 	
 	for (var i = 0 ; i < connecte.length ; i++) {
@@ -42,6 +40,11 @@ var trait = function (req, res, query) {
 
 	marqueurs.partie = partie_en_attente;
 	
+	
+	marqueurs = {};
+    marqueurs.compte = query.compte;
+    page = page.supplant(marqueurs);
+
 
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(page);
