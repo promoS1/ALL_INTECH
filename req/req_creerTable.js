@@ -17,6 +17,7 @@ var trait = function (req, res, query) {
 	var joueurs;
 	var pseudo;
 	var hotes;
+	var nouvelHote;
 	var contenuHotes;
 	var riviere;
 	var contenuRiviere;
@@ -35,12 +36,12 @@ var trait = function (req, res, query) {
 	contenuHotes = fs.readFileSync("./tables/hotes.json", "UTF-8");
 	hotes = JSON.parse(contenuHotes);
 	
-	hotes = [];
-	hotes.pseudo = query.compte;
-	hotes.push(hotes.pseudo);
+	nouvelHote = {};
+	nouvelHote.pseudo = query.compte;
+	hotes.push(nouvelHote);
 
 	contenuHotes = JSON.stringify(hotes);
-	fs.writeFileSync("./tables/hotes.json", contenuHotes, "UTF-8");
+	contenuHotes = fs.writeFileSync("./tables/hotes.json", contenuHotes, "UTF-8");
 
 
 	contenuPartie = JSON.stringify(joueurs);
