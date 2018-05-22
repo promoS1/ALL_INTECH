@@ -29,7 +29,6 @@ var req_nouvelle_partie = require ("./req/req_nouvelle_partie.js");
 var req_modele_page_resultat = require ("./req/req_modele_page_resultat.js");
 var req_retour_salon = require ("./req/req_retour_salon.js");
 var req_actualiser_accueil_membre = require ("./req/req_actualiser_accueil_membre.js");
-var req_actualiser_modele_page_visiteur = require ("./req/req_actualiser_modele_page_visiteur.js");
 var req_req_attendre_joueur = require ("./req/req_attendre_joueur.js");
 var req_attendre_debut = require ("./req/req_attendre_debut.js");
 var req_attendre_tour = require ("./req/req_attendre_tour.js");
@@ -115,9 +114,6 @@ var traite_requete = function (req, res) {
 			case 'req_modele_page_resultat':
                 req_modele_page_resultat(req, res, query);
                 break;
-			case '/req_actualiser_modele_page_visiteur':
-				req_actualiser_modele_page_visiteur(req, res, query);
-				break;
 			case '/req_attendre_joueur':
 				req_attendre_joueur(req, res, query);
 				break;
