@@ -21,6 +21,7 @@ var req_inscrire = require("./req/req_inscrire.js");
 var req_identifier = require("./req/req_identifier.js");
 var req_statique = require("./req/req_statique.js");
 var req_modele_page_joueur = require ("./req/req_modele_page_joueur.js");
+var req_quitter_table = require ("./req/req_quitter_table.js"); 
 var req_retour_modele_accueil = require("./req/req_modele_accueil.js");
 var req_modele_table_rejointe = require ("./req/req_modele_table_rejointe.js");
 var req_nouvelle_partie = require ("./req/req_nouvelle_partie.js");
