@@ -26,7 +26,7 @@ var trait = function (req, res, query) {
 
 	for (var i = 0 ; i < connecte.length ; i++) {
 		if (connecte[i].partie_en_attente === true) {
-			liste += "<form action = 'req_???????????' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
+			liste += "<form action = 'req_modele_page_joueur' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
 		}			
 	
 	}
