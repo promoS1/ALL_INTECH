@@ -21,7 +21,7 @@ var trait = function (req, res, query) {
 	joueurs = JSON.parse(contenu);
 
 // ON REGARDE SI L'ADMIN A LANCER LA PARTIE
-	connecte = {};
+	//connecte = {};
 	
 	if (connecte.debute === true) {
 		page = fs.readFileSync ('./html/modele_page_adversaire.html');
