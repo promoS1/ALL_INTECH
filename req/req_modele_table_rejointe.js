@@ -19,7 +19,7 @@ var trait = function (req, res, query) {
 // ON LIT LE FICHIER DES JOUEURS CONNECTES
 	contenu = fs.readFileSync("./json/connecte.json", "UTF-8");
 	joueurs = JSON.parse(contenu);
-
+	
 // ON REGARDE SI L'ADMIN A LANCER LA PARTIE
 	//connecte = {};
 	
