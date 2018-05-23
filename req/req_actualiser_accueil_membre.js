@@ -14,7 +14,7 @@ var trait = function (req, res, query) {
     var page;
 	var connecte;
 	var partie_en_attente;
-	var contenu_fichier;	
+	var contenu_fichier;
 
 // AFFICHAGE DES PARTIES EN ATTENTE
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
@@ -23,7 +23,7 @@ var trait = function (req, res, query) {
 	partie_en_attente = "";
 
 	for (var i = 0 ; i < connecte.length ; i++) {
-		if (connecte[i].partie_en_attente === true && connecte[i].compte !== query.compte) {
+		if (connecte[i].table !== "" && connecte[i].compte !== query.compte) {
 			partie_en_attente += "<form action = 'req_modele_table_rejointe' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
 		}			
 	

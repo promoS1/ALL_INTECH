@@ -26,9 +26,6 @@ var trait = function (req, res, query) {
 	partie.mise = [];
 	partie.solde = [];
 
-
-	JSON.parse	
-
 	contenuPartie = JSON.stringify(partie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenuPartie,  "UTF-8");
 
@@ -36,9 +33,9 @@ var trait = function (req, res, query) {
 	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
 	connecte = JSON.parse(contenu_fichier);
 	
-	for (i = 0 ; i < connecte.length ; i++) {
+	for (i = 0 ; i < connecte.length; i++) {
 		if (query.compte === connecte[i].compte) { 
-			connecte[i].partie_en_attente = true;
+			connecte[i].table = query.compte;
 		}
 	}
 	

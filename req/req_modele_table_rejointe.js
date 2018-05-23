@@ -1,4 +1,4 @@
-=========================================================================
+//=========================================================================
 // Traitement de "req_modele_table_rejointe"
 // Auteur : ALL IN'TECH 
 // Version : 23/05/2018
@@ -15,19 +15,22 @@ var trait = function (req, res, query) {
 	var contenu;
 	var joueurs;
 	var connecte;
+	var i;
 
 // ON LIT LE FICHIER DES JOUEURS CONNECTES
 	contenu = fs.readFileSync("./json/connecte.json", "UTF-8");
 	joueurs = JSON.parse(contenu);
 	
 // ON REGARDE SI L'ADMIN A LANCER LA PARTIE
-	//connecte = {};
+	connecte = {};
 	
-	if (connecte.debute === true) {
+for (i = 0; i < connecte.length; i++) {
+	if (connecte[i].table === "") {
 		page = fs.readFileSync ('./html/modele_page_adversaire.html');
-	} else if (connecte.debute !== true) {
+	} else {
 		page = fs.readFileSync ('./html/modele_table_rejointe.html');
 	}
+}
 
 // AFFICHAGE DE LA PAGE D'ACCUEIL
     page = fs.readFileSync('./html/modele_table_rejointe.html', 'utf-8');
