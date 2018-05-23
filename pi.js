@@ -109,7 +109,6 @@ var traite_requete = function (req, res) {
 			case '/req_attendre_tour':
 				req_attendre_tour(req, res, query);
 				break;
-			
 			case '/req_miser':
 				req_miser (req, res, query);
 				break;
@@ -149,5 +148,3 @@ mon_serveur = http.createServer(traite_requete);
 port = 5000;
 console.log("Serveur en ecoute sur port " + port);
 mon_serveur.listen(port);
-
-
