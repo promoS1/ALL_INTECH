@@ -36,6 +36,7 @@ var trait = function (req, res, query) {
 	marqueurs = {};
     marqueurs.compte = query.compte;
 	marqueurs.partie_en_attente = partie_en_attente;
+	marqueurs.table = query.table
     page = page.supplant(marqueurs);
 
 

@@ -14,39 +14,23 @@
 		
 		<label>A vous de jouer <em>{compte}</em>, que voulez vous faire ?</label><br><br>
 
-		<form action = "./req_miser" method = "GET">
-			<input type = "hidden" name = "compte" value="{compte}">
-			<input type = "submit" value = "Miser">
-		</form>
+		<a href = "./req_miser?compte={compte}&table={table}">Miser</a>
 
 		<br><br>
 
-		 <form action = "./req_checker" method = "GET">
-			<input type = "hidden" name = "compte" value="{compte}">
-			<input type = "submit" value = "Checker">
-		 </form>
+		 <a href = "./req_checker?compte={compte}&table={table}">Check</a>
 
 		<br><br>
 
-		<form action = "./req_relancer" method = "GET">
-			<input type = "hidden" name = "compte" value="{compte}">
-			<input type = "submit" value = "Relancer">
-		</form>
+		<a href = "./req_relancer?compte={compte}&table={table}">Relancer</a>
 
 		<br><br> 
 
-		<form action = "./req_suivre" method = "GET">
-			<input type = "hidden" name = "compte" value="{compte}">
-			<input type = "submit" value = "Suivre">
-		</form>
+		<a href = "./req_suivre?compte={compte}&table={table}">Suivre</a>
 
 		<br><br> 
 
-		<form action = "./req_coucher" method = "GET">
-		   <input type = "hidden" name = "compte" value="{compte}">
-		   <input type = "submit" value = "Se coucher">
-		</form>
-
+		<a href = "./req_coucher?compte={compte}&table={table}">Se coucher<a>
 
 	</body>
 

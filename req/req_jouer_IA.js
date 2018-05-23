@@ -1,6 +1,6 @@
 //=========================================================================
 // Traitement de "req_jouer_IA"
-// Auteur :ALL IN'TECH 
+// Auteur :ALL IN'TECH
 // Version : 25/04/2018
 //=========================================================================
 "use strict";
@@ -20,6 +20,7 @@ var trait = function (req, res, query) {
     marqueurs = {};
     marqueurs.erreur = "";
     marqueurs.compte = "";
+	marqueurs.table = query.table;
     page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});

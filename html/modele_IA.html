@@ -14,46 +14,26 @@
 
     <label>A vous de jouer <em>{compte}</em> contre M. ALL IN'TECH, que voulez vous faire ?</label><br><br>
 
-    <form action = "./req_miser" method = "GET">
-        <button name = "action" value = "miser">Miser</button>
-        <input type="hidden" name="compte" value="{compte}">
-    </form>
+    <a href = "./req_miser?compte={compte}&table={compte}">Miser</a>
 
     <br><br>
 
-     <form action = "./req_checker" method = "GET">
-        <input type="hidden" name="compte" value="{compte}">
-        <input type="hidden" name="compte" value="{compte}">
-        <button name = "action" value = "checker">Check</button>
-    </form>
+     <a href = "./req_checker?compte={compte}&table={compte}">checker</a>
 
     <br><br>
 
-    <form action = "./req_relancer" method = "GET">
-        <input type="hidden" name="compte" value="{compte}">
-        <button name = "action" value = "relancer">Relancer</button>
-    </form>
+    <a href = "./req_relancer?compte={compte}&table={compte}">Relancer></a>
 
     <br><br>
 
-    <form action = "./req_suivre" method = "GET">
-        <input type="hidden" name="compte" value="{compte}">
-        <button name = "action" value = "miser">Suivre</button>
-    </form>
+    <a href = "./req_suivre?compte={compte}&table={compte}">Suivre</a>
 
     <br><br>
 
-    <form action = "./req_coucher" method = "GET">
-        <input type="hidden" name="compte" value="{compte}">
-        <button name = "action" value = "coucher">Se coucher</button>
-    </form>
-	
+    <a href = "./req_coucher?compte={compte}&table={compte}">Coucher</a>
+
 	<br><br>
-
-	<form action = "./req_quitter_table_rejointe" method = "GET">
-        <button name = "action" value = "quitter">Retour au salon</button>
-    </form>
-
+	<a href = "./req_quitter_table_rejointe?compte={compte}&table={compte}">Quitter</a>
 
 </body>
 

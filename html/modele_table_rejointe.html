@@ -14,17 +14,9 @@
 
 		<br><br>
 
-  		<form action = "./req_modele_table_rejointe?compte={compte}" method = "GET">
-            <input type = "hidden" name = "compte" value = "{compte}">
-            <input type = "submit"  value = "Actualiser">
-         </form>
-	
+  		<a href = "./req_modele_table_rejointe?compte={compte}&table={table}">Actualiser<a>
 		<br><br>
-		
-		<form action = "./req_actualiser_accueil_membre" method = "GET">
-            <input type = "hidden" name = "compte" value = "{compte}">
-            <input type = "submit" value = "Retour salon">
-         </form>
+		<a href = "./req_actualiser_accueil_membre?compte={compte}&table={table}">Retour salon<a>
 	</body>
 
 </html>

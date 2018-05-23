@@ -15,11 +15,7 @@
 
 		<h2>Bonjour <em>{compte}</em></h2>
 
-		<form action="./req_actualiser_accueil_membre" method = "GET">
-            <input type = "hidden" name = "compte" value = "{compte}">
-            <input type = "submit" value = "Actualiser">
-        </form>
-
+		<a href="./req_actualiser_accueil_membre?compte={compte}">Actualiser</a>
 
 		</p>
 
@@ -27,9 +23,7 @@
 			
 			<h2>Création table</h2>
 
-			<a href="./req_creerTable?compte={compte}&table={compte}">
-				créer table
-			</a>
+			<a href="./req_creerTable?compte={compte}&table={compte}">créer table</a>
 		</fieldset>
 
 		<fieldset>
@@ -45,10 +39,7 @@
 		<fieldset>
 			
 			<h2>PARTIE LOCAL</h2>
-			<form action="./req_creerTable_IA" method="GET">
-				<input type = "hidden" name = "compte" value="{compte}">
-				<input type = "submit" value = "Jouer contre l'IA">
-			</form>
+			<a href="./req_creerTable_IA?compte={compte}"></a>
 		</fieldset>
 
 		<fieldset>

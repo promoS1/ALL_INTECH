@@ -39,7 +39,7 @@ adversaire = "";
 
     marqueurs = {};
     marqueurs.compte = query.compte;
-    marqueurs.adversaire = adversaire;
+    marqueurs.table = query.table;
 	page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});

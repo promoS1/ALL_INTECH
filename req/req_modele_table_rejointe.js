@@ -1,4 +1,4 @@
-//=========================================================================
+=========================================================================
 // Traitement de "req_modele_table_rejointe"
 // Auteur : ALL IN'TECH 
 // Version : 23/05/2018
@@ -34,6 +34,7 @@ var trait = function (req, res, query) {
 
 	marqueurs = {};
 	marqueurs.compte = query.compte;
+	marqueurs.table = query.table;
 	page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});
