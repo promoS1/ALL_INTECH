@@ -24,14 +24,13 @@ var trait = function (req, res, query) {
 	var connecte;
     var trouve;
 	var partie_en_attente;
+	var i;
 
-    // ON LIT LES COMPTES EXISTANTS
-
+// ON LIT LES COMPTES EXISTANTS
     contenu_fichier = fs.readFileSync("./json/membres.json", 'utf-8');    
     listeMembres = JSON.parse(contenu_fichier);
 
-    // ON VERIFIE QUE LE PSEUDO/PASSWORD EXISTE
-
+// ON VERIFIE QUE LE PSEUDO/PASSWORD EXISTE
     trouve = false;
     i = 0;
     while (i<listeMembres.length && trouve === false) {
@@ -43,12 +42,10 @@ var trait = function (req, res, query) {
         i++;
     }
 
-    // ON RENVOIT UNE PAGE HTML 
-
+// ON RENVOIT UNE PAGE HTML 
     if(trouve === false) {
 
-        // SI IDENTIFICATION INCORRECTE, ON REAFFICHE PAGE ACCUEIL AVEC ERREUR
-
+// SI IDENTIFICATION INCORRECTE, ON REAFFICHE PAGE ACCUEIL AVEC ERREUR
         page = fs.readFileSync('./html/modele_accueil.html', 'utf-8');
 
         marqueurs = {};
@@ -58,20 +55,17 @@ var trait = function (req, res, query) {
 
     } else {
 
-        // SI IDENTIFICATION OK, ON ENVOIE PAGE ACCUEIL MEMBRE
-
+// SI IDENTIFICATION OK, ON ENVOIE PAGE ACCUEIL MEMBRE
         page = fs.readFileSync('./html/modele_accueil_membre.html', 'UTF-8');
 
     }
 
 	
-	// ON LIT LES COMPTES CONNECTES
-
+// ON LIT LES COMPTES CONNECTES
     contenu_fichier = fs.readFileSync("./json/connecte.json", 'utf-8');
     listeConnecte = JSON.parse(contenu_fichier);
 
-    // ON VERIFIE QUE LE COMPTE N'EST PAS DEJA CONNECTE
-
+// ON VERIFIE QUE LE COMPTE N'EST PAS DEJA CONNECTE
     trouve = false;
     i = 0;
     while (i<listeConnecte.length && trouve === false) {
@@ -81,8 +75,7 @@ var trait = function (req, res, query) {
         i++;
     }
 
-    // SI PAS TROUVE, ON AJOUTE LE NOUVEAU COMPTE DANS LA LISTE DES COMPTES CONNECTES
-
+// SI PAS TROUVE, ON AJOUTE LE NOUVEAU COMPTE DANS LA LISTE DES COMPTES CONNECTES
     if (trouve === false) {
         nouveauConnecte = {};
         nouveauConnecte.compte = query.compte;
@@ -104,7 +97,7 @@ var trait = function (req, res, query) {
 
     for (var i = 0 ; i < connecte.length ; i++) {
         if (connecte[i].partie_en_attente === true && connecte[i].compte !== query.compte) {
-            partie_en_attente += "<form action = 'req_blabla?compte={compte}' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
+            partie_en_attente += "<form action = 'req_actualiser_accueil_membre?compte={compte}' method='GET'><input type='submit' name='compte' value='"+ connecte[i].compte +"'></form>";
         } 
 
     }

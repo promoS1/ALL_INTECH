@@ -36,7 +36,9 @@ var trait = function (req, res, query) {
 
 
 	for (var i = 0 ; i < connecte.length ; i++) {
-		connecte[i].debute = true;
+		if (query.compte === connecte[i].compte) {
+			connecte[i].debute = true;
+		}
 	}
 
     contenu_fichier = JSON.stringify (connecte);
