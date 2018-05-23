@@ -62,9 +62,6 @@ var trait = function (req, res, query) {
 
         page = fs.readFileSync('./html/modele_accueil_membre.html', 'UTF-8');
 
-        marqueurs = {};
-        marqueurs.compte = query.compte;
-        page = page.supplant(marqueurs);
     }
 
 	
@@ -111,6 +108,11 @@ var trait = function (req, res, query) {
         } 
 
     }
+
+	marqueurs = {};
+    marqueurs.compte = query.compte;
+	marqueurs.partie_en_attente = partie_en_attente;
+	page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(page);

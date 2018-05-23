@@ -23,7 +23,8 @@ var trait = function (req, res, query) {
     contenu_fichier = fs.readFileSync("./tables/"+query.adversaire+".json", "UTF-8");
     connecte = JSON.parse (contenu_fichier);
 
-    adversaire = "";
+/*
+adversaire = "";
 
     for (var i = 0 ; i < connecte.length ; i++) {
         if (connecte[i].partie_en_attente === true && connecte[i].compte !== query.compte) {
@@ -31,7 +32,7 @@ var trait = function (req, res, query) {
         }
 
     }
-
+*/
     // AFFICHAGE DE LA PAGE D'ACCUEIL
 
     page = fs.readFileSync('./html/modele_page_table.html', 'utf-8');

@@ -34,8 +34,10 @@ var trait = function (req, res, query) {
 	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
     connecte = JSON.parse(contenu_fichier);
 
-	debut = {};
-	connecte.debute = true;
+
+	for (var i = 0 ; i < connecte.length ; i++) {
+		connecte[i].debute = true;
+	}
 
     contenu_fichier = JSON.stringify (connecte);
     fs.writeFileSync ('./json/connecte.json' , contenu_fichier , 'utf-8');
