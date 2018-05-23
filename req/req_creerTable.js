@@ -30,12 +30,14 @@ var trait = function (req, res, query) {
 
 
 // DONNE INFOS DE L'ADMIN DANS LE JSON
-	joueurs = [];
-	joueurs.compte = query.compte;
+	joueurs = {};
+	joueurs.pseudo = query.compte;
 	joueurs.partie_en_attente = true;
 	joueurs.position = "";
-	joueurs.cartes = "";
 	joueurs.solde = "";
+	joueurs.Carte1 = [];
+	joueurs.Carte2 = [];
+	joueurs.valeurMain;
 
 
 // LANCEMENT PARTIE EN ATTENTE -> TRUE
