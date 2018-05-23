@@ -21,7 +21,7 @@ var trait = function (req, res, query) {
 	// REDIRECTION DEPUIS LA PAGE ADVERSAIRE
 	if (query.table+".tour" === i) {
 		for (i = 0 ; i < query.table.length ; i++) {
-		page = fs.readFileSync ('./html/modele_page_joueur' , 'utf-8);
+		page = fs.readFileSync ('./html/modele_page_joueur' , 'utf-8');
 				// ECRITURE JSON
 		contenu_fichier = JSON.stringify(tour);
 		fs.writeFileSync ("./json/"+query.table+".json" , contenu_fichier , "utf-8");
