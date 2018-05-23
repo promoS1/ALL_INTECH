@@ -20,14 +20,14 @@ var trait = function (req, res, query) {
 
 // AFFICHAGE DES JOUEURS EN ATTENTE A FINIR !!!!!!!!
 
-    contenu_fichier = fs.readFileSync("./tables/"+query.adversaire+".json", "UTF-8");
+    contenu_fichier = fs.readFileSync("./tables/"+query.table+".json", "UTF-8");
     connecte = JSON.parse (contenu_fichier);
 
 /*
 adversaire = "";
 
-    for (var i = 0 ; i < connecte.length ; i++) {
-        if (connecte[i].partie_en_attente === true && connecte[i].compte !== query.compte) {
+    for (var i = 0 ; i < connecte.length; i++) {
+        if (connecte[i].table!=== "" && connecte[i].compte !== query.compte) {
             adversaire +=  /// ??????
         }
 
