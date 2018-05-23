@@ -26,10 +26,10 @@ var trait = function (req, res, query) {
 	partie.mise = [];
 	partie.solde = [];
 
-	partie.joueurs[].push(query.compte);
+	partie.joueurs[0].push(query.compte);
 
 	contenuPartie = JSON.stringify(partie);
-	partie = fs.writeFileSync("./table/"+query.compte+".json, contenuPartie,  "UTF-8");
+	partie = fs.writeFileSync("./table/"+query.compte+".json", contenuPartie,  "UTF-8");
 
 // LANCEMENT PARTIE EN ATTENTE -> TRUE
 	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
