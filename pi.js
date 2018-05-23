@@ -24,18 +24,14 @@ var req_modele_page_joueur = require ("./req/req_modele_page_joueur.js");
 var req_quitter_table = require ("./req/req_quitter_table.js"); 
 var req_retour_modele_accueil = require("./req/req_modele_accueil.js");
 var req_modele_table_rejointe = require ("./req/req_modele_table_rejointe.js");
-var req_nouvelle_partie = require ("./req/req_nouvelle_partie.js");
 var req_modele_page_resultat = require ("./req/req_modele_page_resultat.js");
-var req_retour_salon = require ("./req/req_retour_salon.js");
 var req_actualiser_accueil_membre = require ("./req/req_actualiser_accueil_membre.js");
 var req_req_attendre_joueur = require ("./req/req_attendre_joueur.js");
 var req_attendre_debut = require ("./req/req_attendre_debut.js");
 var req_attendre_tour = require ("./req/req_attendre_tour.js");
-var req_jouer = require ("./req/req_jouer.js");
 var req_creerTable = require ("./req/req_creerTable.js");
 var req_attendre_joueur = require ("./req/req_attendre_joueur.js");
 var req_creerTable = require ("./req/req_creerTable.js");
-var req_attendre_partie = require ("./req/req_attendre_partie.js");
 var req_miser = require ("./req/req_miser.js");	
 var req_relancer = require ("./req/req_relancer.js"); 
 var req_checker = require ("./req/req_checker.js"); 
@@ -92,15 +88,9 @@ var traite_requete = function (req, res) {
 			case '/req_quitter_table':
                 req_quitter_table(req, res, query);
                 break;
-			case '/req_nouvelle_partie':
-                req_nouvelle_partie(req, res, query);
-                break;
 			case '/req_actualiser_accueil_membre':
 				req_actualiser_accueil_membre(req, res, query);
 				break;
-			case '/req_retour_salon':
-                req_retour_salon(req, res, query);
-                break;
 			case '/req_modele_table_rejointe':
                 req_modele_table_rejointe(req, res, query);
                 break;
@@ -119,12 +109,7 @@ var traite_requete = function (req, res) {
 			case '/req_attendre_tour':
 				req_attendre_tour(req, res, query);
 				break;
-			case '/req_jouer':
-				req_jouer(req, res, query);
-				break;
-			case '/req_attendre_partie':
-				req_attendre_partie (req, res, query);
-				break;
+			
 			case '/req_miser':
 				req_miser (req, res, query);
 				break;
