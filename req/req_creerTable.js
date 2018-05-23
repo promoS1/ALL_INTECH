@@ -1,4 +1,4 @@
-//========================================================================
+/========================================================================
 // Traitement de "req_creerTable"
 // Auteur : ALL'INTECH 
 // Version : 16/05/18
@@ -26,15 +26,15 @@ var trait = function (req, res, query) {
 	partie.mise = [];
 	partie.solde = [];
 
-	partie.joueurs[0].push(query.compte);
+
+	JSON.parse	
 
 	contenuPartie = JSON.stringify(partie);
-	partie = fs.writeFileSync("./table/"+query.compte+".json", contenuPartie,  "UTF-8");
+	fs.writeFileSync("./tables/"+query.compte+".json", contenuPartie,  "UTF-8");
 
 // LANCEMENT PARTIE EN ATTENTE -> TRUE
 	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
 	connecte = JSON.parse(contenu_fichier);
-
 	
 	for (i = 0 ; i < connecte.length ; i++) {
 		if (query.compte === connecte[i].compte) { 
@@ -48,7 +48,7 @@ var trait = function (req, res, query) {
     page = fs.readFileSync('./html/modele_page_table.html' , 'utf-8');
 
     marqueurs = {};
-    marqueurs.table = query.compte;
+    marqueurs.compte = query.compte;
     page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});

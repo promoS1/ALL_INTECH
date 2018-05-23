@@ -20,7 +20,6 @@ var cartes;
 
 var melanger = require("./fonctions/function_melange_cartes");
 var distribuer = require("./fonctions/function_distribution_cartes.js");
-
 var carteHaute = require("./fonctions/function_carte_haute.js");
 var paire = require("./fonctions/function_paire.js");
 var doublePaire = require("./fonctions/function_double_paire.js");

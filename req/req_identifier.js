@@ -59,7 +59,6 @@ var trait = function (req, res, query) {
         page = fs.readFileSync('./html/modele_accueil_membre.html', 'UTF-8');
 
     }
-
 	
 // ON LIT LES COMPTES CONNECTES
     contenu_fichier = fs.readFileSync("./json/connecte.json", 'utf-8');
@@ -79,8 +78,7 @@ var trait = function (req, res, query) {
     if (trouve === false) {
         nouveauConnecte = {};
         nouveauConnecte.compte = query.compte;
-		nouveauConnecte.connecte = true;
-		nouveauConnecte.partie_en_attente = false;
+		nouveauConnecte.table = "";
         listeConnecte[listeConnecte.length] = nouveauConnecte;
 
         contenu_fichier = JSON.stringify(listeConnecte);
