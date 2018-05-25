@@ -65,12 +65,12 @@ var trait = function (req, res, query) {
 	nouvellePartie.main = [];
 	
 	nouvellePartie.main[0] = [];
-	nouvellePartie.main[0].[0] = "";
-	nouvellePartie.main[0].[1] = "";
+	nouvellePartie.main[0][0] = "";
+	nouvellePartie.main[0][1] = "";
 	
 	nouvellePartie.main[1] = [];
-	nouvellePartie.main[0].[0] = "";
-	nouvellePartie.main[1].[1] = "";
+	nouvellePartie.main[0][0] = "";
+	nouvellePartie.main[1][1] = "";
 	
 	nouvellePartie.mise = [];
 	nouvellePartie.mise[0] = "";
