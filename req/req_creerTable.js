@@ -20,6 +20,9 @@ var trait = function (req, res, query) {
 	var nouvellePartie;
 
 /*
+
+	ON GARDE ????
+
 	partie.joueurs = [];
 	partie.enJeu = false;
 	partie.tour = 0;
