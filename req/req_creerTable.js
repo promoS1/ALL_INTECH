@@ -13,7 +13,7 @@ var trait = function (req, res, query) {
     var marqueurs;
     var page;
 	var partie = [];
-	var contenuPartie;
+	var contenu_partie;
 	var contenu_fichier;
 	var connecte;
 	var i;
@@ -31,8 +31,8 @@ var trait = function (req, res, query) {
 	partie.mise = [];
 	partie.solde = [];
 
-	contenuPartie = JSON.stringify(partie);
-	fs.writeFileSync("./tables/"+query.compte+".json", contenuPartie,  "UTF-8");
+	contenu_partie = JSON.stringify(partie);
+	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie,  "UTF-8");
 */
 	// LANCEMENT PARTIE EN ATTENTE -> TRUE
 	contenu_fichier = fs.readFileSync ('./json/connecte.json' , 'utf-8');
@@ -87,9 +87,9 @@ var trait = function (req, res, query) {
 
 	//listeConnecte[listeConnecte.length] = nouvellePartie;
 
-	contenu_fichier = JSON.stringify(nouvellePartie);
+	contenu_partie = JSON.stringify(nouvellePartie);
 
-	fs.writeFileSync("./json/"+query.compte+".json", contenu_fichier, 'utf-8');
+	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, 'utf-8');
 
 
 	// AFFICHAGE DE LA PAGE
@@ -98,6 +98,7 @@ var trait = function (req, res, query) {
 
     marqueurs = {};
     marqueurs.compte = query.compte;
+	marqueurs.tables = query.compte;
     page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});

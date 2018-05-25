@@ -17,11 +17,11 @@ var trait = function (req, res, query) {
 	var connecte;
 	var i;
 
-// ON LIT LE FICHIER DES JOUEURS CONNECTES
+// ON LIT LE FICHIER DES JOUEURS CONNECTÉS
 	contenu = fs.readFileSync("./json/connecte.json", "UTF-8");
 	joueurs = JSON.parse(contenu);
 	
-// ON REGARDE SI L'ADMIN A LANCER LA PARTIE
+// ON REGARDE SI L'ADMIN A LANCÉ LA PARTIE
 	connecte = {};
 	
 for (i = 0; i < connecte.length; i++) {
@@ -37,7 +37,7 @@ for (i = 0; i < connecte.length; i++) {
 
 	marqueurs = {};
 	marqueurs.compte = query.compte;
-	marqueurs.table = query.table;
+//	marqueurs.table = query.table;
 	page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});

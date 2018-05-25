@@ -20,19 +20,20 @@ var trait = function (req, res, query) {
 
 // AFFICHAGE DES JOUEURS EN ATTENTE A FINIR !!!!!!!!
 
-    contenu_fichier = fs.readFileSync("./tables/"+query.table+".json", "UTF-8");
+    contenu_fichier = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
     connecte = JSON.parse (contenu_fichier);
 
-/*
-adversaire = "";
+
+adversaire = [];;
 
     for (var i = 0 ; i < connecte.length; i++) {
-        if (connecte[i].table!=== "" && connecte[i].compte !== query.compte) {
-            adversaire +=  /// ??????
+        if (connecte[i].table === query.compte && connecte[i].compte !== query.compte) {
+            adversaire += connecte[i].compte;
+			console.log(adversaire)
         }
 
     }
-*/
+
     // AFFICHAGE DE LA PAGE D'ACCUEIL
 
     page = fs.readFileSync('./html/modele_page_table.html', 'utf-8');
