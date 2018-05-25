@@ -14,7 +14,7 @@ var fs = require("fs");
 var function_distribution_cartes = function (joueurs, riviere) {
 
 	// VARIABLE  JSON
-	var contenuJoueur;
+	//var contenuJoueur;
 	var contenuCarte;
 	//var contenuRiviere;
 	// UTILE ?
@@ -44,7 +44,7 @@ var function_distribution_cartes = function (joueurs, riviere) {
 	for(i = 0; i < joueurs.length ; i++){
 		joueurs.main[0][i].push(cartes[x]);
 		x++;
-		joueurs.main[0][i].push(cartes[x]);
+		joueurs.main.Carte2.push(cartes[x]);
 		x++;
 	}	
 
@@ -52,7 +52,7 @@ var function_distribution_cartes = function (joueurs, riviere) {
 
 		y = cartes.length-1;
 	for(i = 0; i < 5; i++){
-		riviere.river.push(cartes[y]);
+		riviere.push(cartes[y]);
 		y--;
 	}
 
