@@ -11,15 +11,15 @@ var fs = require("fs");
 
 // DEBUT DE LA FONCTION
 
-var function_distribution_cartes = function (joueurs, cartes, riviere) {
+var function_distribution_cartes = function (joueurs, riviere) {
 
 	// VARIABLE  JSON
 	var contenuJoueur;
 	var contenuCarte;
-	var contenuRiviere;
+	//var contenuRiviere;
 	// UTILE ?
 	//var joueurs;
-	//var cartes;
+	var cartes;
 	//var riviere;
 
 	// VARIABLE
@@ -32,8 +32,8 @@ var function_distribution_cartes = function (joueurs, cartes, riviere) {
 //	contenuJoueur = fs.readFileSync("./json/table1.json", "UTF-8");
 //	joueurs = JSON.parse(contenuJoueur);
 
-//	contenuCarte = fs.readFileSync("./json/testcartes.json", "UTF-8");
-//	cartes = JSON.parse(contenuCarte);
+	contenuCarte = fs.readFileSync("./json/testcartes.json", "UTF-8");
+	cartes = JSON.parse(contenuCarte);
 
 //	contenuRiviere = fs.readFileSync("./json/riviere.json", "UTF-8");
 //	riviere = JSON.parse(contenuRiviere);
@@ -42,9 +42,9 @@ var function_distribution_cartes = function (joueurs, cartes, riviere) {
 
 		x = 0;
 	for(i = 0; i < joueurs.length ; i++){
-		joueurs[i].Carte1.push(cartes[x]);
+		joueurs.main[0][i].push(cartes[x]);
 		x++;
-		joueurs[i].Carte2.push(cartes[x]);
+		joueurs.main[0][i].push(cartes[x]);
 		x++;
 	}	
 
@@ -52,7 +52,7 @@ var function_distribution_cartes = function (joueurs, cartes, riviere) {
 
 		y = cartes.length-1;
 	for(i = 0; i < 5; i++){
-		riviere.push(cartes[y]);
+		riviere.river.push(cartes[y]);
 		y--;
 	}
 
@@ -61,8 +61,8 @@ var function_distribution_cartes = function (joueurs, cartes, riviere) {
 //	contenuJoueur = JSON.stringify(joueurs);
 //	fs.writeFileSync("./json/table1.json", contenuJoueur, "UTF-8");
 
-//	contenuCarte = JSON.stringify(cartes);
-//	fs.writeFileSync("./json/testcartes.json", contenuCarte, "UTF-8");
+	contenuCarte = JSON.stringify(cartes);
+	fs.writeFileSync("./json/testcartes.json", contenuCarte, "UTF-8");
 
 //	contenuRiviere = JSON.stringify(riviere);
 //	fs.writeFileSync("./json/riviere.json", contenuRiviere, "UTF-8");
