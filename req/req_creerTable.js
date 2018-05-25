@@ -51,39 +51,43 @@ var trait = function (req, res, query) {
 	// ECRITURE DU JSON DE PARTIE
 
 	nouvellePartie = {};
-	nouvellePartie.compte = query.compte;
+	nouvellePartie.admin = query.compte;
 	nouvellePartie.en_jeu = false;
 	
 	nouvellePartie.joueurs = [];
-	nouvellePartie.joueurs[0] = "";
-	nouvellePartie.joueurs[1] = "";
-	
+	nouvellePartie.joueurs[0] = query.compte;
+	//nouvellePartie.joueurs[1] = "titi";
+	//nouvellePartie.joueurs[2] = "toto"
+
 	nouvellePartie.river = [];
-	nouvellePartie.river[0] = "";
-	nouvellePartie.river[1] = "";
-	nouvellePartie.river[2] = "";
-	nouvellePartie.river[3] = "";
-	nouvellePartie.river[4] = "";
+	nouvellePartie.river[0] = {"valeur" : "4" , "couleur" : "k"};
+	nouvellePartie.river[1] = {"valeur" : "3" , "couleur" : "p"};
+	nouvellePartie.river[2] = {"valeur" : "12" , "couleur" : "c"};
+	nouvellePartie.river[3] = {"valeur" : "5" , "couleur" : "t"};
+	nouvellePartie.river[4] = {"valeur" : "6" , "couleur" : "k"};
 
 	nouvellePartie.main = [];
-	
 	nouvellePartie.main[0] = [];
-	nouvellePartie.main[0][0] = "";
-	nouvellePartie.main[0][1] = "";
-	
+	nouvellePartie.main[0][0] = {"valeur" : "9" , "couleur" : "p"};
+	nouvellePartie.main[0][1] = {"valeur" : "2" , "couleur" : "k"}; 
+
 	nouvellePartie.main[1] = [];
-	nouvellePartie.main[0][0] = "";
-	nouvellePartie.main[1][1] = "";
-	
+	nouvellePartie.main[1][0] = {"valeur" : "10" ,"couleur" : "p"};
+	nouvellePartie.main[1][1] = {"valeur" : "8" ,"couleur" : "t"};
+
+	nouvellePartie.main[2] = [];
+	nouvellePartie.main[2][0] = {"valeur" : "9" , "couleur": "t"};
+	nouvellePartie.main[2][1] = {"valeur" : "11" , "couleur" : "k"};
+
 	nouvellePartie.mise = [];
-	nouvellePartie.mise[0] = "";
-	nouvellePartie.mise[1] = "";
+	nouvellePartie.mise[0] = "4";
+	nouvellePartie.mise[1] = "5";
+	nouvellePartie.mise[2] = "3444";
 
 	nouvellePartie.solde = [];
-	nouvellePartie.solde[0] = "";
-	nouvellePartie.solde[1] = "";
-
-
+	nouvellePartie.solde[0] = "44";
+	nouvellePartie.solde[1] = "33";
+	nouvellePartie.solde[2] = "2408";
 
 	//listeConnecte[listeConnecte.length] = nouvellePartie;
 
