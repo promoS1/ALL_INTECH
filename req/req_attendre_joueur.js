@@ -24,12 +24,11 @@ var trait = function (req, res, query) {
     connecte = JSON.parse (contenu_fichier);
 
 
-adversaire = [];;
+adversaire = [];
 
     for (var i = 0 ; i < connecte.length; i++) {
-        if (connecte[i].table === query.compte && connecte[i].compte !== query.compte) {
+        if (connecte[i].table === query.table && connecte[i].compte !== query.compte) {
             adversaire += connecte[i].compte;
-			console.log(adversaire)
         }
 
     }
