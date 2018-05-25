@@ -60,34 +60,39 @@ var trait = function (req, res, query) {
 	//nouvellePartie.joueurs[2] = "toto"
 
 	nouvellePartie.river = [];
-	nouvellePartie.river[0] = {"valeur" : "4" , "couleur" : "k"};
-	nouvellePartie.river[1] = {"valeur" : "3" , "couleur" : "p"};
-	nouvellePartie.river[2] = {"valeur" : "12" , "couleur" : "c"};
-	nouvellePartie.river[3] = {"valeur" : "5" , "couleur" : "t"};
-	nouvellePartie.river[4] = {"valeur" : "6" , "couleur" : "k"};
+	nouvellePartie.river[0] = {"valeur" : 0 , "couleur" : "k"};
+	nouvellePartie.river[1] = {"valeur" : 0 , "couleur" : "p"};
+	nouvellePartie.river[2] = {"valeur" : 0 , "couleur" : "c"};
+	nouvellePartie.river[3] = {"valeur" : 0 , "couleur" : "t"};
+	nouvellePartie.river[4] = {"valeur" : 0 , "couleur" : "k"};
 
 	nouvellePartie.main = [];
 	nouvellePartie.main[0] = [];
-	nouvellePartie.main[0][0] = {"valeur" : "9" , "couleur" : "p"};
-	nouvellePartie.main[0][1] = {"valeur" : "2" , "couleur" : "k"}; 
+	nouvellePartie.main[0][0] = {"valeur" : 0 , "couleur" : "p"};
+	nouvellePartie.main[0][1] = {"valeur" : 0 , "couleur" : "k"}; 
 
 	nouvellePartie.main[1] = [];
-	nouvellePartie.main[1][0] = {"valeur" : "10" ,"couleur" : "p"};
-	nouvellePartie.main[1][1] = {"valeur" : "8" ,"couleur" : "t"};
+	nouvellePartie.main[1][0] = {"valeur" : 0 ,"couleur" : "p"};
+	nouvellePartie.main[1][1] = {"valeur" : 0 ,"couleur" : "t"};
 
 	nouvellePartie.main[2] = [];
-	nouvellePartie.main[2][0] = {"valeur" : "9" , "couleur": "t"};
-	nouvellePartie.main[2][1] = {"valeur" : "11" , "couleur" : "k"};
+	nouvellePartie.main[2][0] = {"valeur" : 0 , "couleur": "t"};
+	nouvellePartie.main[2][1] = {"valeur" : 0 , "couleur" : "k"};
 
 	nouvellePartie.mise = [];
-	nouvellePartie.mise[0] = "4";
-	nouvellePartie.mise[1] = "5";
-	nouvellePartie.mise[2] = "3444";
+	nouvellePartie.mise[0] = 0 ;
+	nouvellePartie.mise[1] = 0 ;
+	nouvellePartie.mise[2] = 0 ;
+	
+	for (var i = 0 ; i < nouvellePartie.mise[i] ; i++) {
+		nouvellePartie.solde += nouvellePartie.mise[i];
+	}
 
 	nouvellePartie.solde = [];
 	nouvellePartie.solde[0] = "44";
 	nouvellePartie.solde[1] = "33";
 	nouvellePartie.solde[2] = "2408";
+
 
 	//listeConnecte[listeConnecte.length] = nouvellePartie;
 
