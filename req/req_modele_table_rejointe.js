@@ -37,7 +37,7 @@ for (i = 0; i < connecte.length; i++) {
 
 	marqueurs = {};
 	marqueurs.compte = query.compte;
-//	marqueurs.table = query.table;
+	marqueurs.table = query.table;
 	page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});
