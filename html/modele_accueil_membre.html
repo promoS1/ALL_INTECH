@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Accueil membre</title>
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	</head>
+
+	<body>
+		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
+		
+
+		<center><img src = "./img/logo/logo-final-584-289.png"></center>
+		<center><h2>Bienvenue sur la page d'accueil membre !</h2></center>
+
+		<label>Bonjour <em>{compte}</em></label>
+
+		</p>
+
+		<fieldset>
+			
+			<h2>Création table</h2>
+
+			<form action="./req_creerTable" method="GET">
+				<input type = "hidden" name = "compte" value="{compte}">
+				<input type = "submit" value = "Créer une partie">
+			</form>
+		</fieldset>
+
+		<fieldset>
+
+			<h2>Partie disponible à rejoindre</h2>
+		
+			<form action = "./req_modele_table_rejointe" method="GET">
+				<input type = "hidden" name = "compte" value = "{compte}">
+				<input type = "submit" value = "Table XXXX"> 
+			</form>
+
+		</fieldset>
+
+		<fieldset>
+			
+			<h2>PARTIE LOCAL</h2>
+			<form action="./req_creerTable_IA" method="GET">
+				<input type = "hidden" name = "compte" value="{compte}">
+				<input type = "submit" value = "Jouer contre l'IA">
+			</form>
+		</fieldset>
+
+		<fieldset>
+
+			</hr>
+
+			<h2>Partie accessibles visiteur</h2>
+
+			<form action="/req_modele_adversaire" method="GET">
+				
+				<input type = "hidden" name = "compte" value="{compte}">
+                <input type = "submit" value = "Table XXX">
+			</form>
+
+		</fieldset>
+
+		<br>
+
+		<form action="./req_actualiser_accueil_membre" method = "GET">
+			<input type = "hidden" name = "compte" value = "{compte}">
+			<input type = "submit" value = "Actualiser">
+		</form>
+
+	</body>
+
+</html>
