@@ -43,7 +43,7 @@ var valeurMain;
 
 // LECTURE JSON
 
-contenuJoueur = fs.readFileSync("./json/table1.json", "UTF-8");
+contenuJoueur = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
 joueurs = JSON.parse(contenuJoueur);
 
 contenuRiviere = fs.readFileSync("./json/riviere.json", "UTF-8");
@@ -88,7 +88,7 @@ console.log("Le joueur " + i + " a comme valeur de main: " + valeurMain);
 // ECRITURE JSON
 
 contenuJoueur = JSON.stringify(joueurs);
-fs.writeFileSync("./json/"+query.compte".json", contenuJoueur, "UTF-8");
+fs.writeFileSync("./json/"+query.compte+".json", contenuJoueur, "UTF-8");
 
 contenuRiviere = JSON.stringify(riviere);
 fs.writeFileSync("./json/riviere.json", contenuRiviere, "UTF-8");
