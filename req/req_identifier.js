@@ -77,10 +77,12 @@ var trait = function (req, res, query) {
 // SI PAS TROUVE, ON AJOUTE LE NOUVEAU COMPTE DANS LA LISTE DES COMPTES CONNECTES
     if (trouve === false) {
         nouveauConnecte = {};
-        nouveauConnecte.compte = query.compte;
+		nouveauConnecte.compte = query.compte;
+		nouveauConnecte.connecte = true;
+		nouveauConnecte.libre = false;
 		nouveauConnecte.table = "";
         listeConnecte[listeConnecte.length] = nouveauConnecte;
-
+		
         contenu_fichier = JSON.stringify(listeConnecte);
 
         fs.writeFileSync("./json/connecte.json", contenu_fichier, 'utf-8');
@@ -102,6 +104,7 @@ var trait = function (req, res, query) {
 
 	marqueurs = {};
     marqueurs.compte = query.compte;
+	marqueurs.adversaire = query.adversaire;
 	marqueurs.partie_en_attente = partie_en_attente;
 	page = page.supplant(marqueurs);
 
