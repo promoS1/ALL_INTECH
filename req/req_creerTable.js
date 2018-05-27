@@ -53,8 +53,8 @@ var trait = function (req, res, query) {
 	
 	// APPEL DU MODULE
 
-	melange = require("./fonctions/function_melange_cartes.js");
-	distribution = require("./fonctions/function_distribution_cartes.js");
+	melange = require("../fonctions/function_melange_cartes.js");
+	distribution = require("../fonctions/function_distribution_cartes.js");
 
 	// ECRITURE DU JSON DE PARTIE
 
