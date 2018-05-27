@@ -1,1 +1,1 @@
-[{"compte":"a","connecte":true,"libre":true,"table":"a"},{"compte":"b","connecte":true,"libre":true,"table":""},{"compte":"c","connecte":true,"libre":true,"table":""},{"compte":"d","connecte":true,"libre":true,"table":""},{"compte":"nahel","connecte":true,"libre":true,"table":""}]
+[{"compte":"b","connecte":"attente","libre":true,"table":"b","adversaire":"a"},{"compte":"a","connecte":"attente","libre":true,"table":""}]

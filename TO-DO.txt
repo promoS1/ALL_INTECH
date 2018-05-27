@@ -6,3 +6,4 @@
 - afficher les cartes sur la page du joueur
 - distribuer les cartes à des joueurs
 - rajouter un marqueurs table dans toutes les query
+- bouton deconnexion

@@ -39,7 +39,7 @@ var req_attendre_tour = require ("./req/req_attendre_tour.js");
 var req_salon_multi = require ("./req/req_salon_multi.js");
 var req_reponse_defi = require ("./req/req_reponse_defi.js");
 var req_page_adversaire = require ("./req/req_page_adversaire.js");
-
+var req_reponse_hote = require ("./req/req_reponse_hote.js");
 
 var req_erreur = require("./req/req_erreur.js");
 
@@ -132,7 +132,9 @@ var traite_requete = function (req, res) {
 			case '/req_page_adversaire':
 				req_page_adversaire (req, res, query);
 				break;
-
+			case '/req_reponse_hote':
+				req_reponse_hote (req, res, query);
+				break;
             default:
                 req_statique(req, res, pathname);
                 break;
