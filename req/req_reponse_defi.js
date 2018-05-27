@@ -16,7 +16,7 @@ var trait = function (req, res, query) {
 	var compte;
 	var adversaire_trouve;
 	var adversaire;
-	var liste;
+	var balise;
 	var i;
 	var marqueurs;
 	var page;
@@ -51,10 +51,10 @@ var trait = function (req, res, query) {
 	}
 
 
-	liste= "";
+	balise = "";
 	for (i = 0; i < liste_membres.length; i++) {
 		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
-			liste += "<form action = './req/req_page_adversaire' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+			balise += "<form action = './req/req_creerTable.js' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
 

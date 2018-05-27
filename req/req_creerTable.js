@@ -84,7 +84,7 @@ var trait = function (req, res, query) {
 	nouvellePartie.mise[1] = 0 ;
 	nouvellePartie.mise[2] = 0 ;
 	
-	for (var i = 0 ; i < nouvellePartie.mise[i] ; i++) {
+	for (i = 0 ; i < nouvellePartie.mise[i] ; i++) {
 		nouvellePartie.solde += nouvellePartie.mise[i];
 	}
 
@@ -98,12 +98,12 @@ var trait = function (req, res, query) {
 
 	contenu_partie = JSON.stringify(nouvellePartie);
 
-	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, 'utf-8');
+	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
 
 	// AFFICHAGE DE LA PAGE
 
-    page = fs.readFileSync('./html/modele_page_table.html' , 'utf-8');
+    page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
 
     marqueurs = {};
     marqueurs.compte = query.compte;

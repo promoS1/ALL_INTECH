@@ -82,9 +82,6 @@ var traite_requete = function (req, res) {
 				req_creerTable(req, res, query);
 				break;
 			case '/req_modele_page_joueur':
-				req_modele_page_joueur(req, res, query);
-				break;
-			case '/req_modele_page_joueur':
                 req_modele_page_joueur(req, res, query);
                 break;
 			case '/req_actualiser_accueil_membre':
