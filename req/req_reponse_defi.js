@@ -13,33 +13,30 @@ var trait = function (req, res, query) {
 
 	var marqueurs;
 	var contenu_fichier;
-	var liste_membres;
+	var membres;
 	var i;
 	var page;
 	var marqueurs = {};
 
-	// LIRE LE JSON POUR VÉRIFIÉ LES JOUEURS PRÉSENT DANS LE SALON
+	// LECTURE DU JSON
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
 	liste_membres = JSON.parse (contenu_fichier);
 
-
 	// MODIFICATION DU JSON CONNECTE.JSON
-	for (i = 0; i < liste_membres.length; i++) {
-		if (liste_membres[i].compte === query.compte) {
-			liste_membres[i].connecte = "attente";
-			liste_membres[i].adversaire = query.adversaire;
-		} else if ( liste_membres[i].compte === query.adversaire ) {
-			liste_membres[i].connecte = "attente";
-			liste_membres[i].adversaire = query.compte;
+	for (i = 0; i < membres.length; i++) {
+		if (membres[i].compte === query.compte) {
+			membres[i].connecte = "attente";
+			membres[i].adversaire = query.adversaire;
+		} else if ( membres[i].compte === query.adversaire ) {
+			membres[i].connecte = "attente";
+			membres[i].adversaire = query.compte;
 		}
 	}
 
-
-	// ECRITURE DU NOUVEAU JSON "SALON.JSON"
-
-	contenu_fichier = JSON.stringify(liste_membres);
+	contenu_fichier = JSON.stringify(membres);
 	fs.writeFileSync("./json/connecte.json", contenu_fichier, "utf-8");
 
+	// AFFICHAGE DE LA PAGE ATTENDRE REPONSE
 	page = fs.readFileSync("./html/modele_attendre_reponse.html", "utf-8");
 
 	marqueurs.adversaire = query.adversaire;

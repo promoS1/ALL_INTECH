@@ -18,15 +18,13 @@ var trait = function (req, res, query) {
 	var membre_connecte;
 	var contenu_fichier;
 	var liste_membres;
-	var liste;
+	var joueurs;
 	var test;
-
-	// RECUPERATION DU JSON "connecte.json"
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json", 'utf-8');
 	liste_membres = JSON.parse(contenu_fichier);
 
-	// PREMIER CAS : LE JOUEUR EST DANS LE JSON "connecte.json"
+	// JOUEUR DEJA DANS CONNECTE.JSON
 	test = false;
 	for(i = 0; i < liste_membres.length; i++) {
 		if(liste_membres[i].compte === query.compte) {
@@ -40,9 +38,7 @@ var trait = function (req, res, query) {
 
 
 
-	//SECOND CAS : LE JOUEUR N'EST PAS PRÉSENT DANS LE JSON "connecte.json" 
-	
-
+	//JOUEUR ABSENT DANS CONNECTE.JSON
 	if(test === false) {
 		membre_connecte = {};
 		membre_connecte.compte = query.compte;
@@ -58,22 +54,23 @@ var trait = function (req, res, query) {
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json", 'utf-8');
 	liste_membres = JSON.parse(contenu_fichier);
-
-	liste= "";
+	
+	// CREATION DU MARQUEUR JOUEUR
+	joueurs = "";
 	for (i = 0; i < liste_membres.length; i++) {
 		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
-			liste += "<form action = './req_reponse_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+			joueurs = joueurs + "<form action = './req_reponse_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
 
 	
-	// AFFICHAGE DE LA PAGE
+	// AFFICHAGE DE LA PAGE SALON MULTI
 	page = fs.readFileSync('./html/modele_salon_multi.html', 'UTF-8');
 
 	marqueurs = {};
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
-	marqueurs.joueurs = liste;
+	marqueurs.joueurs = joueurs;
 	page = page.supplant(marqueurs);
 
 	res.writeHead(200, {'Content-Type': 'text/html'});

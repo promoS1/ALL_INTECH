@@ -1,1 +1,1 @@
-[{"compte":"b","connecte":"attente","libre":true,"table":"b","adversaire":"a"},{"compte":"a","connecte":"attente","libre":true,"table":""}]
+[{"compte":"b","connecte":"attente","libre":true,"table":"b"},{"compte":"a","connecte":"attente","libre":true,"table":"a","adversaire":"b"}]

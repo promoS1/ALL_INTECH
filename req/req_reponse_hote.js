@@ -16,16 +16,17 @@ var trait = function (req, res, query) {
 	var compte;
 	var adversaire_trouve;
 	var adversaire;
-	var balise;
+	var joueurs;
 	var i;
 	var marqueurs;
 	var page;
 
 
-	// LECTURE DU JSON "connecte.json"
+	// LECTURE DU JSON 
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
 	liste_membres = JSON.parse(contenu_fichier);
-
+	
+	// ON DONNE LA DISPONIBILITE DE CHAQUE JOUEURS
 	adversaire_trouve = false;
 	for (i = 0 ; i < liste_membres.length; i++) {
 		if (liste_membres[i].compte === query.compte) {
@@ -37,8 +38,7 @@ var trait = function (req, res, query) {
 		}
 	}
 
-
-	// REDIRECTION VERS PAGE HTML SI JOUEUR DÉFIÉ
+	// ENVOIE VERS LES DIFFERENTES PAS HTML EN FONCTION DU STATUT
 	if (adversaire_trouve === false) {
 		page = fs.readFileSync ("./html/modele_salon_multi.html","UTF-8");
 	} else if (adversaire_trouve === true) {
@@ -46,18 +46,18 @@ var trait = function (req, res, query) {
 	} else {
 		page = fs.readFileSync ("./html/modele_accueil_membre.html" , "UTF-8");
 	}
-
-
-	balise = "";
+/*
+	// CREATION DU MARQUEUR JOUEURS
+	joueurs = "";
 	for (i = 0; i < liste_membres.length; i++) {
 		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
-			balise += "<form action = './req_reponse_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+			joueurs = joueurs + "<form action = './req_reponse_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
-
+*/
 	// MARQUEURS
 	marqueurs = {};
-	marqueurs.joueurs = balise;
+	marqueurs.joueurs = joueurs;
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = adversaire;
 	page = page.supplant(marqueurs);
