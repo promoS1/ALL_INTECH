@@ -59,7 +59,7 @@ var trait = function (req, res, query) {
 	}
 
 	marqueurs = {};
-	marqueurs.joueurs = liste;
+	marqueurs.joueurs = balise;
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = adversaire;
 	page = page.supplant(marqueurs);
