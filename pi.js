@@ -1,7 +1,7 @@
 //=========================================================================
 // Site WEB  PI ALL IN'TECH
 // Auteur : ALL IN'TECH
-// Version : 15/05/2018
+// Version : 27/05/2018
 //=========================================================================
 
 "use strict";
@@ -126,9 +126,9 @@ var traite_requete = function (req, res) {
 			case '/req_attendre_tour':
 				req_attendre_tour (req, res, query);
 				break;
-			case 'req_salon_mutli':
+			case '/req_salon_multi':
 				req_salon_multi (req, res, query);
-				break;
+				break;			
 			case 'req_reponse_defi':
 				req_reponse_defi (req, res, query);
 				break;

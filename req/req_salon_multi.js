@@ -1,7 +1,12 @@
+//=========================================================================
+// Traitement de "req_salon_multi"
+// Auteur :ALL IN'TECH 
+// Version : 27/05/2018
+//=========================================================================
 "use strict";
 
 var fs = require("fs");
-require('remedial');
+var remedial = require('remedial');
 
 var trait = function (req, res, query) {
 
@@ -23,8 +28,8 @@ var trait = function (req, res, query) {
 
 	// PREMIER CAS : LE JOUEUR EST DANS LE JSON "connecte.json"
 	test = false;
-	for(i = 0; i < liste_membres.length; i++){
-		if(liste_membres[i].compte === query.compte){
+	for(i = 0; i < liste_membres.length; i++) {
+		if(liste_membres[i].compte === query.compte) {
 			test = true;
 			liste_membres[i].connecte = true;
 			liste_membres[i].libre = true;
@@ -33,10 +38,12 @@ var trait = function (req, res, query) {
 		}
 	}
 
-	//SECOND CAS : LE JOUEUR N'EST PAS PRÉSENT DANS LE JSON "salon.json" 
-	//-->(première connexion)
 
-	if(test === false){
+
+	//SECOND CAS : LE JOUEUR N'EST PAS PRÉSENT DANS LE JSON "connecte.json" 
+	
+
+	if(test === false) {
 		membre_connecte = {};
 		membre_connecte.compte = query.compte;
 		membre_connecte.connecte = true;
@@ -49,16 +56,17 @@ var trait = function (req, res, query) {
 	}
 
 
-
-	contenu_fichier = fs.readFileSync("./json/conencte.json", 'utf-8');
+	contenu_fichier = fs.readFileSync("./json/connecte.json", 'utf-8');
 	liste_membres = JSON.parse(contenu_fichier);
 
 	liste= "";
 	for (i = 0; i < liste_membres.length; i++) {
-		if (liste_membres[i].compte !== query.compte && liste_membres[i].etat === "connecté" && liste_membres[i].libre === "oui") {
-			liste += "<form action = 'req_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
+			liste += "<form action = './req/req_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
+
+	
 	// AFFICHAGE DE LA PAGE
 	page = fs.readFileSync('./html/modele_salon_multi.html', 'UTF-8');
 
@@ -71,6 +79,7 @@ var trait = function (req, res, query) {
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);
 	res.end();
+
 };
 
 //---------------------------------------------------------------------------

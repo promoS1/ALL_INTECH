@@ -1,7 +1,12 @@
+//=========================================================================
+// Traitement de "req_reponse_defi"
+// Auteur :ALL IN'TECH 
+// Version : 27/05/2018
+//=========================================================================
 "use strict";
 
 var fs = require("fs");
-require('remedial');
+var remedial = require('remedial');
 
 
 var trait = function (req, res, query) {

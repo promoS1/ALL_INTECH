@@ -1,1 +1,1 @@
-[{"compte":"a","table":"a"},{"compte":"b","table":"b"},{"compte":"q","table":""}]
+[{"compte":"a","connecte":true,"libre":false,"table":""},{"compte":"b","connecte":true,"libre":false,"table":""},{"compte":"c","connecte":true,"libre":true,"table":""}]
