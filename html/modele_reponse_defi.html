@@ -1,42 +1,35 @@
-
-<!doctype html>
-
+<!DOCTYPE HTML>
 <html>
-
     <head>
         <meta charset = "UTF-8">
-	    <title>réponse défis</title>
+	    <title>Reponse defi</title>
+		<link rel="shortcut icon" href="./img/Jeton-de-poker-en-carton-mini.jpg" type="image/x-icon" />
     </head>
 
 	<body>
-
-		<body background = "./img/">
-
+		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
+	
 		<fieldset>
+			<center><strong><h1><em>{adversaire}</em> souhaite vous défier !</h1>
+			<h3>Deux possibilités s'offrent à vous !</h3> 
+			</strong>
 
-		<center><strong><h1><em>{adversaire}</em> souhaite vous défier !</h1>
-		<h3>Souhaitez-vous relever le challenge ?</h3> 
-		</strong>
+			<hr>
+			<form action = "/req_creerTable" method = "GET">
+				<input type = "hidden" name = "compte" value = "{compte}">
+				<input type = "hidden" name = "adversaire" value = "{adversaire}">
+				<input type = "hidden" name = "joueur" value = "actif">
+				<input type = "submit" name = "commencer_partie" value = "Oui !!! Commencer la partie !!!!!">
+			</form><br>
 
-		<hr>
-		<form action = "/req_oui" method = "get">
-			<input type = "hidden" name = "compte" value = "{compte}">
-			<input type = "hidden" name = "adversaire" value = "{adversaire}">
-			<input type = "hidden" name = "joueur" value = "actif">
-			<input type = "submit" name = "commencer_partie" value = "Commencer la partie !">
-		</form><br>
+			<form action = "/req_salon_multi" method = "GET">
+				<input type = "hidden" name = "compte" value = "{compte}">
+				<input type = "hidden" name = "adversaire" value = "{adversaire}">
+				<input type = "submit" name = "non" value = "Non merci">
+			</form>
 
-		<form action = "/req_retour" method = "get">
-			<input type = "hidden" name = "compte" value = "{compte}">
-			<input type = "hidden" name = "adversaire" value = "{adversaire}">
-			<input type = "submit" name = "non" value = "Non, retour au Salon">
-		</form>
-
-		<strong><h2><u>Jeu de POKER TEXA HOLDEM</h2></strong> </center></u>
 
 		</fieldset>
 
 	</body>
 </html>
-10,1-4        75%
-

@@ -3,7 +3,6 @@
 // Auteur : ALL IN'TECH
 // Version : 27/05/2018
 //=========================================================================
-
 "use strict";
 
 var http = require("http");
@@ -39,6 +38,7 @@ var req_modele_table_rejointe = require ("./req/req_modele_table_rejointe.js");
 var req_attendre_tour = require ("./req/req_attendre_tour.js");
 var req_salon_multi = require ("./req/req_salon_multi.js");
 var req_reponse_defi = require ("./req/req_reponse_defi.js");
+var req_page_adversaire = require ("./req/req_page_adversaire.js");
 
 
 var req_erreur = require("./req/req_erreur.js");
@@ -129,10 +129,12 @@ var traite_requete = function (req, res) {
 			case '/req_salon_multi':
 				req_salon_multi (req, res, query);
 				break;			
-			case 'req_reponse_defi':
+			case '/req_reponse_defi':
 				req_reponse_defi (req, res, query);
 				break;
-
+			case '/req_page_adversaire':
+				req_page_adversaire (req, res, query);
+				break;
 
             default:
                 req_statique(req, res, pathname);

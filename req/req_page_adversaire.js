@@ -1,7 +1,12 @@
+//=========================================================================
+// Traitement de "req_page_adversaire"
+// Auteur : ALL IN'TECH 
+// Version : 27/05/2018
+//=========================================================================
 "use strict";
 
 var fs = require("fs");
-require = ("remedial");
+var remedial = require = ("remedial");
 
 var trait = function (req, res, query) {
 	
@@ -33,9 +38,9 @@ var trait = function (req, res, query) {
 			hote = liste_membres[i].hote;
 			adversaire = liste_membres[i].adversaire;
 			if (liste_membres[i].connecte === true) {
-				page = fs.readFileSync('./html/modele_salo_multi.html','utf-8');
+				page = fs.readFileSync('./html/modele_salon_multi.html','utf-8');
 			} else if (liste_membres[i].etat === "joue") {
-				page = fs.readFileSync("./html/modele_page_adversaire.html", "utf-8");
+				page = fs.readFileSync("./html/page_adversaire.html", "utf-8");
 			} else {
 				page = fs.readFileSync("./html/modele_accueil_membre.html", "utf-8");
 			}
@@ -44,7 +49,6 @@ var trait = function (req, res, query) {
 
 
 	marqueurs = {};
-	marqueurs.grille = grille;
 	marqueurs.joueur = query.joueur;
 	marqueurs.adversaire = adversaire;
 	marqueurs.compte = compte;

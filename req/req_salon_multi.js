@@ -62,7 +62,7 @@ var trait = function (req, res, query) {
 	liste= "";
 	for (i = 0; i < liste_membres.length; i++) {
 		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
-			liste += "<form action = './req/req_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+			liste += "<form action = './req/req_page_adversaire' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
 

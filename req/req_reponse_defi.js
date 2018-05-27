@@ -32,7 +32,7 @@ var trait = function (req, res, query) {
 		for (i = 0; i < liste_membres.length; i++) {
 			if (liste_membres[i].compte == query.compte) {
 				compte = liste_membres[i].compte;
-				if (liste_membres[i].etat == "attente") {
+				if (liste_membres[i].connecte === "attente") {
 					adversaire_trouve = true;
 					adversaire = liste_membres[i].adversaire;
 				}
@@ -43,16 +43,18 @@ var trait = function (req, res, query) {
 	// REDIRECTION VERS PAGE HTML SI JOUEUR DÉFIÉ
 
 	if (adversaire_trouve === false) {
-		page = fs.readFileSync('./html/modele_salon_multi.html','utf-8');
+		page = fs.readFileSync ("./html/modele_salon_multi.html","UTF-8");
 	} else if (adversaire_trouve === true) {
-		page = fs.readFileSync("./html/modele_reponse_defie.html", "utf-8");
+		page = fs.readFileSync ("./html/modele_reponse_defi.html", "UTF-8");
+	} else {
+		page = fs.readFileSync ("./html/modele_accueil_membre.html" , "UTF-8");
 	}
 
 
 	liste= "";
 	for (i = 0; i < liste_membres.length; i++) {
 		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
-			liste += "<form action = 'req_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+			liste += "<form action = './req/req_page_adversaire' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
 
