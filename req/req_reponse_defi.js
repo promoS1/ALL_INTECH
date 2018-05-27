@@ -22,26 +22,23 @@ var trait = function (req, res, query) {
 	var page;
 
 
-	// LECTURE DU JSON "connecte.json" --> VOIR SI ÉTAT PASSE EN "attente" 
-
+	// LECTURE DU JSON "connecte.json"
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "utf-8");
 	liste_membres = JSON.parse(contenu_fichier);
 
 	adversaire_trouve = false;
-
-		for (i = 0; i < liste_membres.length; i++) {
-			if (liste_membres[i].compte == query.compte) {
-				compte = liste_membres[i].compte;
-				if (liste_membres[i].connecte === "attente") {
-					adversaire_trouve = true;
-					adversaire = liste_membres[i].adversaire;
-				}
+	for (i = 0 ; i < liste_membres.length; i++) {
+		if (liste_membres[i].comptei === query.compte) {
+			compte = liste_membres[i].compte;
+			if (liste_membres[i].connecte === "attente") {
+				adversaire_trouve = true;
+				adversaire = liste_membres[i].adversaire;
 			}
 		}
+	}
 
 
 	// REDIRECTION VERS PAGE HTML SI JOUEUR DÉFIÉ
-
 	if (adversaire_trouve === false) {
 		page = fs.readFileSync ("./html/modele_salon_multi.html","UTF-8");
 	} else if (adversaire_trouve === true) {
@@ -54,10 +51,11 @@ var trait = function (req, res, query) {
 	balise = "";
 	for (i = 0; i < liste_membres.length; i++) {
 		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
-			balise += "<form action = './req_creerTable' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+			balise += "<form action = './req/req_creerTable.js' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
 
+	// MARQUEURS
 	marqueurs = {};
 	marqueurs.joueurs = balise;
 	marqueurs.compte = query.compte;
