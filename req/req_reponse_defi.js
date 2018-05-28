@@ -1,13 +1,12 @@
 //=========================================================================
 // Traitement de "req_reponse_defi"
 // Auteur : ALL IN'TECH
-// Version : 27/05/2018
+// Version : 28/05/2018
 //=========================================================================
-"use strict"
+"use strict";
 
 var fs = require("fs");
-var url = require ("url");
-var remedial = require = ("remedial");
+var remedial = require ("remedial");
 
 var trait = function (req, res, query) {
 
@@ -16,11 +15,11 @@ var trait = function (req, res, query) {
 	var membres;
 	var i;
 	var page;
-	var marqueurs = {};
+	var adversaire_trouve;
 
-	// LECTURE DU JSON
+	// LECTURE DU JSON CONNECTE POUR SAVOIR QUELS JOUEURS VEULENT JOUER
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
-	liste_membres = JSON.parse (contenu_fichier);
+	membres = JSON.parse (contenu_fichier);
 
 	// MODIFICATION DU JSON CONNECTE.JSON
 	for (i = 0; i < membres.length; i++) {
@@ -32,13 +31,22 @@ var trait = function (req, res, query) {
 			membres[i].adversaire = query.compte;
 		}
 	}
-
+	
 	contenu_fichier = JSON.stringify(membres);
-	fs.writeFileSync("./json/connecte.json", contenu_fichier, "utf-8");
+	fs.writeFileSync("./json/connecte.json", contenu_fichier, "UTF-8");
 
-	// AFFICHAGE DE LA PAGE ATTENDRE REPONSE
-	page = fs.readFileSync("./html/modele_attendre_reponse.html", "utf-8");
+	// REDIRECTION VERS LES DIFFERENTES PAGES QUAND JOUEUR DÉFIÉ
+	if (adversaire_trouve === false) {
+		page = fs.readFileSync('./html/modele_salon_multi.html','UTF-8');
+	} else if (adversaire_trouve === true) {
+		page = fs.readFileSync("./html/modele_reponse_defi.html", "UTF-8");
+	} else {
+		page = fs.readFileSync("./html/modele_attendre_reponse.html", "utf-8");
+	}
 
+
+	// MARQUEURS
+	marqueurs = {};
 	marqueurs.adversaire = query.adversaire;
 	marqueurs.compte = query.compte;
 	page = page.supplant(marqueurs);

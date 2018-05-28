@@ -1,7 +1,7 @@
 //=========================================================================
 // Traitement de "req_attendre_tour"
 // Auteur : ALL IN'TECH
-// Version : 26/04/2018
+// Version : 26/05/2018
 //=========================================================================
 "use strict";
 
@@ -33,8 +33,7 @@ var trait = function (req, res, query) {
 	
 */	
 	
-	// AFFICHAGE DE LA PAGE D'ACCUEIL
-
+	// AFFICHAGE DE LA PAGE ADVERSAIRE
     page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
 
     marqueurs = {};

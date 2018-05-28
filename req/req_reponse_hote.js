@@ -1,18 +1,18 @@
 //=========================================================================
 // Traitement de "req_reponse_hote"
 // Auteur :ALL IN'TECH 
-// Version : 27/05/2018
+// Version : 28/05/2018
 //=========================================================================
 "use strict";
 
 var fs = require("fs");
-var remedial = require('remedial');
+var remedial = require("remedial");
 
 
 var trait = function (req, res, query) {
 
 	var contenu_fichier;
-	var liste_membres;
+	var membres;
 	var compte;
 	var adversaire_trouve;
 	var adversaire;
@@ -22,18 +22,18 @@ var trait = function (req, res, query) {
 	var page;
 
 
-	// LECTURE DU JSON 
+	// LECTURE DU JSON CONNECTE.JSON
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
-	liste_membres = JSON.parse(contenu_fichier);
+	membres = JSON.parse(contenu_fichier);
 	
 	// ON DONNE LA DISPONIBILITE DE CHAQUE JOUEURS
 	adversaire_trouve = false;
-	for (i = 0 ; i < liste_membres.length; i++) {
-		if (liste_membres[i].compte === query.compte) {
-			compte = liste_membres[i].compte;
-			if (liste_membres[i].connecte === "attente") {
+	for (i = 0 ; i < membres.length; i++) {
+		if (membres[i].compte === query.compte) {
+			compte = membres[i].compte;
+			if (membres[i].connecte === "attente") {
 				adversaire_trouve = true;
-				adversaire = liste_membres[i].adversaire;
+				adversaire = membres[i].adversaire;
 			}
 		}
 	}
@@ -46,15 +46,17 @@ var trait = function (req, res, query) {
 	} else {
 		page = fs.readFileSync ("./html/modele_accueil_membre.html" , "UTF-8");
 	}
-/*
-	// CREATION DU MARQUEUR JOUEURS
+
+	// CREATION DU MARQUEUR JOUEURS POUR AFFICHAGE DANS SALON MULTI
 	joueurs = "";
-	for (i = 0; i < liste_membres.length; i++) {
-		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
-			joueurs = joueurs + "<form action = './req_reponse_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+	for (i = 0; i < membres.length; i++) {
+		// SI LE JOUEUR EST CONNECTE ET ATTEND UN ADVERSAIRE DANS LE SALON MULTI
+		if (membres[i].compte !== query.compte && membres[i].connecte === true && membres[i].libre === true) {
+			// ON PEUT LE PASSER EN <a href == ?
+			joueurs = joueurs + "<form action = './req_reponse_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ membres[i].compte +"'></form>";
 		}
 	}
-*/
+
 	// MARQUEURS
 	marqueurs = {};
 	marqueurs.joueurs = joueurs;

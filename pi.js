@@ -19,7 +19,6 @@ var req_afficher_formulaire_inscription = require("./req/req_afficher_formulaire
 var req_inscrire = require("./req/req_inscrire.js");
 var req_identifier = require("./req/req_identifier.js");
 var req_statique = require("./req/req_statique.js");
-var req_modele_page_joueur = require ("./req/req_modele_page_joueur.js");
 var req_retour_modele_accueil = require("./req/req_modele_accueil.js");
 var req_modele_page_resultat = require ("./req/req_modele_page_resultat.js");
 var req_actualiser_accueil_membre = require ("./req/req_actualiser_accueil_membre.js");
@@ -38,8 +37,8 @@ var req_modele_table_rejointe = require ("./req/req_modele_table_rejointe.js");
 var req_attendre_tour = require ("./req/req_attendre_tour.js");
 var req_salon_multi = require ("./req/req_salon_multi.js");
 var req_reponse_defi = require ("./req/req_reponse_defi.js");
-var req_page_adversaire = require ("./req/req_page_adversaire.js");
 var req_reponse_hote = require ("./req/req_reponse_hote.js");
+var req_deconnexion = require ("./req/req_deconnexion.js");
 
 var req_erreur = require("./req/req_erreur.js");
 
@@ -51,48 +50,45 @@ var req_erreur = require("./req/req_erreur.js");
 
 var traite_requete = function (req, res) {
 
-    var ressource;
-    var requete;
-    var pathname;
-    var query;
+	var ressource;
+	var requete;
+	var pathname;
+	var query;
 
-    console.log("URL reçue : " + req.url);
-    requete = url.parse(req.url, true);
-    pathname = requete.pathname;
-    query = requete.query;
+	console.log("URL reçue : " + req.url);
+	requete = url.parse(req.url, true);
+	pathname = requete.pathname;
+	query = requete.query;
 
-    // ROUTEUR
+	// ROUTEUR
 
-    try {
-        switch (pathname) {
-            case '/':
-            case '/req_commencer':
-                req_commencer(req, res, query);
-                break;
-            case '/req_afficher_formulaire_inscription':
-                req_afficher_formulaire_inscription(req, res, query);
-                break;
-            case '/req_inscrire':
-                req_inscrire(req, res, query);
-                break;
-            case '/req_identifier':
-                req_identifier(req, res, query);
-                break;
+	try {
+		switch (pathname) {
+			case '/':
+			case '/req_commencer':
+				req_commencer(req, res, query);
+				break;
+			case '/req_afficher_formulaire_inscription':
+				req_afficher_formulaire_inscription(req, res, query);
+				break;
+			case '/req_inscrire':
+				req_inscrire(req, res, query);
+				break;
+			case '/req_identifier':
+				req_identifier(req, res, query);
+				break;
 			case '/req_creerTable':
 				req_creerTable(req, res, query);
 				break;
-			case '/req_modele_page_joueur':
-                req_modele_page_joueur(req, res, query);
-                break;
 			case '/req_actualiser_accueil_membre':
 				req_actualiser_accueil_membre(req, res, query);
 				break;
 			case '/req_retour_modele_accueil':
-                req_retour_modele_accueil(req, res, query);
-                break;
+				req_retour_modele_accueil(req, res, query);
+				break;
 			case 'req_modele_page_resultat':
-                req_modele_page_resultat(req, res, query);
-                break;
+				req_modele_page_resultat(req, res, query);
+				break;
 			case '/req_attendre_joueur':
 				req_attendre_joueur(req, res, query);
 				break;
@@ -102,18 +98,18 @@ var traite_requete = function (req, res) {
 			case '/req_miser':
 				req_miser (req, res, query);
 				break;
-			 case '/req_checker':
-                req_checker (req, res, query);
-                break;
-			 case '/req_relancer':
-                req_relancer (req, res, query);
-                break;
+			case '/req_checker':
+				req_checker (req, res, query);
+				break;
+			case '/req_relancer':
+				req_relancer (req, res, query);
+				break;
 			case '/req_suivre':
-                req_suivre (req, res, query);
-                break;
+				req_suivre (req, res, query);
+				break;
 			case '/req_coucher':
-                req_coucher (req, res, query);
-                break;
+				req_coucher (req, res, query);
+				break;
 			case '/req_creerTable_IA':
 				req_creerTable_IA (req, res, query);
 				break;
@@ -129,22 +125,23 @@ var traite_requete = function (req, res) {
 			case '/req_reponse_defi':
 				req_reponse_defi (req, res, query);
 				break;
-			case '/req_page_adversaire':
-				req_page_adversaire (req, res, query);
-				break;
 			case '/req_reponse_hote':
 				req_reponse_hote (req, res, query);
 				break;
-            default:
-                req_statique(req, res, pathname);
-                break;
-        }
-    } catch (e) {
-        console.log('Erreur : ' + e.stack);
-        console.log('Erreur : ' + e.message);
-        //console.trace();
-        req_erreur(req, res, query);
-    }
+			case '/req_deconnexion':
+				req_deconnexion (req, res, query);
+				break;
+			default:
+
+				req_statique(req, res, pathname);
+				break;
+		}
+	} catch (e) {
+		console.log('Erreur : ' + e.stack);
+		console.log('Erreur : ' + e.message);
+		//console.trace();
+		req_erreur(req, res, query);
+	}
 };
 
 //-------------------------------------------------------------------------

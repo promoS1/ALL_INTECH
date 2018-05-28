@@ -5,5 +5,6 @@
 - completer la confirmation de mdp lors de l'inscription
 - afficher les cartes sur la page du joueur
 - distribuer les cartes à des joueurs
-- rajouter un marqueurs table dans toutes les query
 - bouton deconnexion
+- dans req_attendre_tour -> faire la redirection
+- voir si on peut pas regrouper toutes les actions -> checker, miser, relancer, se coucher, suivre
