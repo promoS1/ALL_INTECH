@@ -7,4 +7,4 @@
 - distribuer les cartes à des joueurs
 - bouton deconnexion
 - dans req_attendre_tour -> faire la redirection
-- voir si on peut pas regrouper toutes les actions -> checker, miser, relancer, se coucher, suivre
+- voir si on peut pas regrouper toutes les actions -> checker, miser, relancer, se coucher, suivre exemple : checkbox

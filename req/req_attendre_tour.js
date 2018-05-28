@@ -18,6 +18,7 @@ var trait = function (req, res, query) {
 	var table;
 
 /*
+	// AJOUTER + 1 A TOUR DANS JSON PARTIE
 	// REDIRECTION DEPUIS LA PAGE ADVERSAIRE
 	i = 0;
 	if (query.table+".tour" === i) {

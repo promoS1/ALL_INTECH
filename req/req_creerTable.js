@@ -71,6 +71,13 @@ var trait = function (req, res, query) {
 		nouvellePartie.joueurs += nouvellePartie.joueurs[i];
 		nouvellePartie.joueurs[i] += query.adversaire;
 	}
+
+	// TOUR DE JEU
+	nouvellePartie.tour = [];
+	nouvellePartie[i].tour = 0;
+	nouvellePartie[i].tour = 1;
+
+
 	// CARTES DE LA RIVIERE
 	nouvellePartie.river = [];
 	
