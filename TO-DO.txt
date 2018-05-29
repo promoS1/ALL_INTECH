@@ -3,8 +3,8 @@
 - IA
 - Peut etre un bug au niveau du valeurMain
 - completer la confirmation de mdp lors de l'inscription
-- afficher les cartes sur la page du joueur
 - distribuer les cartes à des joueurs
-- bouton deconnexion
+- affichage des cartes, du pot, du solde, joueurs sur la page modele joueur
+- finir la page modele adversaire
 - dans req_attendre_tour -> faire la redirection
 - voir si on peut pas regrouper toutes les actions -> checker, miser, relancer, se coucher, suivre exemple : checkbox
