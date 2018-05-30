@@ -14,38 +14,34 @@ var trait = function (req, res, query) {
 	var contenu_fichier;
 	var membres;
 	var i;
+	var a;
 	var page;
 	var adversaire_trouve;
+	var compte;
 
 	// LECTURE DU JSON CONNECTE POUR SAVOIR QUELS JOUEURS VEULENT JOUER
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
 	membres = JSON.parse (contenu_fichier);
-
-	// MODIFICATION DU JSON CONNECTE.JSON
-	for (i = 0; i < membres.length; i++) {
-		if (membres[i].compte === query.compte) {
-			membres[i].connecte = "attente";
-			membres[i].adversaire = query.adversaire;
-		}
-	}
-	// ATTRIBUTION ADVERSAIRE
-	for (i = 0; i < membres.length; i++) {
-		if (membres[i].compte === query.adversaire) {
-			membres[i].connecte = "attente";
-			membres[i].adversaire = compte;
-		}
-	}
 	
-	contenu_fichier = JSON.stringify(membres);
-	fs.writeFileSync("./json/connecte.json", contenu_fichier, "UTF-8");
-
+	adversaire_trouve = false;
 	// REDIRECTION VERS LES DIFFERENTES PAGES QUAND JOUEUR DÉFIÉ
-	if (adversaire_trouve === false) {
-		page = fs.readFileSync('./html/modele_salon_multi.html','UTF-8');
-	} else if (adversaire_trouve === true) {
+	for (i = 0 ; i < membres.length; i++) {
+		if (membres[i].compte === query.compte) {
+			a=i;
+			if (membres[a].connecte === true) {
+				adversaire_trouve = true; 	
+			} else {
+				adversaire_trouve = false;
+			}
+		}
+	}
+
+	if (membres[a].connecte === false) {
+		page = fs.readFileSync('./html/modele_attendre_reponse.html','UTF-8');
+	} else if (membres[a].connecte === "joue") {
 		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
 	} else {
-		page = fs.readFileSync("./html/modele_attendre_reponse.html", "utf-8");
+		page = fs.readFileSync("./html/modele_salon_multi.html", "utf-8");
 	}
 
 

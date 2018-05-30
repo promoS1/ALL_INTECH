@@ -17,28 +17,43 @@ var trait = function (req, res, query) {
 	var contenu_fichier;
 	var connecte;
 	var i;
+	var a; 
+	var b;
 	var nouvellePartie;
 	var distribution;
 	var melange;
 	var mains;
 	var river;
-
+	var membres;
+	var compte;
+	
+	compte = query.compte;
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
     membres = JSON.parse(contenu_fichier);
 
 	// ON DONNE LA DISPONIBILITE DE CHAQUE JOUEURS
-	adversaire_trouve = false;
 	for (i = 0 ; i < membres.length; i++) {
-		if (membres[i].compte === query.compte) {
-			compte = membres[i].compte;
-			if (membres[i].connecte === "attente") {
-				membres[i].adversaire = compte;
-				adversaire_trouve = true;
-				adversaire = membres[i].adversaire;
-			}
+		if (membres[i].compte === compte) {
+			a = i;
+			membres[a].connecte = "joue";
 		}
 	}
+	for (i = 0 ; i < membres.length; i++) {
+ 		if (membres[i].compte === query.adversaire) {
+			b = i;
+			membres[b].connecte = "joue";
+		}
+	}
+	
+	contenu_fichier = JSON.stringify(membres);
+	fs.writeFileSync("./json/connecte.json" , contenu_fichier , "UTF-8");
 
+
+// ============================================================================
+// ============================================================================
+
+
+	// CODE JEU
 
 	// APPEL DES MODULES MELANGER ET LES COMBINAISONS
 	melange = require("../fonctions/function_melange_cartes.js");

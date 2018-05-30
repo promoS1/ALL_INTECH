@@ -3,6 +3,7 @@
 // Auteur :ALL IN'TECH 
 // Version : 28/05/2018
 //=========================================================================
+
 "use strict";
 
 var fs = require("fs");
@@ -18,6 +19,8 @@ var trait = function (req, res, query) {
 	var adversaire;
 	var joueurs;
 	var i;
+	var a; 
+	var b;
 	var marqueurs;
 	var page;
 
@@ -26,18 +29,20 @@ var trait = function (req, res, query) {
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
 	membres = JSON.parse(contenu_fichier);
 	
+
 	// ON DONNE LA DISPONIBILITE DE CHAQUE JOUEURS
 	adversaire_trouve = false;
 	for (i = 0 ; i < membres.length; i++) {
 		if (membres[i].compte === query.compte) {
-			compte = membres[i].compte;
-			if (membres[i].connecte === "attente") {
-				membres[i].adversaire = compte;
+			a=i;
+			compte = membres[a].compte;
+			if (membres[a].connecte === "attente") {
+				adversaire = membres[a].adversaire;
 				adversaire_trouve = true;
-				adversaire = membres[i].adversaire;
 			}
 		}
 	}
+
 	// ENVOI VERS LES DIFFERENTES PAS HTML EN FONCTION DU STATUT
 	if (adversaire_trouve === false) {
 		page = fs.readFileSync ("./html/modele_salon_multi.html","UTF-8");
@@ -53,7 +58,7 @@ var trait = function (req, res, query) {
 		// SI LE JOUEUR EST CONNECTE ET ATTEND UN ADVERSAIRE DANS LE SALON MULTI
 		if (membres[i].compte !== query.compte && membres[i].connecte === true && membres[i].libre === true) {
 			// ON PEUT LE PASSER EN <a href == ?
-			joueurs = joueurs + "<form action = './req_reponse_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ membres[i].compte +"'></form>";
+			joueurs = joueurs + "<form action = '/req_defier' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ membres[i].compte +"'></form>";
 		}
 	}
 

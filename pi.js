@@ -39,10 +39,9 @@ var req_salon_multi = require ("./req/req_salon_multi.js");
 var req_reponse_defi = require ("./req/req_reponse_defi.js");
 var req_reponse_hote = require ("./req/req_reponse_hote.js");
 var req_deconnexion = require ("./req/req_deconnexion.js");
+var req_defier = require ("./req/req_defier.js");
 
 var req_erreur = require("./req/req_erreur.js");
-
-
 
 //-------------------------------------------------------------------------
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
@@ -131,6 +130,12 @@ var traite_requete = function (req, res) {
 			case '/req_deconnexion':
 				req_deconnexion (req, res, query);
 				break;
+			case '/req_defier':
+				req_defier (req, res, query);
+				break;
+
+
+
 			default:
 
 				req_statique(req, res, pathname);

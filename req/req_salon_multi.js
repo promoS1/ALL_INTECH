@@ -50,7 +50,7 @@ var trait = function (req, res, query) {
 		fs.writeFileSync("./json/connecte.json", contenu_fichier, 'UTF-8');
 	}
 	// UTILE ? ON A DEJA LU PLUS HAUT !
-	contenu_fichier = fs.readFileSync("./json/connecte.json", 'utf-8');
+	contenu_fichier = fs.readFileSync("./json/connecte.json", 'UTF-8');
 	liste_membres = JSON.parse(contenu_fichier);
 	
 	// CREATION DU MARQUEUR JOUEUR
@@ -58,7 +58,7 @@ var trait = function (req, res, query) {
 	for (i = 0; i < liste_membres.length ; i++) {
 		// SI LE JOUEUR EST CONNECTE ET DISPONIBLE IL EST AJOUTE DANS LA VAR JOUEUR
 		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
-			joueurs = joueurs + "<form action = './req_reponse_defi' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+			joueurs = joueurs + "<form action = '/req_defier' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
 	
