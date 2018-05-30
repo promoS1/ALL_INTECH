@@ -26,9 +26,13 @@ var trait = function (req, res, query) {
 		if (membres[i].compte === query.compte) {
 			membres[i].connecte = "attente";
 			membres[i].adversaire = query.adversaire;
-		} else if ( membres[i].compte === query.adversaire ) {
+		}
+	}
+	// ATTRIBUTION ADVERSAIRE
+	for (i = 0; i < membres.length; i++) {
+		if (membres[i].compte === query.adversaire) {
 			membres[i].connecte = "attente";
-			membres[i].adversaire = query.compte;
+			membres[i].adversaire = compte;
 		}
 	}
 	
@@ -39,7 +43,7 @@ var trait = function (req, res, query) {
 	if (adversaire_trouve === false) {
 		page = fs.readFileSync('./html/modele_salon_multi.html','UTF-8');
 	} else if (adversaire_trouve === true) {
-		page = fs.readFileSync("./html/modele_reponse_defi.html", "UTF-8");
+		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
 	} else {
 		page = fs.readFileSync("./html/modele_attendre_reponse.html", "utf-8");
 	}

@@ -32,13 +32,13 @@ var trait = function (req, res, query) {
 		if (membres[i].compte === query.compte) {
 			compte = membres[i].compte;
 			if (membres[i].connecte === "attente") {
+				membres[i].adversaire = compte;
 				adversaire_trouve = true;
 				adversaire = membres[i].adversaire;
 			}
 		}
 	}
-
-	// ENVOIE VERS LES DIFFERENTES PAS HTML EN FONCTION DU STATUT
+	// ENVOI VERS LES DIFFERENTES PAS HTML EN FONCTION DU STATUT
 	if (adversaire_trouve === false) {
 		page = fs.readFileSync ("./html/modele_salon_multi.html","UTF-8");
 	} else if (adversaire_trouve === true) {
