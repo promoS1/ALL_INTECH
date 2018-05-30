@@ -14,16 +14,27 @@ var trait = function (req, res, query) {
     var marqueurs;
     var compte;
     var mdp;
-    var page;
+    var verif_mdp;
+	var mdp_correct;
+	var page;
     var nouveauMembre;
     var contenu_fichier;
     var listeMembres;
     var i;
     var trouve;
+	
 
     // ON LIT LES COMPTES EXISTANTS
     contenu_fichier = fs.readFileSync("./json/membres.json", 'utf-8');    
     listeMembres = JSON.parse(contenu_fichier);
+
+	// VERIFICATION MDP
+	if (mdp === verif_mdp) {
+        mdp_correct = true ;
+    } else if (mdp !== verif_mdp) {
+        mdp_correct = false ;
+    }
+
 
     // ON VERIFIE QUE LE COMPTE N'EXISTE PAS DEJA
     trouve = false;
@@ -57,6 +68,18 @@ var trait = function (req, res, query) {
         marqueurs.erreur = "ERREUR : ce compte existe déjà";
         marqueurs.compte = query.compte;
         page = page.supplant(marqueurs);
+
+	 } else  if ( mdp_correct === false ) {
+
+    // ON RENVOI UNE ERREUR SI LES 2 MDP NE CORRESPONDENT PAS
+    page = fs.readFileSync('../html/modele_inscription.html', 'UTF-8');
+
+        marqueurs = {};
+        marqueurs.erreur = "ERREUR : Les deux mots de passe ne correspondent pas";
+        marqueurs.pseudo = query.pseudo;
+        page = page.supplant(marqueurs);
+
+
 
     } else {
         // SI CREATION , ON ENVOIE LA PAGE DE CONFIRMATION
