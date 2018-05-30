@@ -37,11 +37,14 @@ var trait = function (req, res, query) {
 	}
 
 	if (membres[a].connecte === false) {
-		page = fs.readFileSync('./html/modele_attendre_reponse.html','UTF-8');
+		page = fs.readFileSync("./html/modele_attendre_reponse.html" , "UTF-8");
 	} else if (membres[a].connecte === "joue") {
 		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
+	// PASSE DIRECT ICI
 	} else {
-		page = fs.readFileSync("./html/modele_salon_multi.html", "utf-8");
+//		page = fs.readFileSync("./html/modele_salon_multi.html", "UTF-8");
+		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
+
 	}
 
 

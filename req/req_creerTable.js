@@ -25,22 +25,18 @@ var trait = function (req, res, query) {
 	var mains;
 	var river;
 	var membres;
-	var compte;
 	
-	compte = query.compte;
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
     membres = JSON.parse(contenu_fichier);
 
 	// ON DONNE LA DISPONIBILITE DE CHAQUE JOUEURS
-	for (i = 0 ; i < membres.length; i++) {
-		if (membres[i].compte === compte) {
-			a = i;
+	for (a = 0 ; a < membres.length ; a++) {
+		if (membres[a].compte === query.compte) {
 			membres[a].connecte = "joue";
 		}
 	}
-	for (i = 0 ; i < membres.length; i++) {
- 		if (membres[i].compte === query.adversaire) {
-			b = i;
+	for (b = 0 ; b < membres.length ; b++) {
+ 		if (membres[b].compte === query.adversaire) {
 			membres[b].connecte = "joue";
 		}
 	}
@@ -49,7 +45,6 @@ var trait = function (req, res, query) {
 	fs.writeFileSync("./json/connecte.json" , contenu_fichier , "UTF-8");
 	
 	
-
 
 // ============================================================================
 // ============================================================================
@@ -73,16 +68,9 @@ var trait = function (req, res, query) {
 	nouvellePartie.joueurs[0] = query.compte;
 	nouvellePartie.joueurs[1] = query.adversaire;
 
-/*
-	// AJOUT DE(S) ADVERSAIRE(S)
-	for (i = 0 ; i < nouvellePartie.joueurs[i] ; i++) { 
-		nouvellePartie.joueurs += nouvellePartie.joueurs[i];
-		nouvellePartie.joueurs[i] += query.adversaire;
-	}
-*/
 	// TOUR DE JEU
-	nouvellePartie.tour = nouvellePartie.joueurs[0];
-		
+	nouvellePartie.tour = query.compte; 
+
 	// CARTES DE LA RIVIERE
 	nouvellePartie.river = [];
 

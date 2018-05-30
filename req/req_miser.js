@@ -15,7 +15,7 @@ var trait = function (req, res, query) {
 	var contenu_fichier;
 	var membres;
 	var i;
-
+/*
 	// PASSAGE DE JOUEUR ACTIF A PASSIF
 	contenu_fichier = fs.readFileSync("./tables/"+query.compte+".json" , "UTF-8");
 	membres = JSON.parse(contenu_fichier);
@@ -28,6 +28,15 @@ var trait = function (req, res, query) {
 		membres.tour = membres[i].joueurs; 
 		i = 0;
 	}
+*/
+	// PASSAGE DE JOUEUR ACTIF A PASSIF
+	membres = JSON.parse(contenu_fichier);
+	contenu_fichier = fs.readFileSync("./tables/"+query.compte+".json" , "UTF-8");
+	
+	membres.tour = query.adversaire;
+
+	contenu_fichier = JSON.stringify(membres);
+	fs.writeFileSync("./tables/"+query.table+".json" , contenu_fichier, 'UTF-8');
 
     // AFFICHAGE DE LA PAGE ADVERSAIE
 	page = fs.readFileSync('./html/modele_page_adversaire.html', 'UTF-8');

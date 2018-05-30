@@ -22,10 +22,8 @@ var req_statique = require("./req/req_statique.js");
 var req_retour_modele_accueil = require("./req/req_modele_accueil.js");
 var req_modele_page_resultat = require ("./req/req_modele_page_resultat.js");
 var req_actualiser_accueil_membre = require ("./req/req_actualiser_accueil_membre.js");
-var req_req_attendre_joueur = require ("./req/req_attendre_joueur.js");
 var req_attendre_tour = require ("./req/req_attendre_tour.js");
 var req_creerTable = require ("./req/req_creerTable.js");
-var req_attendre_joueur = require ("./req/req_attendre_joueur.js");
 var req_creerTable = require ("./req/req_creerTable.js");
 var req_miser = require ("./req/req_miser.js");	
 var req_relancer = require ("./req/req_relancer.js"); 
@@ -34,7 +32,6 @@ var req_suivre = require ("./req/req_suivre.js");
 var req_coucher = require ("./req/req_coucher.js"); 
 var req_creerTable_IA = require ("./req/req_creerTable_IA.js");
 var req_modele_table_rejointe = require ("./req/req_modele_table_rejointe.js");
-var req_attendre_tour = require ("./req/req_attendre_tour.js");
 var req_salon_multi = require ("./req/req_salon_multi.js");
 var req_reponse_defi = require ("./req/req_reponse_defi.js");
 var req_reponse_hote = require ("./req/req_reponse_hote.js");
@@ -88,9 +85,6 @@ var traite_requete = function (req, res) {
 			case 'req_modele_page_resultat':
 				req_modele_page_resultat(req, res, query);
 				break;
-			case '/req_attendre_joueur':
-				req_attendre_joueur(req, res, query);
-				break;
 			case '/req_attendre_tour':
 				req_attendre_tour(req, res, query);
 				break;
@@ -114,9 +108,6 @@ var traite_requete = function (req, res) {
 				break;
 			case '/req_modele_table_rejointe':
 				req_modele_table_rejointe (req, res, query);
-				break;
-			case '/req_attendre_tour':
-				req_attendre_tour (req, res, query);
 				break;
 			case '/req_salon_multi':
 				req_salon_multi (req, res, query);
