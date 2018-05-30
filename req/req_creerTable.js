@@ -47,6 +47,8 @@ var trait = function (req, res, query) {
 	
 	contenu_fichier = JSON.stringify(membres);
 	fs.writeFileSync("./json/connecte.json" , contenu_fichier , "UTF-8");
+	
+	
 
 
 // ============================================================================
@@ -69,20 +71,18 @@ var trait = function (req, res, query) {
 	// JOUEURS DE LA PARTIE
 	nouvellePartie.joueurs = [];
 	nouvellePartie.joueurs[0] = query.compte;
+	nouvellePartie.joueurs[1] = query.adversaire;
 
+/*
 	// AJOUT DE(S) ADVERSAIRE(S)
 	for (i = 0 ; i < nouvellePartie.joueurs[i] ; i++) { 
 		nouvellePartie.joueurs += nouvellePartie.joueurs[i];
 		nouvellePartie.joueurs[i] += query.adversaire;
 	}
-
+*/
 	// TOUR DE JEU
-	/*	
-		nouvellePartie.tour = [];
-		nouvellePartie[i].tour = 0;
-		nouvellePartie[i].tour = 1;
-	 */
-
+	nouvellePartie.tour = nouvellePartie.joueurs[0];
+		
 	// CARTES DE LA RIVIERE
 	nouvellePartie.river = [];
 

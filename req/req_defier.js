@@ -25,18 +25,18 @@ var trait = function (req, res, query) {
 		if (membres[a].compte === query.compte) {
 			membres[a].connecte = "attente";
 			membres[a].adversaire = query.adversaire;
+			membres[a].table = query.compte;
 		}
 	}
 	for (b = 0 ; b < membres.length ; b++) {
 		if (membres[b].compte === query.adversaire) {
 			membres[b].connecte = "attente";
 			membres[b].adversaire = query.compte;
+			membres[b].table = query.compte;
 		}
 	}
 	
 	contenu_fichier = JSON.stringify(membres);
-	console.log(contenu_fichier);
-
 	fs.writeFileSync("./json/connecte.json", contenu_fichier, 'UTF-8');
 
 	page = fs.readFileSync ("./html/modele_attendre_reponse.html" , "UTF-8");	

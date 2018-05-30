@@ -12,9 +12,25 @@ var trait = function (req, res, query) {
 
     var marqueurs;
     var page;
+	var contenu_fichier;
+	var membres;
+	var i;
+
+	// PASSAGE DE JOUEUR ACTIF A PASSIF
+	contenu_fichier = fs.readFileSync("./tables/"+query.compte+".json" , "UTF-8");
+	membres = JSON.parse(contenu_fichier);
+	
+	if (i < membres.joueurs.length - 1) {
+		membres.tour = membres[i].joueurs; 
+		i++;
+
+	} else if (i = membres.joueurs.length - 1) {
+		membres.tour = membres[i].joueurs; 
+		i = 0;
+	}
 
     // AFFICHAGE DE LA PAGE ADVERSAIE
-	page = fs.readFileSync('./html/modele_page_adversaire.html', 'utf-8');
+	page = fs.readFileSync('./html/modele_page_adversaire.html', 'UTF-8');
 
     marqueurs = {};
     marqueurs.compte = query.compte;
