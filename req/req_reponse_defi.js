@@ -30,21 +30,16 @@ var trait = function (req, res, query) {
 			a=i;
 			if (membres[a].connecte === true) {
 				adversaire_trouve = true; 	
-			} else {
-				adversaire_trouve = false;
 			}
 		}
 	}
-
-	if (membres[a].connecte === false) {
+	if (membres[a].connecte === "attente") {
 		page = fs.readFileSync("./html/modele_attendre_reponse.html" , "UTF-8");
 	} else if (membres[a].connecte === "joue") {
 		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
 	// PASSE DIRECT ICI
-	} else {
+//	} else {
 //		page = fs.readFileSync("./html/modele_salon_multi.html", "UTF-8");
-		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
-
 	}
 
 
