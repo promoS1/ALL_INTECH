@@ -26,6 +26,11 @@ var trait = function (req, res, query) {
 	var river;
 	var membres;
 	var table;
+	var carteJoueurs;
+	var carteRiviere;
+	var soldesJoueur;
+	var soldesAdversaire;
+	var pot;
 	
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
     membres = JSON.parse(contenu_fichier);
@@ -85,6 +90,9 @@ var trait = function (req, res, query) {
 	nouvellePartie.mise[0] = 0 ;
 	nouvellePartie.mise[1] = 0 ;
 
+	// POT
+	nouvellePartie.pot = 0;
+
 	for (i = 0 ; i < nouvellePartie.mise[i] ; i++) {
 		nouvellePartie.solde += nouvellePartie.mise[i];
 	}
@@ -99,10 +107,34 @@ var trait = function (req, res, query) {
 
 	distribution(mains, river);
 
+	console.log(nouvellePartie.main[0]);
+
 	// ECRITURE DANS LE JSON DE PARTIE AVEC LES NOUVELLES DONNEES
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
-	
+
+	contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
+	nouvellePartie = JSON.parse(contenu_partie);
+
+	if(query.compte === nouvellePartie.joueurs[0]){
+		carteJoueurs = nouvellePartie.main[0][0].valeur + nouvellePartie.main[0][0].couleur;
+		console.log(nouvellePartie.main[0][0]);
+		soldesJoueur = nouvellePartie.solde[0];
+		soldesAdversaire = nouvellePartie.solde[1];
+	}
+
+	if(query.compte === nouvellePartie.joueurs[1]){
+		carteJoueurs = nouvellePartie.main[1];
+		soldesJoueur = nouvellePartie.solde[1];
+		soldesAdversaire = nouvellePartie.solde[0];
+	}
+
+	pot = nouvellePartie.pot;
+	carteRiviere = nouvellePartie.river;
+
+	contenu_partie = JSON.stringify(nouvellePartie);
+	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
+
 	// CREATION MARQUEUR TABLE
 	table = query.compte;
 
@@ -110,6 +142,13 @@ var trait = function (req, res, query) {
 	page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
 
 	marqueurs = {};
+	// Marqueurs HTML
+	marqueurs.carteJoueurs = carteJoueurs;
+	marqueurs.carteRiviere = carteRiviere;
+	marqueurs.soldesJoueur = soldesJoueur;
+	marqueurs.soldesAdversaire = soldesAdversaire;
+	marqueurs.pot = pot;
+
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
 	marqueurs.table = query.table;

@@ -9,7 +9,18 @@
 
 	<body>
 		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
-		
+	
+		<fieldset>
+			<legend>A vous de jouer!</legend>
+				<p>Vos cartes: {carteJoueurs}</p>
+				<p>La riviere: {carteRiviere}</p>
+				<p>Votre soldes: {soldesJoueur}</p>
+				<p>Solde de l'adversaire: {soldesAdversaire}</p>
+				<p>Pot: {pot} </p>
+		</fieldset>
+			
+		<fieldset>
+			<legend>Vos choix:</legend>
 		<center>
 			<h2>A vous de jouer <em>{compte}</em>, que voulez vous faire ?</h2><br><br>
 			
@@ -41,5 +52,6 @@
 			<br><br><br><br><br><br><br><br>
             <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
 		</center>
+		</fieldset>	
 	</body>
 </html>
