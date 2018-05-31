@@ -38,8 +38,8 @@ var trait = function (req, res, query) {
 	} else if (membres[a].connecte === "joue") {
 		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
 	// PASSE DIRECT ICI
-//	} else {
-//		page = fs.readFileSync("./html/modele_salon_multi.html", "UTF-8");
+	} else {
+		page = fs.readFileSync("./html/modele_salon_multi.html", "UTF-8");
 	}
 
 
