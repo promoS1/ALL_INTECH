@@ -8,5 +8,4 @@
 - finir la page modele adversaire
 - dans req_attendre_tour -> faire la redirection
 - voir si on peut pas regrouper toutes les actions -> checker, miser, relancer, se coucher, suivre exemple : checkbox
-- mettre le query.table pour pouvoir le reprendre dans les JSON
-- dans req_reponse defi petit bug
+- passage de joueur actif a passif fonctionne pas

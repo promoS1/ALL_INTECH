@@ -1,8 +1,8 @@
-//========================================================================
+//=============================================================================
 // Traitement de "req_creerTable"
 // Auteur : ALL IN'TECH 
 // Version : 16/05/18
-//=========================================================================
+//==============================================================================
 "use strict";
 
 var fs = require("fs");
@@ -25,6 +25,7 @@ var trait = function (req, res, query) {
 	var mains;
 	var river;
 	var membres;
+	var table;
 	
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
     membres = JSON.parse(contenu_fichier);
@@ -46,8 +47,8 @@ var trait = function (req, res, query) {
 	
 	
 
-// ============================================================================
-// ============================================================================
+// =============================================================================
+// =============================================================================
 
 
 	// CODE JEU
@@ -101,7 +102,9 @@ var trait = function (req, res, query) {
 	// ECRITURE DANS LE JSON DE PARTIE AVEC LES NOUVELLES DONNEES
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
-
+	
+	// CREATION MARQUEUR TABLE
+	table = query.compte;
 
 	// AFFICHAGE DE LA PAGE DE JEU
 	page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
@@ -109,7 +112,7 @@ var trait = function (req, res, query) {
 	marqueurs = {};
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
-	marqueurs.tables = query.compte;
+	marqueurs.table = query.table;
 	page = page.supplant(marqueurs);
 
 	res.writeHead(200, {'Content-Type': 'text/html'});

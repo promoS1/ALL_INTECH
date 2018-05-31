@@ -39,13 +39,13 @@ var trait = function (req, res, query) {
 
 	// AFFICHAGE DE LA PAGE
 	if (joue === "en_jeu") {
-		page = fs.readFileSync("/html/modele_page_joueur" , "UTF-8");
+		page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
 	} else if (joue === "en_attente") {
-		page = fs.readFileSync("./html/modele_page_adversaire" , "UTF-8");
+		page = fs.readFileSync("./html/modele_page_adversaire.html" , "UTF-8");
 	} else if (joue === "resultats") {
-		page = fs.readFileSync ("./html/modele_page_resultat" , "UTF-8");
+		page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
 	} else {
-		page = fs.readFileSync ("./html/mode_salon_multi" , "UTF-8");
+		page = fs.readFileSync ("./html/mode_salon_multi.html" , "UTF-8");
 	}
 	 
 		
