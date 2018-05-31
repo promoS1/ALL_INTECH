@@ -100,14 +100,21 @@ var trait = function (req, res, query) {
 	nouvellePartie.solde = [];
 	nouvellePartie.solde[0] = 100;
 	nouvellePartie.solde[1] = 100;
-
+/*
+	// ADVERSAIRE RESTE SUR PAGE ADVERSAIRE TANT QUE JOUEUR A PAS FINI
+	for (i = 0 ; i < nouvellePartie.compte[i] ; i++) {
+		if (nouvellePartie[i].compte === query.adversaire) {
+			nouvellePartie.jouer = "en_attente";
+		}
+	}
+*/
 	// DISTRIBUTION DES CARTES DANS LA MAIN ET DANS LA RIVIERE
 	mains = nouvellePartie.main;
 	river = nouvellePartie.river;
 
 	distribution(mains, river);
 
-	console.log(nouvellePartie.main[0]);
+//	console.log(nouvellePartie.main[0]);
 
 	// ECRITURE DANS LE JSON DE PARTIE AVEC LES NOUVELLES DONNEES
 	contenu_partie = JSON.stringify(nouvellePartie);
@@ -131,6 +138,7 @@ var trait = function (req, res, query) {
 
 	pot = nouvellePartie.pot;
 	carteRiviere = nouvellePartie.river;
+	
 
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
