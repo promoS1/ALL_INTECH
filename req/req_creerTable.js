@@ -124,8 +124,9 @@ var trait = function (req, res, query) {
 	nouvellePartie = JSON.parse(contenu_partie);
 
 	if(query.compte === nouvellePartie.joueurs[0]){
-		carteJoueurs = nouvellePartie.main[0][0].valeur + nouvellePartie.main[0][0].couleur;
-		console.log(nouvellePartie.main[0][0]);
+		carteJoueurs = nouvellePartie.main[0][i].couleur + nouvellePartie.main[0][i].valeur;
+
+		console.log(nouvellePartie.main[0][1]);
 		soldesJoueur = nouvellePartie.solde[0];
 		soldesAdversaire = nouvellePartie.solde[1];
 	}

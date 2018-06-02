@@ -6,11 +6,12 @@
 		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
 	</head>
 
-	<body background = "../img/tapis_poker_vert_1920x1080.jpg">
+	<body>
+		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
 	
 		<fieldset>
 			<legend>A vous de jouer!</legend>
-				<p>Vos cartes: {carteJoueurs}</p>
+				<p>Vos cartes:<img src="../img/cards/{carteJoueurs}.png"></p>
 				<p>La riviere: {carteRiviere}</p>
 				<p>Votre soldes: {soldesJoueur}</p>
 				<p>Solde de l'adversaire: {soldesAdversaire}</p>
@@ -19,36 +20,36 @@
 			
 		<fieldset>
 			<legend>Vos choix:</legend>
-			<center>
-				<h2>A vous de jouer <em>{compte}</em>, que voulez vous faire ?</h2><br><br>
-				
-				<h3>Voici vos cartes</h3>
+		<center>
+			<h2>A vous de jouer <em>{compte}</em>, que voulez vous faire ?</h2><br><br>
+			
+			<h3>Voici vos cartes</h3>
 
-				<br><br>
+			<br><br>
 
-				<a href = "./req_miser?compte={compte}&table={table}">Miser</a>
+			<a href = "./req_miser?compte={compte}&table={table}">Miser</a>
 
-				<br><br>
+			<br><br>
 
-				 <a href = "./req_checker?compte={compte}&table={table}">Check</a>
+			 <a href = "./req_checker?compte={compte}&table={table}">Check</a>
 
-				<br><br>
+			<br><br>
 
-				<a href = "./req_relancer?compte={compte}&table={table}">Relancer</a>
+			<a href = "./req_relancer?compte={compte}&table={table}">Relancer</a>
 
-				<br><br> 
+			<br><br> 
 
-				<a href = "./req_suivre?compte={compte}&table={table}">Suivre</a>
+			<a href = "./req_suivre?compte={compte}&table={table}">Suivre</a>
 
-				<br><br> 
+			<br><br> 
 
-				<a href = "./req_coucher?compte={compte}&table={table}">Se coucher<a>
+			<a href = "./req_coucher?compte={compte}&table={table}">Se coucher<a>
 
-				<br><br>
+			<br><br>
 
-				<img src = "../img/gif/obama.gif">
-				<br><br><br><br><br><br><br><br>
-				<a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
+			<img src = "../img/gif/obama.gif">
+			<br><br><br><br><br><br><br><br>
+            <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
 		</center>
 		</fieldset>	
 	</body>
