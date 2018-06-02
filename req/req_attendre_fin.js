@@ -20,14 +20,14 @@ var trait = function (req, res, query) {
 	membres = JSON.parse(contenu_fichier);
 	
 	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
-	for (i = 0 ; i < membres.length ; i++) {
+	//for (i = 0 ; i < membres.length ; i++) {
 		// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
-		if (membres[i].attendre === true) {
-			page = fs.readFileSync (".html/modele_page_resultat.html" , "UTF-8");
-		} else if (membres[i].attendre !== true) {
-			page = fs.readFileSync (".html/modele_page_attendre.html" , "UTF-8");
-		}
-	}	
+//		if (membres[i].attendre === true) {
+//			page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
+//		} else {
+			page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");
+//		}
+	//	}	
 
     marqueurs = {};
     marqueurs.compte = query.compte;
