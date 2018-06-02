@@ -16,17 +16,16 @@ var trait = function (req, res, query) {
 	var contenu_fichier;
 	var i;
 
-	
-	membres = JSON.parse(contenu_fichier);
 	contenu_fichier = fs.readFileSync("./tables/"+query.compte+".json" , "UTF-8");
+	membres = JSON.parse(contenu_fichier);
 	
 	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
 	for (i = 0 ; i < membres.length ; i++) {
 		// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
 		if (membres[i].attendre === true) {
-			page = fs.readFileSync ('.html/modele_page_resultat.html' , 'UTF-8');
+			page = fs.readFileSync (".html/modele_page_resultat.html" , "UTF-8");
 		} else if (membres[i].attendre !== true) {
-			page = fs.readFileSync ('.html/modele_page_attendre.html' , 'UTF-8');
+			page = fs.readFileSync (".html/modele_page_attendre.html" , "UTF-8");
 		}
 	}	
 
