@@ -18,18 +18,18 @@ var trait = function (req, res, query) {
 
 
 	// PASSAGE DE JOUEUR ACTIF A PASSIF
-	membres = JSON.parse(contenu_fichier);
 	contenu_fichier = fs.readFileSync("./tables/"+query.table+".json" , "UTF-8");
+	membres = JSON.parse(contenu_fichier);
 	
 	membres.tour = query.adversaire;
 	// LE JOUEUR EST SUR PAGE ATTENDRE
 	membres.attendre = true;
 
 	contenu_fichier = JSON.stringify(membres);
-	fs.writeFileSync("./tables/"+query.table+".json" , contenu_fichier, 'UTF-8');
+	fs.writeFileSync("./tables/"+query.table+".json" , contenu_fichier, "UTF-8");
 
     // AFFICHAGE DE LA PAGE RESULTAT
-	page = fs.readFileSync('./html/modele_page_attendre.html', 'UTF-8');
+	page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
 
     marqueurs = {};
     marqueurs.compte = query.compte;
