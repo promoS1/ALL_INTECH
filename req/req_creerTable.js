@@ -105,14 +105,7 @@ var trait = function (req, res, query) {
 	nouvellePartie.solde = [];
 	nouvellePartie.solde[0] = 100;
 	nouvellePartie.solde[1] = 100;
-/*
-	// ADVERSAIRE RESTE SUR PAGE ADVERSAIRE TANT QUE JOUEUR A PAS FINI
-	for (i = 0 ; i < nouvellePartie.compte[i] ; i++) {
-		if (nouvellePartie[i].compte === query.adversaire) {
-			nouvellePartie.jouer = "en_attente";
-		}
-	}
-*/
+
 	// DISTRIBUTION DES CARTES DANS LA MAIN ET DANS LA RIVIERE
 	mains = nouvellePartie.main;
 	river = nouvellePartie.river;

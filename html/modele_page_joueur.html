@@ -3,17 +3,19 @@
 	<head>
 		<title>Page de jeu</title>
 		<meta http-equiv= 'Content-Type' content = 'text/html; charset = UTF-8'/>
-		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
+		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/>
+		<link rel = "stylesheet" type="text/css" href ="../css/style.css" />
 	</head>
 
 	<body>
+		<div id ="pageJoueur">
 		<body background = "../img/tapis_poker_vert_1920x1080.jpg">
 	
 		<fieldset>
 			<legend>A vous de jouer!</legend>
-				<p>Vos cartes:<img src="../img/cards/{carteJoueurs}.png"><img src="../img/cards/{carte2Joueurs}.png"></p>
+				<p>Vos cartes:<img class="cartes" src="../img/cards/{carteJoueurs}.png"> <img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
 				<p>
-					La riviere: <img src="../img/cards/{carte1Riviere}.png">									<img src="../img/cards/{carte2Riviere}.png">									<img src="../img/cards/{carte3Riviere}.png">									<img src="../img/cards/{carte4Riviere}.png">									<img src="../img/cards/{carte5Riviere}.png">					</p>
+					La riviere: <img class="cartes"src="../img/cards/{carte1Riviere}.png">									<img class="cartes" src="../img/cards/{carte2Riviere}.png">									<img class="cartes" src="../img/cards/{carte3Riviere}.png">									<img class="cartes" src="../img/cards/{carte4Riviere}.png">									<img class="cartes" src="../img/cards/{carte5Riviere}.png">					</p>
 				<p>Votre soldes: {soldesJoueur}</p>
 				<p>Solde de l'adversaire: {soldesAdversaire}</p>
 				<p>Pot: {pot} </p>
@@ -53,5 +55,6 @@
             <a href = "./req_deconnexion?compte={compte}">Deconnexion</a>
 		</center>
 		</fieldset>	
+		</div>
 	</body>
 </html>
