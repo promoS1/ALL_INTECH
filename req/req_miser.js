@@ -27,15 +27,15 @@ var trait = function (req, res, query) {
 	var soldesAdversaire;
 	var pot;
 
-
+	
 	// PASSAGE DE JOUEUR ACTIF A PASSIF
 	contenu_fichier = fs.readFileSync("./tables/"+query.table+".json" , "UTF-8");
 	membres = JSON.parse(contenu_fichier);
 	
 	membres.tour = query.adversaire;
 	// LE JOUEUR EST SUR PAGE ATTENDRE
-	membres.attendre = true;
-
+//	membres.attendre = true;
+	
 	contenu_fichier = JSON.stringify(membres);
 	fs.writeFileSync("./tables/"+query.table+".json" , contenu_fichier, "UTF-8");
 
@@ -75,7 +75,7 @@ var trait = function (req, res, query) {
     // AFFICHAGE DE LA PAGE RESULTAT
 	page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
 
-	// Marqueurs HTML
+	// MARQUEURS HTML
 	marqueurs = {};
 	
 	// Marqueurs Carte Joueur

@@ -6,13 +6,15 @@
 "use strict";
 
 var fs = require("fs");
-var remedial = require('remedial');
+var remedial = require("remedial");
 
 var trait = function (req, res, query) {
 
     var marqueurs;
     var page;
 	var contenu_fichier;
+	var contenu_partie;
+	var nouvellePartie;
 	var membres;
 	var i;
 	var joue;
@@ -32,7 +34,7 @@ var trait = function (req, res, query) {
 	contenu_fichier = fs.readFileSync("./tables/"+query.adversaire+".json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
 	
-	//joue = "en_attente";
+	//JOUE = "EN_ATTENTE";
 	if (membres.tour === query.compte) {
 		joue = "en_jeu";
 	} else if (membres.tour !== query.compte) {
@@ -40,16 +42,13 @@ var trait = function (req, res, query) {
 	}
 
 	contenu_fichier = JSON.stringify(membres);
-    fs.writeFileSync("./tables/"+query.adversaire+".json" , contenu_fichier, 'UTF-8');
-
-	// AFFICHAGE DE LA PAGE
-	if (joue === "en_jeu") {
+    fs.writeFileSync("./tables/"+query.adversaire+".json" , contenu_fichier, "UTF-8");
 
 	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 	contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
 
-	// JOUEURS 1
+	// JOUEUR 1
 	if(query.compte === nouvellePartie.joueurs[0]){
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
@@ -79,21 +78,24 @@ var trait = function (req, res, query) {
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
+	// AFFICHAGE DE LA PAGE
+	if (joue === "en_jeu") {
 		page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
 	} else if (joue === "en_attente") {
 		page = fs.readFileSync("./html/modele_page_adversaire.html" , "UTF-8");
 	} else {
+		console.log("ERREUR");
 		page = fs.readFileSync ("./html/mode_salon_multi" , "UTF-8");
 	}
 	 
-	// Marqueurs HTML
-
+	// MARQUEURS HTML
 	marqueurs = {};
-	// Marqueurs Carte Joueur
+
+	// MARQUEURS CARTE JOUEURS
 	marqueurs.carte2Joueurs = carte2Joueurs;
 	marqueurs.carteJoueurs = carteJoueurs;
 
-	// Marqueurs Carte de la riviere
+	// MARQUEURS CARTES DANS LA RIVIERE
 	marqueurs.carte1Riviere = carte1Riviere;
 	marqueurs.carte2Riviere = carte2Riviere;
 	marqueurs.carte3Riviere = carte3Riviere;
