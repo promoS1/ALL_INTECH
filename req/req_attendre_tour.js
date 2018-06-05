@@ -18,6 +18,7 @@ var trait = function (req, res, query) {
 	var membres;
 	var i;
 	var joue;
+	var partie;
 	var table;
 	var carteJoueurs;
 	var carte2Joueurs;
@@ -30,8 +31,17 @@ var trait = function (req, res, query) {
 	var soldesAdversaire;
 	var pot;
 
+	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
+	membres = JSON.parse (contenu_fichier);
+
+	for (i = 0 ; i < membres.length ; i++) {
+		if (membres[i].compte === query.compte) {
+			partie = membres[i].table;
+		}
+	}
+	
 	// SAVOIR QUI DOIT JOUER
-	contenu_fichier = fs.readFileSync("./tables/"+query.adversaire+".json" , "UTF-8");
+	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
 	
 	//JOUE = "EN_ATTENTE";
