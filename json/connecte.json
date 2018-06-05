@@ -1,1 +1,1 @@
-[{"compte":"a","connecte":"joue","libre":true,"table":"z","adversaire":"z"},{"compte":"z","connecte":"joue","libre":true,"table":"z","adversaire":"a"},{"compte":"nahel","connecte":"joue","libre":true,"table":"nahel","adversaire":"a"}]
+[{"compte":"a","connecte":"joue","libre":true,"table":"a","adversaire":"nahel"},{"compte":"z","connecte":"joue","libre":true,"table":"z","adversaire":"a"},{"compte":"nahel","connecte":"joue","libre":true,"table":"a","adversaire":"a"}]
