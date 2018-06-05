@@ -27,9 +27,6 @@ var trait = function (req, res, query) {
 	var soldesAdversaire;
 	var pot;
 
-    // AFFICHAGE DE LA PAGE ADVERSAIRE
-    //page = fs.readFileSync('./html/modele_page_adversaire.html', 'utf-8');
-
 // LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 	contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
@@ -79,6 +76,12 @@ var trait = function (req, res, query) {
 	marqueurs.carte3Riviere = carte3Riviere;
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
+
+	marqueurs.soldesJoueur = soldesJoueur;
+	marqueurs.soldesAdversaire = soldesAdversaire;
+	marqueurs.pot = pot;
+
+	// Autres marqueurs
     marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
 	marqueurs.table = query.table;

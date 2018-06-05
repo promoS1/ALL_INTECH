@@ -79,6 +79,11 @@ var trait = function (req, res, query) {
 	marqueurs.carte3Riviere = carte3Riviere;
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
+
+	//Autres marqueurs
+	marqueurs.soldesJoueur = soldesJoueur;
+	marqueurs.soldesAdversaire = soldesAdversaire;
+	marqueurs.pot = pot;
     marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
 	marqueurs.table = query.table;
