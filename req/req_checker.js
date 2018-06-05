@@ -60,7 +60,7 @@ var trait = function (req, res, query) {
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
 
-    // AFFICHAGE DE LA PAGE RESULTAT
+    // AFFICHAGE DE LA PAGE ATTENDRE
 	page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
 
 	// Marqueurs HTML
