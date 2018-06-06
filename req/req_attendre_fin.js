@@ -71,9 +71,6 @@ var trait = function (req, res, query) {
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
-	
-	
-
 
 
     // AFFICHAGE DE LA PAGE RESULTAT
@@ -81,21 +78,21 @@ var trait = function (req, res, query) {
 //		}
 	//	}
 	
-	// MARQUEURS HTML
+	// Marqueurs HTML
 	marqueurs = {};
 	
-	// MARQUEURS CARTES JOUEURS
+	// Marqueurs Carte Joueur
 	marqueurs.carte2Joueurs = carte2Joueurs;
 	marqueurs.carteJoueurs = carteJoueurs;
 
-	// MARQUEURS CARTE DE LA RIVIERE
+	// Marqueurs Carte de la riviere
 	marqueurs.carte1Riviere = carte1Riviere;
 	marqueurs.carte2Riviere = carte2Riviere;
 	marqueurs.carte3Riviere = carte3Riviere;
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
 
-	//AUTRES MARQUEURS
+	//Autres marqueurs
 	marqueurs.soldesJoueur = soldesJoueur;
 	marqueurs.soldesAdversaire = soldesAdversaire;
 	marqueurs.pot = pot;

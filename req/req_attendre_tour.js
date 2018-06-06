@@ -19,7 +19,6 @@ var trait = function (req, res, query) {
 	var i;
 	var joue;
 	var partie;
-	var table;
 	var carteJoueurs;
 	var carte2Joueurs;
 	var carte1Riviere;
@@ -39,6 +38,7 @@ var trait = function (req, res, query) {
 	for (i = 0 ; i < connecte.length ; i++) {
 		if (connecte[i].compte === query.compte) {
 			partie = connecte[i].table;
+			console.log(partie);
 		}
 	}
 	
@@ -53,10 +53,19 @@ var trait = function (req, res, query) {
 		joue = "en_attente";
 	}
 
+	console.log("TABLE"+partie);
+	console.log("MEMBRES"+membres.tour);
+	console.log("JOUE"+joue);
+
 	contenu_fichier = JSON.stringify(membres);
     fs.writeFileSync("./tables/"+partie+".json" , contenu_fichier, "UTF-8");
 
+	if (joue === "en_jeu") {
+		page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
+
 	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
+
+	console.log("OUI"+partie);
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
 
@@ -84,15 +93,13 @@ var trait = function (req, res, query) {
 	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
 	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
 	
-	table = nouvellePartie.admin;
-
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 	// AFFICHAGE DE LA PAGE
-	if (joue === "en_jeu") {
-		page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
+//	if (joue === "en_jeu") {
+// page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
 	} else if (joue === "en_attente") {
 		page = fs.readFileSync("./html/modele_page_adversaire.html" , "UTF-8");
 	} else {
@@ -116,7 +123,6 @@ var trait = function (req, res, query) {
 	
     marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
-	marqueurs.table = query.table;
     page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});

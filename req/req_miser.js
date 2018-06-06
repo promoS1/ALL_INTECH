@@ -12,6 +12,8 @@ var trait = function (req, res, query) {
 
 	var marqueurs;
 	var page;
+	var i;
+	var partie;
 	var contenu_fichier;
 	var contenu_partie;
 	var nouvellePartie;
@@ -26,8 +28,6 @@ var trait = function (req, res, query) {
 	var soldesJoueur;
 	var soldesAdversaire;
 	var pot;
-	var i;
-	var partie;
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
@@ -37,21 +37,22 @@ var trait = function (req, res, query) {
 			partie = membres[i].table;
 		}
 	}
-
-
+	
 	// PASSAGE DE JOUEUR ACTIF A PASSIF
 	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
 	membres = JSON.parse(contenu_fichier);
 
 	membres.tour = query.adversaire;
+
+	console.log(membres.tour);
 	// LE JOUEUR EST SUR PAGE ATTENDRE
 	//	membres.attendre = true;
 
 	contenu_fichier = JSON.stringify(membres);
-	fs.writeFileSync("./tables/"+query.table+".json" , contenu_fichier, "UTF-8");
+	fs.writeFileSync("./tables/"+partie+".json" , contenu_fichier, "UTF-8");
 
 	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
-	contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
+	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
 
 	// JOUEURS 1
@@ -80,7 +81,7 @@ var trait = function (req, res, query) {
 
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 		contenu_partie = JSON.stringify(nouvellePartie);
-	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
+	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 
 	// AFFICHAGE DE LA PAGE RESULTAT

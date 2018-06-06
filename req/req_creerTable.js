@@ -12,7 +12,7 @@ var trait = function (req, res, query) {
 
 	var marqueurs;
 	var page;
-	var partie = [];
+	var partie;
 	var contenu_partie;
 	var contenu_fichier;
 	var connecte;
@@ -150,9 +150,6 @@ var trait = function (req, res, query) {
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
-	// CREATION MARQUEUR TABLE
-	table = query.compte;
-
 	// AFFICHAGE DE LA PAGE DE JEU
 	page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
 
@@ -176,7 +173,6 @@ var trait = function (req, res, query) {
 
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
-	marqueurs.table = query.table;
 	page = page.supplant(marqueurs);
 
 	res.writeHead(200, {'Content-Type': 'text/html'});
