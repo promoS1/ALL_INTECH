@@ -10,8 +10,8 @@ var remedial = require("remedial");
 
 var trait = function (req, res, query) {
 
-    var marqueurs;
-    var page;
+	var marqueurs;
+	var page;
 	var membres;
 	var contenu_fichier;
 	var i;
@@ -29,19 +29,33 @@ var trait = function (req, res, query) {
 	var soldesJoueur;
 	var soldesAdversaire;
 	var pot;
+	var contenuConnecte;
+	var connecte;
+	var partie;
 
-	contenu_fichier = fs.readFileSync("./tables/"+query.compte+".json" , "UTF-8");
+	contenuConnecte = fs.readFileSync("./json/connecte.json" , "UTF-8");
+	connecte = JSON.parse (contenuConnecte);
+
+	for (i = 0 ; i < connecte.length ; i++) {
+		if (connecte[i].compte === query.compte) {
+			partie = connecte[i].table;
+			console.log(partie);
+		}
+	}
+
+
+	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
 	membres = JSON.parse(contenu_fichier);
-	
+
 	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
 	//for (i = 0 ; i < membres.length ; i++) {
-		// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
-//		if (membres[i].attendre === true) {
-//			page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
-//		} else {
+	// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
+	//		if (membres[i].attendre === true) {
+	//			page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
+	//		} else {
 
-// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
-	contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
+	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
+	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
 
 	// JOUEURS 1
@@ -63,24 +77,24 @@ var trait = function (req, res, query) {
 	pot = nouvellePartie.pot;
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur 
-	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur 
-	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur 
-	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur 
-	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur 
-	
-	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-	contenu_partie = JSON.stringify(nouvellePartie);
-	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
+		carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur 
+		carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur 
+		carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur 
+		carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur 
+
+		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
+		contenu_partie = JSON.stringify(nouvellePartie);
+	fs.writeFileSync("./tables/"partie+".json", contenu_partie, "UTF-8");
 
 
-    // AFFICHAGE DE LA PAGE RESULTAT
+	// AFFICHAGE DE LA PAGE RESULTAT
 	page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
-//		}
+	//		}
 	//	}
-	
+
 	// Marqueurs HTML
 	marqueurs = {};
-	
+
 	// Marqueurs Carte Joueur
 	marqueurs.carte2Joueurs = carte2Joueurs;
 	marqueurs.carteJoueurs = carteJoueurs;
@@ -96,13 +110,13 @@ var trait = function (req, res, query) {
 	marqueurs.soldesJoueur = soldesJoueur;
 	marqueurs.soldesAdversaire = soldesAdversaire;
 	marqueurs.pot = pot;
-    marqueurs.compte = query.compte;
+	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
-    page = page.supplant(marqueurs);
+	page = page.supplant(marqueurs);
 
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(page);
-    res.end();
+	res.writeHead(200, {'Content-Type': 'text/html'});
+	res.write(page);
+	res.end();
 
 };
 //--------------------------------------------------------------------------
