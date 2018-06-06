@@ -26,6 +26,8 @@ var trait = function (req, res, query) {
 	var soldesJoueur;
 	var soldesAdversaire;
 	var pot;
+	var i;
+	var partie;
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
