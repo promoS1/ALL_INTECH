@@ -98,7 +98,6 @@ var trait = function (req, res, query) {
 	marqueurs.pot = pot;
     marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
-	marqueurs.table = query.table;
     page = page.supplant(marqueurs);
 
     res.writeHead(200, {'Content-Type': 'text/html'});

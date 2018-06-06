@@ -65,8 +65,8 @@ var trait = function (req, res, query) {
 
 	// JOUEUR 2
 	if(query.compte === nouvellePartie.joueurs[1]){
-		carteJoueurs = nouvellePartie.main[0][2].couleur + nouvellePartie.main[0][2].valeur;
-		carte2Joueurs = nouvellePartie.main[0][3].couleur + nouvellePartie.main[0][3].valeur;
+		carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
+		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
 		soldesJoueur = nouvellePartie.solde[1];
 		soldesAdversaire = nouvellePartie.solde[0];
 	}
