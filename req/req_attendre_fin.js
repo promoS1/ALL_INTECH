@@ -68,8 +68,8 @@ var trait = function (req, res, query) {
 
 	// JOUEUR 2
 	if(query.compte === nouvellePartie.joueurs[1]){
-		carteJoueurs = nouvellePartie.main[0][2].couleur + nouvellePartie.main[0][2].valeur;
-		carte2Joueurs = nouvellePartie.main[0][3].couleur + nouvellePartie.main[0][3].valeur;
+		carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
+		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
 		soldesJoueur = nouvellePartie.solde[1];
 		soldesAdversaire = nouvellePartie.solde[0];
 	}
@@ -84,29 +84,27 @@ var trait = function (req, res, query) {
 
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 		contenu_partie = JSON.stringify(nouvellePartie);
-	fs.writeFileSync("./tables/"partie+".json", contenu_partie, "UTF-8");
+	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 
 	// AFFICHAGE DE LA PAGE RESULTAT
 	page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
-	//		}
-	//	}
 
-	// Marqueurs HTML
+	// MARQUEURS HTML
 	marqueurs = {};
 
-	// Marqueurs Carte Joueur
+	// MARQUEURS CARTE JOUEUR
 	marqueurs.carte2Joueurs = carte2Joueurs;
 	marqueurs.carteJoueurs = carteJoueurs;
 
-	// Marqueurs Carte de la riviere
+	// MARQUEURS CARTE DE LA RIVIERE
 	marqueurs.carte1Riviere = carte1Riviere;
 	marqueurs.carte2Riviere = carte2Riviere;
 	marqueurs.carte3Riviere = carte3Riviere;
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
 
-	//Autres marqueurs
+	//AUTRES MARQUEURS
 	marqueurs.soldesJoueur = soldesJoueur;
 	marqueurs.soldesAdversaire = soldesAdversaire;
 	marqueurs.pot = pot;
