@@ -1,7 +1,7 @@
 //=========================================================================
 // Traitement de "req_attendre_fin"
 // Auteur : ALL IN'TECH
-// Version : 31/05/2018
+// Version : 07/06/2018
 //=========================================================================
 "use strict";
 
@@ -43,16 +43,9 @@ var trait = function (req, res, query) {
 		}
 	}
 
-
+	// LECTURE DU JSON DE LA PARTIE
 	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
 	membres = JSON.parse(contenu_fichier);
-
-	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
-	//for (i = 0 ; i < membres.length ; i++) {
-	// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
-	//		if (membres[i].attendre === true) {
-	//			page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
-	//		} else {
 
 	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
@@ -88,7 +81,26 @@ var trait = function (req, res, query) {
 
 
 	// AFFICHAGE DE LA PAGE RESULTAT
-	page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
+	//page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
+
+	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
+    membres = JSON.parse(contenu_fichier);
+
+    // ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
+    for (i = 0 ; i < membres.length ; i++) {
+	    // SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
+	        if (membres[0].attendre === true && membres[1].attendre === true) {
+	            page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
+	 		// SI UN DES DEUX JOUEURS N'EST PAS SUR PAGE ATTENDRE
+			} else if (membres[0].attendre !== true || membres[1].attendre !== true)  {
+				page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");
+			} else {
+	            console.log("ERREUR : MAUVAISE REDIRECTION");
+				page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");
+			}
+	}
+
+
 
 	// MARQUEURS HTML
 	marqueurs = {};

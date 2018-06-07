@@ -53,10 +53,6 @@ var trait = function (req, res, query) {
 		joue = "en_attente";
 	}
 
-	console.log("TABLE"+partie);
-	console.log("MEMBRES"+membres.tour);
-	console.log("JOUE"+joue);
-
 	contenu_fichier = JSON.stringify(membres);
 	fs.writeFileSync("./tables/"+partie+".json" , contenu_fichier, "UTF-8");
 

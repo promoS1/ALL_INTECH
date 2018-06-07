@@ -46,7 +46,7 @@ var trait = function (req, res, query) {
 
 	console.log(membres.tour);
 	// LE JOUEUR EST SUR PAGE ATTENDRE
-	//	membres.attendre = true;
+	membres.attendre = true;
 
 	contenu_fichier = JSON.stringify(membres);
 	fs.writeFileSync("./tables/"+partie+".json" , contenu_fichier, "UTF-8");
