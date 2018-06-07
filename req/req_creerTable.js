@@ -35,6 +35,7 @@ var trait = function (req, res, query) {
 	var carte5Riviere;
 	var soldesJoueur;
 	var soldesAdversaire;
+	var attendre;
 	var pot;
 	
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
@@ -110,9 +111,11 @@ var trait = function (req, res, query) {
 	mains = nouvellePartie.main;
 	river = nouvellePartie.river;
 
-	distribution(mains, river);
+	// ATTENDRE TRUE OU FALSE
 
-//	console.log(nouvellePartie.main[0]);
+	nouvellePartie.attendre = [false,false];
+
+	distribution(mains, river);
 
 	// ECRITURE DANS LE JSON DE PARTIE AVEC LES NOUVELLES DONNEES
 	contenu_partie = JSON.stringify(nouvellePartie);

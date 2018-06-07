@@ -44,10 +44,6 @@ var trait = function (req, res, query) {
 
 	membres.tour = query.adversaire;
 
-	console.log(membres.tour);
-	// LE JOUEUR EST SUR PAGE ATTENDRE
-	membres.attendre = true;
-
 	contenu_fichier = JSON.stringify(membres);
 	fs.writeFileSync("./tables/"+partie+".json" , contenu_fichier, "UTF-8");
 
@@ -61,6 +57,7 @@ var trait = function (req, res, query) {
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		soldesJoueur = nouvellePartie.solde[0];
 		soldesAdversaire = nouvellePartie.solde[1];
+		nouvellePartie.attendre[0] = true;
 	}
 
 	// JOUEUR 2
@@ -69,6 +66,7 @@ var trait = function (req, res, query) {
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
 		soldesJoueur = nouvellePartie.solde[1];
 		soldesAdversaire = nouvellePartie.solde[0];
+		nouvellePartie.attendre[1] = true;
 	}
 
 	pot = nouvellePartie.pot;

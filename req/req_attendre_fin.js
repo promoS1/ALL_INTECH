@@ -39,13 +39,9 @@ var trait = function (req, res, query) {
 	for (i = 0 ; i < connecte.length ; i++) {
 		if (connecte[i].compte === query.compte) {
 			partie = connecte[i].table;
-			console.log(partie);
 		}
 	}
 
-	// LECTURE DU JSON DE LA PARTIE
-	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
-	membres = JSON.parse(contenu_fichier);
 
 	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
@@ -79,26 +75,27 @@ var trait = function (req, res, query) {
 		contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
-
-	// AFFICHAGE DE LA PAGE RESULTAT
-	//page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
-
 	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
     membres = JSON.parse(contenu_fichier);
 
+	console.log(membres.attendre);
+	console.log(membres.attendre[0]);
+	console.log(membres.attendre[1]);
+
     // ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
-    for (i = 0 ; i < membres.length ; i++) {
 	    // SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
-	        if (membres[0].attendre === true && membres[1].attendre === true) {
+	        if (membres.attendre[0] === true && membres.attendre[1] === true) {
 	            page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
 	 		// SI UN DES DEUX JOUEURS N'EST PAS SUR PAGE ATTENDRE
-			} else if (membres[0].attendre !== true || membres[1].attendre !== true)  {
+			} else if (membres.attendre[0] === false && membres[1].attendre[1] === true)  {
+				page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");		
+			} else if (membres.attendre[0] === true && membres[1].attendre[1] === false)  {
 				page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");
 			} else {
 	            console.log("ERREUR : MAUVAISE REDIRECTION");
 				page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");
 			}
-	}
+//	}
 
 
 
