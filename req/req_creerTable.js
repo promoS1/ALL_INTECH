@@ -112,7 +112,6 @@ var trait = function (req, res, query) {
 	river = nouvellePartie.river;
 
 	// ATTENDRE TRUE OU FALSE
-
 	nouvellePartie.attendre = [false,false];
 
 	distribution(mains, river);
@@ -157,13 +156,13 @@ var trait = function (req, res, query) {
 	page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
 
 	marqueurs = {};
-	// Marqueurs HTML
+	// MARQUEURS HTML
 
-	// Marqueurs Carte Joueur
+	// MARQUEURS CARTE JOUEUR
 	marqueurs.carte2Joueurs = carte2Joueurs;
 	marqueurs.carteJoueurs = carteJoueurs;
 
-	// Marqueurs Carte de la riviere
+	// MARQUEURS CARTE DE LA RIVIERE
 	marqueurs.carte1Riviere = carte1Riviere;
 	marqueurs.carte2Riviere = carte2Riviere;
 	marqueurs.carte3Riviere = carte3Riviere;
