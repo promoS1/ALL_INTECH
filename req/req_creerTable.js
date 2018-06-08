@@ -114,6 +114,9 @@ var trait = function (req, res, query) {
 	// ATTENDRE TRUE OU FALSE
 	nouvellePartie.attendre = [false,false];
 
+	// VALEUR DES MAINS
+	nouvellePartie.valeurMain = [0;0];
+
 	distribution(mains, river);
 
 	// ECRITURE DANS LE JSON DE PARTIE AVEC LES NOUVELLES DONNEES
