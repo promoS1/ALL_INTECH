@@ -1,5 +1,5 @@
-//====================================================================
-// Traitement de "req_miser"
+//=========================================================================
+// Traitement de "req_coucher"
 // Auteur : ALL IN'TECH
 // Version : 28/05/2018
 //=========================================================================
@@ -37,7 +37,7 @@ var trait = function (req, res, query) {
 			partie = membres[i].table;
 		}
 	}
-	
+
 	// PASSAGE DE JOUEUR ACTIF A PASSIF
 	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
 	membres = JSON.parse(contenu_fichier);
@@ -71,14 +71,14 @@ var trait = function (req, res, query) {
 
 	pot = nouvellePartie.pot;
 
-	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur 
-		carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur 
-		carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur 
-		carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur 
-		carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur 
+	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur;
+	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur;
+	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur;
+	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur;
+	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur;
 
-		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-		contenu_partie = JSON.stringify(nouvellePartie);
+	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
+	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 
