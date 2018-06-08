@@ -117,6 +117,10 @@ var trait = function (req, res, query) {
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
 
+	marqueurs.soldesJoueur = soldesJoueur;
+	marqueurs.soldesAdversaire = soldesAdversaire;
+	marqueurs.pot = pot;
+
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
 	page = page.supplant(marqueurs);
