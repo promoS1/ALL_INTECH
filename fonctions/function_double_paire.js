@@ -29,21 +29,21 @@ var function_double_paire = function (carte1Joueur, carte2Joueur, riviere, valeu
 
     if (carte1Joueur === carte2Joueur) {
 		if (carte1Joueur === river1 || carte1Joueur === river2 || carte1Joueur === river3 ) {
-			valeurMain.valeurMain = 3;
+			valeurMain = 3;
 		} else if (carte2Joueur === river1 || carte2Joueur === river2 || carte2Joueur === river3) {
-			valeurMain.valeurMain = 3;
+			valeurMain = 3;
 		}
     } else if (carte1Joueur === river1 || carte1Joueur === river2 || carte1Joueur === river3 ) {
         if (carte1Joueur === carte2Joueur) {
-			valeurMain.valeurMain = 3;
+			valeurMain = 3;
 		} else if (carte2Joueur === river1 || carte2Joueur === river2 || carte2Joueur === river3 ) {
-			valeurMain.valeurMain = 3;
+			valeurMain = 3;
 		}
     } else if (carte2Joueur=== river1 || carte2Joueur === river2 || carte2Joueur === river3 ) {
 		if (carte1Joueur === carte2Joueur) {
-			valeurMain.valeurMain = 3;
+			valeurMain = 3;
 		} else if (carte1Joueur === river1 || carte1Joueur === river2 || carte1Joueur === river3 ) {
-			valeurMain.valeurMain = 3;
+			valeurMain = 3;
 		}
     }
 };
