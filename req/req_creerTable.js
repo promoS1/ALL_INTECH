@@ -115,7 +115,7 @@ var trait = function (req, res, query) {
 	nouvellePartie.attendre = [false,false];
 
 	// VALEUR DES MAINS
-	nouvellePartie.valeurMain = [0;0];
+	nouvellePartie.valeurMain = [0,0];
 
 	distribution(mains, river);
 

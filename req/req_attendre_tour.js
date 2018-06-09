@@ -38,7 +38,6 @@ var trait = function (req, res, query) {
 	for (i = 0 ; i < connecte.length ; i++) {
 		if (connecte[i].compte === query.compte) {
 			partie = connecte[i].table;
-			console.log(partie);
 		}
 	}
 
@@ -61,12 +60,12 @@ var trait = function (req, res, query) {
 
 		// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 
-		console.log("OUI"+partie);
+	//	console.log("OUI"+partie);
 		contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 		nouvellePartie = JSON.parse(contenu_partie);
 
 		// JOUEUR 1
-		if(query.compte === nouvellePartie.joueurs[0]){
+		if (query.compte === nouvellePartie.joueurs[0]) {
 			carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 			carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 			soldesJoueur = nouvellePartie.solde[0];
@@ -74,7 +73,7 @@ var trait = function (req, res, query) {
 		}
 
 		// JOUEUR 2
-		if(query.compte === nouvellePartie.joueurs[1]){
+		if (query.compte === nouvellePartie.joueurs[1]) {
 			carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 			carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;	
 			soldesJoueur = nouvellePartie.solde[1];
@@ -100,7 +99,8 @@ var trait = function (req, res, query) {
 		page = fs.readFileSync("./html/modele_page_adversaire.html" , "UTF-8");
 	} else {
 		console.log("ERREUR");
-		page = fs.readFileSync ("./html/mode_salon_multi" , "UTF-8");
+		page = fs.readFileSync ("./html/modele_error.html" , "UTF-8");
+
 	}
 
 	// MARQUEURS HTML

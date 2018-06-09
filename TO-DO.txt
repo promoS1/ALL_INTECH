@@ -7,5 +7,6 @@
 - finir la page modele adversaire avec un truc pour attendre (petit jeu)
 - voir si on peut pas regrouper toutes les actions -> checker, miser, relancer, se coucher, suivre exemple : checkbox
 - voir si la riviere reste la meme pour une meme table
-- req miser : boutons + et - pour augmenter ou diminuer la mise
-- voir qui a la valeurMain la meilleure
+- req miser : boutons + et - pour augmenter ou diminuer la mise (nahel)
+- voir qui a la valeurMain la meilleure (kevin)
+- il y aura un pb avec req_rejouer

@@ -64,38 +64,31 @@ var trait = function (req, res, query) {
 	pot = nouvellePartie.pot;
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
-		carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur; 
-		carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur;
-		carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur;
-		carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
+	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur; 
+	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur;
+	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur;
+	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
 
-		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-		contenu_partie = JSON.stringify(nouvellePartie);
+	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
+	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
-    membres = JSON.parse(contenu_fichier);
+	membres = JSON.parse(contenu_fichier);
 
-	console.log(membres.attendre);
-	console.log(membres.attendre[0]);
-	console.log(membres.attendre[1]);
-
-    // ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
-	    // SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
-	        if (membres.attendre[0] === true && membres.attendre[1] === true) {
-	            page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
-	 		// SI UN DES DEUX JOUEURS N'EST PAS SUR PAGE ATTENDRE
-			} else if (membres.attendre[0] === false && membres[1].attendre[1] === true)  {
-				page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");		
-			} else if (membres.attendre[0] === true && membres[1].attendre[1] === false)  {
-				page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");
-			} else {
-	            console.log("ERREUR : MAUVAISE REDIRECTION");
-				page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");
-			}
-//	}
-
-
+	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
+	// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
+	if (membres.attendre[0] === true && membres.attendre[1] === true) {
+		page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
+		// SI UN DES DEUX JOUEURS N'EST PAS SUR PAGE ATTENDRE
+	} else if (membres.attendre[0] === false && membres.attendre[1] === true)  {
+		page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");		
+	} else if (membres.attendre[0] === true && membres.attendre[1] === false)  {
+		page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");
+	} else {
+		console.log("ERREUR");
+		page = fs.readFileSync ("./html/modele_error.html" , "UTF-8");
+	}
 
 	// MARQUEURS HTML
 	marqueurs = {};
