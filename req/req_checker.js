@@ -25,8 +25,8 @@ var trait = function (req, res, query) {
 	var carte3Riviere;
 	var carte4Riviere;
 	var carte5Riviere;
-	var soldesJoueur;
-	var soldesAdversaire;
+	var soldeJoueur;
+	var soldeAdversaire;
 	var pot;
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
@@ -55,8 +55,8 @@ var trait = function (req, res, query) {
 	if(query.compte === nouvellePartie.joueurs[0]){
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
-		soldesJoueur = nouvellePartie.solde[0];
-		soldesAdversaire = nouvellePartie.solde[1];
+		soldeJoueur = nouvellePartie.solde[0];
+		soldeAdversaire = nouvellePartie.solde[1];
 		nouvellePartie.attendre[0] = true;
 	}
 
@@ -64,8 +64,8 @@ var trait = function (req, res, query) {
 	if(query.compte === nouvellePartie.joueurs[1]){
 		carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
-		soldesJoueur = nouvellePartie.solde[1];
-		soldesAdversaire = nouvellePartie.solde[0];
+		soldeJoueur = nouvellePartie.solde[1];
+		soldeAdversaire = nouvellePartie.solde[0];
 		nouvellePartie.attendre[1] = true;
 	}
 
@@ -100,8 +100,8 @@ var trait = function (req, res, query) {
 	marqueurs.carte5Riviere = carte5Riviere;
 
 	//Autres marqueurs
-	marqueurs.soldesJoueur = soldesJoueur;
-	marqueurs.soldesAdversaire = soldesAdversaire;
+	marqueurs.soldeJoueur = soldeJoueur;
+	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.pot = pot;
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;

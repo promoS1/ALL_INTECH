@@ -20,8 +20,8 @@ var trait = function (req, res, query) {
 	var partie;
 	var miseJoueur;
 	var miseAdversaire;
-	var soldesJoueur;
-	var soldesAdversaire;
+	var soldeJoueur;
+	var soldeAdversaire;
 	var carteJoueurs;
 	var carte2Joueurs;
 	var carte1Riviere;
@@ -50,8 +50,8 @@ var trait = function (req, res, query) {
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		miseJoueur = nouvellePartie.mise[0];
 		miseAdversaire = nouvellePartie.mise[1];
-		soldesJoueur = nouvellePartie.solde[0];
-		soldesAdversaire = nouvellePartie.solde[1];
+		soldeJoueur = nouvellePartie.solde[0];
+		soldeAdversaire = nouvellePartie.solde[1];
 	}
 
 	// JOUEUR 2
@@ -60,8 +60,8 @@ var trait = function (req, res, query) {
 		carte2Joueurs = nouvellePartie.main[0][3].couleur + nouvellePartie.main[0][3].valeur;
 		miseJoueur = nouvellePartie.mise[1];
 		miseAdversaire = nouvellePartie.mise[0];
-		soldesJoueur = nouvellePartie.solde[1];
-		soldesAdversaire = nouvellePartie.solde[0];
+		soldeJoueur = nouvellePartie.solde[1];
+		soldeAdversaire = nouvellePartie.solde[0];
 	}	
 	
 	pot = nouvellePartie.pot;
@@ -74,10 +74,10 @@ var trait = function (req, res, query) {
 		miseJoueur = (miseAdversaire + (miseAdversaire / 4))
 	}
 
-	if (miseJoueur < soldesJoueur) {
+	if (miseJoueur < soldeJoueur) {
 			miseJoueur += 50;
-			if (miseJoueur > soldesJoueur) {
-				miseJoueur = soldesJoueur;
+			if (miseJoueur > soldeJoueur) {
+				miseJoueur = soldeJoueur;
 			}
 		}
 
@@ -109,8 +109,8 @@ marqueurs = {};
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
 
-	marqueurs.soldesJoueur = soldesJoueur;
-	marqueurs.soldesAdversaire = soldesAdversaire;
+	marqueurs.soldeJoueur = soldeJoueur;
+	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.pot = pot;
 	marqueurs.miseJoueur = miseJoueur;
 	marqueurs.miseAdversaire = miseAdversaire;

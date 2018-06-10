@@ -24,8 +24,8 @@ var trait = function (req, res, query) {
 	var carte3Riviere;
 	var carte4Riviere;
 	var carte5Riviere;
-	var soldesJoueur;
-	var soldesAdversaire;
+	var soldeJoueur;
+	var soldeAdversaire;
 	var pot;
 	var membres;
 	var contenu_fichier;
@@ -71,8 +71,8 @@ var trait = function (req, res, query) {
 			carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 			miseJoueur = nouvellePartie.mise[0];
 			miseAdversaire = nouvellePartie.mise[1];
-			soldesJoueur = nouvellePartie.solde[0];
-			soldesAdversaire = nouvellePartie.solde[1];
+			soldeJoueur = nouvellePartie.solde[0];
+			soldeAdversaire = nouvellePartie.solde[1];
 		}
 
 		// JOUEUR 2
@@ -81,8 +81,8 @@ var trait = function (req, res, query) {
 			carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;	
 			miseJoueur = nouvellePartie.mise[0];
 			miseAdversaire = nouvellePartie.mise[1];
-			soldesJoueur = nouvellePartie.solde[1];
-			soldesAdversaire = nouvellePartie.solde[0];
+			soldeJoueur = nouvellePartie.solde[1];
+			soldeAdversaire = nouvellePartie.solde[0];
 		}
 
 		pot = nouvellePartie.pot;
@@ -132,8 +132,8 @@ var trait = function (req, res, query) {
 
 	marqueurs.miseJoueur = miseJoueur;
 	marqueurs.miseAdversaire = miseAdversaire;
-	marqueurs.soldesJoueur = soldesJoueur;
-	marqueurs.soldesAdversaire = soldesAdversaire;
+	marqueurs.soldeJoueur = soldeJoueur;
+	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.choix = choix;
 	marqueurs.pot = pot;
 
