@@ -101,45 +101,43 @@ var trait = function (req, res, query) {
 	if (membres.attendre[0] === true && membres.attendre[1] === true) {
 
 
-	// JOUEURS 1
-	if(query.compte === membres.joueurs[0]){
-	carte1Joueur = membres.main[0][0].valeur;
-	carte2Joueur = membres.main[0][1].valeur;
-	valeurMainJoueur = membres.valeurMain[0];
-}
-
-	// JOUEUR 2
-	if(query.compte === membres.joueurs[1]){
-	carte1Joueur = membres.main[1][0].valeur;
-	carte2Joueur = membres.main[1][1].valeur;
-	valeurMainJoueur = membres.valeurMain[1];
-}
+		// JOUEURS 1
+		if(query.compte === membres.joueurs[0]){
+			carte1Joueur = membres.main[0][0].valeur;
+			carte2Joueur = membres.main[0][1].valeur;
+			valeurMainJoueur = membres.valeurMain[0];
+		// JOUEUR 2
+		} else if(query.compte === membres.joueurs[1]){
+			carte1Joueur = membres.main[1][0].valeur;
+			carte2Joueur = membres.main[1][1].valeur;
+			valeurMainJoueur = membres.valeurMain[0];
+		}
 
 		riviere = membres.river;
 
-//		carteHaute(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-		paire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-//		doublePaire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-//		brelan(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-//		quinte(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-//		couleur(couleur1Joueur, couleur2Joueur, riviere, valeurMainJoueur);
-//		full(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-//		carre(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-//		quinteFlush(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-//		quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		//		carteHaute(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		paire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur, partie);
+		//		doublePaire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		//		brelan(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		//		quinte(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		//		couleur(couleur1Joueur, couleur2Joueur, riviere, valeurMainJoueur);
+		//		full(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		//		carre(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		//		quinteFlush(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		//		quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 
-	contenu_fichier = JSON.stringify(membres);
-	fs.writeFileSync("./tables/"+partie+".json", contenu_fichier, "UTF-8");
+//		contenu_fichier = JSON.stringify(membres);
+//		fs.writeFileSync("./tables/"+partie+".json", contenu_fichier, "UTF-8");
 
-	
-	// MARQUEUR VALEURMAIN
-	resultat = "";
-	if(membres.valeurMain[0] > membres.valeurMain[1]){
-		resultat += "<p>"+membres.joueurs[0]+" a gagné!</p>";
-	}else if(membres.valeurMain[0] < membres.valeurMain[1]){
-		resultat += "<p>"+membres.joueurs[1]+" a gagné!</p>";
-	}else if(membres.valeurMain[0] === membres.valeurMain[1]){
-		resultat += "<p>Egalité!</p>";	
+
+		// MARQUEUR VALEURMAIN
+		resultat = "";
+		if(membres.valeurMain[0] > membres.valeurMain[1]){
+			resultat += "<p>"+membres.joueurs[0]+" a gagné!</p>";
+		}else if(membres.valeurMain[0] < membres.valeurMain[1]){
+			resultat += "<p>"+membres.joueurs[1]+" a gagné!</p>";
+		}else if(membres.valeurMain[0] === membres.valeurMain[1]){
+			resultat += "<p>Egalité!</p>";	
 		}
 
 

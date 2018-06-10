@@ -1,12 +1,9 @@
-- completer le main.js
-- faire des fonctions avec le main.js
 - IA
-- Peut etre un bug au niveau du valeurMain
 - completer la confirmation de mdp lors de l'inscription
-- affichage des cartes, du pot, du solde, joueurs sur la page modele joueur
 - finir la page modele adversaire avec un truc pour attendre (petit jeu)
-- voir si on peut pas regrouper toutes les actions -> checker, miser, relancer, se coucher, suivre exemple : checkbox
-- voir si la riviere reste la meme pour une meme table
 - req miser : boutons + et - pour augmenter ou diminuer la mise (nahel)
-- voir qui a la valeurMain la meilleure (kevin)
 - il y aura un pb avec req_rejouer
+- finir les fonctions ( )
+- bug d'affichage égalité sur modele_page_resultat alors qu'il y a un gagnant
+- Pot et Soldes qui ne change pas
+-
