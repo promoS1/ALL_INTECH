@@ -79,7 +79,7 @@ var trait = function (req, res, query) {
 	}
 
 	pot = nouvellePartie.pot;
-	pot += mise.joueurs;
+	pot += miseJoueur;
 	soldesJoueur -= miseJoueur;
 //FONCTIONNEMENT MISE 
 

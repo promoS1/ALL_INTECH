@@ -130,6 +130,8 @@ var trait = function (req, res, query) {
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
 
+	marqueurs.miseJoueur = miseJoueur;
+	marqueurs.miseAdversaire = miseAdversaire;
 	marqueurs.soldesJoueur = soldesJoueur;
 	marqueurs.soldesAdversaire = soldesAdversaire;
 	marqueurs.choix = choix;

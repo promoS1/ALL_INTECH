@@ -40,9 +40,9 @@ var trait = function (req, res, query) {
 	var choix;
 	var attendre;
 	var pot;
-	
+
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
-    membres = JSON.parse(contenu_fichier);
+	membres = JSON.parse(contenu_fichier);
 
 	// ON DONNE LA DISPONIBILITE DE CHAQUE JOUEURS
 	for (a = 0 ; a < membres.length ; a++) {
@@ -51,14 +51,21 @@ var trait = function (req, res, query) {
 		}
 	}
 	for (b = 0 ; b < membres.length ; b++) {
- 		if (membres[b].compte === query.adversaire) {
+		if (membres[b].compte === query.adversaire) {
 			membres[b].connecte = "joue";
 		}
 	}
-	
+
 	contenu_fichier = JSON.stringify(membres);
 	fs.writeFileSync("./json/connecte.json" , contenu_fichier , "UTF-8");
+<<<<<<< HEAD
+
+
+
+
+=======
 	
+>>>>>>> f47c9654c5ff5018d15485ada647b0d8257a530c
 	// CODE JEU
 
 	// APPEL DES MODULES MELANGER ET LES COMBINAISONS
@@ -148,8 +155,8 @@ var trait = function (req, res, query) {
 
 	if (pot === 0) {
 		choix = "miser";
-		miseJoueur = 0;
-	}else {
+		miseJoueur = 100;
+	} else {
 		choix = "relancer";
 		miseJoueur = (miseAdversaire + (miseAdversaire / 4))
 	}
@@ -159,7 +166,7 @@ var trait = function (req, res, query) {
 	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur; 
 	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
 	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
-	
+
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
