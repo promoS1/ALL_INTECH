@@ -10,6 +10,7 @@ var remedial = require("remedial");
 
 var trait = function (req, res, query) {
 
+	// VARIABLES DES MARQUEURS ET JSON
 	var marqueurs;
 	var page;
 	var membres;
@@ -30,6 +31,25 @@ var trait = function (req, res, query) {
 	var contenuConnecte;
 	var connecte;
 	var partie;
+	var resultat;
+
+	// VARIABLES DES COMBINAISONS
+	var valeurMainJoueur;
+	var carte1Joueur;
+	var carte2Joueur;
+	var riviere;
+
+	// VARIABLE QUI APPELLE LA FONCTION
+	var carteHaute = require("../fonctions/function_carte_haute.js");
+	var paire = require("../fonctions/function_paire.js");
+	var doublePaire = require("../fonctions/function_double_paire.js");
+	var brelan = require("../fonctions/function_brelan.js");
+	var quinte = require("../fonctions/function_quinte.js");
+	var couleur = require("../fonctions/function_couleur.js");
+	var full = require("../fonctions/function_full.js");
+	var carre = require("../fonctions/function_carre.js");
+	var quinteFlush = require("../fonctions/function_quinte_flush.js");
+	var quinteFlushRoyale = require("../fonctions/function_quinte_flush_royale.js");
 
 	contenuConnecte = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	connecte = JSON.parse (contenuConnecte);
@@ -79,6 +99,50 @@ var trait = function (req, res, query) {
 	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
 	// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
 	if (membres.attendre[0] === true && membres.attendre[1] === true) {
+
+
+	// JOUEURS 1
+	if(query.compte === membres.joueurs[0]){
+	carte1Joueur = membres.main[0][0].valeur;
+	carte2Joueur = membres.main[0][1].valeur;
+	valeurMainJoueur = membres.valeurMain[0];
+}
+
+	// JOUEUR 2
+	if(query.compte === membres.joueurs[1]){
+	carte1Joueur = membres.main[1][0].valeur;
+	carte2Joueur = membres.main[1][1].valeur;
+	valeurMainJoueur = membres.valeurMain[1];
+}
+
+		riviere = membres.river;
+
+//		carteHaute(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		paire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+//		doublePaire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+//		brelan(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+//		quinte(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+//		couleur(couleur1Joueur, couleur2Joueur, riviere, valeurMainJoueur);
+//		full(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+//		carre(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+//		quinteFlush(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+//		quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+
+	contenu_fichier = JSON.stringify(membres);
+	fs.writeFileSync("./tables/"+partie+".json", contenu_fichier, "UTF-8");
+
+	
+	// MARQUEUR VALEURMAIN
+	resultat = "";
+	if(membres.valeurMain[0] > membres.valeurMain[1]){
+		resultat += "<p>"+membres.joueurs[0]+" a gagné!</p>";
+	}else if(membres.valeurMain[0] < membres.valeurMain[1]){
+		resultat += "<p>"+membres.joueurs[1]+" a gagné!</p>";
+	}else if(membres.valeurMain[0] === membres.valeurMain[1]){
+		resultat += "<p>Egalité!</p>";	
+		}
+
+
 		page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
 		// SI UN DES DEUX JOUEURS N'EST PAS SUR PAGE ATTENDRE
 	} else if (membres.attendre[0] === false && membres.attendre[1] === true)  {
@@ -110,6 +174,7 @@ var trait = function (req, res, query) {
 	marqueurs.pot = pot;
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
+	marqueurs.resultat = resultat;
 	page = page.supplant(marqueurs);
 
 	res.writeHead(200, {'Content-Type': 'text/html'});
