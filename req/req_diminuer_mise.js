@@ -1,5 +1,5 @@
 //========================================================================
-// Traitement de "req_diminuer_mise"
+// Traitement de "req_augmenter_mise"
 // Auteur : ALL'INTECH 
 // Version : 09/06/18
 //=========================================================================
@@ -11,8 +11,37 @@ var remedial = require("remedial");
 var trait = function (req, res, query) {
 
 	var marqueurs;
+	var i;
 	var page;
+	var nouvellePartie;
+	var contenu_fichier;
+	var contenu_partie;
+	var membres;
+	
 
+	contenu_fichier = fs.readFileSync(".json/connecte.json" , "UTF-8");
+	membres = JSON.parse (contenu_fichier);
+
+	for (i = 0; i < membres.length; i++) {
+		if (membres[i].compte === query.compte) {
+			partie = membres[i].table;
+		}		
+	}
+
+	contenu_partie= fs.readFileSync("./tables"+partie+".json" , "TUF-8");
+	nouvellePartie = JSON.parse(contenu_partie);
+
+	if (query.compte === nouvellePartie.joueurs[0]) {
+		miseJoueur = nouvellePartie.mise[0];
+		miseAdversaire = nouvellePartie.mise[1];
+		soldesJoueur = nouvellePartie.solde[0]
+		while (miseJoueur < soldesJoueur) {
+			miseJoueur -= (miseJoueur + (miseJoueur / 4));
+		}
+	}
+
+contenu_partie = JSON.stringify(nouvellePartie);
+fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
 
 

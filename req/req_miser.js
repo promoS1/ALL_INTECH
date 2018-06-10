@@ -27,7 +27,10 @@ var trait = function (req, res, query) {
 	var carte5Riviere;
 	var soldesJoueur;
 	var soldesAdversaire;
+	var choix;
 	var pot;
+	var miseJoueur;
+	var miseAdversaire;
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
@@ -37,7 +40,7 @@ var trait = function (req, res, query) {
 			partie = membres[i].table;
 		}
 	}
-	
+
 	// PASSAGE DE JOUEUR ACTIF A PASSIF
 	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
 	membres = JSON.parse(contenu_fichier);
@@ -55,30 +58,39 @@ var trait = function (req, res, query) {
 	if(query.compte === nouvellePartie.joueurs[0]){
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
+		miseJoueur = nouvellePartie.mise[0];
+		miseAdversaire = nouvellePartie.mise[1];
 		soldesJoueur = nouvellePartie.solde[0];
 		soldesAdversaire = nouvellePartie.solde[1];
-		nouvellePartie.attendre[0] = true;
+				nouvellePartie.attendre[0] = true;
 	}
 
+
 	// JOUEUR 2
+	
 	if(query.compte === nouvellePartie.joueurs[1]){
 		carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
+		miseJoueur = nouvellePartie.mise[1];
+		miseAdversaire = nouvellePartie.mise[0];
 		soldesJoueur = nouvellePartie.solde[1];
 		soldesAdversaire = nouvellePartie.solde[0];
-		nouvellePartie.attendre[1] = true;
+				nouvellePartie.attendre[1] = true;
 	}
 
 	pot = nouvellePartie.pot;
+	pot += mise.joueurs;
+	soldesJoueur -= miseJoueur;
+//FONCTIONNEMENT MISE 
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
-		carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur;
-		carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur; 
-		carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
-		carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
+	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur;
+	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur; 
+	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
+	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
 
-		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-		contenu_partie = JSON.stringify(nouvellePartie);
+	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
+	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 
@@ -105,7 +117,10 @@ var trait = function (req, res, query) {
 	marqueurs.pot = pot;
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
-//	marqueurs.table = query.table;
+	marqueurs.miseJoueur = miseJoueur;
+	marqueurs.miseAdversaire = miseAdversaire;
+	marqueurs.choix = choix;
+	//	marqueurs.table = query.table;
 	page = page.supplant(marqueurs);
 
 	res.writeHead(200, {'Content-Type': 'text/html'});

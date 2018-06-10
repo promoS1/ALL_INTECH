@@ -30,14 +30,21 @@
 
 			<br><br>
 
-			<a href = "./req_miser?compte={compte}&adversaire={adversaire}">Miser</a>
+			<a href="./req_diminuer_mise?compte={compte}&adversaire={adversaire}">
+			<img src="./img/moins.png">
+			</a>
 
-			<br><br>
-
-			 <a href = "./req_checker?compte={compte}&adversaire={adversaire}&table={table}">Check</a>
-
-			<br><br>
-
+			<input type="text" name="mise" disabled="disabled"
+			placeholder={miseJoueur}>
+			<a href="./req_augmenter_mise?compte={compte}&adversaire={adversaire}">
+			<img src="./img/plus.png">
+			</a>
+			
+			<br>
+			
+			<a href="./req_miser?compte={compte}&adversaire={adversaire}">{choix}</a>
+			</form>
+		<br><br>
 
 			<a href = "./req_suivre?compte={compte}&adversaire={adversaire}&table={table}">Suivre</a>
 

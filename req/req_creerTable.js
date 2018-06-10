@@ -35,6 +35,9 @@ var trait = function (req, res, query) {
 	var carte5Riviere;
 	var soldesJoueur;
 	var soldesAdversaire;
+	var miseJoueur;
+	var miseAdversaire;
+	var choix;
 	var attendre;
 	var pot;
 	
@@ -58,9 +61,6 @@ var trait = function (req, res, query) {
 	
 	
 
-// =============================================================================
-// =============================================================================
-
 
 	// CODE JEU
 
@@ -81,7 +81,7 @@ var trait = function (req, res, query) {
 	nouvellePartie.joueurs[1] = query.adversaire;
 
 	// TOUR DE JEU
-	nouvellePartie.tour = query.compte; 
+	nouvellePartie.tour = query.compte;
 
 	// CARTES DE LA RIVIERE
 	nouvellePartie.river = [];
@@ -104,8 +104,8 @@ var trait = function (req, res, query) {
 	}
 	// SOLDE DE CHAQUE JOUEURS, SOLDE DE DEPART DE 100
 	nouvellePartie.solde = [];
-	nouvellePartie.solde[0] = 100;
-	nouvellePartie.solde[1] = 100;
+	nouvellePartie.solde[0] = 1000;
+	nouvellePartie.solde[1] = 1000;
 
 	// DISTRIBUTION DES CARTES DANS LA MAIN ET DANS LA RIVIERE
 	mains = nouvellePartie.main;
@@ -131,6 +131,8 @@ var trait = function (req, res, query) {
 	if(query.compte === nouvellePartie.joueurs[0]){
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
+		miseJoueur = nouvellePartie.mise[0];
+		miseAdversaire = nouvellePartie.mise[1];
 		soldesJoueur = nouvellePartie.solde[0];
 		soldesAdversaire = nouvellePartie.solde[1];
 	}
@@ -139,11 +141,21 @@ var trait = function (req, res, query) {
 	if(query.compte === nouvellePartie.joueurs[1]){
 		carteJoueurs = nouvellePartie.main[0][2].couleur + nouvellePartie.main[0][2].valeur;
 		carte2Joueurs = nouvellePartie.main[0][3].couleur + nouvellePartie.main[0][3].valeur;
+		miseJoueur = nouvellePartie.mise[1];
+		miseAdversaire = nouvellePartie.mise[0];
 		soldesJoueur = nouvellePartie.solde[1];
 		soldesAdversaire = nouvellePartie.solde[0];
 	}
 
 	pot = nouvellePartie.pot;
+
+	if (pot === 0) {
+		choix = "miser";
+		miseJoueur = 0;
+	}else {
+		choix = "relancer";
+		miseJoueur = (miseAdversaire + (miseAdversaire / 4))
+	}
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
 	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur; 
@@ -175,6 +187,9 @@ var trait = function (req, res, query) {
 	marqueurs.soldesJoueur = soldesJoueur;
 	marqueurs.soldesAdversaire = soldesAdversaire;
 	marqueurs.pot = pot;
+	marqueurs.miseJoueur = miseJoueur;
+	marqueurs.miseAdversaire = miseAdversaire;
+	marqueurs.choix = choix;
 
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;

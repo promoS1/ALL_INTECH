@@ -28,6 +28,7 @@ var trait = function (req, res, query) {
 	var soldesJoueur;
 	var soldesAdversaire;
 	var pot;
+	var miseJoueur;
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
@@ -57,7 +58,9 @@ var trait = function (req, res, query) {
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		soldesJoueur = nouvellePartie.solde[0];
 		soldesAdversaire = nouvellePartie.solde[1];
+		miseJoueur = nouvellePartie.mise[0];
 		nouvellePartie.attendre[0] = true;
+		nouvellePartie.pot += nouvellePartie.mise[1];
 	}
 
 	// JOUEUR 2
@@ -66,10 +69,13 @@ var trait = function (req, res, query) {
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
 		soldesJoueur = nouvellePartie.solde[1];
 		soldesAdversaire = nouvellePartie.solde[0];
+		miseJoueur = nouvellePartie.mise[1];
 		nouvellePartie.attendre[1] = true;
 	}
 
 	pot = nouvellePartie.pot;
+	pot += miseJoueur;
+	soldesJoueur -= miseJoueur;
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur;
 	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur;
