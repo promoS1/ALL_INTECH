@@ -3,7 +3,7 @@
 - finir la page modele adversaire avec un truc pour attendre (petit jeu)
 - req miser : boutons + et - pour augmenter ou diminuer la mise (nahel)
 - il y aura un pb avec req_rejouer
-- finir les fonctions ( )
+- finir les fonctions (quinte, main haute et royal )
 - bug d'affichage égalité sur modele_page_resultat alors qu'il y a un gagnant
 - Pot et Soldes qui ne change pas
 -

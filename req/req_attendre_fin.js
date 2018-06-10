@@ -34,9 +34,12 @@ var trait = function (req, res, query) {
 	var resultat;
 
 	// VARIABLES DES COMBINAISONS
+	var x;
 	var valeurMainJoueur;
 	var carte1Joueur;
 	var carte2Joueur;
+	var couleur1Joueur;
+	var couleur2Joueur;
 	var riviere;
 
 	// VARIABLE QUI APPELLE LA FONCTION
@@ -103,32 +106,32 @@ var trait = function (req, res, query) {
 
 		// JOUEURS 1
 		if(query.compte === membres.joueurs[0]){
+			x = 0;
 			carte1Joueur = membres.main[0][0].valeur;
 			carte2Joueur = membres.main[0][1].valeur;
-			valeurMainJoueur = membres.valeurMain[0];
+			couleur1Joueur = membres.main[0][0].couleur;
+			couleur2Joueur = membres.main[0][1].couleur;
 		// JOUEUR 2
 		} else if(query.compte === membres.joueurs[1]){
+			x = 1;
 			carte1Joueur = membres.main[1][0].valeur;
 			carte2Joueur = membres.main[1][1].valeur;
-			valeurMainJoueur = membres.valeurMain[0];
+			couleur1Joueur = membres.main[1][0].couleur;
+			couleur2Joueur = membres.main[1][1].couleur;		
 		}
 
 		riviere = membres.river;
 
 		//		carteHaute(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-		paire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur, partie);
-		//		doublePaire(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-		//		brelan(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		paire(carte1Joueur, carte2Joueur, riviere, x, partie);
+		doublePaire(carte1Joueur, carte2Joueur, riviere, x, partie);
+		brelan(carte1Joueur, carte2Joueur, riviere, x, partie);
 		//		quinte(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-		//		couleur(couleur1Joueur, couleur2Joueur, riviere, valeurMainJoueur);
+		couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
 		//		full(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-		//		carre(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		carre(carte1Joueur, carte2Joueur, riviere, x, partie);
 		//		quinteFlush(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 		//		quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-
-//		contenu_fichier = JSON.stringify(membres);
-//		fs.writeFileSync("./tables/"+partie+".json", contenu_fichier, "UTF-8");
-
 
 		// MARQUEUR VALEURMAIN
 		resultat = "";
