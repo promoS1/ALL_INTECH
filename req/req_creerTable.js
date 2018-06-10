@@ -58,14 +58,6 @@ var trait = function (req, res, query) {
 
 	contenu_fichier = JSON.stringify(membres);
 	fs.writeFileSync("./json/connecte.json" , contenu_fichier , "UTF-8");
-<<<<<<< HEAD
-
-
-
-
-=======
-	
->>>>>>> f47c9654c5ff5018d15485ada647b0d8257a530c
 	// CODE JEU
 
 	// APPEL DES MODULES MELANGER ET LES COMBINAISONS
