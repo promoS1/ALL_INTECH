@@ -7,16 +7,19 @@
 - Pot et Soldes qui ne change pas quand on miser
 - On ne peut augmenter et diminuer qu'une fois le mise avec les boutons + et -
 
-modifs : Couper schéma de nav en 2 parties
+modifs :
+
+- Couper schéma de nav en 2 parties
 - Changer couleur connexion (noir sur vert = illisible)
 - salon multi : mettre qu’il n’y a personne quand aucun autre connecté
 - mettre bouton dans les href à la place de liens bleus
--faire une fiche avec les combinaisons possibles pour la présentation
--mettre balise slider ou type number au lieu de + et –
+- faire une fiche avec les combinaisons possibles pour la présentation
+- mettre balise slider ou type number au lieu de + et –
 - enlever bouton suivre (juste miser)
--afficher cartes, soldes joueurs et adversaire … dans page attente
--aller directement à page résultat en fin de parties
+- afficher cartes, soldes joueurs et adversaire … dans page attente
+- aller directement à page résultat en fin de parties
 
 bugs : 
+
 - affichage {compte} dans créer compte
 - retourne pas dans salon quand on refuse un défi (créer requête refuser défi)
