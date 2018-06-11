@@ -1,8 +1,8 @@
 - IA
 - completer la confirmation de mdp lors de l'inscription
 - finir la page modele adversaire avec un truc pour attendre (petit jeu)
-- req miser : boutons + et - pour augmenter ou diminuer la mise (nahel)
 - il y aura un pb avec req_rejouer
 - finir les fonctions (quinte, main haute et royal )
 - bug d'affichage égalité sur modele_page_resultat alors qu'il y a un gagnant
-- Pot et Soldes qui ne change pas
+- Pot et Soldes qui ne change pas quand on miser
+- On ne peut augmenter et diminuer qu'une fois le mise avec les boutons + et -
