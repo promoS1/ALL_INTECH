@@ -32,6 +32,8 @@ var trait = function (req, res, query) {
 	var connecte;
 	var partie;
 	var resultat;
+	var carte1Adversaire;
+	var carte2Adversaire;
 
 	// VARIABLES DES COMBINAISONS
 	var x;
@@ -73,6 +75,9 @@ var trait = function (req, res, query) {
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		soldeJoueur = nouvellePartie.solde[0];
 		soldeAdversaire = nouvellePartie.solde[1];
+		carte1Adversaire = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
+		carte2Adversaire = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
+	
 	}
 
 	// JOUEUR 2
@@ -81,6 +86,8 @@ var trait = function (req, res, query) {
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
 		soldeJoueur = nouvellePartie.solde[1];
 		soldeAdversaire = nouvellePartie.solde[0];
+		carte1Adversaire = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
+		carte2Adversaire = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 	}
 
 	pot = nouvellePartie.pot;
@@ -159,6 +166,8 @@ var trait = function (req, res, query) {
 	// MARQUEURS CARTE JOUEUR
 	marqueurs.carte2Joueurs = carte2Joueurs;
 	marqueurs.carteJoueurs = carteJoueurs;
+	marqueurs.carte1Adversaire = carte1Adversaire;
+	marqueurs.carte2Adversaire = carte2Adversaire;
 
 	// MARQUEURS CARTE DE LA RIVIERE
 	marqueurs.carte1Riviere = carte1Riviere;
