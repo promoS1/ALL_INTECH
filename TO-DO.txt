@@ -6,6 +6,7 @@ modifs faites
 - mettre bouton dans les href à la place de liens bleus
 - salon multi : mettre qu’il n’y a personne quand aucun autre connecté
 - afficher cartes, soldes joueurs et adversaire … dans page attente et dans req_reponse_defi
+- affichage {compte} dans créer compte
 
 modifs a faire :
 
@@ -21,5 +22,4 @@ modifs a faire :
 
 bugs :
 
-- affichage {compte} dans créer compte
 - retourne pas dans salon quand on refuse un défi (créer requête refuser défi)

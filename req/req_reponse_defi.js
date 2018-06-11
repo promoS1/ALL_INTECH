@@ -118,6 +118,11 @@ var trait = function (req, res, query) {
 		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
+
+	} else if (membres[i].compte === query.adversaire) {
+		if (membres[i].connecte === true) {
+			page = fs.readFileSync ("./html/modele_salon_mutli.html" , "UTF-8");
+		}
 	} else {
 		console.log("ERREUR");
 		page = fs.readFileSync ("./html/modele_error.html" , "UTF-8");

@@ -34,6 +34,7 @@ var req_deconnexion = require ("./req/req_deconnexion.js");
 var req_defier = require ("./req/req_defier.js");
 var req_rejouer = require ("./req/req_rejouer.js");
 var req_attendre_fin = require ("./req/req_attendre_fin.js");
+var req_refuser_defi = require ("./req/req_refuser_defi.js");
 
 var req_erreur = require("./req/req_erreur.js");
 
@@ -112,7 +113,9 @@ var traite_requete = function (req, res) {
 			case '/req_attendre_fin':
 				req_attendre_fin (req, res, query);
 				break;
-
+			case '/req_refuser_defi':
+				req_refuser_defi (req, res, query);
+				break;
 
 			default:
 
