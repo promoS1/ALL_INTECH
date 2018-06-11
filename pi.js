@@ -25,8 +25,6 @@ var req_attendre_tour = require ("./req/req_attendre_tour.js");
 var req_creerTable = require ("./req/req_creerTable.js");
 var req_creerTable = require ("./req/req_creerTable.js");
 var req_miser = require ("./req/req_miser.js");	
-var req_checker = require ("./req/req_checker.js"); 
-var req_suivre = require ("./req/req_suivre.js"); 
 var req_coucher = require ("./req/req_coucher.js"); 
 var req_creerTable_IA = require ("./req/req_creerTable_IA.js");
 var req_salon_multi = require ("./req/req_salon_multi.js");
@@ -86,12 +84,6 @@ var traite_requete = function (req, res) {
 				break;
 			case '/req_miser':
 				req_miser (req, res, query);
-				break;
-			case '/req_checker':
-				req_checker (req, res, query);
-				break;
-			case '/req_suivre':
-				req_suivre (req, res, query);
 				break;
 			case '/req_coucher':
 				req_coucher (req, res, query);

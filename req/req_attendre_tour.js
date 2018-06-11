@@ -61,7 +61,7 @@ var trait = function (req, res, query) {
 
 		// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 
-	//	console.log("OUI"+partie);
+		//	console.log("OUI"+partie);
 		contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 		nouvellePartie = JSON.parse(contenu_partie);
 
@@ -145,6 +145,6 @@ var trait = function (req, res, query) {
 	res.write(page);
 	res.end();
 };
-	//--------------------------------------------------------------------------
+//--------------------------------------------------------------------------
 
-	module.exports = trait;
+module.exports = trait;
