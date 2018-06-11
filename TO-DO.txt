@@ -1,4 +1,4 @@
-modifs faites
+modifs faites :
 
 - Changer couleur connexion (noir sur vert = illisible)
 - enlever bouton suivre (juste miser)
@@ -19,7 +19,8 @@ modifs a faire :
 - bug d'affichage égalité sur modele_page_resultat alors qu'il y a un gagnant
 - Pot et Soldes qui ne change pas quand on miser
 - aller directement à page résultat en fin de parties
-- afficher les cartes dans resultats
+- afficher les cartes adversaire dans resultats
+- mettre en <h2> "Vos cartes" "Pot" "Riviere" ....
 - mode visiteur
 
 bugs :
