@@ -11,16 +11,19 @@
 modifs faites
 
 - Changer couleur connexion (noir sur vert = illisible)
+- enlever bouton suivre (juste miser)
+- mettre balise slider ou type number au lieu de + et –
+- mettre bouton dans les href à la place de liens bleus
 
 modifs a faire :
 
 - Couper schéma de nav en 2 parties
 - salon multi : mettre qu’il n’y a personne quand aucun autre connecté
 - faire une fiche avec les combinaisons possibles pour la présentation
-- afficher cartes, soldes joueurs et adversaire … dans page attente
+- afficher cartes, soldes joueurs et adversaire … dans page attente et dans req_reponse_defi
 - aller directement à page résultat en fin de parties
 
-bugs : 
+bugs :
 
 - affichage {compte} dans créer compte
 - retourne pas dans salon quand on refuse un défi (créer requête refuser défi)
