@@ -151,7 +151,7 @@ var trait = function (req, res, query) {
 		miseJoueur = 100;
 	} else {
 		choix = "relancer";
-		miseJoueur = (miseAdversaire + (miseAdversaire / 4))
+		miseJoueur = (miseAdversaire + (miseAdversaire / 4));
 	}
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 

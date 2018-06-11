@@ -43,7 +43,7 @@ var function_carre = function (carte1Joueur1, carte2Joueur1, riviere, joueur, pa
 			if (carte1Joueur1 === river1) {
 				membres.valeurMain[joueur] = 8;
 				// CARTE 2
-			} else if (carte2Joueur2 === river2) {
+			} else if (carte2Joueur1 === river2) {
 				membres.valeurMain[joueur] = 8;
 			}
 		}

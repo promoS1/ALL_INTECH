@@ -32,6 +32,8 @@ var trait = function (req, res, query) {
 	var choix;
 	var attendre;
 	var pot;
+
+	// LECTURE DU JSON CONNECTE
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
 
@@ -44,8 +46,8 @@ var trait = function (req, res, query) {
 	contenu_partie= fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
 
-// JOUEURS 1
-	if(query.compte === nouvellePartie.joueurs[0]){
+	// JOUEURS 1
+	if (query.compte === nouvellePartie.joueurs[0]) {
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		miseJoueur = nouvellePartie.mise[0];
@@ -55,7 +57,7 @@ var trait = function (req, res, query) {
 	}
 
 	// JOUEUR 2
-	if(query.compte === nouvellePartie.joueurs[1]){
+	if (query.compte === nouvellePartie.joueurs[1]) {
 		carteJoueurs = nouvellePartie.main[0][2].couleur + nouvellePartie.main[0][2].valeur;
 		carte2Joueurs = nouvellePartie.main[0][3].couleur + nouvellePartie.main[0][3].valeur;
 		miseJoueur = nouvellePartie.mise[1];
@@ -71,34 +73,33 @@ var trait = function (req, res, query) {
 		miseJoueur = 100;
 	} else {
 		choix = "relancer";
-		miseJoueur = (miseAdversaire + (miseAdversaire / 4))
+		miseJoueur = (miseAdversaire + (miseAdversaire / 4));
 	}
 
+	// AUGMENTATION MISE
 	if (miseJoueur < soldeJoueur) {
-			miseJoueur += 50;
-			if (miseJoueur > soldeJoueur) {
-				miseJoueur = soldeJoueur;
-			}
+		miseJoueur += 50;
+		if (miseJoueur > soldeJoueur) {
+			miseJoueur = soldeJoueur;
 		}
+	}
 
-contenu_partie = JSON.stringify(nouvellePartie);
-fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
-
-
+	contenu_partie = JSON.stringify(nouvellePartie);
+	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 	// AFFICHAGE DE LA PAGE RESULTAT
 	page = fs.readFileSync("./html/modele_page_joueur.html", "UTF-8");
 
-carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
+	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
 	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur; 
 	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur; 
 	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
 	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
-marqueurs = {};
 
-// MARQUEURS HTML
+	// MARQUEURS HTML
+	marqueurs = {};
 
-// MARQUEURS CARTE JOUEUR
+	// MARQUEURS CARTE JOUEUR
 	marqueurs.carte2Joueurs = carte2Joueurs;
 	marqueurs.carteJoueurs = carteJoueurs;
 

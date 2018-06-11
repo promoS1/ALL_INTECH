@@ -6,4 +6,3 @@
 - finir les fonctions (quinte, main haute et royal )
 - bug d'affichage égalité sur modele_page_resultat alors qu'il y a un gagnant
 - Pot et Soldes qui ne change pas
--

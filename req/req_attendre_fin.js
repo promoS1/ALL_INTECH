@@ -63,7 +63,6 @@ var trait = function (req, res, query) {
 		}
 	}
 
-
 	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
@@ -103,7 +102,6 @@ var trait = function (req, res, query) {
 	// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
 	if (membres.attendre[0] === true && membres.attendre[1] === true) {
 
-
 		// JOUEURS 1
 		if(query.compte === membres.joueurs[0]){
 			x = 0;
@@ -111,7 +109,7 @@ var trait = function (req, res, query) {
 			carte2Joueur = membres.main[0][1].valeur;
 			couleur1Joueur = membres.main[0][0].couleur;
 			couleur2Joueur = membres.main[0][1].couleur;
-		// JOUEUR 2
+			// JOUEUR 2
 		} else if(query.compte === membres.joueurs[1]){
 			x = 1;
 			carte1Joueur = membres.main[1][0].valeur;
@@ -135,17 +133,17 @@ var trait = function (req, res, query) {
 
 		// MARQUEUR VALEURMAIN
 		resultat = "";
-		if(membres.valeurMain[0] > membres.valeurMain[1]){
+		if (membres.valeurMain[0] > membres.valeurMain[1]) {
 			resultat += "<p>"+membres.joueurs[0]+" a gagné!</p>";
-		}else if(membres.valeurMain[0] < membres.valeurMain[1]){
+		} else if (membres.valeurMain[0] < membres.valeurMain[1]) {
 			resultat += "<p>"+membres.joueurs[1]+" a gagné!</p>";
-		}else if(membres.valeurMain[0] === membres.valeurMain[1]){
+		} else if (membres.valeurMain[0] === membres.valeurMain[1]) {
 			resultat += "<p>Egalité!</p>";	
 		}
 
-
 		page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
-		// SI UN DES DEUX JOUEURS N'EST PAS SUR PAGE ATTENDRE
+
+	// SI UN DES DEUX JOUEURS N'EST PAS SUR PAGE ATTENDRE
 	} else if (membres.attendre[0] === false && membres.attendre[1] === true)  {
 		page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");		
 	} else if (membres.attendre[0] === true && membres.attendre[1] === false)  {
