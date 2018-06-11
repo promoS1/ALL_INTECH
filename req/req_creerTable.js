@@ -148,10 +148,8 @@ var trait = function (req, res, query) {
 
 	if (pot === 0) {
 		choix = "miser";
-		miseJoueur = 100;
 	} else {
 		choix = "relancer";
-		miseJoueur = (miseAdversaire + (miseAdversaire / 4));
 	}
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
