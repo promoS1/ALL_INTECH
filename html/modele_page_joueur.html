@@ -33,11 +33,12 @@
 
 				<br><br>
 
-			<input type="number" step="50" min={miseAdversaire} max={soldeJoueur} placeholder={miseJoueur}>
-
-				
-				<a href="./req_miser?compte={compte}&adversaire={adversaire}"><button>{choix}</button></a>
-				</form>
+	<form action="./req_miser" method="GET">
+			<input type="hidden" name="compte" value={compte}>
+			<input type="hidden" name="adversaire" value={adversaire}>
+			<input type="number" name="miseJoueur" step="50" min={miseAdversaire} max={soldeJoueur} placeholder={miseJoueur} value={miseJoueur}>
+			<input type="submit" value="miser">
+	</form>
 				<br><br>
 
 				<br><br> 

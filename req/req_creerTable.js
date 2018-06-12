@@ -94,7 +94,8 @@ var trait = function (req, res, query) {
 	nouvellePartie.mise[1] = 0 ;
 
 	// POT
-	nouvellePartie.pot = 0;
+	//nouvellePartie.pot = Number(nouvellePartie.pot);
+	nouvellePartie.pot = Number(0);
 
 	for (i = 0 ; i < nouvellePartie.mise[i] ; i++) {
 		nouvellePartie.solde += nouvellePartie.mise[i];
