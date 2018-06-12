@@ -127,7 +127,7 @@ var trait = function (req, res, query) {
 
 		riviere = membres.river;
 
-		//		carteHaute(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
+		carteHaute(carte1Joueur, carte2Joueur, riviere, x, partie);
 		paire(carte1Joueur, carte2Joueur, riviere, x, partie);
 		doublePaire(carte1Joueur, carte2Joueur, riviere, x, partie);
 		brelan(carte1Joueur, carte2Joueur, riviere, x, partie);
