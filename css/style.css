@@ -2,5 +2,8 @@
 
 #pageJoueur .cartes, #pageAttendre .cartes , #pageAdversaire .cartes , #pageResultat .cartes {
 	width: 100px;
-
+	
+}
+#pageStructure , #pageJoueur , #pageAttendre , #pageAdversaire , #pageResultat {
+	color : GhostWhite;
 }
