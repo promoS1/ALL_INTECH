@@ -34,6 +34,8 @@ var trait = function (req, res, query) {
 	var resultat;
 	var carte1Adversaire;
 	var carte2Adversaire;
+	var miseJoueurNombre = Number(miseJoueurNombre);
+	var miseAdversaireNombre = Number(miseAdversaireNombre);
 
 	// VARIABLES DES COMBINAISONS
 	var x;
@@ -122,7 +124,7 @@ var trait = function (req, res, query) {
 			carte1Joueur = membres.main[1][0].valeur;
 			carte2Joueur = membres.main[1][1].valeur;
 			couleur1Joueur = membres.main[1][0].couleur;
-			couleur2Joueur = membres.main[1][1].couleur;		
+			couleur2Joueur = membres.main[1][1].couleur;
 		}
 
 		riviere = membres.river;
@@ -177,7 +179,8 @@ var trait = function (req, res, query) {
 	marqueurs.carte5Riviere = carte5Riviere;
 
 	//AUTRES marqueurs
-	marqueurs.miseJoueur = query.miseJoueur;
+	marqueurs.miseJoueur = miseJoueurNombre;
+	marqueurs.miseAdversaire = miseAdversaireNombre;
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.pot = pot;

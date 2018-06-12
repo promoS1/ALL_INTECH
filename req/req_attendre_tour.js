@@ -31,6 +31,8 @@ var trait = function (req, res, query) {
 	var contenu_fichier;
 	var miseJoueur;
 	var miseAdversaire;
+	var miseJoueurNombre = Number(miseJoueur);
+	var miseAdversaireNombre = Number(miseAdversaire);
 	var choix;
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
@@ -174,8 +176,8 @@ var trait = function (req, res, query) {
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
 
-	marqueurs.miseJoueur = miseJoueur;
-	marqueurs.miseAdversaire = miseAdversaire;
+	marqueurs.miseJoueur = miseJoueurNombre;
+	marqueurs.miseAdversaire = miseAdversaireNombre;
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.choix = choix;
