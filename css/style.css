@@ -6,4 +6,5 @@
 }
 #pageStructure , #pageJoueur , #pageAttendre , #pageAdversaire , #pageResultat {
 	color : GhostWhite;
+	font-family: sans-serif;
 }

@@ -32,6 +32,7 @@ var trait = function (req, res, query) {
 	var compteJoueur;
 	var miseAdversaire;
 	var miseJoueur;
+	var miseJoueurNombre;
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
@@ -56,7 +57,7 @@ var trait = function (req, res, query) {
 	nouvellePartie = JSON.parse(contenu_partie);
 
 	nouvellePartie.pot = Number(nouvellePartie.pot);
-
+	console.log(nouvellePartie.pot);
 	// JOUEURS 1
 	if(query.compte === nouvellePartie.joueurs[0]){
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
@@ -81,16 +82,18 @@ var trait = function (req, res, query) {
 		nouvellePartie.attendre[1] = true;
 	}
 
+	miseJoueurNombre = Number(query.miseJoueur);
 	pot = nouvellePartie.pot;
-	pot += query.compteJoueur;
-	soldeJoueur -= query.compteJoueur;
-//FONCTIONNEMENT MISE 
+	pot += miseJoueurNombre;
+	soldeJoueur -= miseJoueur;
+	//FONCTIONNEMENT MISE 
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
 	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur;
 	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur; 
 	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
 	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
+	console.log(nouvellePartie.pot);
 
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 	contenu_partie = JSON.stringify(nouvellePartie);
