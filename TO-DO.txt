@@ -27,3 +27,5 @@ modifs secondaire à faire :
 - il y aura un pb avec req_rejouer
 - mettre en <h2> "Vos cartes" "Pot" "Riviere" ....
 - mode visiteur
+- Rediriger le membre qui est refusé dans le salon multi et non dans l'accueil
+- Un membres est affiché alors qu'il est déconnecté

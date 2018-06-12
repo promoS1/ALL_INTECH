@@ -13,6 +13,8 @@ var trait = function (req, res, query) {
 	var marqueurs;
 	var contenu_fichier;
 	var membres;
+	var joueurs;
+	var b;
 	var i;
 	var a;
 	var nouvellePartie;
@@ -46,9 +48,9 @@ var trait = function (req, res, query) {
 	for (i = 0 ; i < membres.length; i++) {
 		if (membres[i].compte === query.compte) {
 			a=i;
-			if (membres[a].connecte === true) {
-				adversaire_trouve = true; 	
-			}
+			//			if (membres[a].connecte === true) {
+			//				adversaire_trouve = true; 	
+			//			}
 		}
 	}
 
@@ -58,9 +60,33 @@ var trait = function (req, res, query) {
 		}
 	}
 
+	for (i=0; i < membres.length; i++){
+		if( membres[i].compte === query.adversaire){
+			b=i;
+		}
+	}
 
-	if (membres[a].connecte === "attente") {
-		page = fs.readFileSync("./html/modele_attendre_reponse.html" , "UTF-8");
+
+	console.log("ADVERSAIRE"+membres[b].compte);
+
+	if (membres[b].connecte === true ) {
+
+		membres[a].table = "";
+		membres[a].adversaire = "";
+		membres[b].table="";
+		membres[b].adversaire="";
+		joueurs = "";
+		for (i = 0; i < membres.length; i++) {
+			// SI LE JOUEUR EST CONNECTE ET ATTEND UN ADVERSAIRE DANS LE SALON MULTI
+			if (membres[i].compte !== query.compte && membres[i].connecte === true && membres[i].libre === true) {
+				// ON PEUT LE PASSER EN <a href == ?
+				joueurs += "<form action = '/req_defier' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ membres[i].compte +"'></form>";
+			}
+		}
+
+	page = fs.readFileSync ("./html/modele_accueil_membre.html" , "UTF-8");
+	//	page = fs.readFileSync ("./html/modele_salon_multi.html" , "UTF-8");
+
 	} else if (membres[a].connecte === "joue") {
 
 		// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
@@ -78,23 +104,13 @@ var trait = function (req, res, query) {
 			soldeAdversaire = nouvellePartie.solde[1];
 		}
 
-		// JOUEUR 2
-		if (query.compte === nouvellePartie.joueurs[1]) {
-			carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
-			carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
-
-			miseJoueur = nouvellePartie.mise[0];
-			miseAdversaire = nouvellePartie.mise[1];
-			soldeJoueur = nouvellePartie.solde[0];
-			soldeAdversaire = nouvellePartie.solde[1];
-		}
 
 		// JOUEUR 2
 		if (query.compte === nouvellePartie.joueurs[1]) {
 			carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 			carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
-			miseJoueur = nouvellePartie.mise[0];
-			miseAdversaire = nouvellePartie.mise[1];
+			miseJoueur = nouvellePartie.mise[1];
+			miseAdversaire = nouvellePartie.mise[0];
 			soldeJoueur = nouvellePartie.solde[1];
 			soldeAdversaire = nouvellePartie.solde[0];
 		}
@@ -119,10 +135,9 @@ var trait = function (req, res, query) {
 
 		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
 
-	} else if (membres[i].compte === query.adversaire) {
-		if (membres[i].connecte === true) {
-			page = fs.readFileSync ("./html/modele_salon_mutli.html" , "UTF-8");
-		}
+	} else if (membres[a].connecte === "attente") {
+		page = fs.readFileSync("./html/modele_attendre_reponse.html" , "UTF-8");
+
 	} else {
 		console.log("ERREUR");
 		page = fs.readFileSync ("./html/modele_error.html" , "UTF-8");
@@ -150,6 +165,7 @@ var trait = function (req, res, query) {
 	marqueurs.choix = choix;
 	marqueurs.pot = pot;
 
+	marqueurs.joueurs = joueurs;
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
 	page = page.supplant(marqueurs);
