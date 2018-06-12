@@ -14,35 +14,28 @@
 
 			<br><br>
 
-			<fieldset>
-				<p>Vos cartes : 
-				<img class="cartes" src="../img/cards/{carteJoueurs}.png"> 
-				<img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
-				<p>Cartes de l'adversaire: 
-				<img class="cartes" src="../img/cards/{carte1Adversaire}.png"> 
-				<img class="cartes" src="../img/cards/{carte2Adversaire}.png">
-				</p>
-				<p>
-				La riviere:
-				<img class="cartes"src="../img/cards/{carte1Riviere}.png">
-				<img class="cartes" src="../img/cards/{carte2Riviere}.png">
-				<img class="cartes" src="../img/cards/{carte3Riviere}.png">
-				<img class="cartes" src="../img/cards/{carte4Riviere}.png">
-				<img class="cartes" src="../img/cards/{carte5Riviere}.png"></p>
-				<p>Pot: {pot} </p>
-			</fieldset>
+			<p><h3>Vos cartes :</h3> 
+			<img class="cartes" src="../img/cards/{carteJoueurs}.png"> 
+			<img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p><br>
+			<p><h3>Cartes de l'adversaire:</h3> 
+			<img class="cartes" src="../img/cards/{carte1Adversaire}.png"> 
+			<img class="cartes" src="../img/cards/{carte2Adversaire}.png">
+			</p><br>
+			<p>
+			<h3>La riviere:</h3>
+			<img class="cartes"src="../img/cards/{carte1Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte2Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte3Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte4Riviere}.png">
+			<img class="cartes" src="../img/cards/{carte5Riviere}.png"></p>
+			<p><h3>Pot: {pot}</h3></p>
 
 			<br><br>
 			<a href = "./req_attendre_fin?compte={compte}&adversaire={adversaire}"><button>Afficher le résultat</button></a>
 		<h2>{resultat}</h2>	
 
-			<br><br>
-
-			<a href = "./req_salon_multi?compte={compte}"><button>Retour au salon multijoueur</button></a>
 
 			<br><br>
-
-			<br><br><br><br>
 			<a href = "./req_deconnexion?compte={compte}"><button>Deconnexion</button></a>
 		</center>
 	</body>

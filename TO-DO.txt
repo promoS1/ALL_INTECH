@@ -7,6 +7,8 @@ modifs faites :
 - salon multi : mettre qu’il n’y a personne quand aucun autre connecté
 - afficher cartes, soldes joueurs et adversaire … dans page attente et dans req_reponse_defi
 - affichage {compte} dans créer compte
+- retourner dans salon quand on refuse un défi (créer requête refuser défi)
+- mettre en <h2> "Vos cartes" "Pot" "Riviere" ....
 
 
 modifs principales à faire :
@@ -15,7 +17,6 @@ modifs principales à faire :
 - Pot et Soldes qui ne change pas quand on miser
 - aller directement à page résultat en fin de parties
 - obligé de cliquer sur le button afficher resultat ----> bug d'affichage égalité sur modele_page_resultat alors qu'il y a un gagnant
-- retourner dans salon quand on refuse un défi (créer requête refuser défi)
 
 
 modifs secondaire à faire :
@@ -25,7 +26,6 @@ modifs secondaire à faire :
 - IA
 - completer la confirmation de mdp lors de l'inscription
 - il y aura un pb avec req_rejouer
-- mettre en <h2> "Vos cartes" "Pot" "Riviere" ....
 - mode visiteur
 - Rediriger le membre qui est refusé dans le salon multi et non dans l'accueil
 - Un membres est affiché alors qu'il est déconnecté
