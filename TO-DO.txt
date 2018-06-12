@@ -8,20 +8,22 @@ modifs faites :
 - afficher cartes, soldes joueurs et adversaire … dans page attente et dans req_reponse_defi
 - affichage {compte} dans créer compte
 
-modifs a faire :
+
+modifs principales à faire :
+
+- finir les fonctions (quinte, main haute et royal )
+- Pot et Soldes qui ne change pas quand on miser
+- aller directement à page résultat en fin de parties
+- obligé de cliquer sur le button afficher resultat ----> bug d'affichage égalité sur modele_page_resultat alors qu'il y a un gagnant
+- retourner dans salon quand on refuse un défi (créer requête refuser défi)
+
+
+modifs secondaire à faire :
 
 - Couper schéma de nav en 2 parties
 - faire une fiche avec les combinaisons possibles pour la présentation
 - IA
 - completer la confirmation de mdp lors de l'inscription
 - il y aura un pb avec req_rejouer
-- finir les fonctions (quinte, main haute et royal )
-- obligé de cliquer sur le button afficher resultat ----> bug d'affichage égalité sur modele_page_resultat alors qu'il y a un gagnant
-- Pot et Soldes qui ne change pas quand on miser
-- aller directement à page résultat en fin de parties
 - mettre en <h2> "Vos cartes" "Pot" "Riviere" ....
 - mode visiteur
-
-bugs :
-
-- retourne pas dans salon quand on refuse un défi (créer requête refuser défi)
