@@ -32,7 +32,7 @@ var trait = function (req, res, query) {
 	var compteJoueur;
 	var miseAdversaire;
 	var miseJoueur;
-	var miseJoueurNombre;
+	var miseJoueurNombre = Number(miseJoueur);
 	var miseAdversaireNombre = Number(miseAdversaire);
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
@@ -85,7 +85,7 @@ var trait = function (req, res, query) {
 
 	miseJoueurNombre = Number(query.miseJoueur);
 	pot = nouvellePartie.pot;
-	pot += miseJoueurNombre;
+	nouvellePartie.pot += miseJoueurNombre;
 	soldeJoueur -= miseJoueurNombre;
 	//FONCTIONNEMENT MISE 
 
