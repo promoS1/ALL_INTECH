@@ -87,8 +87,8 @@ var trait = function (req, res, query) {
 	pot = nouvellePartie.pot;
 	pot += miseJoueurNombre;
 	soldeJoueur -= miseJoueurNombre;
-	//FONCTIONNEMENT MISE 
 
+	//FONCTIONNEMENT MISE 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
 	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur;
 	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur; 

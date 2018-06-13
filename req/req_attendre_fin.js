@@ -71,8 +71,8 @@ var trait = function (req, res, query) {
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
 
-	// JOUEURS 1
-	if(query.compte === nouvellePartie.joueurs[0]){
+	// JOUEUR 1
+	if (query.compte === nouvellePartie.joueurs[0]) {
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		soldeJoueur = nouvellePartie.solde[0];
@@ -83,7 +83,7 @@ var trait = function (req, res, query) {
 	}
 
 	// JOUEUR 2
-	if(query.compte === nouvellePartie.joueurs[1]){
+	if (query.compte === nouvellePartie.joueurs[1]) {
 		carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
 		soldeJoueur = nouvellePartie.solde[1];

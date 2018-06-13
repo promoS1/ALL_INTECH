@@ -5,6 +5,7 @@
 		<title>Voici la page de résultat</title>
 		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/> 
 	    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	<!--	<meta http-equiv = "refresh" content = "4; url=/req_rejouer?compte={compte}&adversaire={adversaire}&table={compte}">-->
 
 	</head>
 
@@ -34,7 +35,7 @@
 			<a href = "./req_attendre_fin?compte={compte}&adversaire={adversaire}"><button>Afficher le résultat</button></a>
 		<h2>{resultat}</h2>	
 
-
+			<a href = "./req_rejouer?compte={compte}&adversaire={adversaire}"><button>Rejouer</button></a>
 			<br><br>
 			<a href = "./req_deconnexion?compte={compte}"><button>Deconnexion</button></a>
 		</center>
