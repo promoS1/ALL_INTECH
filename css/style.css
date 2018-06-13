@@ -11,4 +11,5 @@
 .buttonALLIN {
 	width:180px;
 	border: 1px solid black;
+	border-radius: 25%;
 }
