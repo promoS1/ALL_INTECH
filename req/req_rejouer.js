@@ -66,7 +66,6 @@ var trait = function (req, res, query) {
 	contenu_partie = JSON.stringify(membres);
 	fs.writeFileSync("./tables/"+partie+".json" , contenu_fichier, 'UTF-8');
 
-
 	melange = require("../fonctions/function_melange_cartes.js");
 	distribution = require("../fonctions/function_distribution_cartes.js");
 
@@ -105,10 +104,11 @@ var trait = function (req, res, query) {
 	for (i = 0 ; i < nouvellePartie.mise[i] ; i++) {
 		nouvellePartie.solde += nouvellePartie.mise[i];
 	}
+
 	// SOLDE DE CHAQUE JOUEURS, SOLDE DE DEPART DE 100
 	nouvellePartie.solde = [];
-	nouvellePartie.solde[0] = 1000;
-	nouvellePartie.solde[1] = 1000;
+	nouvellePartie.solde[0] = {soldeJoueur};
+	nouvellePartie.solde[1] = {soldeAdversaire};
 
 	// DISTRIBUTION DES CARTES DANS LA MAIN ET DANS LA RIVIERE
 	mains = nouvellePartie.main;
