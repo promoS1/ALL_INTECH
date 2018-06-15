@@ -110,7 +110,7 @@ var trait = function (req, res, query) {
 	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
 	// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
 	if (membres.attendre[0] === true && membres.attendre[1] === true) {
-
+/*
 		// JOUEURS 1
 		if(query.compte === membres.joueurs[0]){
 			x = 0;
@@ -140,6 +140,7 @@ var trait = function (req, res, query) {
 		//		quinteFlush(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 		//		quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 
+*/
 		// MARQUEUR VALEURMAIN
 		resultat = "";
 		if (membres.valeurMain[0] > membres.valeurMain[1]) {
