@@ -177,7 +177,7 @@ var trait = function (req, res, query) {
 	marqueurs.carte5Riviere = carte5Riviere;
 
 	marqueurs.miseJoueur = miseJoueurNombre;
-	marqueurs.miseAdversaire = miseAdversaireNombre;
+	marqueurs.miseAdversaire = 0;
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.choix = choix;
