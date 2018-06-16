@@ -182,18 +182,21 @@ var trait = function (req, res, query) {
 	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur; 
 	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
 	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
-	/*
+	
 	// CALCUL DES MAINS
 	partie = query.compte;
 	riviere = nouvellePartie.river;
 
-	for(x = 0; 0 < nouvellePartie.joueurs.length; x++){
+	for(x = 0; x < nouvellePartie.joueurs.length; x++){
+
+	console.log(x);
 
 	carte1Joueur = nouvellePartie.main[x][0].valeur;
 	carte2Joueur = nouvellePartie.main[x][1].valeur;
 	couleur1Joueur = nouvellePartie.main[x][0].couleur;
 	couleur2Joueur = nouvellePartie.main[x][1].couleur;
 
+/*	
 	carteHaute(carte1Joueur, carte2Joueur, riviere, x, partie);
 	paire(carte1Joueur, carte2Joueur, riviere, x, partie);
 	doublePaire(carte1Joueur, carte2Joueur, riviere, x, partie);
@@ -205,49 +208,13 @@ var trait = function (req, res, query) {
 	//quinteFlush(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 	//quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
 
+*/
 	}
 
-	 */
-
+	
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
-
-	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
-	contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
-	nouvellePartie = JSON.parse(contenu_partie);
-
-
-	// CALCUL DES MAINS
-	partie = query.compte;
-	riviere = nouvellePartie.river;
-
-	for(x = 0; 0 < nouvellePartie.joueurs.length; x++){
-
-		carte1Joueur = nouvellePartie.main[x][0].valeur;
-		carte2Joueur = nouvellePartie.main[x][1].valeur;
-		couleur1Joueur = nouvellePartie.main[x][0].couleur;
-		couleur2Joueur = nouvellePartie.main[x][1].couleur;
-
-		carteHaute(carte1Joueur, carte2Joueur, riviere, x, partie);
-		paire(carte1Joueur, carte2Joueur, riviere, x, partie);
-		doublePaire(carte1Joueur, carte2Joueur, riviere, x, partie);
-		brelan(carte1Joueur, carte2Joueur, riviere, x, partie);
-		quinte(carte1Joueur, carte2Joueur, riviere, x, partie);
-		couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
-		full(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-		carre(carte1Joueur, carte2Joueur, riviere, x, partie);
-		//quinteFlush(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-		//quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-
-	}
-
-	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-	contenu_partie = JSON.stringify(nouvellePartie);
-	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
-
-
-
 
 	// AFFICHAGE DE LA PAGE DE JEU
 	page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
