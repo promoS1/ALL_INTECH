@@ -16,7 +16,6 @@ modifs principales à faire :
 - finir les fonctions (quinte, main haute et royal )
 - Pot et Soldes qui ne change pas quand on miser
 - aller directement à page résultat en fin de parties
-- obligé de cliquer sur le button afficher resultat ----> bug d'affichage égalité sur modele_page_resultat alors qu'il y a un gagnant
 -
 
 
