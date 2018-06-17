@@ -62,6 +62,7 @@ var trait = function (req, res, query) {
 	var quinteFlush = require("../fonctions/function_quinte_flush.js");
 	var quinteFlushRoyale = require("../fonctions/function_quinte_flush_royale.js");
 
+	// LECTURE DU JSON DES MEMBRES
 	contenu_fichier = fs.readFileSync("./json/connecte.json", "UTF-8");
 	membres = JSON.parse(contenu_fichier);
 
