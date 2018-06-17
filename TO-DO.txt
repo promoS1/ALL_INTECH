@@ -17,7 +17,7 @@ modifs principales à faire :
 - Pot et Soldes qui ne change pas quand on miser
 - aller directement à page résultat en fin de parties
 - finir flushRoyale et couleur
-
+- quand on se couche l'autre joueur gagne
 
 modifs secondaire à faire :
 
