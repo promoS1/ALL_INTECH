@@ -27,7 +27,7 @@ var trait = function (req, res, query) {
 	var carte5Riviere;
 	var soldeJoueur;
 	var soldeAdversaire;
-	var pot;
+	var pot = Number (pot);
 	var contenuConnecte;
 	var connecte;
 	var partie;
@@ -79,7 +79,7 @@ var trait = function (req, res, query) {
 		soldeAdversaire = nouvellePartie.solde[1];
 		carte1Adversaire = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Adversaire = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
-	
+
 	}
 
 	// JOUEUR 2
@@ -92,7 +92,10 @@ var trait = function (req, res, query) {
 		carte2Adversaire = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 	}
 
+	// CALCUL DU POT
 	pot = nouvellePartie.pot;
+	pot = miseJoueurNombre + miseAdversaireNombre;
+
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
 	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur; 
@@ -110,37 +113,6 @@ var trait = function (req, res, query) {
 	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
 	// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
 	if (membres.attendre[0] === true && membres.attendre[1] === true) {
-/*
-		// JOUEURS 1
-		if(query.compte === membres.joueurs[0]){
-			x = 0;
-			carte1Joueur = membres.main[0][0].valeur;
-			carte2Joueur = membres.main[0][1].valeur;
-			couleur1Joueur = membres.main[0][0].couleur;
-			couleur2Joueur = membres.main[0][1].couleur;
-			// JOUEUR 2
-		} else if(query.compte === membres.joueurs[1]){
-			x = 1;
-			carte1Joueur = membres.main[1][0].valeur;
-			carte2Joueur = membres.main[1][1].valeur;
-			couleur1Joueur = membres.main[1][0].couleur;
-			couleur2Joueur = membres.main[1][1].couleur;
-		}
-
-		riviere = membres.river;
-
-		carteHaute(carte1Joueur, carte2Joueur, riviere, x, partie);
-		paire(carte1Joueur, carte2Joueur, riviere, x, partie);
-		doublePaire(carte1Joueur, carte2Joueur, riviere, x, partie);
-		brelan(carte1Joueur, carte2Joueur, riviere, x, partie);
-		quinte(carte1Joueur, carte2Joueur, riviere, x, partie);
-		couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
-		//		full(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-		carre(carte1Joueur, carte2Joueur, riviere, x, partie);
-		//		quinteFlush(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-		//		quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, valeurMainJoueur);
-
-*/
 		// MARQUEUR VALEURMAIN
 		resultat = "";
 		if (membres.valeurMain[0] > membres.valeurMain[1]) {
@@ -153,7 +125,7 @@ var trait = function (req, res, query) {
 
 		page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
 
-	// SI UN DES DEUX JOUEURS N'EST PAS SUR PAGE ATTENDRE
+		// SI UN DES DEUX JOUEURS N'EST PAS SUR PAGE ATTENDRE
 	} else if (membres.attendre[0] === false && membres.attendre[1] === true)  {
 		page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");		
 	} else if (membres.attendre[0] === true && membres.attendre[1] === false)  {
