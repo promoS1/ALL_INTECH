@@ -45,7 +45,7 @@ var function_quinte = function (carte1Joueur, carte2Joueur, riviere, joueur, par
 	while( test !== 3){
 		while(test === 0 && Number(testQuinte1[i + 1]) === Number(testQuinte1[i])+1 && i != 5){
 			if(i === 4){
-				for(x = 0; x < testQuinte1.length; i++){
+				for(x = 0; x < testQuinte1.length; x++){
 					if(carte1Joueur === testQuinte1[x] || carte2Joueur === testQuinte1[x]){
 						membres.valeurMain[joueur] = 5;
 					} else if(x === testQuinte1.length-1 && carte1Joueur !== testQuinte1[x] && carte2Joueur !== testQuinte1[x]){
@@ -61,7 +61,7 @@ var function_quinte = function (carte1Joueur, carte2Joueur, riviere, joueur, par
 			i = 0;	
 		} while(test === 1 && Number(testQuinte2[i + 1]) === Number(testQuinte2[i])+1 && i != 5){
 			if(i === 4){
-				for(x = 0; x < testQuinte2.length; i++){
+				for(x = 0; x < testQuinte2.length; x++){
 					if(carte1Joueur === testQuinte2[x] || carte2Joueur === testQuinte2[x]){
 						membres.valeurMain[joueur] = 5;
 					} else if(x === testQuinte2.length-1 && carte1Joueur !== testQuinte2[x] && carte2Joueur !== testQuinte2[x]){
@@ -75,7 +75,7 @@ var function_quinte = function (carte1Joueur, carte2Joueur, riviere, joueur, par
 			test = 2;
 		} while(test === 2 && Number(testQuinte3[i + 1]) === Number(testQuinte3[i])+1 && i != 5){
 			if(i === 4){
-				for(x = 0; x < testQuinte3.length; i++){
+				for(x = 0; x < testQuinte3.length; x++){
 					if(carte1Joueur === testQuinte3[x] || carte2Joueur === testQuinte3[x]){
 						membres.valeurMain[joueur] = 5;
 					} else if(x === testQuinte3.length-1 && carte1Joueur !== testQuinte3[x] && carte2Joueur !== testQuinte3[x]){
