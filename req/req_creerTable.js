@@ -1,7 +1,7 @@
 //=============================================================================
 // Traitement de "req_creerTable"
 // Auteur : ALL IN'TECH 
-// Version : 16/05/18
+// Version : 17/06/18
 //==============================================================================
 "use strict";
 
@@ -77,6 +77,7 @@ var trait = function (req, res, query) {
 		}
 	}
 
+	// LANCEMENT DU TOUR
 	contenu_fichier = JSON.stringify(membres);
 	fs.writeFileSync("./json/connecte.json" , contenu_fichier , "UTF-8");
 
@@ -194,21 +195,21 @@ var trait = function (req, res, query) {
 
 	for(x = 0; x < nouvellePartie.joueurs.length; x++){
 
-	carte1Joueur = nouvellePartie.main[x][0].valeur;
-	carte2Joueur = nouvellePartie.main[x][1].valeur;
-	couleur1Joueur = nouvellePartie.main[x][0].couleur;
-	couleur2Joueur = nouvellePartie.main[x][1].couleur;
+		carte1Joueur = nouvellePartie.main[x][0].valeur;
+		carte2Joueur = nouvellePartie.main[x][1].valeur;
+		couleur1Joueur = nouvellePartie.main[x][0].couleur;
+		couleur2Joueur = nouvellePartie.main[x][1].couleur;
 
-	carteHaute(carte1Joueur, carte2Joueur, riviere, x, partie);
-	paire(carte1Joueur, carte2Joueur, riviere, x, partie);
-	doublePaire(carte1Joueur, carte2Joueur, riviere, x, partie);
-	brelan(carte1Joueur, carte2Joueur, riviere, x, partie);
-	quinte(carte1Joueur, carte2Joueur, riviere, x, partie);
-	//couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
-	full(carte1Joueur, carte2Joueur, riviere, x, partie);
-	carre(carte1Joueur, carte2Joueur, riviere, x, partie);
-	quinteFlush(carte1Joueur, carte2Joueur, riviere, x, partie);
-	//quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, x, partie);
+		carteHaute(carte1Joueur, carte2Joueur, riviere, x, partie);
+		paire(carte1Joueur, carte2Joueur, riviere, x, partie);
+		doublePaire(carte1Joueur, carte2Joueur, riviere, x, partie);
+		brelan(carte1Joueur, carte2Joueur, riviere, x, partie);
+		quinte(carte1Joueur, carte2Joueur, riviere, x, partie);
+		//couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
+		full(carte1Joueur, carte2Joueur, riviere, x, partie);
+		carre(carte1Joueur, carte2Joueur, riviere, x, partie);
+		quinteFlush(carte1Joueur, carte2Joueur, riviere, x, partie);
+		//quinteFlushRoyale(carte1Joueur, carte2Joueur, riviere, x, partie);
 
 	}
 
