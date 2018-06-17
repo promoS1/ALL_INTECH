@@ -16,7 +16,7 @@ modifs principales à faire :
 - finir les fonctions (quinte, main haute et royal )
 - Pot et Soldes qui ne change pas quand on miser
 - aller directement à page résultat en fin de parties
--
+- finir flushRoyale et couleur
 
 
 modifs secondaire à faire :
