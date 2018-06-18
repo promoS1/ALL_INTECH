@@ -21,6 +21,7 @@ modifs principales à faire :
 - les phases
 - mettre des jetons de poker
 - design table de poker sur page_joueur
+- utiliser le dos des cartes qqpart
 
 modifs secondaire à faire :
 
