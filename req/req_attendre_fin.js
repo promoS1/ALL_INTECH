@@ -34,8 +34,8 @@ var trait = function (req, res, query) {
 	var resultat;
 	var carte1Adversaire;
 	var carte2Adversaire;
-	var miseJoueurNombre = Number(miseJoueurNombre);
-	var miseAdversaireNombre = Number(miseAdversaireNombre);
+	var miseJoueur = Number(query.miseJoueur);
+	var miseAdversaire = Number(miseAdversaire);
 
 	// VARIABLES DES COMBINAISONS
 	var x;
@@ -75,6 +75,8 @@ var trait = function (req, res, query) {
 	if (query.compte === nouvellePartie.joueurs[0]) {
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
+		nouvellePartie.mise[0] = miseJoueur;
+		nouvellePartie.mise[1] = miseAdversaire;
 		soldeJoueur = nouvellePartie.solde[0];
 		soldeAdversaire = nouvellePartie.solde[1];
 		carte1Adversaire = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
@@ -86,6 +88,8 @@ var trait = function (req, res, query) {
 	if (query.compte === nouvellePartie.joueurs[1]) {
 		carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
+		nouvellePartie.mise[O] = miseJoueur;
+		nouvellePartie.mise[1] = miseAdversaire;
 		soldeJoueur = nouvellePartie.solde[1];
 		soldeAdversaire = nouvellePartie.solde[0];
 		carte1Adversaire = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
@@ -94,7 +98,7 @@ var trait = function (req, res, query) {
 
 	// CALCUL DU POT
 	pot = nouvellePartie.pot;
-	pot = miseJoueurNombre + miseAdversaireNombre;
+	pot = miseJoueur + miseAdversaire;
 
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
@@ -152,8 +156,8 @@ var trait = function (req, res, query) {
 	marqueurs.carte5Riviere = carte5Riviere;
 
 	//AUTRES marqueurs
-	marqueurs.miseJoueur = miseJoueurNombre;
-	marqueurs.miseAdversaire = miseAdversaireNombre;
+	marqueurs.miseJoueur = miseJoueur;
+	marqueurs.miseAdversaire = miseAdversaire;
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.pot = pot;
