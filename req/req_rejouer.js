@@ -154,10 +154,10 @@ var trait = function (req, res, query) {
 
 		// ECRITURE DANS LE JSON DE PARTIE AVEC LES NOUVELLES DONNEES
 		contenu_partie = JSON.stringify(nouvellePartie);
-		fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
+		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 		// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
-		contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
+		contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 		nouvellePartie = JSON.parse(contenu_partie);
 
 		// JOUEURS 1
@@ -191,10 +191,10 @@ var trait = function (req, res, query) {
 
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 		contenu_partie = JSON.stringify(nouvellePartie);
-		fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
+		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 		// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
-		contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
+		contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 		nouvellePartie = JSON.parse(contenu_partie);
 
 		// CALCUL DES MAINS
