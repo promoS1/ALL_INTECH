@@ -170,11 +170,6 @@ var trait = function (req, res, query) {
 
 	pot = nouvellePartie.pot;
 
-	if (pot === 0) {
-		choix = "miser";
-	} else {
-		choix = "relancer";
-	}
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
 	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur; 

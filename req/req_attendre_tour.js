@@ -31,7 +31,6 @@ var trait = function (req, res, query) {
 	var contenu_fichier;
 	var miseAdversaire;
 	var miseJoueur = Number(query.miseJoueur);
-	var choix;
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
@@ -53,8 +52,8 @@ var trait = function (req, res, query) {
 		joue = "en_attente";
 	}
 
-	contenu_partie = JSON.stringify(nouvellePartie);
-	fs.writeFileSync("./tables/"+partie+".json" , contenu_partie, "UTF-8");
+//	contenu_partie = JSON.stringify(nouvellePartie);
+//	fs.writeFileSync("./tables/"+partie+".json" , contenu_partie, "UTF-8");
 
 	if (joue === "en_jeu") {
 		page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
@@ -97,8 +96,8 @@ var trait = function (req, res, query) {
 		carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
 
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-		contenu_partie = JSON.stringify(nouvellePartie);
-		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
+//		contenu_partie = JSON.stringify(nouvellePartie);
+//		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 		// AFFICHAGE DE LA PAGE
 		//	if (joue === "en_jeu") 
@@ -107,8 +106,8 @@ var trait = function (req, res, query) {
 		// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 
 		//	console.log("OUI"+partie);
-		contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
-		nouvellePartie = JSON.parse(contenu_partie);
+//		contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
+//		nouvellePartie = JSON.parse(contenu_partie);
 
 		// JOUEUR 1
 		if (query.compte === nouvellePartie.joueurs[0]) {
@@ -139,8 +138,8 @@ var trait = function (req, res, query) {
 		carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
 
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-		contenu_partie = JSON.stringify(nouvellePartie);
-		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
+//		contenu_partie = JSON.stringify(nouvellePartie);
+//		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
 
 
@@ -169,7 +168,6 @@ var trait = function (req, res, query) {
 	marqueurs.miseAdversaire = miseAdversaire;
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
-	marqueurs.choix = choix;
 	marqueurs.pot = pot;
 
 	marqueurs.compte = query.compte;

@@ -153,8 +153,8 @@ var trait = function (req, res, query) {
 		distribution(mains, river);
 
 		// ECRITURE DANS LE JSON DE PARTIE AVEC LES NOUVELLES DONNEES
-		contenu_partie = JSON.stringify(nouvellePartie);
-		fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
+//		contenu_partie = JSON.stringify(nouvellePartie);
+//		fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
 		// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 		contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
@@ -195,8 +195,8 @@ var trait = function (req, res, query) {
 		carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur;
 
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-		contenu_partie = JSON.stringify(nouvellePartie);
-		fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
+//		contenu_partie = JSON.stringify(nouvellePartie);
+//		fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
 		// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 		contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");

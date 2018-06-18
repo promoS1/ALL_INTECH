@@ -30,8 +30,9 @@ var trait = function (req, res, query) {
 	var choix;
 	var pot;
 	var compteJoueur;
+	var miseAdversaire;
 	var miseJoueur = Number(query.miseJoueur);
-	var miseAdversaire = Number(query.miseAdversaire);
+	//var miseAdversaire = Number(query.miseAdversaire);
 
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
@@ -43,13 +44,13 @@ var trait = function (req, res, query) {
 	}
 
 	// PASSAGE DE JOUEUR ACTIF A PASSIF
-	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
-	membres = JSON.parse(contenu_fichier);
+	contenu_partie = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
+	nouvellePartie = JSON.parse(contenu_partie);
 
 	membres.tour = query.adversaire;
 
-	contenu_fichier = JSON.stringify(membres);
-	fs.writeFileSync("./tables/"+partie+".json" , contenu_fichier, "UTF-8");
+	contenu_partie = JSON.stringify(nouvellePartie);
+	fs.writeFileSync("./tables/"+partie+".json" , contenu_partie, "UTF-8");
 
 	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
@@ -64,10 +65,12 @@ var trait = function (req, res, query) {
 		nouvellePartie.mise[0] = miseJoueur;
 		nouvellePartie.mise[1] = miseAdversaire;
 		nouvellePartie.attendre[0] = true;
+		nouvellePartie.tour = nouvellePartie.joueurs[1];
 		nouvellePartie.solde[0] -= nouvellePartie.mise[0];
 		nouvellePartie.pot += nouvellePartie.mise[0];
 		soldeJoueur = nouvellePartie.solde[0];
 		soldeAdversaire = nouvellePartie.solde[1];
+		miseAdversaire = nouvellePartie.mise[1];
 
 	}
 
@@ -78,17 +81,18 @@ var trait = function (req, res, query) {
 		carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
 		nouvellePartie.attendre[1] = true;
+		nouvellePartie.tour = nouvellePartie.joueurs[0];
 		nouvellePartie.solde[1] -= nouvellePartie.mise[1];
 		nouvellePartie.pot += nouvellePartie.mise[1];
 		nouvellePartie.mise[1] = miseJoueur;
-		nouvellePartie.mise[0] = miseAdversaire;
+		miseAdversaire = nouvellePartie.mise[0];
 
 	}
 
 	pot = nouvellePartie.pot;
 	console.log(miseJoueur + "mise");
 	console.log(pot + "pot");
-
+	
 
 	//FONCTIONNEMENT MISE 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
@@ -126,7 +130,6 @@ var trait = function (req, res, query) {
 	marqueurs.adversaire = query.adversaire;
 	marqueurs.miseJoueur = miseJoueur;
 	marqueurs.miseAdversaire = miseAdversaire;
-	marqueurs.choix = choix;
 	//	marqueurs.table = query.table;
 	page = page.supplant(marqueurs);
 

@@ -27,9 +27,9 @@ var trait = function (req, res, query) {
 	var carte5Riviere;
 	var soldeJoueur;
 	var soldeAdversaire;
-	var pot;
-	var contenuConnecte;
-	var connecte;
+	var pot = Number(query.pot);
+	var contenu_fichier;
+	var membres;
 	var partie;
 	var resultat;
 	var carte1Adversaire;
@@ -58,13 +58,13 @@ var trait = function (req, res, query) {
 	var quinteFlush = require("../fonctions/function_quinte_flush.js");
 	var quinteFlushRoyale = require("../fonctions/function_quinte_flush_royale.js");
 
-	contenuConnecte = fs.readFileSync("./json/connecte.json" , "UTF-8");
-	connecte = JSON.parse (contenuConnecte);
+	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
+	membres = JSON.parse (contenu_fichier);
 	
 
-	for (i = 0 ; i < connecte.length ; i++) {
-		if (connecte[i].compte === query.compte) {
-			partie = connecte[i].table;
+	for (i = 0 ; i < membres.length ; i++) {
+		if (membres[i].compte === query.compte) {
+			partie = membres[i].table;
 		}
 	}
 
@@ -72,41 +72,42 @@ var trait = function (req, res, query) {
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
 
-	nouvellePartie.pot = Number(nouvellePartie.pot);
-	console.log(nouvellePartie.pot +"pot1");
+	console.log(pot +"pot1");
 	// JOUEUR 1
 	if (query.compte === nouvellePartie.joueurs[0]) {
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
-		nouvellePartie.mise[0] = miseJoueur;
-		miseAdversaire = nouvellePartie.mise[1];
+		//nouvellePartie.mise[0] = miseJoueur;
+		//miseAdversaire = nouvellePartie.mise[1];
 		soldeJoueur = nouvellePartie.solde[0];
 		soldeAdversaire = nouvellePartie.solde[1];
 		carte1Adversaire = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Adversaire = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
 		miseAdversaire = Number (nouvellePartie.mise[1]);
 	}
-
+	console.log(miseJoueur + "miseJoueur");
+	console.log(nouvellePartie.mise[0]+"nouvellePartie.mise[0]");
+	console.log(nouvellePartie.mise[1]+"nouvellePartie.miseJoueur[1]");
 	// JOUEUR 2
 	if (query.compte === nouvellePartie.joueurs[1]) {
 		carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
-		nouvellePartie.mise[O] = miseJoueur;
-		nouvellePartie.mise[1] = miseAdversaire;
+		//nouvellePartie.mise[1] = miseJoueur;
+		//nouvellePartie.mise[1] = miseAdversaire;
 		soldeJoueur = nouvellePartie.solde[1];
 		soldeAdversaire = nouvellePartie.solde[0];
 		carte1Adversaire = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Adversaire = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		miseAdversaire = Number (nouvellePartie.mise[0]);
 	}
-console.log(nouvellePartie.pot+"pot2");
+
+	nouvellePartie.pot = pot;
+	console.log(pot+"pot2");
 	// CALCUL DU POT
 	console.log(nouvellePartie.mise[0]+"miseJoueur");
 	console.log(nouvellePartie.mise[1]+"miseAdversaire");
-	nouvellePartie.pot = nouvellePartie.mise[0] + nouvellePartie.mise[1];
-	pot = Number (nouvellePartie.pot);
+	pot = nouvellePartie.mise[0] + nouvellePartie.mise[1];
 	console.log(pot+"pot3");
-	console.log(nouvellePartie.pot+"pot4");
 
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
@@ -116,31 +117,31 @@ console.log(nouvellePartie.pot+"pot2");
 	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
 
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-	contenu_partie = JSON.stringify(nouvellePartie);
-	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
+//	contenu_partie = JSON.stringify(nouvellePartie);
+//	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
-	contenu_fichier = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
-	membres = JSON.parse(contenu_fichier);
+	contenu_partie = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
+	nouvellePartie = JSON.parse(contenu_partie);
 
 	// ON VERIFIE SI TOUS LES JOUEURS SONT SUR PAGE ATTENDRE
 	// SI OUI ON LES REDIRIGE VERS PAGE RESULTAT
-	if (membres.attendre[0] === true && membres.attendre[1] === true) {
+	if (nouvellePartie.attendre[0] === true && nouvellePartie.attendre[1] === true) {
 		// MARQUEUR VALEURMAIN
 		resultat = "";
-		if (membres.valeurMain[0] > membres.valeurMain[1]) {
-			resultat += "<p>"+membres.joueurs[0]+" a gagné!</p>";
-		} else if (membres.valeurMain[0] < membres.valeurMain[1]) {
-			resultat += "<p>"+membres.joueurs[1]+" a gagné!</p>";
-		} else if (membres.valeurMain[0] === membres.valeurMain[1]) {
+		if (nouvellePartie.valeurMain[0] > nouvellePartie.valeurMain[1]) {
+			resultat += "<p>"+nouvellePartie.joueurs[0]+" a gagné!</p>";
+		} else if (nouvellePartie.valeurMain[0] < nouvellePartie.valeurMain[1]) {
+			resultat += "<p>"+nouvellePartie.joueurs[1]+" a gagné!</p>";
+		} else if (nouvellePartie.valeurMain[0] === nouvellePartie.valeurMain[1]) {
 			resultat += "<p>Egalité!</p>";
 		}
 
 		page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
 
 		// SI UN DES DEUX JOUEURS N'EST PAS SUR PAGE ATTENDRE
-	} else if (membres.attendre[0] === false && membres.attendre[1] === true)  {
+	} else if (nouvellePartie.attendre[0] === false && nouvellePartie.attendre[1] === true)  {
 		page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");		
-	} else if (membres.attendre[0] === true && membres.attendre[1] === false)  {
+	} else if (nouvellePartie.attendre[0] === true && nouvellePartie.attendre[1] === false)  {
 		page = fs.readFileSync ("./html/modele_page_attendre.html" , "UTF-8");
 	} else {
 		console.log("ERREUR");
