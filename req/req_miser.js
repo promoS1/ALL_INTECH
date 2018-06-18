@@ -162,7 +162,7 @@ var trait = function (req, res, query) {
 	marqueurs.carteJoueurs = carteJoueurs;
 
 	// MARQUEURS CARTE DE LA RIVIERE
-	marqueurs.carte1Riviere = carteRiviere1;
+	marqueurs.carte1Riviere = carte1Riviere;
 	marqueurs.carte2Riviere = carte2Riviere;
 	marqueurs.carte3Riviere = carte3Riviere;
 	marqueurs.carte4Riviere = carte4Riviere;
