@@ -9,15 +9,18 @@ modifs faites :
 - affichage {compte} dans créer compte
 - retourner dans salon quand on refuse un défi (créer requête refuser défi)
 - mettre en <h2> "Vos cartes" "Pot" "Riviere" ....
+- Pot et Soldes qui ne change pas quand on miser
 
 
 modifs principales à faire :
 
-- finir les fonctions (quinte, main haute et royal )
-- Pot et Soldes qui ne change pas quand on miser
-- aller directement à page résultat en fin de parties
 - finir flushRoyale et couleur
 - quand on se couche l'autre joueur gagne
+- mettre les ecritures du ppt en blanc
+- finir rejouer
+- les phases
+- mettre des jetons de poker
+- design table de poker sur page_joueur
 
 modifs secondaire à faire :
 
