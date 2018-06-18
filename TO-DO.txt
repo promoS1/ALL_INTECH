@@ -22,7 +22,7 @@ modifs principales à faire :
 - mettre des jetons de poker
 - design table de poker sur page_joueur
 - utiliser le dos des cartes qqpart
-
+- modele page attendre le pot ne se change pas
 modifs secondaire à faire :
 
 - Couper schéma de nav en 2 parties
