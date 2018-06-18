@@ -206,7 +206,7 @@ var trait = function (req, res, query) {
 		doublePaire(carte1Joueur, carte2Joueur, riviere, x, partie);
 		brelan(carte1Joueur, carte2Joueur, riviere, x, partie);
 		quinte(carte1Joueur, carte2Joueur, riviere, x, partie);
-		//couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
+		couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
 		full(carte1Joueur, carte2Joueur, riviere, x, partie);
 		carre(carte1Joueur, carte2Joueur, riviere, x, partie);
 		quinteFlush(carte1Joueur, carte2Joueur, riviere, x, partie);
