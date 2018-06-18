@@ -40,6 +40,8 @@ var trait = function (req, res, query) {
 	var choix;
 	var attendre;
 	var pot;
+	var joueurs;
+	var contenuPartie;
 
 	// VARIABLES DES COMBINAISONS
 	var x;
@@ -49,7 +51,6 @@ var trait = function (req, res, query) {
 	var couleur1Joueur;
 	var couleur2Joueur;
 	var riviere;
-	var contenu_partie;
 
 	// VARIABLE QUI APPELLE LA FONCTION
 	var carteHaute = require("../fonctions/function_carte_haute.js");
@@ -167,6 +168,7 @@ var trait = function (req, res, query) {
 	} else {
 		choix = "relancer";
 	}
+
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur;
 	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur;

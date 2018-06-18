@@ -26,7 +26,6 @@ var req_creerTable = require ("./req/req_creerTable.js");
 var req_creerTable = require ("./req/req_creerTable.js");
 var req_miser = require ("./req/req_miser.js");	
 var req_coucher = require ("./req/req_coucher.js"); 
-var req_creerTable_IA = require ("./req/req_creerTable_IA.js");
 var req_salon_multi = require ("./req/req_salon_multi.js");
 var req_reponse_defi = require ("./req/req_reponse_defi.js");
 var req_reponse_hote = require ("./req/req_reponse_hote.js");
@@ -88,9 +87,6 @@ var traite_requete = function (req, res) {
 				break;
 			case '/req_coucher':
 				req_coucher (req, res, query);
-				break;
-			case '/req_creerTable_IA':
-				req_creerTable_IA (req, res, query);
 				break;
 			case '/req_salon_multi':
 				req_salon_multi (req, res, query);
