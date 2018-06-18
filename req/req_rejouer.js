@@ -41,7 +41,7 @@ var trait = function (req, res, query) {
 	var pot;
 	var resultat;
 	var tour_partie;
-	var contenuPartie;
+	var contenu_partie;
 
 	// VARIABLES DES COMBINAISONS
 	var x;
@@ -80,8 +80,8 @@ var trait = function (req, res, query) {
 	// LECTURE DU JSON TABLE
 	//contenu_partie = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
 	//tour_partie = JSON.parse(contenu_partie);
-	contenuPartie = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
-	nouvellePartie = JSON.parse (contenuPartie);
+	contenu_partie = fs.readFileSync("./tables/"+partie+".json" , "UTF-8");
+	nouvellePartie = JSON.parse (contenu_partie);
 
 	// TANT QUE LES SOLDES !== 0 ON CONTINUE A JOUER
 	if (nouvellePartie.solde[0] !== 0 && nouvellePartie.solde[1] !== 0) { 
