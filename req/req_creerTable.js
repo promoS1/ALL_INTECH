@@ -116,6 +116,9 @@ var trait = function (req, res, query) {
 	nouvellePartie.mise[0] = 0;
 	nouvellePartie.mise[1] = 0;
 
+	//PHASE
+	nouvellePartie.phase = 0;
+
 	// POT
 	//nouvellePartie.pot = Number(nouvellePartie.pot);
 	nouvellePartie.pot = Number(0);
@@ -220,11 +223,11 @@ var trait = function (req, res, query) {
 	marqueurs.carteJoueurs = carteJoueurs;
 
 	// MARQUEURS CARTE DE LA RIVIERE
-	marqueurs.carte1Riviere = carte1Riviere;
-	marqueurs.carte2Riviere = carte2Riviere;
-	marqueurs.carte3Riviere = carte3Riviere;
-	marqueurs.carte4Riviere = carte4Riviere;
-	marqueurs.carte5Riviere = carte5Riviere;
+	marqueurs.carte1Riviere = "";// carte1Riviere;
+	marqueurs.carte2Riviere = "";//carte2Riviere;
+	marqueurs.carte3Riviere = "";//carte3Riviere;
+	marqueurs.carte4Riviere = "";//carte4Riviere;
+	marqueurs.carte5Riviere = "";//carte5Riviere;
 
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;

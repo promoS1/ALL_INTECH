@@ -124,13 +124,13 @@ var trait = function (req, res, query) {
 		}else {
 			choix = "relancer";
 		}
-
+/*
 		carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur;
 		carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur;
 		carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur;
 		carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur;
 		carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur;
-
+*/
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 		contenu_partie = JSON.stringify(nouvellePartie);
 		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
@@ -153,13 +153,13 @@ var trait = function (req, res, query) {
 	marqueurs.carte2Joueurs = carte2Joueurs;
 	marqueurs.carteJoueurs = carteJoueurs;
 
-	// MARQUEURS CARTES DANS LA RIVIERE
+/*	// MARQUEURS CARTES DANS LA RIVIERE
 	marqueurs.carte1Riviere = carte1Riviere;
 	marqueurs.carte2Riviere = carte2Riviere;
 	marqueurs.carte3Riviere = carte3Riviere;
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
-
+*/
 	marqueurs.miseJoueur = miseJoueur;
 	marqueurs.miseAdversaire = 0;
 	marqueurs.soldeJoueur = soldeJoueur;

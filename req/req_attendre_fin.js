@@ -37,27 +37,6 @@ var trait = function (req, res, query) {
 	var miseJoueur = Number(query.miseJoueur);
 	var miseAdversaire;
 
-	// VARIABLES DES COMBINAISONS
-	var x;
-	var valeurMainJoueur;
-	var carte1Joueur;
-	var carte2Joueur;
-	var couleur1Joueur;
-	var couleur2Joueur;
-	var riviere;
-
-	// VARIABLE QUI APPELLE LA FONCTION
-	var carteHaute = require("../fonctions/function_carte_haute.js");
-	var paire = require("../fonctions/function_paire.js");
-	var doublePaire = require("../fonctions/function_double_paire.js");
-	var brelan = require("../fonctions/function_brelan.js");
-	var quinte = require("../fonctions/function_quinte.js");
-	var couleur = require("../fonctions/function_couleur.js");
-	var full = require("../fonctions/function_full.js");
-	var carre = require("../fonctions/function_carre.js");
-	var quinteFlush = require("../fonctions/function_quinte_flush.js");
-	var quinteFlushRoyale = require("../fonctions/function_quinte_flush_royale.js");
-
 	contenu_fichier = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	membres = JSON.parse (contenu_fichier);
 	
