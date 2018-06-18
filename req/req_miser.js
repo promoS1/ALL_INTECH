@@ -65,7 +65,7 @@ var trait = function (req, res, query) {
 		nouvellePartie.mise[1] = miseAdversaire;
 		nouvellePartie.attendre[0] = true;
 		nouvellePartie.solde[0] -= nouvellePartie.mise[0];
-		nouvellePartie.pot += miseJoueur;
+		nouvellePartie.pot += nouvellePartie.mise[0];
 		soldeJoueur = nouvellePartie.solde[0];
 		soldeAdversaire = nouvellePartie.solde[1];
 
@@ -79,7 +79,7 @@ var trait = function (req, res, query) {
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
 		nouvellePartie.attendre[1] = true;
 		nouvellePartie.solde[1] -= nouvellePartie.mise[1];
-		nouvellePartie.pot += miseJoueur;
+		nouvellePartie.pot += nouvellePartie.mise[1];
 		nouvellePartie.mise[1] = miseJoueur;
 		nouvellePartie.mise[0] = miseAdversaire;
 

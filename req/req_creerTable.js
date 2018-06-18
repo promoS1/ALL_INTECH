@@ -56,7 +56,7 @@ var trait = function (req, res, query) {
 	var doublePaire = require("../fonctions/function_double_paire.js");
 	var brelan = require("../fonctions/function_brelan.js");
 	var quinte = require("../fonctions/function_quinte.js");
-	var couleur = require("../fonctions/function_couleur.js");
+//	var couleur = require("../fonctions/function_couleur.js");
 	var full = require("../fonctions/function_full.js");
 	var carre = require("../fonctions/function_carre.js");
 	var quinteFlush = require("../fonctions/function_quinte_flush.js");
@@ -113,8 +113,8 @@ var trait = function (req, res, query) {
 
 	// MISE DE CHAQUE JOUERS
 	nouvellePartie.mise = [];
-	nouvellePartie.mise[0] = 0 ;
-	nouvellePartie.mise[1] = 0 ;
+	nouvellePartie.mise[0] = 0;
+	nouvellePartie.mise[1] = 0;
 
 	// POT
 	//nouvellePartie.pot = Number(nouvellePartie.pot);
@@ -206,7 +206,7 @@ var trait = function (req, res, query) {
 		doublePaire(carte1Joueur, carte2Joueur, riviere, x, partie);
 		brelan(carte1Joueur, carte2Joueur, riviere, x, partie);
 		quinte(carte1Joueur, carte2Joueur, riviere, x, partie);
-		couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
+//		couleur(couleur1Joueur, couleur2Joueur, riviere, x, partie);
 		full(carte1Joueur, carte2Joueur, riviere, x, partie);
 		carre(carte1Joueur, carte2Joueur, riviere, x, partie);
 		quinteFlush(carte1Joueur, carte2Joueur, riviere, x, partie);

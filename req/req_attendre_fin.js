@@ -27,7 +27,7 @@ var trait = function (req, res, query) {
 	var carte5Riviere;
 	var soldeJoueur;
 	var soldeAdversaire;
-	var pot = Number (pot);
+	var pot;
 	var contenuConnecte;
 	var connecte;
 	var partie;
@@ -35,7 +35,7 @@ var trait = function (req, res, query) {
 	var carte1Adversaire;
 	var carte2Adversaire;
 	var miseJoueur = Number(query.miseJoueur);
-	var miseAdversaire = Number(miseAdversaire);
+	var miseAdversaire;
 
 	// VARIABLES DES COMBINAISONS
 	var x;
@@ -60,6 +60,7 @@ var trait = function (req, res, query) {
 
 	contenuConnecte = fs.readFileSync("./json/connecte.json" , "UTF-8");
 	connecte = JSON.parse (contenuConnecte);
+	
 
 	for (i = 0 ; i < connecte.length ; i++) {
 		if (connecte[i].compte === query.compte) {
@@ -71,17 +72,19 @@ var trait = function (req, res, query) {
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
 
+	nouvellePartie.pot = Number(nouvellePartie.pot);
+	console.log(nouvellePartie.pot +"pot1");
 	// JOUEUR 1
 	if (query.compte === nouvellePartie.joueurs[0]) {
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		nouvellePartie.mise[0] = miseJoueur;
-		nouvellePartie.mise[1] = miseAdversaire;
+		miseAdversaire = nouvellePartie.mise[1];
 		soldeJoueur = nouvellePartie.solde[0];
 		soldeAdversaire = nouvellePartie.solde[1];
 		carte1Adversaire = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Adversaire = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
-
+		miseAdversaire = Number (nouvellePartie.mise[1]);
 	}
 
 	// JOUEUR 2
@@ -94,11 +97,16 @@ var trait = function (req, res, query) {
 		soldeAdversaire = nouvellePartie.solde[0];
 		carte1Adversaire = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Adversaire = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
+		miseAdversaire = Number (nouvellePartie.mise[0]);
 	}
-
+console.log(nouvellePartie.pot+"pot2");
 	// CALCUL DU POT
-	pot = nouvellePartie.pot;
-	pot = miseJoueur + miseAdversaire;
+	console.log(nouvellePartie.mise[0]+"miseJoueur");
+	console.log(nouvellePartie.mise[1]+"miseAdversaire");
+	nouvellePartie.pot = nouvellePartie.mise[0] + nouvellePartie.mise[1];
+	pot = Number (nouvellePartie.pot);
+	console.log(pot+"pot3");
+	console.log(nouvellePartie.pot+"pot4");
 
 
 	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
@@ -124,7 +132,7 @@ var trait = function (req, res, query) {
 		} else if (membres.valeurMain[0] < membres.valeurMain[1]) {
 			resultat += "<p>"+membres.joueurs[1]+" a gagné!</p>";
 		} else if (membres.valeurMain[0] === membres.valeurMain[1]) {
-			resultat += "<p>Egalité!</p>";	
+			resultat += "<p>Egalité!</p>";
 		}
 
 		page = fs.readFileSync ("./html/modele_page_resultat.html" , "UTF-8");
