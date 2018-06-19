@@ -156,6 +156,8 @@ var trait = function (req, res, query) {
 				soldeJoueur = nouvellePartie.solde[1];
 				soldeAdversaire = nouvellePartie.solde[0];
 			}
+			console.log(Number(miseAdversaire) +"miseAdversaire");
+			console.log(soldeAdversaire +"soldeAdversaire");
 
 			pot = nouvellePartie.pot;
 			/*
