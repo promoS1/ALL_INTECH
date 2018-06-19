@@ -98,6 +98,8 @@ var trait = function (req, res, query) {
 	pot = nouvellePartie.pot;
 	console.log(miseJoueur + "mise");
 	console.log(pot + "pot");
+	console.log(Number(soldeJoueur) + "soldeJoueur");
+	console.log(Number(soldeAdversaire)+ "soldeAdversaire");
 
 	/*
 	//FONCTIONNEMENT MISE 
