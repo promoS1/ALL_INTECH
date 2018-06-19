@@ -114,10 +114,11 @@ var trait = function (req, res, query) {
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	nouvellePartie = JSON.parse(contenu_partie);
 
+	nouvellePartie.phase += 1;
+
 	// AFFICHAGE DE LA PAGE RESULTAT
 	if( nouvellePartie.phase <= 6){
-		nouvellePartie.phase += 1;
-		if(nouvellePartie.phase < 2){
+			if(nouvellePartie.phase < 2){
 			carte1Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
 			carte2Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
 			carte3Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
