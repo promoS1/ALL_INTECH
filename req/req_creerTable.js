@@ -40,6 +40,7 @@ var trait = function (req, res, query) {
 	var choix;
 	var attendre;
 	var pot;
+	var coucher;
 
 	// VARIABLES DES COMBINAISONS
 	var x;
@@ -116,6 +117,9 @@ var trait = function (req, res, query) {
 	nouvellePartie.mise[0] = 0;
 	nouvellePartie.mise[1] = 0;
 
+	//COUCHER
+	nouvellePartie.coucher = false;
+	
 	//PHASE
 	nouvellePartie.phase = 0;
 
