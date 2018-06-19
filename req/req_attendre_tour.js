@@ -71,7 +71,7 @@ var trait = function (req, res, query) {
 			nouvellePartie.mise[1] = miseAdversaire;
 			soldeJoueur = nouvellePartie.solde[0];
 			soldeAdversaire = nouvellePartie.solde[1];
-			miseAdversaire = Number (nouvellePartie.mise[1]);
+			miseAdversaire = nouvellePartie.mise[1];
 		}
 
 		// JOUEUR 2
@@ -82,7 +82,7 @@ var trait = function (req, res, query) {
 			nouvellePartie.mise[1] = miseAdversaire;
 			soldeJoueur = nouvellePartie.solde[1];
 			soldeAdversaire = nouvellePartie.solde[0];
-			miseAdversaire = Number (nouvellePartie.mise[0]);
+			miseAdversaire = nouvellePartie.mise[0];
 		}
 			pot = nouvellePartie.pot; 
 
