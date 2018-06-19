@@ -174,11 +174,11 @@ var trait = function (req, res, query) {
 	pot = nouvellePartie.pot;
 
 
-	carte1Riviere = nouvellePartie.river[0].couleur + nouvellePartie.river[0].valeur; 
-	carte2Riviere = nouvellePartie.river[1].couleur + nouvellePartie.river[1].valeur; 
-	carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur; 
-	carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
-	carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
+	carte1Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>"; 
+	carte2Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>"; 
+	carte3Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>"; 
+	carte4Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>"; 
+	carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>"; 
 
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 	contenu_partie = JSON.stringify(nouvellePartie);
@@ -223,11 +223,11 @@ var trait = function (req, res, query) {
 	marqueurs.carteJoueurs = carteJoueurs;
 
 	// MARQUEURS CARTE DE LA RIVIERE
-	marqueurs.carte1Riviere = "";// carte1Riviere;
-	marqueurs.carte2Riviere = "";//carte2Riviere;
-	marqueurs.carte3Riviere = "";//carte3Riviere;
-	marqueurs.carte4Riviere = "";//carte4Riviere;
-	marqueurs.carte5Riviere = "";//carte5Riviere;
+	marqueurs.carte1Riviere = carte1Riviere;
+	marqueurs.carte2Riviere = carte2Riviere;
+	marqueurs.carte3Riviere = carte3Riviere;
+	marqueurs.carte4Riviere = carte4Riviere;
+	marqueurs.carte5Riviere = carte5Riviere;
 
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
