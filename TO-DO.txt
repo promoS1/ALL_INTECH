@@ -13,12 +13,12 @@ modifs faites :
 - Rediriger le membre qui est refusé dans le salon multi et non dans l'accueil
 - les phases
 - quand on se couche l'autre joueur gagne
+- modifier le pot et la mise dans req-miser
+- modele page attendre le pot ne se change pas
 
 modifs principales à faire :
 
-- modifier le pot et la mise dans req-miser
 - mettre des jetons de poker et design table de poker sur page_joueur
-- modele page attendre le pot ne se change pas
 
 modifs secondaire à faire :
 
