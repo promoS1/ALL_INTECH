@@ -4,37 +4,44 @@
 		<title>Page de jeu</title>
 		<meta http-equiv= 'Content-Type' content = 'text/html; charset = UTF-8'/>
 		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/>
+		<link rel = "stylesheet" type="text/css" href = "../css/reset.css" />
 		<link rel = "stylesheet" type="text/css" href ="../css/style.css" />
 	</head>
+
 	<body>
-	<body background = "../img/table_de_jeu.png" id = "pageJoueur" class:"plateau">
-		<center>
-			<legend><h2>A vous de jouer <em>{compte}</em> ! Que voulez vous faire ?</h2></legend>
-				<p><h3>Vos cartes:</h3>
-				<img class="cartes" src="../img/cards/{carteJoueurs}.png">
-				<img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
-				<p><h3>La riviere:</h3>
-					{carte1Riviere}
-					{carte2Riviere}
-					{carte3Riviere}
-					{carte4Riviere}
-					{carte5Riviere}</p><br>
-				<p><h3>Votre solde: {soldeJoueur}</h3></p><br>
-				<p><h3>Solde de l'adversaire: {soldeAdversaire}</h3></p><br>
-				<p><h3>Pot: {pot}</h3></p><br>
-			
-				<h2>A vous de jouer <em>{compte}</em>, que voulez vous faire ?</h2><br><br>
-				
-		<form action="./req_miser" method="GET">
-			<input type="hidden" name="compte" value={compte}>
-			<input type="hidden" name="adversaire" value={adversaire}>
-			<input type="number" name="miseJoueur" step="50" min="0" max={soldeJoueur} value={miseJoueur}>
-			<input type="hidden" name="pot" value={pot}>
-			<input type="submit" value="miser">
-		</form>
-		<br><br>
-			<a href = "./req_coucher?compte={compte}&adversaire={adversaire}"><button>Se coucher</button><a>
+		<main id = "pageJoueur" class="plateau">
+			<div id="part1">
+				<img class="cartes carteAdversaire" src="../img/carte_verso_2.png">
+				<br>
+				<img class="cartes carteAdversaire carteAdversaire2" src="../img/carte_verso_2.png">
 			</div>
-		</center>
+			<div id="part2">
+				<h2>A vous de jouer <em>{compte}</em> ! Que voulez vous faire ?</h2>
+					<p><h3>La riviere:</h3>
+						{carte1Riviere}
+						{carte2Riviere}
+						{carte3Riviere}
+						{carte4Riviere}
+						{carte5Riviere}</p><br>
+					<p>Votre solde: {soldeJoueur}</p>
+					<p>Solde de l'adversaire: {soldeAdversaire}</p>
+					<p>Pot: {pot}</p>
+					<p>Vos cartes:</p>
+						<br>
+						<img class="cartes carte1Joueur" src="../img/cards/{carteJoueurs}.png">
+						<img class="cartes carte2Joueur" src="../img/cards/{carte2Joueurs}.png"></p>
+			</div>
+			<div id="part3">
+				<form action="./req_miser" method="GET">
+					<input type="hidden" name="compte" value={compte}>
+					<input type="hidden" name="adversaire" value={adversaire}>
+					<input type="number" name="miseJoueur" step="50" min="0" max={soldeJoueur} value={miseJoueur}>
+					<input type="hidden" name="pot" value={pot}>
+					<input type="submit" value="miser">
+				</form>
+				<br>
+				<a href = "./req_coucher?compte={compte}&adversaire={adversaire}"><button>Se coucher</button><a>
+			</div>
+		</main>
 	</body>
 </html>

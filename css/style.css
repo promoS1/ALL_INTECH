@@ -1,48 +1,93 @@
 /* CSS */
 
-#pageJoueur .cartes, #pageAttendre .cartes , #pageAdversaire .cartes , #pageResultat .cartes {
-	width: 100px;
-	
-} #pageStructure , #pageJoueur , #pageAttendre , #pageAdversaire , #pageResultat {
+/*===========================================================*/
+/*          		       GLOBAL                            */
+/*===========================================================*/
+
+*{
+	box-sizing: border-box;
+}
+
+h2{
+	font-size: 20px;
+}
+
+#pageStructure , #pageJoueur , #pageAttendre , #pageAdversaire , #pageResultat {
 	color : GhostWhite;
 	font-family: sans-serif;
-}.buttonALLIN {
-	width:150px;
-	border: 1px solid black;
-	border-radius: 15%;
-}.logo {
+}
+
+/*===========================================================*/
+/*          		  IMAGE / GIF                            */
+/*===========================================================*/
+
+.logo {
 	width:1500px;
-} .gif_salon_multi {
+}
+
+.gif_salon_multi, .gif_cat {
 	width:300px;
-} .gif_cat {
-	width:300px;
-} .logo_reponse_defi {
+}
+
+.logo_reponse_defi {
 	width:1150px;
-} .plateau {
-	width:2900px;
-	background-repeat: repeat-x;
 }
 
-/* PAGE JOUEUR */
-.carte1Riviere {
-	width:100px;
-	display:relative;
+.plateau {
+	background-image: url("../img/table_de_jeu.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 1300px;
+	width: 100%;
 }
 
-.carte1Riviere {
-	width:100px;
+/* CARTES */
+.carte1Riviere, .carte2Riviere, .carte3Riviere, .carte4Riviere, .carte5Riviere , .cartes{
+	width:60px;
 }
 
-.carte2Riviere {
-	width:100px;
-}
-.carte3Riviere {
-	width:100px;
+.carteAdversaire {
+	transform: rotate(90deg);
+	position: relative; 
+	top: -17px;
 }
 
-.carte4Riviere {
-	width:100px;
+#part1 img:nth-child(even) {
+	position: relative;
+	top: -20px;
 }
-.carte5Riviere {
-	width:100px;
+
+/*===========================================================*/
+/*                       PAGE JOUEUR                         */
+/*===========================================================*/
+
+#part1, #part2, #part3 {
+	width: 33%;
 }
+
+#pageJoueur {
+	text-align: center;
+	padding-top: 290px;
+	line-height: 20px;
+	display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
