@@ -18,4 +18,15 @@
 	width:300px;
 } .logo_reponse_defi {
 	width:1150px;
+} .plateau {
+	width:2900px;
+	background-repeat: repeat-x;
+}
+
+/* PAGE JOUEUR */
+.carte1Riviere {
+	width:100px;
+	display:relative;
+	left:600px;
+	right:200px;
 }

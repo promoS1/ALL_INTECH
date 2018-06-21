@@ -87,11 +87,11 @@ var trait = function (req, res, query) {
 
 	if(nouvellePartie.coucher === true){
 
-		carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
-		carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-		carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-		carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
-		carte5Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>";
+		carte1Riviere = "<img class='carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
+		carte2Riviere = "<img class='carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+		carte3Riviere = "<img class='carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
+		carte4Riviere = "<img class='carte4Riviere' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
+		carte5Riviere = "<img class='carte5Riviere' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>";
 
 		resultat = "";
 		if (nouvellePartie.valeurMain[0] > nouvellePartie.valeurMain[1]) {
@@ -117,29 +117,29 @@ var trait = function (req, res, query) {
 
 
 		if(nouvellePartie.phase < 2){
-			carte1Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte2Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte3Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte4Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
+			carte1Riviere = "<img class='carte1Riviere' src='../img/carte_verso_2.png'>";
+			carte2Riviere = "<img class='carte2Riviere' src='../img/carte_verso_2.png'>";
+			carte3Riviere = "<img class='carte3Riviere' src='../img/carte_verso_2.png'>";
+			carte4Riviere = "<img class='carte4Riviere' src='../img/carte_verso_2.png'>";
+			carte5Riviere = "<img class='carte5Riviere' src='../img/carte_verso_2.png'>";
 		}else if( nouvellePartie.phase >= 2 && nouvellePartie.phase < 4){
-			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
-			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>"; 
-			carte4Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
+			carte1Riviere = "<img class='carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
+			carte2Riviere = "<img class='carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+			carte3Riviere = "<img class='carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>"; 
+			carte4Riviere = "<img class='carte4Riviere' src='../img/carte_verso_2.png'>";
+			carte5Riviere = "<img class='carte5Riviere' src='../img/carte_verso_2.png'>";
 		}else if( nouvellePartie.phase >= 4 && nouvellePartie.phase < 6){
-			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>"; 
-			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-			carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>"; 
-			carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
+			carte1Riviere = "<img class='carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>"; 
+			carte2Riviere = "<img class='carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+			carte3Riviere = "<img class='carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
+			carte4Riviere = "<img class='carte4Riviere' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>"; 
+			carte5Riviere = "<img class='carte5Riviere' src='../img/carte_verso_2.png'>";
 		}else if( nouvellePartie.phase >= 6){
-			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>"; 
-			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-			carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
-			carte5Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>"; 
+			carte1Riviere = "<img class='carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>"; 
+			carte2Riviere = "<img class='carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+			carte3Riviere = "<img class='carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
+			carte4Riviere = "<img class='carte4Riviere' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
+			carte5Riviere = "<img class='carte5Riviere' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>"; 
 		}	
 
 
@@ -200,29 +200,29 @@ var trait = function (req, res, query) {
 
 
 		if(nouvellePartie.phase < 2){
-			carte1Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte2Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte3Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte4Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
+			carte1Riviere = "<img class='carte1Riviere' src='../img/carte_verso_2.png'>";
+			carte2Riviere = "<img class='carte2Riviere' src='../img/carte_verso_2.png'>";
+			carte3Riviere = "<img class='carte3Riviere' src='../img/carte_verso_2.png'>";
+			carte4Riviere = "<img class='carte4Riviere' src='../img/carte_verso_2.png'>";
+			carte5Riviere = "<img class='carte5Riviere' src='../img/carte_verso_2.png'>";
 		}else if( nouvellePartie.phase >= 2 && nouvellePartie.phase < 4){
-			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
-			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>"; 
-			carte4Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
+			carte1Riviere = "<img class='carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
+			carte2Riviere = "<img class='carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+			carte3Riviere = "<img class='carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>"; 
+			carte4Riviere = "<img class='carte4Riviere' src='../img/carte_verso_2.png'>";
+			carte5Riviere = "<img class='carte5Riviere' src='../img/carte_verso_2.png'>";
 		}else if( nouvellePartie.phase >= 4 && nouvellePartie.phase < 6){
-			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>"; 
-			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-			carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>"; 
-			carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
+			carte1Riviere = "<img class='carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>"; 
+			carte2Riviere = "<img class='carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+			carte3Riviere = "<img class='carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
+			carte4Riviere = "<img class='carte4Riviere' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>"; 
+			carte5Riviere = "<img class='carte5Riviere' src='../img/carte_verso_2.png'>";
 		}else if( nouvellePartie.phase >= 6){
-			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>"; 
-			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-			carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
-			carte5Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>"; 
+			carte1Riviere = "<img class='carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>"; 
+			carte2Riviere = "<img class='carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+			carte3Riviere = "<img class='carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
+			carte4Riviere = "<img class='carte4Riviere' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
+			carte5Riviere = "<img class='carte5Riviere' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>"; 
 		}
 
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
