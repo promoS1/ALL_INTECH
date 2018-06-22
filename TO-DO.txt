@@ -18,6 +18,8 @@ modifs faites :
 
 modifs principales à faire :
 
+- mode visiteur
+- regle du jeu
 - mettre des jetons de poker et design table de poker sur page_joueur
 
 modifs secondaire à faire :
