@@ -173,11 +173,11 @@ var trait = function (req, res, query) {
 
 	pot = nouvellePartie.pot;
 
-	carte1Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>"; 
-	carte2Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>"; 
-	carte3Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>"; 
-	carte4Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>"; 
-	carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>"; 
+	carte1Riviere = "<img class='cartes carte1Riviere' src='../img/carte_verso_2.png'>"; 
+	carte2Riviere = "<img class='cartes carte2Riviere' src='../img/carte_verso_2.png'>"; 
+	carte3Riviere = "<img class='cartes carte3Riviere' src='../img/carte_verso_2.png'>"; 
+	carte4Riviere = "<img class='cartes carte4Riviere' src='../img/carte_verso_2.png'>"; 
+	carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>"; 
 
 	// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 	contenu_partie = JSON.stringify(nouvellePartie);
