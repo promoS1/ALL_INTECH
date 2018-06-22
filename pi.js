@@ -35,6 +35,7 @@ var req_rejouer = require ("./req/req_rejouer.js");
 var req_attendre_fin = require ("./req/req_attendre_fin.js");
 var req_refuser_defi = require ("./req/req_refuser_defi.js");
 var req_regles = require ("./req/req_regles.js");
+var req_salon_visiteurs = require ("./req/req_salon_visiteurs.js");
 
 var req_erreur = require("./req/req_erreur.js");
 
@@ -116,6 +117,12 @@ var traite_requete = function (req, res) {
 			case '/req_regles':
 				req_regles (req, res, query);
 				break;
+			case '/req_salon_visiteurs':
+				req_salon_visiteurs (req, res, query);
+				break;
+
+
+
 			default:
 
 				req_statique(req, res, pathname);

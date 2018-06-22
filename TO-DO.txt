@@ -15,15 +15,17 @@ modifs faites :
 - quand on se couche l'autre joueur gagne
 - modifier le pot et la mise dans req-miser
 - modele page attendre le pot ne se change pas
+- regle du jeu
 
 modifs principales à faire :
 
+- finir IA
 - mode visiteur
-- regle du jeu
-- mettre des jetons de poker et design table de poker sur page_joueur
+- 
 
 modifs secondaire à faire :
 
+- mettre des jetons de poker et design table de poker sur page_joueur
 - finir rejouer
 - finir flushRoyale et couleur
 - utiliser le dos des cartes qqpart
@@ -31,4 +33,3 @@ modifs secondaire à faire :
 - IA
 - completer la confirmation de mdp lors de l'inscription
 - il y aura un pb avec req_rejouer
-- mode visiteur
