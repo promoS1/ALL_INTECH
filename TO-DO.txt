@@ -21,7 +21,14 @@ modifs principales à faire :
 
 - finir IA
 - mode visiteur
-- 
+- bug d'affichage des cartes
+- relancer
+- table sur page adversaire
+- ALLIN
+- version demo
+- completer schema de nav
+- ajouter le code dans la demo
+- revoir les codes que l'on presente
 
 modifs secondaire à faire :
 
