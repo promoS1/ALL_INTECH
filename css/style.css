@@ -37,24 +37,25 @@ h2{
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	height: 1300px;
+	height: 800px;
 	width: 100%;
 }
 
 /* CARTES */
 .carte1Riviere, .carte2Riviere, .carte3Riviere, .carte4Riviere, .carte5Riviere , .cartes{
-	width:60px;
+	width:75px;
 }
 
 .carteAdversaire {
 	transform: rotate(90deg);
 	position: relative; 
-	top: -17px;
+	top: 20px;
+	left: -100px;
 }
 
-#part1 img:nth-child(even) {
+.carteAdversaire2 {
 	position: relative;
-	top: -20px;
+	top: -28px;
 }
 
 /*===========================================================*/
@@ -65,9 +66,27 @@ h2{
 	width: 33%;
 }
 
+#part1{
+	position: relative;
+	top: -20px;
+	left: 15px;
+}
+
+#part2 {
+	position: relative;
+	bottom: -25px;
+}
+
+
+#part3 {
+	position: relative;
+	bottom: -270px;
+	left: -170px;
+}
+
 #pageJoueur {
 	text-align: center;
-	padding-top: 290px;
+	padding-top: 215px;
 	line-height: 20px;
 	display: flex;
 }
