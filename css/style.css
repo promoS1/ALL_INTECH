@@ -69,6 +69,11 @@ h2{
 	top: -28px;
 }
 
+.carteAdversaire, .carteAdversaire, .carte1Riviere, .carte2Riviere, .carte3Riviere, .carte4Riviere, .carte5Riviere {
+	opacity: 0;
+}
+
+
 /*===========================================================*/
 /*                       PAGE JOUEUR                         */
 /*===========================================================*/
