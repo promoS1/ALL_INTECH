@@ -24,7 +24,8 @@ modifs principales à faire :
 - finir IA
 - mode visiteur
 - ajouter le code dans le ppt
-	
+- completer schema nav
+
 	KEVIN
 
 - finir css
