@@ -49,8 +49,9 @@
 					<input type="number" name="miseJoueur" step="500" min={miseAdversaire} max={soldeJoueur} value={miseJoueur}>
 					<input type="hidden" name="pot" value={pot}>
 					<input type="submit" value="miser">
-				</form>
-				<br>
+				</form><br><br>
+				<a href="./req_allin?compte={compte}"><img src="./img/allin.png" class="allin"></a>
+				<br><br>
 				<a href = "./req_coucher?compte={compte}&adversaire={adversaire}"><button>Se coucher</button><a>
 			</div>
 		</main>

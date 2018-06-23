@@ -38,9 +38,11 @@ h2{
 }
 
 .logo_reponse_defi {
-width:1150px;
+	width:1150px;
 }
-
+.allin {
+	width:200px;
+}
 .plateau {
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;

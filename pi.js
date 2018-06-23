@@ -37,6 +37,7 @@ var req_refuser_defi = require ("./req/req_refuser_defi.js");
 var req_regles = require ("./req/req_regles.js");
 var req_salon_visiteurs = require ("./req/req_salon_visiteurs.js");
 var req_creer_table_IA = require ("./IA/req_creer_table_IA.js");
+var req_allin = require ("./req/req_allin.js");
 
 var req_erreur = require("./req/req_erreur.js");
 
@@ -123,6 +124,9 @@ var traite_requete = function (req, res) {
 				break;
 			case '/req_creer_table_IA':
 				req_creer_table_IA (req, res, query);
+				break;
+			case '/req_allin':
+				req_allin (req, res, query);
 				break;
 		
 
