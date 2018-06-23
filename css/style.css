@@ -57,12 +57,6 @@ h2{
 	width:75px;
 }
 
-.carte1Riviere, .carte2Riviere, .carte3Riviere, .carte4Riviere, .carte5Riviere, .carte1Joueur, .carte2Joueur, .carteAdversaire{ 
-	opacity: 0;
-	animation: fade 1s 1;
-	animation-fill-mode: forwards;
-	animation-delay: 11s; 
-}
 .carteAdversaire {
 	transform: rotate(90deg);
 	position: relative; 
@@ -121,9 +115,13 @@ h2{
 }
 
 .carte1{
-	animation: carte1 1.3s 1;
-	animation-fill-mode: forwards;
-	animation-delay: 2s;
+	animation: carte1 1.3s 2s 1 forwards, flipBack 1s 12s 1 forwards;
+	transform-style: preserve-3d;
+	transform-origin: 50% 50% 0;
+/*	animation-delay: 2s;
+	transition-delay: 9s;
+	transform: rotateY(180deg);
+	backface-visibility: hidden; */
 }
 
 .carte2{
@@ -132,11 +130,10 @@ h2{
 	animation-delay: 2.5s;
 }
 
-
 .carte3{
-	animation: carte3 1.3s 1;
-	animation-fill-mode: forwards;
-	animation-delay: 3.5s;
+	animation: carte3 1.3s 3.5s 1 forwards, flipBack 1s 11s 1 forwards;
+	transform-style: preserve-3d;
+	transform-origin: 50% 50% 0;
 }
 
 .carte4{
@@ -175,6 +172,18 @@ h2{
 	animation-delay: 9.5s;
 }
 
+.carte1Joueur {
+	animation: flip 1s 11s 1 forwards;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+}
+
+
+.carte2Joueur {
+	animation: flip 1s 12s 1 forwards;
+	transform: rotateY(180deg);
+	backface-visibility: hidden;
+}
 
 
 /*===========================================================*/
@@ -182,8 +191,28 @@ h2{
 /*===========================================================*/
 
 @keyframes fade {
-	from {opacity: 0;}
-	to {opacity: 1;}
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+
+@keyframes flip {
+	from {
+		transform-style: preserve-3d;
+		transform-origin: 50% 50% 0;
+	}	
+	to {
+		transform: rotateY(0deg);
+	}
+}
+
+@keyframes flipBack {
+	from {
+		transform-style: preserve-3d;
+		transform-origin: 50% 50% 0;
+	}	
+	to {
+		transform: rotateY(180deg);
+	}
 }
 
 
