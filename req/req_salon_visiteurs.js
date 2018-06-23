@@ -8,7 +8,7 @@ var fs = require("fs");
 var remedial = require("remedial");
 
 var trait = function (req, res, query) {
-
+/*
 	var marqueurs;
 	var compte;
 	var page;
@@ -60,7 +60,7 @@ var trait = function (req, res, query) {
 			visiteurs += "<form action = '/req_req_salon_visiteurs' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
-
+*/
 	// AFFICHAGE DE LA PAGE SALON MULTI
 	page = fs.readFileSync('html/modele_visiteur.html', 'utf-8');
 
@@ -79,38 +79,3 @@ var trait = function (req, res, query) {
 //---------------------------------------------------------------------------
 
 module.exports = trait;
-~                                                                                                 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// AFFICHAGE DES REGLES DU JEU
-
