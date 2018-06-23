@@ -82,9 +82,6 @@ var trait = function (req, res, query) {
 	}
 	pot = nouvellePartie.pot; 
 
-	//	contenu_partie = JSON.stringify(nouvellePartie);
-	//	fs.writeFileSync("./tables/"+partie+".json" , contenu_partie, "UTF-8");
-
 	if(nouvellePartie.coucher === true){
 
 		carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
@@ -110,7 +107,6 @@ var trait = function (req, res, query) {
 
 		// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
 
-		//	console.log("OUI"+partie);
 		contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 		nouvellePartie = JSON.parse(contenu_partie);
 
@@ -185,8 +181,6 @@ var trait = function (req, res, query) {
 			soldeJoueur = nouvellePartie.solde[1];
 			soldeAdversaire = nouvellePartie.solde[0];
 		}
-		console.log(Number(miseAdversaire) +"miseAdversaire");
-		console.log(soldeAdversaire +"soldeAdversaire");
 
 		pot = nouvellePartie.pot;
 		/*
