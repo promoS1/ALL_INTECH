@@ -20,16 +20,21 @@ modifs faites :
 modifs principales à faire :
 
 	BENJAMIN
+
 - finir IA
 - mode visiteur
 - ajouter le code dans le ppt
+	
 	KEVIN
+
+- finir css
 - bug d'affichage des cartes
-- relancer
 - table sur page adversaire
-- ALLIN
 - completer schema de nav
+	
 	NAHEL
+
+- ALLIN
 - version demo
 - revoir les codes que l'on presente
 
