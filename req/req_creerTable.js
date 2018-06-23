@@ -184,8 +184,8 @@ var trait = function (req, res, query) {
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
 	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
-	contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
-	nouvellePartie = JSON.parse(contenu_partie);
+//	contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
+//	nouvellePartie = JSON.parse(contenu_partie);
 
 	// CALCUL DES MAINS
 	partie = query.compte;
