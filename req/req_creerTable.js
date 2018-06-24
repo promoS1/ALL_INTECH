@@ -207,7 +207,7 @@ var trait = function (req, res, query) {
 	}
 
 	// AFFICHAGE DE LA PAGE DE JEU
-	page = fs.readFileSync("./html/modele_page_joueur.html" , "UTF-8");
+	page = fs.readFileSync("./html/modele_joue_p1.html" , "UTF-8");
 
 	// MARQUEURS HTML
 	marqueurs = {};
