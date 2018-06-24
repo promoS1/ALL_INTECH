@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv = 'Content-Type' content = 'text/html; charset = UTF-8' />
-		<title>Voici la page d'attente</title>
-		<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/>
-		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
-		<meta http-equiv = "refresh" content = "2; url=/req_attendre_fin?compte={compte}&adversaire={adversaire}&miseJoueur={miseJoueur}&pot={pot}">
-	</head>
+	<!-- ATTENDRE P4 -->
+<head>
+	<title>Page attente</title>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<link rel = "shortcut icon" href = "../img/lacoste.png" type = "image/x-icon"/>
+	<link rel = "stylesheet" type="text/css" href = "../css/reset.css" />
+	<link rel = "stylesheet" type="text/css" href ="../css/attendre_final.css" />
+	<meta http-equiv = "refresh" content = " 5 ; URL = ./req_attendre_fin?compte={compte}&adversaire={adversaire}&miseJoueur={miseJoueur}&pot={pot}">
+</head>
 
-	<body background = "../img/tapis_poker_vert_1920x1080.jpg" id = "pageAttendre">
-	<input type="hidden" name="miseJoueur" value={miseJoueur}>
-	<input type="hidden" name="miseAdversaire" value={miseAdversaire}>
-			<center>
-				<p><h3>Vos cartes:</h3>
-				<img class="cartes" src="../img/cards/{carteJoueurs}.png"> 
-				<img class="cartes" src="../img/cards/{carte2Joueurs}.png"></p>
-				<p><h3>La riviere:</h3> 
-				{carte1Riviere}
-				{carte2Riviere}
-				{carte3Riviere}
-				{carte4Riviere}
-				{carte5Riviere}
-					<!--	<img class="cartes"src="../img/cards/{carte1Riviere}.png">
-						<img class="cartes" src="../img/cards/{carte2Riviere}.png">	
-						<img class="cartes" src="../img/cards/{carte3Riviere}.png">
-						<img class="cartes" src="../img/cards/{carte4Riviere}.png">
-						<img class="cartes" src="../img/cards/{carte5Riviere}.png"></p><br>-->
-			<!--	<p><h3>Votre solde : {soldeJoueur}</h3></p>
-				<br>
-				<p><h3>Solde de l'adversaire: {soldeAdversaire}</h3></p> -->
-				<br>
-				<h2>Pot : {pot}</h2><br>
-				<h2>Veuillez attendre que l'adversaire ai fini son tour, cela ne devrait plus être très long !</h2>
-				<!-- <h2>Mise de {adversaire} : {miseAdversaire}</h2> -->
-				<!--<h2>Votre mise : {miseJoueur}</h2> -->
-				<h2>Votre solde : {soldeJoueur}</h2>
-				<h2>Le solde de votre adversaire : {soldeAdversaire}</h2>
-				<img src = "./img/logo_final_transparent.png" class="logo_reponse_defi">
-			</center>
+<body>
+	<main id = "pageAdversaire" class="plateau">
+		<div id="part0">
 		</div>
+		<div id="part1">
+			<img class="cartes carteAdversaire" src="../img/carte_verso_2.png">
+			<br>
+			<p>${soldeAdversaire}</p>
+			<img class="cartes carteAdversaire carteAdversaire2" src="../img/carte_verso_2.png">
+			</div>
+		<div id="part2">
+			<p>Pot : ${pot}</p>
+			<br>
+			{carte1Riviere}
+			{carte2Riviere}
+			{carte3Riviere}
+			{carte4Riviere}
+			{carte5Riviere}</p>
+			<br>
+			<br>
+			<p>${soldeJoueur}</p>
+			<br>
+			<img class="cartes carte1Joueur" src="../img/cards/{carteJoueurs}.png">
+			<img class="cartes carte2Joueur" src="../img/cards/{carte2Joueurs}.png"></p>
+		</div>
+		<div id="part3">
+		</div>
+	</main>	
 	</body>
 </html>
