@@ -23,6 +23,10 @@ h2{
 /*          		  IMAGE / GIF                            */
 /*===========================================================*/
 
+body {
+    background-image: url("../img/tapis_poker_vert_1920x1080.jpg");
+}
+
 .logo {
 	width:1500px;
 }
@@ -48,8 +52,8 @@ h2{
 .plateau {
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;
-	background-size: contain;
-	height: 800px;
+	background-size: cover;
+	height: 1000px;
 	width: 100%;
 }
 
@@ -80,6 +84,30 @@ h2{
 /*                       PAGE JOUEUR                         */
 /*===========================================================*/
 
+
+.bouton:hover {
+    cursor: pointer;
+	}
+
+.rouge {
+	background-color: red;
+}
+
+.orange {
+	background-color: orange;
+}
+
+.bouton {
+	padding: 3px;
+	text-transform: uppercase;
+	font-size: 15px;;
+	color: black;			
+	border: 3px black solid;
+    text-decoration: none;
+}
+
+
+
 #part1, #part2, #part3 {
 	width: 33%;
 }
@@ -93,13 +121,6 @@ h2{
 #part2 {
 	position: relative;
 	bottom: -25px;
-}
-
-
-#part3 {
-	position: relative;
-	bottom: -270px;
-	left: -170px;
 }
 
 #pageJoueur, #pageAdversaire {

@@ -43,11 +43,12 @@
 					<input type="hidden" name="adversaire" value={adversaire}>
 					<input type="number" name="miseJoueur" placeholder={miseAdversaire} step="100" min={miseAdversaire} max={soldeJoueur}>
 					<input type="hidden" name="pot" value={pot}>
-					<input type="submit" value="miser">
-				</form><br><br>
-				<a href="./req_miser?compte={compte}&adversaire&miseJoueur={soldeJoueur}&pot={pot}"><img src="./img/allin.png" class="allin"></a>
-				<br><br>
-				<a href = "./req_coucher?compte={compte}&adversaire={adversaire}"><button>Se coucher</button><a>
+					<br>
+					<br>
+					<input class="bouton orange" type="submit" value="miser">
+				</form>
+				<br>
+				<a class="bouton rouge"href="./req_coucher?compte={compte}&adversaire={adversaire}">Se coucher</a>
 			</div>
 		</main>
 	</body>
