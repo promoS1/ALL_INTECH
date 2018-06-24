@@ -113,6 +113,11 @@ body {
 	bottom: -25px;
 }
 
+#part3{
+	position: relative;
+	bottom: -40px;
+}
+
 #pageJoueur, #pageAdversaire {
 	text-align: center;
 	padding-top: 215px;
