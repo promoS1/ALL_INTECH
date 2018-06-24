@@ -143,7 +143,6 @@ var trait = function (req, res, query) {
 	marqueurs.miseAdversaire = 0;
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
-	marqueurs.choix = choix;
 	marqueurs.pot = pot;
 
 	marqueurs.joueurs = joueurs;
