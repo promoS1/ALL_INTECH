@@ -113,6 +113,7 @@ var trait = function (req, res, query) {
 	nouvellePartie.main[1] = [];
 
 	// MISE DE CHAQUE JOUERS
+	nouvellePartie.mise = Number(nouvellePartie.mise);
 	nouvellePartie.mise = [];
 	nouvellePartie.mise[0] = 0;
 	nouvellePartie.mise[1] = 0;
@@ -228,7 +229,11 @@ var trait = function (req, res, query) {
 	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.pot = pot;
 	marqueurs.miseJoueur = miseJoueur;
+	if (miseAdversaire === null) {
+	marqueurs.miseAdversaire = 0
+	} else {
 	marqueurs.miseAdversaire = miseAdversaire;
+	}
 
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
@@ -237,7 +242,7 @@ var trait = function (req, res, query) {
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);
 	res.end();
-};
+}
 //--------------------------------------------------------------------------
 
 module.exports = trait;

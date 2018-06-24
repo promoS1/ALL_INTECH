@@ -46,7 +46,7 @@
 				<form action="./req_miser" method="GET">
 					<input type="hidden" name="compte" value={compte}>
 					<input type="hidden" name="adversaire" value={adversaire}>
-					<input type="number" name="miseJoueur" step="500" min={miseAdversaire} max={soldeJoueur} value={miseJoueur}>
+					<input type="number" name="miseJoueur" step="100" placeholder={miseAdversaire} min={miseAdversaire} max={soldeJoueur} value={miseJoueur}>
 					<input type="hidden" name="pot" value={pot}>
 					<input type="submit" value="miser">
 				</form><br><br>
