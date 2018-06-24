@@ -75,7 +75,6 @@ var trait = function (req, res, query) {
 		carte1Adversaire = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Adversaire = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		nouvellePartie.mise[0] = miseJoueur;
-		//nouvellePartie.mise[1] = miseAdversaire;
 		soldeJoueur = nouvellePartie.solde[1];
 		soldeAdversaire = nouvellePartie.solde[0];
 		miseAdversaire = Number(nouvellePartie.mise[0]);
