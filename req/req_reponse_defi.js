@@ -125,18 +125,18 @@ var trait = function (req, res, query) {
 			choix = "relancer";
 		}
 
-		carte1Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-		carte2Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-		carte3Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-		carte4Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-		carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
+		carte1Riviere = "<img class='cartes carte1Riviere' src='../img/carte_verso_2.png'>";
+		carte2Riviere = "<img class='cartes carte2Riviere' src='../img/carte_verso_2.png'>";
+		carte3Riviere = "<img class='cartes carte3Riviere' src='../img/carte_verso_2.png'>";
+		carte4Riviere = "<img class='cartes carte4Riviere' src='../img/carte_verso_2.png'>";
+		carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
 
 
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 		contenu_partie = JSON.stringify(nouvellePartie);
 		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
-		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
+		page = fs.readFileSync("./html/modele_attendre_p1.html", "UTF-8");
 
 	} else if (membres[a].connecte === "attente") {
 		page = fs.readFileSync("./html/modele_attendre_reponse.html" , "UTF-8");

@@ -110,38 +110,45 @@ var trait = function (req, res, query) {
 
 	// AFFICHAGE DE LA PAGE RESULTAT
 	if (nouvellePartie.phase <= 6) {
-			if (nouvellePartie.phase === 0 || nouvellePartie.phase === 1) {
-			carte1Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte2Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte3Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte4Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-		} else if (nouvellePartie.phase === 2 || nouvellePartie.phase === 3) {
-			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
-			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-			carte4Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
-			carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
+			if (nouvellePartie.phase === 1 || nouvellePartie.phase === 2) {
+			carte1Riviere = "<img class='cartes carte1Riviere' src='../img/carte_verso_2.png'>";
+			carte2Riviere = "<img class='cartes carte2Riviere' src='../img/carte_verso_2.png'>";
+			carte3Riviere = "<img class='cartes carte3Riviere' src='../img/carte_verso_2.png'>";
+			carte4Riviere = "<img class='cartes carte4Riviere' src='../img/carte_verso_2.png'>";
+			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
 
-		} else if (nouvellePartie.phase === 4 || nouvellePartie.phase ===5) {
-			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
-			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-			carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
-			carte5Riviere = "<img class='cartes' src='../img/carte_verso_2.png'>";
+			page = fs.readFileSync("./html/modele_attendre_p2.html", "UTF-8");
+		} else if (nouvellePartie.phase === 3 || nouvellePartie.phase === 4) {
+			carte1Riviere = "<img class='cartes carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
+			carte2Riviere = "<img class='cartes carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+			carte3Riviere = "<img class='cartes carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
+			carte4Riviere = "<img class='cartes carte4Riviere' src='../img/carte_verso_2.png'>";
+			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
+
+			page = fs.readFileSync("./html/modele_attendre_p3.html", "UTF-8");
+		} else if (nouvellePartie.phase === 5 || nouvellePartie.phase === 6) {
+			carte1Riviere = "<img class='cartes carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
+			carte2Riviere = "<img class='cartes carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+			carte3Riviere = "<img class='cartes carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
+			carte4Riviere = "<img class='cartes carte4Riviere' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
+			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
+
+			page = fs.readFileSync("./html/modele_attendre_p4.html", "UTF-8");
 		} else if (nouvellePartie.phase === 6) {
 			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
 			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
 			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
 			carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
 			carte5Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>";
+
+			page = fs.readFileSync("./html/modele_attendre_p4.html", "UTF-8");
 		}
 	
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 		contenu_partie = JSON.stringify(nouvellePartie);
 		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
-		page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
+	//	page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
 	} else if(nouvellePartie.phase > 6) {
 		nouvellePartie.attendre[x] = true;
 		
