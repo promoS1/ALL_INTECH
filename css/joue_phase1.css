@@ -21,6 +21,10 @@ h2{
 /*          		  IMAGE / GIF                            */
 /*===========================================================*/
 
+body {
+	background-image: url("../img/tapis_poker_vert_1920x1080.jpg");
+}
+
 .logo {
 	width:1500px;
 }
@@ -47,7 +51,7 @@ h2{
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 1050px;
+	height: 1000px;
 	width: 100%;
 }
 
