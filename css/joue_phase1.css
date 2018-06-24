@@ -1,5 +1,5 @@
 /* CSS */
-KEVIN <3
+
 /*===========================================================*/
 /*          		       GLOBAL                            */
 /*===========================================================*/
@@ -47,7 +47,7 @@ h2{
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	height: 800px;
+	height: 500px;
 	width: 100%;
 }
 
@@ -91,13 +91,6 @@ h2{
 #part2 {
 	position: relative;
 	bottom: -25px;
-}
-
-
-#part3 {
-	position: relative;
-	bottom: -270px;
-	left: -170px;
 }
 
 #pageJoueur, #pageAdversaire {
