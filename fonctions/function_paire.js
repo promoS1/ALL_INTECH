@@ -5,37 +5,37 @@
 //=========================================================================
 "use strict";
 
-// DEBUT DE LA FONCTION
+// ================================= EN TETE ===================================
+var fs = require("fs");
 
+// DEBUT DE LA FONCTION
 var function_paire = function (carte1Joueur, carte2Joueur, riviere, joueur, partie) {
 
 	// VARIABLE JSON
 	var contenu_partie;
 	var membres;
-	var fs = require ("fs");
 
 	// VARIABLE 
 	var i;
 	var compteur;
 
+// ================================= CORPS ===================================
 	// LECTURE JSON
 	contenu_partie = fs.readFileSync("./tables/"+partie+".json", "UTF-8");
 	membres = JSON.parse(contenu_partie);
 
 	compteur = 0;
-
-	if(carte1Joueur === carte2Joueur){
+	if (carte1Joueur === carte2Joueur) {
 		membres.valeurMain[joueur] = 2;
 
-	} else if (carte1Joueur !== carte2Joueur){
-
-		for( i = 0; i < riviere.length; i++){
-			if(carte1Joueur === riviere[i].valeur || carte2Joueur === riviere[i].valeur){
+	} else if (carte1Joueur !== carte2Joueur) {
+		for (i = 0; i < riviere.length; i++) {
+			if (carte1Joueur === riviere[i].valeur || carte2Joueur === riviere[i].valeur) {
 				compteur++;
 			}
 		}
 
-		if(compteur >= 1){
+		if (compteur >= 1) {
 			membres.valeurMain[joueur] = 2;
 		}
 

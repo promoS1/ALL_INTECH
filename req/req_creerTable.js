@@ -184,10 +184,6 @@ var trait = function (req, res, query) {
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+query.compte+".json", contenu_partie, "UTF-8");
 
-	// LECTURE DU JSON DE LA PARIE POUR POUVOIR PARAMETRER LES MARQUEURS
-//	contenu_partie = fs.readFileSync("./tables/"+query.compte+".json", "UTF-8");
-//	nouvellePartie = JSON.parse(contenu_partie);
-
 	// CALCUL DES MAINS
 	partie = query.compte;
 	riviere = nouvellePartie.river;
@@ -230,11 +226,10 @@ var trait = function (req, res, query) {
 	marqueurs.pot = pot;
 	marqueurs.miseJoueur = miseJoueur;
 	if (miseAdversaire === null) {
-	marqueurs.miseAdversaire = 0
+		marqueurs.miseAdversaire = 0;
 	} else {
-	marqueurs.miseAdversaire = miseAdversaire;
+		marqueurs.miseAdversaire = miseAdversaire;
 	}
-
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
 	page = page.supplant(marqueurs);
@@ -242,7 +237,7 @@ var trait = function (req, res, query) {
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write(page);
 	res.end();
-}
+};
 //--------------------------------------------------------------------------
 
 module.exports = trait;
