@@ -51,7 +51,7 @@ var trait = function (req, res, query) {
 	membres.tour = query.adversaire;
 
 
-	nouvellePartie.pot = Number(nouvellePartie.pot);
+	nouvellePartie.pot = Number(query.pot);
 	
 	miseJoueur = Number(query.miseJoueur)
 

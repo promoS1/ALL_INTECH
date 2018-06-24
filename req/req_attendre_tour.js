@@ -62,10 +62,10 @@ var trait = function (req, res, query) {
 		carte1Adversaire = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Adversaire = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
 		nouvellePartie.mise[0] = miseJoueur;
-		nouvellePartie.mise[1] = miseAdversaire;
+		//nouvellePartie.mise[1] = miseAdversaire;
 		soldeJoueur = nouvellePartie.solde[0];
 		soldeAdversaire = nouvellePartie.solde[1];
-		miseAdversaire = nouvellePartie.mise[1];
+		miseAdversaire = Number(nouvellePartie.mise[1]);
 	}
 
 	// JOUEUR 2
@@ -75,10 +75,10 @@ var trait = function (req, res, query) {
 		carte1Adversaire = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Adversaire = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		nouvellePartie.mise[0] = miseJoueur;
-		nouvellePartie.mise[1] = miseAdversaire;
+		//nouvellePartie.mise[1] = miseAdversaire;
 		soldeJoueur = nouvellePartie.solde[1];
 		soldeAdversaire = nouvellePartie.solde[0];
-		miseAdversaire = nouvellePartie.mise[0];
+		miseAdversaire = Number(nouvellePartie.mise[0]);
 	}
 	pot = nouvellePartie.pot; 
 
@@ -184,6 +184,7 @@ var trait = function (req, res, query) {
 			nouvellePartie.mise[1] = miseAdversaire;
 			soldeJoueur = nouvellePartie.solde[1];
 			soldeAdversaire = nouvellePartie.solde[0];
+			miseAdversaire = nouvellePartie.mise[1];
 		}
 
 		pot = nouvellePartie.pot;
@@ -268,9 +269,18 @@ var trait = function (req, res, query) {
 	marqueurs.carte3Riviere = carte3Riviere;
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
+	console.log("att tour miseAdversaire : "+miseAdversaire);
+	if (miseAdversaire === null) {
+		marqueurs.miseAdversaire = 0;
+	} else {
+		marqueurs.miseAdversaire = miseAdversaire;
+	}
 
-	marqueurs.miseJoueur = miseJoueur;
-	marqueurs.miseAdversaire = miseAdversaire;
+	if (miseJoueur === null) {
+		marqueurs.miseJoueur = 0;
+	} else {
+		marqueurs.miseJoueur = miseJoueur;
+	}
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.pot = pot;

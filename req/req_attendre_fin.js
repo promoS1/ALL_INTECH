@@ -145,10 +145,14 @@ var trait = function (req, res, query) {
 
 	//AUTRES marqueurs
 	marqueurs.miseJoueur = miseJoueur;
-	marqueurs.miseAdversaire = miseAdversaire;
+	if (miseAdversaire === null) {
+		marqueurs.miseAdversaire = 0;
+	} else {
+		marqueurs.miseAdversaire = miseAdversaire;
+	}
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
-	marqueurs.pot = pot;
+	marqueurs.pot = Number(nouvellePartie.pot);
 	marqueurs.compte = query.compte;
 	marqueurs.adversaire = query.adversaire;
 	marqueurs.resultat = resultat;
