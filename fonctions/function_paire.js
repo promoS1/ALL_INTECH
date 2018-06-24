@@ -24,18 +24,22 @@ var function_paire = function (carte1Joueur, carte2Joueur, riviere, joueur, part
 
 	compteur = 0;
 
-	for( i = 0; i < riviere.length; i++){
-		if(carte1Joueur === riviere[i].valeur || carte2Joueur === riviere[i].valeur){
-			compteur++;
-		}
-	}
-
 	if(carte1Joueur === carte2Joueur){
 		membres.valeurMain[joueur] = 2;
-	}else if(compteur >= 1){
-		membres.valeurMain[joueur] = 2;
-	}
 
+	} else if (carte1Joueur !== carte2Joueur){
+
+		for( i = 0; i < riviere.length; i++){
+			if(carte1Joueur === riviere[i].valeur || carte2Joueur === riviere[i].valeur){
+				compteur++;
+			}
+		}
+
+		if(compteur >= 1){
+			membres.valeurMain[joueur] = 2;
+		}
+
+	}
 	contenu_partie = JSON.stringify(membres);
 	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
