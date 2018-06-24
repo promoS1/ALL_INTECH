@@ -93,6 +93,12 @@ h2{
 	bottom: -25px;
 }
 
+#part3 {
+	position: relative;
+	bottom: -270px;
+	left: -170px;
+}
+
 #pageJoueur, #pageAdversaire {
 	text-align: center;
 	padding-top: 215px;
