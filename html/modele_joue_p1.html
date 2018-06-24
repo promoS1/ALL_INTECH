@@ -11,10 +11,10 @@
 	<body>
 		<main id = "pageJoueur" class="plateau">
 			<div id="part0">
-				<img class="cartes carte1 carteDistribution" src="../img/carte_verso_2.png">
-				<img class="cartes carte2 carteDistribution" src="../img/carte_verso_2.png">
-				<img class="cartes carte3 carteDistribution" src="../img/carte_verso_2.png">
 				<img class="cartes carte4 carteDistribution" src="../img/carte_verso_2.png">
+				<img class="cartes carte3 carteDistribution" src="../img/carte_verso_2.png">
+				<img class="cartes carte2 carteDistribution" src="../img/carte_verso_2.png">
+				<img class="cartes carte1 carteDistribution" src="../img/carte_verso_2.png">
 			</div>
 			<div id="part1">
 				<img class="cartes carteAdversaire" src="../img/carte_verso_2.png">
@@ -43,12 +43,14 @@
 					<input type="hidden" name="adversaire" value={adversaire}>
 					<input type="number" name="miseJoueur" placeholder = {miseAdversaire} step="100" min={miseAdversaire} max={soldeJoueur}>
 					<input type="hidden" name="pot" value={pot}>
-					<input type="submit" value="miser">
-				</form><br><br>
-				<a href="./req_miser?compte={compte}&adversaire&miseJoueur={soldeJoueur}&pot={pot}"><img src="./img/allin.png" class="allin"></a>
-				<br><br>
-				<a href = "./req_coucher?compte={compte}&adversaire={adversaire}"><button>Se coucher</button><a>
+					<br>
+					<br>
+					<input class="bouton" type="submit" value="miser">
+				</form><br>
+				<a class="bouton" href="./req_coucher?compte={compte}&adversaire={adversaire}">Se coucher<a>
 			</div>
 		</main>
+		<footer class="combi">
+		</footer>
 	</body>
 </html>
