@@ -148,6 +148,7 @@ body {
 	animation: carte1 1s 2s 1 forwards, flipBack 1s 6.5s 1 forwards;
 	transform-style: preserve-3d;
 	transform-origin: 50% 50% 0;
+	backface-visibility: hidden; 
 /*	animation-delay: 2s;
 	transition-delay: 9s;
 	transform: rotateY(180deg);
@@ -164,6 +165,7 @@ body {
 	animation: carte3 1s 3.5s 1 forwards, flipBack 1s 5.5s 1 forwards;
 	transform-style: preserve-3d;
 	transform-origin: 50% 50% 0;
+	backface-visibility: hidden; 
 }
 
 .carte4{
