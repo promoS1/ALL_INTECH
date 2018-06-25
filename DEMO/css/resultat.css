@@ -23,6 +23,10 @@ h2{
 /*          		  IMAGE / GIF                            */
 /*===========================================================*/
 
+.size {
+	font-size: 25px;
+}
+
 body {
     background-image: url("../img/tapis_poker_vert_1920x1080.jpg");
 }
