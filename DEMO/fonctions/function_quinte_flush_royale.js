@@ -35,7 +35,7 @@ var function_quinte_flush_royale = function (carte1Joueur, carte2Joueur, riviere
 	testQuinteFlush = [listeValeurMain[2],  listeValeurMain[3], listeValeurMain[4], listeValeurMain[5], listeValeurMain[6]];
 
 	//LISTE D'UNE QUINTE FLUSH
-	quinteFlush = ["10", "11", "12", "13", "14"];
+	//quinteFlush = ["10", "11", "12", "13", "14"];
 
 
 		//ON TESTE QUINTE FLUSH

@@ -57,7 +57,7 @@ var trait = function (req, res, query) {
 	for (i = 0; i < liste_membres.length ; i++) {
 		// SI LE JOUEUR EST CONNECTE ET DISPONIBLE IL EST AJOUTE DANS LA VAR JOUEUR
 		if (liste_membres[i].compte !== query.compte && liste_membres[i].connecte === true && liste_membres[i].libre === true) {
-			joueurs = joueurs + "<form action = '/req_defier' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
+			joueurs = joueurs + "<form action = '/req_defier' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type ='submit' class='size' name ='adversaire' value='"+ liste_membres[i].compte +"'></form>";
 		}
 	}
 	

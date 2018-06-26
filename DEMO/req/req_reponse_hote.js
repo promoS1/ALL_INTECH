@@ -59,7 +59,7 @@ var trait = function (req, res, query) {
 		// SI LE JOUEUR EST CONNECTE ET ATTEND UN ADVERSAIRE DANS LE SALON MULTI
 		if (membres[i].compte !== query.compte && membres[i].connecte === true && membres[i].libre === true) {
 			// ON PEUT LE PASSER EN <a href == ?
-			joueurs = joueurs + "<form action = '/req_defier' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' name='adversaire' value='"+ membres[i].compte +"'></form>";
+			joueurs = joueurs + "<form action = '/req_defier' method='GET'><input type = 'hidden' name='compte' value='"+ query.compte +"'><input type='submit' class='size' name='adversaire' value='"+ membres[i].compte +"'></form>";
 		}
 	}
 
