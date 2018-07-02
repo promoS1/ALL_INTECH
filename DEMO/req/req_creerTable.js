@@ -117,6 +117,8 @@ var trait = function (req, res, query) {
 	nouvellePartie.mise = [];
 	nouvellePartie.mise[0] = 0;
 	nouvellePartie.mise[1] = 0;
+	nouvellePartie.miseEnCours = 0;
+
 
 	nouvellePartie.coucher = false;
 	
@@ -221,6 +223,7 @@ var trait = function (req, res, query) {
 	marqueurs.carte4Riviere = carte4Riviere;
 	marqueurs.carte5Riviere = carte5Riviere;
 
+	marqueurs.miseEnCours = nouvellePartie.miseEnCours;
 	marqueurs.soldeJoueur = soldeJoueur;
 	marqueurs.soldeAdversaire = soldeAdversaire;
 	marqueurs.pot = pot;

@@ -78,9 +78,11 @@ var trait = function (req, res, query) {
 		soldeAdversaire = nouvellePartie.solde[0];
 		miseAdversaire = Number(nouvellePartie.mise[0]);
 	}
+		nouvellePartie.miseEnCours = miseAdversaire;
+
 	pot = nouvellePartie.pot; 
 
-	if(nouvellePartie.coucher === true){
+	if (nouvellePartie.coucher === true) {
 
 		carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
 		carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
@@ -139,7 +141,7 @@ var trait = function (req, res, query) {
 			carte4Riviere = "<img class='cartes carte4Riviere' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
 			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>"; 
 
-		page = fs.readFileSync("./html/modele_joue_p4.html" , "UTF-8");
+			page = fs.readFileSync("./html/modele_joue_p4.html" , "UTF-8");
 		}	
 
 		/*
@@ -148,7 +150,7 @@ var trait = function (req, res, query) {
 		   carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur;
 		   carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
 		   carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
-		 */
+		   */
 
 		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
 		//		contenu_partie = JSON.stringify(nouvellePartie);
@@ -191,7 +193,7 @@ var trait = function (req, res, query) {
 		   carte3Riviere = nouvellePartie.river[2].couleur + nouvellePartie.river[2].valeur;
 		   carte4Riviere = nouvellePartie.river[3].couleur + nouvellePartie.river[3].valeur; 
 		   carte5Riviere = nouvellePartie.river[4].couleur + nouvellePartie.river[4].valeur; 
-		 */
+		   */
 
 
 		if(nouvellePartie.phase === 0){
@@ -219,7 +221,7 @@ var trait = function (req, res, query) {
 			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
 
 			page = fs.readFileSync("./html/modele_attendre_p3.html" , "UTF-8");
-	
+
 		}else if( nouvellePartie.phase === 5 || nouvellePartie.phase === 6){
 			carte1Riviere = "<img class='cartes carte1Riviere ' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>"; 
 			carte2Riviere = "<img class='cartes carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
@@ -244,7 +246,7 @@ var trait = function (req, res, query) {
 
 
 
-	//	page = fs.readFileSync("./html/modele_page_adversaire.html" , "UTF-8");
+		//	page = fs.readFileSync("./html/modele_page_adversaire.html" , "UTF-8");
 	} else {
 		console.log("ERREUR");
 		page = fs.readFileSync ("./html/modele_error.html" , "UTF-8");
@@ -270,17 +272,18 @@ var trait = function (req, res, query) {
 	if (miseAdversaire === undefined || miseAdversaire === null) {
 		marqueurs.miseAdversaire = 0;
 	} else {
-		miseAdversaire = miseAdversaire;
+		marqueurs.miseAdversaire = miseAdversaire;
 	}
 
 	if (miseJoueur === null || miseJoueur === undefined) {
 		miseJoueur = 0;
 	} else {
-		miseJoueur = miseJoueur;
+		marqueurs.miseJoueur = miseJoueur;
 	}
 
 	console.log("att tour miseAdversaire : "+miseAdversaire);
 
+	marqueurs.miseEnCours = nouvellePartie.miseEnCours;
 	marqueurs.miseAdversaire = miseAdversaire;
 	marqueurs.miseJoueur = miseJoueur;
 	marqueurs.soldeJoueur = soldeJoueur;

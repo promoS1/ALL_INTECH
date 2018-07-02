@@ -104,6 +104,7 @@ var trait = function (req, res, query) {
 			miseAdversaire = nouvellePartie.mise[0];
 		}
 
+
 		pot = nouvellePartie.pot;
 
 		carte1Riviere = "<img class='cartes carte1Riviere' src='../img/carte_verso_2.png'>";
