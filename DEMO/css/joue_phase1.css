@@ -48,19 +48,23 @@ body {
 	width:150px;
 	border: 3px grey solid;
 	border-radius: 20%;
-}
+} 
+
 .plateau {
 	background-image: url("../img/table_de_jeu.png");
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: cover;
 	height: 1400px;
 	width: 100%;
 }
 
+.size {
+	font-size:50px;
+}
 
 /* CARTES */
 .cartes{
-	width:125px;
+	width:180px;
 }
 
 .carteAdversaire {
@@ -127,7 +131,7 @@ body {
 
 #pageJoueur, #pageAdversaire {
 	text-align: center;
-	padding-top: 215px;
+	padding-top: 550px;
 	line-height: 20px;
 	display: flex;
 }
@@ -230,8 +234,8 @@ body {
 	}
 
 	100% {
-		top: 460px;
-		left: 36px;
+		top: 1060px;
+		left: 83px;
 		transform: rotate(180deg);
 	}
 }
@@ -249,8 +253,8 @@ body {
 	}
 
 	100% {
-		top: 286px;
-		right: 430px;
+		top: 710px;
+		right: 990px;
 		transform: rotate(90deg); 
 	}
 }
@@ -267,8 +271,8 @@ body {
 	}
 
 	100% {
-		top: 460px;
-		left: -45px;
+		top: 1060px;
+		left: -110px;
 		transform: rotate(180deg);
 	}
 }
@@ -286,8 +290,8 @@ body {
 	}
 
 	100% {
-		top: 204px;
-		right: 430px;
+		top: 520px;
+		right: 990px;
 		transform: rotate(90deg); 
 	}
 }
