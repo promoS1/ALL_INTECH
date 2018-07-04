@@ -52,7 +52,7 @@ var trait = function (req, res, query) {
 
 
 	nouvellePartie.pot = Number(query.pot);
-	
+
 	miseJoueur = soldeJoueur;
 
 	// JOUEURS 1
@@ -89,95 +89,53 @@ var trait = function (req, res, query) {
 
 	nouvellePartie.phase += 1;
 
-	// AFFICHAGE DE LA PAGE RESULTAT
-	if (nouvellePartie.phase <= 6) {
-			if (nouvellePartie.phase === 1 || nouvellePartie.phase === 2) {
-			carte1Riviere = "<img class='cartes carte1Riviere' src='../img/carte_verso_2.png'>";
-			carte2Riviere = "<img class='cartes carte2Riviere' src='../img/carte_verso_2.png'>";
-			carte3Riviere = "<img class='cartes carte3Riviere' src='../img/carte_verso_2.png'>";
-			carte4Riviere = "<img class='cartes carte4Riviere' src='../img/carte_verso_2.png'>";
-			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
-
-			page = fs.readFileSync("./html/modele_attendre_p2.html", "UTF-8");
-		} else if (nouvellePartie.phase === 3 || nouvellePartie.phase === 4) {
-			carte1Riviere = "<img class='cartes carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
-			carte2Riviere = "<img class='cartes carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-			carte4Riviere = "<img class='cartes carte4Riviere' src='../img/carte_verso_2.png'>";
-			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
-
-			page = fs.readFileSync("./html/modele_attendre_p3.html", "UTF-8");
-		} else if (nouvellePartie.phase === 5 || nouvellePartie.phase === 6) {
-			carte1Riviere = "<img class='cartes carte1Riviere' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
-			carte2Riviere = "<img class='cartes carte2Riviere' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes carte3Riviere' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-			carte4Riviere = "<img class='cartes carte4Riviere' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
-			carte5Riviere = "<img class='cartes carte5Riviere' src='../img/carte_verso_2.png'>";
-
-			page = fs.readFileSync("./html/modele_attendre_p4.html", "UTF-8");
-		} else if (nouvellePartie.phase === 6) {
-			carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
-			carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-			carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-			carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
-			carte5Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>";
-
-			page = fs.readFileSync("./html/modele_attendre_p4.html", "UTF-8");
-		}
-	
-		// FERMETURE DU JSON QUI PERMET DE MODIFIER LES PARAMETRES DES MARQUEURS
-		contenu_partie = JSON.stringify(nouvellePartie);
-		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
-
-	//	page = fs.readFileSync("./html/modele_page_adversaire.html", "UTF-8");
-	} else if(nouvellePartie.phase > 6 || soldeJoueur === 0) {
-		nouvellePartie.attendre[x] = true;
-		
-
-		carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
-		carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
-		carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
-		carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
-		carte5Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>";
-
-		page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
+	nouvellePartie.attendre[x] = true;
 
 
-		contenu_partie = JSON.stringify(nouvellePartie);
-		fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
-	}
-	
-	// MARQUEURS HTML
-	marqueurs = {};
+	carte1Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[0].couleur+nouvellePartie.river[0].valeur+".png'>";
+	carte2Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[1].couleur+nouvellePartie.river[1].valeur+".png'>";
+	carte3Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[2].couleur+nouvellePartie.river[2].valeur+".png'>";
+	carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
+	carte5Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>";
 
-	// MARQUEURS CARTE JOUEUR
-	marqueurs.carte2Joueurs = carte2Joueurs;
-	marqueurs.carteJoueurs = carteJoueurs;
+	page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
 
-	// MARQUEURS CARTE DE LA RIVIERE
-	marqueurs.carte1Riviere = carte1Riviere;
-	marqueurs.carte2Riviere = carte2Riviere;
-	marqueurs.carte3Riviere = carte3Riviere;
-	marqueurs.carte4Riviere = carte4Riviere;
-	marqueurs.carte5Riviere = carte5Riviere;
 
-	//AUTRES MARQUEURS
-	marqueurs.soldeJoueur = soldeJoueur;
-	marqueurs.soldeAdversaire = soldeAdversaire;
-	marqueurs.pot = pot;
-	marqueurs.compte = query.compte;
-	marqueurs.adversaire = query.adversaire;
-	marqueurs.miseJoueur = miseJoueur;
-	if (miseAdversaire === null) {
-		marqueurs.miseAdversaire = 0;
-	} else {
+	contenu_partie = JSON.stringify(nouvellePartie);
+	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
+}
+
+// MARQUEURS HTML
+marqueurs = {};
+
+// MARQUEURS CARTE JOUEUR
+marqueurs.carte2Joueurs = carte2Joueurs;
+marqueurs.carteJoueurs = carteJoueurs;
+
+// MARQUEURS CARTE DE LA RIVIERE
+marqueurs.carte1Riviere = carte1Riviere;
+marqueurs.carte2Riviere = carte2Riviere;
+marqueurs.carte3Riviere = carte3Riviere;
+marqueurs.carte4Riviere = carte4Riviere;
+marqueurs.carte5Riviere = carte5Riviere;
+
+//AUTRES MARQUEURS
+marqueurs.soldeJoueur = soldeJoueur;
+marqueurs.soldeAdversaire = soldeAdversaire;
+marqueurs.pot = pot;
+marqueurs.compte = query.compte;
+marqueurs.adversaire = query.adversaire;
+marqueurs.miseJoueur = miseJoueur;
+if (miseAdversaire === null) {
+	marqueurs.miseAdversaire = 0;
+} else {
 	marqueurs.miseAdversaire = miseAdversaire;
-	}
-	page = page.supplant(marqueurs);
+}
+page = page.supplant(marqueurs);
 
-	res.writeHead(200, {'Content-Type': 'text/html'});
-	res.write(page);
-	res.end();
+res.writeHead(200, {'Content-Type': 'text/html'});
+res.write(page);
+res.end();
 };
 //--------------------------------------------------------------------------
 
