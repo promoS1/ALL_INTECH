@@ -100,6 +100,10 @@ body {
 	background-color: orange;
 }
 
+.vert {
+	background-color: green;
+}
+
 .bouton {
 	padding: 3px;
 	text-transform: uppercase;
