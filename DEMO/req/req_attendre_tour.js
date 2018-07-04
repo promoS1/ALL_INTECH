@@ -78,7 +78,12 @@ var trait = function (req, res, query) {
 		soldeAdversaire = nouvellePartie.solde[0];
 		miseAdversaire = Number(nouvellePartie.mise[0]);
 	}
+
+		if (nouvellePartie.miseEnCours > soldeJoueur) {
+			nouvellePartie.miseEnCours === soldeJoueur;
+		} else {
 		nouvellePartie.miseEnCours = miseAdversaire;
+		}
 
 	pot = nouvellePartie.pot; 
 
