@@ -144,6 +144,6 @@ var traite_requete = function (req, res) {
 //-------------------------------------------------------------------------
 
 mon_serveur = http.createServer(traite_requete);
-port = 5000;
+port = process.env.PORT || 5000;
 console.log("Serveur en ecoute sur port " + port);
 mon_serveur.listen(port);
