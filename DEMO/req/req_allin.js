@@ -103,7 +103,6 @@ var trait = function (req, res, query) {
 
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
-}
 
 // MARQUEURS HTML
 marqueurs = {};
