@@ -146,6 +146,7 @@ body {
 	animation: carte9 1s 2s 1 forwards, flipBack 1s 4s 1 forwards;
 	transform-style: preserve-3d;
 	transform-origin: 50% 50% 0;
+	backface-visibility: hidden;
 }
 
 .carte5Riviere {
