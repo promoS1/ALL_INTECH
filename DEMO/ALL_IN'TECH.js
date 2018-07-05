@@ -36,7 +36,6 @@ var req_attendre_fin = require ("./req/req_attendre_fin.js");
 var req_refuser_defi = require ("./req/req_refuser_defi.js");
 var req_regles = require ("./req/req_regles.js");
 var req_salon_visiteurs = require ("./req/req_salon_visiteurs.js");
-var req_coming_soon = require ("./req/req_coming_soon.js");
 var req_allin = require ("./req/req_allin.js");
 
 var req_erreur = require("./req/req_erreur.js");
@@ -126,7 +125,7 @@ var traite_requete = function (req, res) {
 				req_coming_soon (req, res, query);
 				break;
 			case '/req_allin':
-				req_coming_soon (req, res, query);
+				req_allin (req, res, query);
 				break;
 
 
