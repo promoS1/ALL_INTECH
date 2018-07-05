@@ -53,10 +53,11 @@ var trait = function (req, res, query) {
 
 	nouvellePartie.pot = Number(query.pot);
 
-	miseJoueur = soldeJoueur;
 
 	// JOUEURS 1
 	if (query.compte === nouvellePartie.joueurs[0]) {
+		miseJoueur = soldeJoueur;
+		nouvellePartie.mise[0] = miseJoueur;
 		carteJoueurs = nouvellePartie.main[0][0].couleur + nouvellePartie.main[0][0].valeur;
 		carte2Joueurs = nouvellePartie.main[0][1].couleur + nouvellePartie.main[0][1].valeur;
 		nouvellePartie.mise[0] = miseJoueur;
@@ -66,7 +67,6 @@ var trait = function (req, res, query) {
 		soldeJoueur = nouvellePartie.solde[0];
 		soldeAdversaire = nouvellePartie.solde[1];
 		miseAdversaire = nouvellePartie.mise[1];
-		nouvellePartie.mise[0] = miseJoueur;
 		x = 0;
 
 	}
@@ -74,16 +74,16 @@ var trait = function (req, res, query) {
 	// JOUEUR 2
 
 	if (query.compte === nouvellePartie.joueurs[1]) {
+		miseJoueur = soldeJoueur;
+		nouvellePartie.mise[1] = miseJoueur;
 		carteJoueurs = nouvellePartie.main[1][0].couleur + nouvellePartie.main[1][0].valeur;
 		carte2Joueurs = nouvellePartie.main[1][1].couleur + nouvellePartie.main[1][1].valeur;
-		nouvellePartie.mise[1] = miseJoueur;
 		nouvellePartie.tour = nouvellePartie.joueurs[0];
 		nouvellePartie.solde[1] -= nouvellePartie.mise[1];
 		nouvellePartie.pot += miseJoueur;
 		soldeJoueur = nouvellePartie.solde[1];
 		soldeAdversaire = nouvellePartie.solde[0];
 		miseAdversaire = nouvellePartie.mise[0];
-		nouvellePartie.mise[1] = miseJoueur;
 		x = 1;
 	}
 
@@ -100,12 +100,11 @@ var trait = function (req, res, query) {
 	carte4Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[3].couleur+nouvellePartie.river[3].valeur+".png'>";
 	carte5Riviere = "<img class='cartes' src='../img/cards/"+nouvellePartie.river[4].couleur+nouvellePartie.river[4].valeur+".png'>";
 
-	page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
-
 
 	contenu_partie = JSON.stringify(nouvellePartie);
 	fs.writeFileSync("./tables/"+partie+".json", contenu_partie, "UTF-8");
 
+	page = fs.readFileSync("./html/modele_page_attendre.html", "UTF-8");
 // MARQUEURS HTML
 marqueurs = {};
 

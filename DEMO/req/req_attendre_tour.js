@@ -54,6 +54,12 @@ var trait = function (req, res, query) {
 	} else if (nouvellePartie.tour !== query.compte) {
 		joue = "en_attente";
 	}
+	
+	if (nouvellePartie.miseEnCours > soldeJoueur) {
+		nouvellePartie.miseEnCours = 0
+	} else {
+		nouvellePartie.miseEnCours = nouvellePartie.miseEnCours;
+	}
 
 	// JOUEUR 1
 	if (query.compte === nouvellePartie.joueurs[0]) {
