@@ -56,9 +56,7 @@ var trait = function (req, res, query) {
 	}
 	
 	if (nouvellePartie.miseEnCours > soldeJoueur) {
-		nouvellePartie.miseEnCours = 0
-	} else {
-		nouvellePartie.miseEnCours = nouvellePartie.miseEnCours;
+		nouvellePartie.miseEnCours = 0;
 	}
 
 	// JOUEUR 1
